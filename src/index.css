@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'Avenir LT Std';
+    src: url('http://localhost:3000/assets/fonts/AvenirLTStd-Book.woff2') format('woff2'),
+        url('http://localhost:3000/assets/fonts/AvenirLTStd-Book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Avenir LT Std;
+  background: #e6e4e1;
+  color: #141414;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #333333;
+}
+.section-heading h3 {
+    font-size:  36px;
+}
+.btn-success {
+    background:  #1d9a64;
+    border-color:  #1b8f5c;
+}
+@media (min-width: 1200px)
+{
+.container {
+    width: 1150px;
+  }
+}

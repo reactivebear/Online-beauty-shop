@@ -1,0 +1,206 @@
+nav.navbar, .navbar-default {
+  background-color: #474746 !important;
+  margin:0;
+  max-height: 195px;
+}
+.navbar-default {
+  background-image: none;
+  border: none;
+  border-radius: 0;
+}
+.navbar-default .navbar-nav > li > a {
+  color: white;
+  font-size: 13px;
+}
+.navbar-default .navbar-brand {
+  color: white;
+}
+
+.navbar-default .navbar-toggle {
+  border-color: white;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: white;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+  background-color: transparent;
+}
+
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+  color: white;
+  background-color: transparent;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+  color: white;
+  background-color: transparent;
+}
+.navbar-side > p {
+    color:  #fff;
+    margin:  0;
+    font-size: 12px;
+}
+.searchbar {
+    display:  inline-block;
+    width:  100%;
+}
+
+.searchbar > .navbar-form.navbar-left,
+.searchbar > .navbar-form.navbar-left > .form-group {
+     width: 100%;
+     position:  relative;
+     padding:  0;
+}
+.searchbar > .navbar-form.navbar-left > .form-group > input{
+    width:  100%;
+    padding-left: 145px;
+    border: 1px solid #eeeeee;
+    height: 36px;
+}
+.searchbar > .dropdown {
+    position:  absolute;
+    z-index:  9;
+    top: 8px;
+    width:  115px;
+}
+.searchbar > .dropdown > button {
+    width:  100%;
+    height: 36px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background: #dedede;
+    font-size: 13px;
+    color: #474747;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 11px 0px 15px rgba(222, 222, 222,0.3);
+            box-shadow: 11px 0px 15px rgba(222, 222, 222,0.3);
+    border: none;
+}
+.searchbar > .navbar-form.navbar-left > .form-group + button {
+    position:  absolute;
+    right:  0;
+    top: 0;
+    width: 69px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    height: 36px;
+}
+.main-navbar {
+    padding:  12px 0;
+}
+.navbar-header {
+    padding: 0 15px;
+}
+.navbar-header,.navbar-header  a.navbar-brand {
+    height: 80px;
+}
+
+.navbar-header  a.navbar-brand{
+    padding:0 15px;
+}
+
+.navbar-ul > ul.main-ul {
+    margin-top: 45px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    padding-bottom:  0;
+}
+.navbar-side > p > strong {
+    font-size:  13px;
+}
+/* login tootip */
+.navbar-side {
+    position:  relative;
+}
+div#logintooltipContent {
+    position:  absolute;
+    background: #fff;
+    width: 350px;
+    padding: 15px;
+    border:  1px solid #c5c5c5;
+    border-radius: 8px;
+    top: 60px;
+    left: -270px;
+    z-index:  99;
+}
+button.loginBtn {
+    width: 100%;
+    background: transparent;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border-color: #1d9a64;
+    color: #1d9a64;
+    font-size: 16px;
+}
+.social-logins button {
+    width:  100%;
+    border-radius:  0;
+    height:  40px;
+}
+.social-logins > .form-group {
+    margin-bottom:  5px;
+}
+.social-logins {
+    margin-top:  25px;
+}
+form.login-form a {
+    color:  #1d9a64;
+    font-size:  14px;
+}
+.form-link {padding-top: 8px;}
+p.login-tooltip {
+    cursor:  pointer;
+}
+.arowForToltip {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    border-style: solid;
+    border-width: 10px 10px 10px 0px;
+    border-color: transparent #eee #b73f3f00 #969696;
+    box-sizing: border-box;
+    /* left: -10px; */
+    top: -15px;
+    transform: rotate(90deg);
+    right: 40px;
+}
+.arowForToltip:before {
+    position: absolute;
+    top: -11px;
+    left: 1px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 10px 10px 0px;
+    border-color: transparent #fffbfb transparent #fff;
+    content: " ";
+    z-index: 99999999999999999999;
+}
+location {
+    max-width:  40px;
+}
+.location.col-md-1.col-xs-1 {
+    max-width:  40px;
+}
+.location.col-md-1.col-xs-1 > div {
+    width: 32px;
+    text-align:  center;
+    padding: 0 !important;
+    font-size:  20px;
+    color:  #fff;
+    position:  relative;
+    top: 4px;
+    cursor:pointer;
+}
+.loginBtnfb {
+    background:  #415da2;
+}
+.loginBtngp {
+    background: #d34a31;
+}
+button.loginBtntw {
+    background:  #64a9ea;
+}
