@@ -5,7 +5,8 @@ import ProdutosInspirados from './home-page/ProdutosInspirados.jsx';
 import Produtosemdestaque from './home-page/Produtosemdestaque.jsx';
 import Blog from './home-page/Blog.jsx';
 import Reviews from './home-page/Reviews.jsx';
-
+import Servicos from './home-page/Servicos.jsx';
+import Appstore from './home-page/Appstore.jsx';
 import './Home.css';
 export default class Home extends Component {
   render() {
@@ -29,6 +30,7 @@ export default class Home extends Component {
           </Carousel.Item>
           </Carousel>
         </div>
+
       <Grid>
         <Row>
           <ProdutosInspirados />
@@ -41,6 +43,12 @@ export default class Home extends Component {
         </Row>
         <Row>
           <Reviews />
+        </Row>
+        <Row>
+          <Servicos />
+        </Row>
+        <Row>
+          <Appstore/>
         </Row>
       </Grid>
       </div>
