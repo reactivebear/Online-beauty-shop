@@ -1,10 +1,101 @@
+.app-page {
+  background: url(/static/media/app-page-bg.c0acdccb.png);
+  background-repeat: no-repeat;
+  background-size: 82%;
+  color: #fff;
+  background-position: -20px -130px;
+  max-width: 1361px;
+}
+.app-page h1 {
+    color: #fff;
+    letter-spacing: 0.4px;
+    font-size: 32px;
+    margin-bottom: 30px;
+    margin-top: 0;
+}
 .header-image {
   width: 100%;
   margin-top: -2em;
   margin-bottom: 2em;
 }
-
 .about-profile-pic {
   float: left;
   margin: 0 1em 1em 0;
+}
+.app-page {
+    padding-top:  55px;
+    padding-bottom: 135px;
+    margin-bottom: 30px;
+}
+form.promo-form.form-inline .flag {
+    width:  28px;
+    height:  19px;
+    background: url(../assets/images/flag-2.png);
+    display:  inline-block;
+    margin-right:  10px;
+    vertical-align: top;
+}
+.phonecode {
+    background:  #fff;
+    padding:  10px;
+    position:  absolute;
+    left:  0;
+    top: 0;
+    width:  100px;
+    height:  40px;
+    z-index: 999;
+    border-right: 1px solid #dedede;
+}
+form.promo-form.form-inline {
+    margin:  20px 0 10px;
+    position: relative;
+}
+form.promo-form.form-inline
+ > .f1.form-group {
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+    position: relative;
+    color: #646a77;
+ }
+form.promo-form .f1.form-group input{
+    padding-left: 120px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 17px;
+    height: 40px;
+    width: 355px;
+    border: none;
+    color: #646a77;
+    position: relative;
+    z-index: 9;
+}
+.f1.form-group:after {
+    content: '';
+    -webkit-box-shadow: 0 0 40px rgba(0,0,0,0.5);
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    right: 0;
+    height: 20px;
+    border-radius: 100%;
+    z-index: 8;
+    width: 90%;
+    margin: 0 auto;
+}
+form.promo-form .f1.form-group + button{
+  position: absolute;
+    right: -20px;
+    background: transparent;
+    border: 1px solid #000;
+    color: #000;
+    opacity: .19;
+    height: 40px;
+}
+.form-wrap + div > p {
+    color:  #000;
+    font-size: 16px;
+}
+.app-page .downloadBtns {
+  margin-top: 20px;
 }

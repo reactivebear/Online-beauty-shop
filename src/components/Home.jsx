@@ -30,27 +30,26 @@ export default class Home extends Component {
           </Carousel.Item>
           </Carousel>
         </div>
-
-      <Grid>
-        <Row>
-          <ProdutosInspirados />
-        </Row>
-        <Row>
-          <Produtosemdestaque />
-        </Row>
-        <Row>
-          <Blog />
-        </Row>
-        <Row>
-          <Reviews />
-        </Row>
-        <Row>
-          <Servicos />
-        </Row>
-        <Row>
-          <Appstore/>
-        </Row>
-      </Grid>
+        <Grid className="page-content">
+          <Row>
+            <ProdutosInspirados />
+          </Row>
+          <Row className="produtosemdestaque">
+            <Produtosemdestaque />
+          </Row>
+          <Row className="blog">
+            <Blog />
+          </Row>
+          <Row>
+            <Servicos />
+          </Row>
+          <Row className="reviews">
+            <Reviews />
+          </Row>
+          <Row className="appstore">
+            <Appstore/>
+          </Row>
+        </Grid>
       </div>
     )
   }

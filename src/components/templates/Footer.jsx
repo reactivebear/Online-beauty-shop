@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // import { Link } from 'react-router-dom';
-import { Row, Col,Glyphicon,Grid,Image} from 'react-bootstrap';
+import { Row, Col,Grid,Image} from 'react-bootstrap';
 import './Footer.css';
 var FontAwesome = require('react-fontawesome');
 export default class Footer extends Component {
@@ -14,13 +14,21 @@ export default class Footer extends Component {
                   <Image src="assets/images/footerLogo.png" />
                 </div>
                 <div className="social">
-                <FontAwesome
-                   className='super-crazy-colors'
-                   name='rocket'
-                   size='2x'
-                   spin
-                   style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
-                 />
+                  <div className="twiter">
+                      <a href=""><FontAwesome
+                       name='twitter'
+                     /></a>
+                  </div>
+                  <div className="google-plus">
+                      <a href=""><FontAwesome
+                       name='google-plus'
+                     /></a>
+                  </div>
+                  <div className="facebook">
+                    <a href=""><FontAwesome
+                       name='facebook'
+                     /></a>
+                  </div>
                 </div>
               </Col>
               <Col sm={2}>

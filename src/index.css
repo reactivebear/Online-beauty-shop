@@ -5,6 +5,23 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'AvenirLTStd-Light';
+    src: url('http://localhost:3000/assets/fonts/AvenirLTStd-Light.woff2') format('woff2'),
+        url('http://localhost:3000/assets/fonts/AvenirLTStd-Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Manus';
+    src: url('http://localhost:3000/assets/fonts/ManusTrial.woff2') format('woff2'),
+        url('http://localhost:3000/assets/fonts/ManusTrial.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+  transition: .4s all;
+}
 body {
   margin: 0;
   padding: 0;
@@ -22,9 +39,46 @@ h1, h2, h3, h4, h5, h6 {
     background:  #1d9a64;
     border-color:  #1b8f5c;
 }
+.pagination>li>a, .pagination>li>span {
+    height:  35px;
+    width:  35px;
+    vertical-align:  middle;
+    display:  inline-block;
+    color:  #8d8d8d;
+    padding:  6px;
+    font-size:17px;
+}
+.pagination>li {
+    display:  inline-block;
+    box-shadow:  2px 3px 3px rgba(0,0,0,0.1);
+}
+.pagination>li:not(:first-child) {
+    margin-left: 3px;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    background:  transparent;
+    border: none;
+    background:  #fff;
+    color:  #000;
+}
+ul.pagination > li:first-child a {
+    background: #efefef;
+}
+ul.pagination > li:first-child a,
+ul.pagination > li:last-child a{
+    padding:0px;
+    font-size:24px;
+}
+.pagination>li>a:hover, .pagination>li>span:hover {
+    background: #fff;
+    color:  #000;
+}
 @media (min-width: 1200px)
 {
 .container {
     width: 1150px;
+  }
+.page-content.container {
+    width: 1140px;
   }
 }
