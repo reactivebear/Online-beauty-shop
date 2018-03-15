@@ -298,7 +298,7 @@ ol.carousel-indicators {
 /* mobile */
 .appstore-wrapper .content-sec.mobile-app {
     padding: 30px 50px;
-    background-image:  url(http://localhost:3000/assets/images/mobile.png);
+    background-image:  url(../assets/images/mobile.png);
     background-repeat:  no-repeat;
     background-position: 90% center;
     color:  #353535;
@@ -393,7 +393,7 @@ section.reviews-section > .col-wrapper {
 }
 .appstore-wrapper .content-sec.mobile-app:after {
     content: "";
-    background-image: url(http://localhost:3000/assets/images/mobile.png);
+    background-image: url(../assets/images/mobile.png);
     background-repeat: no-repeat;
     background-position: 90% center;
     width:  100%;

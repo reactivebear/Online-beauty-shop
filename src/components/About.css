@@ -1,5 +1,5 @@
 .app-page {
-  background: url(/static/media/app-page-bg.c0acdccb.png);
+  background: url(../assets/images/app-page-bg.png);
   background-repeat: no-repeat;
   background-size: 82%;
   color: #fff;
@@ -35,7 +35,7 @@ form.promo-form.form-inline .flag {
     margin-right:  10px;
     vertical-align: top;
 }
-.phonecode {
+form.promo-form .phonecode {
     background:  #fff;
     padding:  10px;
     position:  absolute;
@@ -69,7 +69,7 @@ form.promo-form .f1.form-group input{
     position: relative;
     z-index: 9;
 }
-.f1.form-group:after {
+form.promo-form .f1.form-group:after {
     content: '';
     -webkit-box-shadow: 0 0 40px rgba(0,0,0,0.5);
     box-shadow: 0 0 40px rgba(0,0,0,0.5);

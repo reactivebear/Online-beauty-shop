@@ -1,21 +1,21 @@
 @font-face {
     font-family: 'Avenir LT Std';
-    src: url('http://localhost:3000/assets/fonts/AvenirLTStd-Book.woff2') format('woff2'),
-        url('http://localhost:3000/assets/fonts/AvenirLTStd-Book.woff') format('woff');
+    src: url('./assets/fonts/AvenirLTStd-Book.woff2') format('woff2'),
+        url('./assets/fonts/AvenirLTStd-Book.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'AvenirLTStd-Light';
-    src: url('http://localhost:3000/assets/fonts/AvenirLTStd-Light.woff2') format('woff2'),
-        url('http://localhost:3000/assets/fonts/AvenirLTStd-Light.woff') format('woff');
+    src: url('./assets/fonts/AvenirLTStd-Light.woff2') format('woff2'),
+        url('./assets/fonts/AvenirLTStd-Light.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'Manus';
-    src: url('http://localhost:3000/assets/fonts/ManusTrial.woff2') format('woff2'),
-        url('http://localhost:3000/assets/fonts/ManusTrial.woff') format('woff');
+    src: url('./assets/fonts/ManusTrial.woff2') format('woff2'),
+        url('./assets/fonts/ManusTrial.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
