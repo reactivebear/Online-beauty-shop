@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { Navbar, Nav, NavItem, Row, Col,FormGroup,FormControl,Button,Image,DropdownButton,MenuItem,Glyphicon} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './CustomNavbar.css';
-import Headerlogin from '../tootips/Headerlogin.jsx';
-import Adicionar from '../tootips/Adicionar-cep.jsx';
-
+import Headerlogin from '../tooltips/Headerlogin.jsx';
+import Adicionar from '../tooltips/Adicionar-cep.jsx';
+import Carttootip from '../tooltips/Carttooltip.jsx';
 export default class CustomNavbar extends Component {
 
   render() {
@@ -72,8 +72,7 @@ export default class CustomNavbar extends Component {
                   </Col>
                   <Col xs={12} md={5}>
                     <div className="navbar-side-cart">
-                      <div className="cart-icon">
-                      </div>
+                      <Carttootip />
                       <div className="navbar-side">
                         <p>Meu</p>
                         <p><strong>Carrinho</strong></p>

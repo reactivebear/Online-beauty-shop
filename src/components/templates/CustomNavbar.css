@@ -387,13 +387,17 @@ ul.nav.navbar-nav.navbar-right > li > a > button > i {
   margin-left: 20px;
   margin-top: 5px;
 }
-.cart-icon {
+#cart-icon {
     width: 21px;
     height:  21px;
-    background: url(http://localhost:3000/assets/icons/cart.png);
+    background: url(../../assets/icons/cart.png);
     display:  inline-block;
     position: relative;
     right: 5px;
+    cursor: pointer;
+}
+div#cart-icon.active{
+    background: url(../../assets/icons/cart-active.png);
 }
 .navbar-side-cart > .navbar-side {
     display: inline-block;
@@ -401,4 +405,103 @@ ul.nav.navbar-nav.navbar-right > li > a > button > i {
 }
 .navbar-right-section .col-md-5{
   padding-left: 10px;
+}
+.navbar-side-cart .tooltip-div {
+    display:  inline-block;
+    position: relative;
+}
+div#cart-tooltip {
+    position:  absolute;
+    background:  #fff;
+    right: -50px;
+    top: 40px;
+    border-radius: 5px;
+    padding:  20px 15px 10px 15px;
+    width: 350px;
+}
+div#cart-tooltip h3 {
+    margin-top:  0;
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 10px;
+}
+.cart-products .product > div{
+    display: inline-block;
+    vertical-align:  middle;
+}
+.cart-product-img {
+    width:  62px;
+    height:  63px;
+    border-radius:  5px;
+    position: relative;
+}
+.cart-product-img img {
+    width:  100%;
+    height:  100%;
+    object-fit:  cover;
+    border-radius: 5px;
+}
+.cart-product-detail {
+    padding:  13px;
+    width:  190px;
+}
+.cart-product-price {
+    text-align: left;
+}
+.cart-product-detail > h5 {
+    margin:  0;
+}
+.cart-products .product  h5 {
+    margin:  0;
+    font-size: 16px;
+}
+.cart-products .product {
+    padding:  10px 0;
+}
+.cart-products .product:not(:last-child){
+  border-bottom: 1px solid #eeeef2;
+}
+.cart-products .product .cart-product-detail h5:first-child {
+    color:  #46506a;
+    margin-bottom:  10px;
+}
+
+.cart-products .product .cart-product-detail h5:last-child {
+    color: #a9aebb;
+}
+
+.cart-product-price > h5:first-child {
+    font-size: 17px;
+    margin-bottom:  10px;
+    color: #646a77;
+}
+.cart-product-price > a {
+    color:  #1d9a64;
+    text-decoration:  underline;
+    font-size:  16px;
+}
+.gotoCart{
+  margin-top: 10px;
+}
+.gotoCart a {
+    width: 100%;
+    padding: 9px;
+}
+span.p-nmbr {
+    position:  absolute;
+    right:  -9px;
+    top: -10px;
+    background: #1d9a64;
+    display:  inline-block;
+    width:  24px;
+    height: 23px;
+    border-radius:  100%;
+    font-size: 15px;
+    text-align:  center;
+    color:  #fff;
+    font-weight:  bold;
+    padding: 2px;
+}
+div#cart-tooltip  .arowForToltip{
+  right: 58px;
 }

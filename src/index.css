@@ -73,6 +73,10 @@ ul.pagination > li:last-child a{
     background: #fff;
     color:  #000;
 }
+.btn-success-trans{
+  background: transparent;
+  color: #1d9a64;
+}
 @media (min-width: 1200px)
 {
 .container {
