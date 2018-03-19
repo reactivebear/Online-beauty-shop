@@ -1,8 +1,44 @@
 import React, { Component } from 'react'
 // import { Link } from 'react-router-dom';
+import axios from 'axios';
 import { Row, Col, Image, Pagination} from 'react-bootstrap';
 
 export default class Produtosemdestaque extends Component {
+  constructor() {
+    super();
+    this.state = {
+      products_list :[],
+    };
+  }
+
+  componentDidMount() {
+    let data = {'featured_only': true};
+    axios.post('http://visualtotal.com.br/api/products', data, {
+      headers: { apikey: '5612edff-bfae-4919-83ad-e8064b447a49', 'Content-Type': 'application/json'}
+    })
+    .then(res => {
+      //const products_list = res.data;
+      console.log(res.data);
+      var products_arr = res.data.object.map(obj=>obj);
+      const products_list = products_arr.map(obj=> <Col xs={12} sm={3} className="person-wrapper" key={obj.id}>
+              <div className="produtos">
+                <div className="produtos-image">
+                    <Image alt="produtos-image" src= {obj.image_url} />
+                </div>
+                <div className="produtos-detail">
+                  <div className="old-price">R$ 229</div>
+                  <div className="now-price">R$ 179 <span className="discount">22% OFF</span></div>
+                  <div className="single-price">12x R$ 17</div>
+                  <div className="detail-text">
+                    <p>{obj.name}</p>
+                  </div>
+                </div>
+              </div>
+            </Col>);
+      this.setState({products_list});
+    });
+  }
+
   render() {
     return (
       <section className="produtos-section">
@@ -11,128 +47,7 @@ export default class Produtosemdestaque extends Component {
             <h3>Produtos em destaque</h3>
           </div>
           <Row className="show-grid">
-            <Col xs={12} sm={3} className="person-wrapper">
-              <div className="produtos">
-                <div className="produtos-image">
-                    <Image alt="produtos-image" src="assets/images/p5.jpg" />
-                </div>
-                <div className="produtos-detail">
-                  <div className="old-price">R$ 229</div>
-                  <div className="now-price">R$ 179 <span className="discount">22% OFF</span></div>
-                  <div className="single-price">12x R$ 17</div>
-                  <div className="detail-text">
-                    <p>Chromecast 2 Hdmi Edição 2017 Original 1080p Google New</p>
-                  </div>
-                </div>
-              </div>
-            </Col>
-            <Col xs={12} sm={3} className="person-wrapper">
-              <div className="produtos">
-                <div className="produtos-image">
-                  <Image alt="produtos-image" src="assets/images/p6.jpg" />
-                </div>
-                <div className="produtos-detail">
-                  <div className="old-price">R$ 229</div>
-                  <div className="now-price">R$ 179 <span className="discount">22% OFF</span></div>
-                  <div className="single-price">12x R$ 17</div>
-                  <div className="detail-text">
-                    <p>Chromecast 2 Hdmi Edição 2017 Original 1080p Google New</p>
-                  </div>
-                </div>
-              </div>
-            </Col>
-            <Col xs={12} sm={3} className="person-wrapper">
-              <div className="produtos">
-                <div className="produtos-image">
-                  <Image alt="produtos-image" src="assets/images/p7.jpg" />
-                </div>
-                <div className="produtos-detail">
-                  <div className="old-price">R$ 229</div>
-                  <div className="now-price">R$ 179 <span className="discount">22% OFF</span></div>
-                  <div className="single-price">12x R$ 17</div>
-                  <div className="detail-text">
-                    <p>Chromecast 2 Hdmi Edição 2017 Original 1080p Google New</p>
-                  </div>
-                </div>
-              </div>
-            </Col>
-            <Col xs={12} sm={3} className="person-wrapper">
-              <div className="produtos">
-                <div className="produtos-image">
-                  <Image alt="produtos-image" src="assets/images/p8.jpg" />
-                </div>
-                <div className="produtos-detail">
-                  <div className="old-price">R$ 229</div>
-                  <div className="now-price">R$ 179 <span className="discount">22% OFF</span></div>
-                  <div className="single-price">12x R$ 17</div>
-                  <div className="detail-text">
-                    <p>Chromecast 2 Hdmi Edição 2017 Original 1080p Google New</p>
-                  </div>
-                </div>
-              </div>
-            </Col>
-          </Row>
-          <Row className="show-grid">
-            <Col xs={12} sm={3} className="person-wrapper">
-              <div className="produtos">
-                <div className="produtos-image">
-                    <Image alt="produtos-image" src="assets/images/p9.jpg" />
-                </div>
-                <div className="produtos-detail">
-                  <div className="old-price">R$ 229</div>
-                  <div className="now-price">R$ 179 <span className="discount">22% OFF</span></div>
-                  <div className="single-price">12x R$ 17</div>
-                  <div className="detail-text">
-                    <p>Chromecast 2 Hdmi Edição 2017 Original 1080p Google New</p>
-                  </div>
-                </div>
-              </div>
-            </Col>
-            <Col xs={12} sm={3} className="person-wrapper">
-              <div className="produtos">
-                <div className="produtos-image">
-                  <Image alt="produtos-image" src="assets/images/p10.jpg" />
-                </div>
-                <div className="produtos-detail">
-                  <div className="old-price">R$ 229</div>
-                  <div className="now-price">R$ 179 <span className="discount">22% OFF</span></div>
-                  <div className="single-price">12x R$ 17</div>
-                  <div className="detail-text">
-                    <p>Chromecast 2 Hdmi Edição 2017 Original 1080p Google New</p>
-                  </div>
-                </div>
-              </div>
-            </Col>
-            <Col xs={12} sm={3} className="person-wrapper">
-              <div className="produtos">
-                <div className="produtos-image">
-                  <Image alt="produtos-image" src="assets/images/p11.jpg" />
-                </div>
-                <div className="produtos-detail">
-                  <div className="old-price">R$ 229</div>
-                  <div className="now-price">R$ 179 <span className="discount">22% OFF</span></div>
-                  <div className="single-price">12x R$ 17</div>
-                  <div className="detail-text">
-                    <p>Chromecast 2 Hdmi Edição 2017 Original 1080p Google New</p>
-                  </div>
-                </div>
-              </div>
-            </Col>
-            <Col xs={12} sm={3} className="person-wrapper">
-              <div className="produtos">
-                <div className="produtos-image">
-                  <Image alt="produtos-image" src="assets/images/p12.jpg" />
-                </div>
-                <div className="produtos-detail">
-                  <div className="old-price">R$ 229</div>
-                  <div className="now-price">R$ 179 <span className="discount">22% OFF</span></div>
-                  <div className="single-price">12x R$ 17</div>
-                  <div className="detail-text">
-                    <p>Chromecast 2 Hdmi Edição 2017 Original 1080p Google New</p>
-                  </div>
-                </div>
-              </div>
-            </Col>
+          {this.state.products_list}
           </Row>
           <Row className="text-center">
             <Pagination>
