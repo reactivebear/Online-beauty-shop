@@ -73,3 +73,24 @@ footer .social > div:not(:first-child) {
     height:  100%;
     color:  #fff;
 }
+
+@media (max-width: 767px){
+.footer-heading h4 {
+    font-weight:  bold;
+    margin-top: 25px;
+    margin-bottom:  10px;
+}
+.site-links > ul > li > a {
+    font-size:  15px;
+    line-height: 24px;
+}
+footer .content.row {
+    padding-top: 30px;
+}
+}
+@media (max-width: 374px){
+  .col-xs-6 {
+    width:  100%;
+    text-align:  center;
+}
+}

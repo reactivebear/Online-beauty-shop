@@ -9,7 +9,7 @@ export default class Footer extends Component {
       <footer>
           <Grid>
             <Row className="content">
-              <Col sm={3}>
+              <Col xs={6} md={3}>
                 <div className="footerLogo">
                   <Image src="assets/images/footerLogo.png" />
                 </div>
@@ -31,7 +31,7 @@ export default class Footer extends Component {
                   </div>
                 </div>
               </Col>
-              <Col sm={2}>
+              <Col xs={6} md={2}>
                 <div className="site-links">
                   <div className="footer-heading">
                     <h4>Quem somos</h4>
@@ -49,7 +49,7 @@ export default class Footer extends Component {
                   </ul>
                 </div>
               </Col>
-              <Col sm={3}>
+              <Col xs={6} md={3}>
                 <div className="site-links">
                   <div className="footer-heading">
                     <h4>Serviços</h4>
@@ -67,7 +67,7 @@ export default class Footer extends Component {
                   </ul>
                 </div>
               </Col>
-              <Col sm={3}>
+              <Col xs={6} md={3}>
                 <div className="site-links">
                   <div className="footer-heading">
                     <h4>Informação</h4>
