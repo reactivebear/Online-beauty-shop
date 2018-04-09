@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 // import { Link } from 'react-router-dom';
 import { Row, Col, Image} from 'react-bootstrap';
+import ProductCard from "../templates/ProductCard";
 
 export default class ProdutosInspirados extends Component {
   render() {
@@ -11,6 +12,18 @@ export default class ProdutosInspirados extends Component {
             <h3>Produtos inspirados na sua navegação</h3>
           </div>
           <Row className="show-grid">
+            <Col xs={16} sm={4} className="person-wrapper">
+              <ProductCard></ProductCard>
+            </Col>
+            <Col xs={16} sm={4} className="person-wrapper">
+              <ProductCard></ProductCard>
+            </Col>
+            <Col xs={16} sm={4} className="person-wrapper">
+              <ProductCard></ProductCard>
+            </Col>
+          </Row>
+          <br/>
+          <Row>
             <Col xs={12} sm={3} className="person-wrapper">
               <div className="produtos">
                 <div className="produtos-image">

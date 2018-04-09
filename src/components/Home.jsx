@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 // import { Link } from 'react-router-dom';
 import {Grid, Row,Carousel} from 'react-bootstrap';
+import Catalog from './home-page/Catalog.jsx';
 import ProdutosInspirados from './home-page/ProdutosInspirados.jsx';
 import Produtosemdestaque from './home-page/Produtosemdestaque.jsx';
 import Blog from './home-page/Blog.jsx';
@@ -31,6 +32,9 @@ export default class Home extends Component {
           </Carousel>
         </div>
         <Grid className="page-content">
+          <Row>
+            <Catalog/>
+          </Row>
           <Row>
             <ProdutosInspirados />
           </Row>
