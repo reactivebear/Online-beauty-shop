@@ -9,6 +9,7 @@ import Reviews from './home-page/Reviews.jsx';
 import Servicos from './home-page/Servicos.jsx';
 import Appstore from './home-page/Appstore.jsx';
 import './Home.css';
+
 export default class Home extends Component {
   render() {
     return (

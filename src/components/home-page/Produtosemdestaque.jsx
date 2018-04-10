@@ -1,25 +1,56 @@
 import React, { Component } from 'react'
 // import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { Row, Col, Image, Pagination} from 'react-bootstrap';
+import { Row, Col, Pagination} from 'react-bootstrap';
+
+import ProductList from '../templates/ProductList';
+
+const URL = 'http://visualtotal.com.br';
 
 export default class Produtosemdestaque extends Component {
-  constructor() {
-    super();
-    this.state = {
-      products_list :[],
-    };
+
+  constructor(props) {    
+    super(props);
+    this.state = { description: '', products_list :[] };
+
+    this.refresh();
   }
 
-  componentDidMount() {
-    let data = {'featured_only': true};
+  //API busca produtos no banco 
+  refresh(description = '') {
+    const search = description ? `&product_text__regex=/${description}/` : '';
+    axios.post(`${URL}?sort=-createdAt${search}`)
+      //.then(resp =>  console.log(resp.data));
+      .then(resp => this.setState({ ...this.state, description, list: resp.data }));
+  }
+
+  render() {
+    return (
+      <section className="produtos-section">
+        <Col sm={12} className="person-wrapper">
+          <div className="section-heading text-left">
+            <h3>Produtos em destaque</h3>
+          </div>
+          <Row className="show-grid">
+            <ProductList list={this.state.products_list}></ProductList>
+          </Row>
+        </Col>
+      </section>
+    )
+  }
+}
+
+
+  /*
+  componentDidMount () {
+    let data = {featured_only: true};
     axios.post('http://visualtotal.com.br/api/products', data, {
-      headers: { apikey: '5612edff-bfae-4919-83ad-e8064b447a49', 'Content-Type': 'application/json'}
+      headers: { apikey: '5612edff-bfae-4919-83ad-e8064b447a49', 'Content-Type': 'application/json' }
     })
     .then(res => {
       //const products_list = res.data;
       console.log(res.data);
-      var products_arr = res.data.object.map(obj=>obj);
+    var products_arr = res.data.object.map(obj=>obj);
       const products_list = products_arr.map(obj=> <Col xs={12} sm={3} className="person-wrapper" key={obj.id}>
               <div className="produtos">
                 <div className="produtos-image">
@@ -64,4 +95,4 @@ export default class Produtosemdestaque extends Component {
       </section>
     )
   }
-}
+} */

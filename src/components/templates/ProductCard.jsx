@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
 import { Button, Image, Panel } from 'react-bootstrap'
 
-export default class ProductCard extends Component {
-    render () {
-        return (
+export default props => {
+
+    let product_title = '';
+
+    const render = () => {
+        const list = props.list || [];
+        
+        return list.map(info => (
             <div className="product-card">
                 <Panel className="card-frame">
                     <Panel.Body>
@@ -13,7 +18,7 @@ export default class ProductCard extends Component {
                             </div>
                             <div className="product-info-holder">
                                 <div className="product-title">
-                                    <h3>Máscara Senscience Inner Restore Intensif 500 ml - Único</h3>
+                                    <h3>{product_title}</h3>
                                 </div>
                                 <div className="product-avaliation-holder">
                                     Avaliação
@@ -30,7 +35,7 @@ export default class ProductCard extends Component {
                                 </div>
                                 <div className="product-price-holder">
                                     <div className="old-price">
-                                        140,00
+                                        144,00
                                     </div>
                                     <div className="now-price">
                                         72,00
@@ -53,6 +58,6 @@ export default class ProductCard extends Component {
                     </Panel.Body>
                 </Panel>
             </div>
-        )
+        ))
     }
 }
