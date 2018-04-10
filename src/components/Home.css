@@ -435,6 +435,37 @@ section.reviews-section > .col-wrapper {
 nav.main-navbar.navbar.navbar-default .container {
     position:relative;
 }
+
+/* alinha catalogo */
+.catalog-list {
+    width: 700px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+/*.catalog-card {*/
+
+.filter-button-row {
+    background-color: #e6e4e1;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+.filter-button-product, .filter-button-service {
+    width: 150px;
+    height: 50px;
+}
+.filter-button-product {
+
+    color: #fff;
+    background-color: #39a94a;
+}
+.filter-button-service {
+    color: #39a94a;
+    background-color: #fff; 
+}
+
 /*  */
 @media (min-width: 991px){
 

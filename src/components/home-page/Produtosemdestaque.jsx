@@ -19,7 +19,10 @@ export default class Produtosemdestaque extends Component {
   //API busca produtos no banco 
   refresh(description = '') {
     const search = description ? `&product_text__regex=/${description}/` : '';
-    axios.post(`${URL}?sort=-createdAt${search}`)
+    axios.post(`${URL}/api/products?sort=-createdAt${search}`, {
+      headers: { apikey: '5612edff-bfae-4919-83ad-e8064b447a49', }
+      //headers: { apikey: sessionStorage.getItem(key) }
+    })
       //.then(resp =>  console.log(resp.data));
       .then(resp => this.setState({ ...this.state, description, list: resp.data }));
   }

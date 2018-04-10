@@ -1,5 +1,5 @@
 nav.navbar, .navbar-default {
-  background-color: #474746 !important;
+  background-color: black !important; /*antes #474746*/
   margin:0;
   z-index: 99;
   padding: 10px 0;
@@ -14,7 +14,7 @@ nav.navbar, .navbar-default {
 }
 .navbar-default .navbar-nav > li > a {
   color: white;
-  font-size: 13px;
+  font-size: 15 px;
 }
 .navbar-default .navbar-brand {
   color: white;
@@ -48,31 +48,31 @@ nav.navbar, .navbar-default {
 }
 .searchbar {
     display:  inline-block;
-    width:  100%;
+    width:  95%;
     position: relative;
 }
 
 .searchbar > .navbar-form.navbar-left,
 .searchbar > .navbar-form.navbar-left > .form-group {
      width: 100%;
-     position:  relative;
-     padding:  0;
+     position: relative;
+     padding: 0;
 }
 .searchbar > .navbar-form.navbar-left > .form-group > input{
-    width:  100%;
+    width: 100%;
     padding-left: 145px;
     border: 1px solid #eeeeee;
-    height: 36px;
+    height: 42px;
 }
 .searchbar > .dropdown {
-    position:  absolute;
-    z-index:  9;
+    position: absolute;
+    z-index: 9;
     top: 8px;
-    width:  115px;
+    width: 115px;
     left: 0;
 }
 .searchbar > .dropdown > button {
-    width:  100%;
+    width: 100%;
     height: 36px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
@@ -96,9 +96,9 @@ nav.navbar, .navbar-default {
 	top: 10px;
 }
 .searchbar span.glyphicon.glyphicon-search {
-    width:  20px;
+    width: 20px;
     height: 19px;
-    background:  url(../../assets/icons/search-icon.png);
+    background: url(../../assets/icons/search-icon.png);
 }
 .searchbar span.glyphicon.glyphicon-search:before{
     content:'';
@@ -119,7 +119,7 @@ nav.navbar, .navbar-default {
     width: 69px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    height: 36px;
+    height: 42px;
 }
 .main-navbar {
     padding:  12px 0;
@@ -140,37 +140,37 @@ nav.navbar, .navbar-default {
 }
 
 .navbar-default .navbar-nav > li > a {
-    padding-bottom:  0;
+    padding-bottom: 0;
 }
 .navbar-side > p > strong {
-    font-size:  13px;
+    font-size: 13px;
 }
 ul.nav.navbar-nav.navbar-right > li > a > button > i {
-    width:  10px;
-    height:  17px;
-    margin-right:  6px;
+    width: 10px;
+    height: 17px;
+    margin-right: 6px;
     background: url(../../assets/icons/phone-icon.png);
-    position:  relative;
+    position: relative;
     vertical-align: text-bottom;
 }
 
 ul.nav.navbar-nav.navbar-right > li > a > button > i:before {
-    content:  "";
+    content: "";
 }
 /* login tootip */
 .navbar-side {
-    position:  relative;
+    position: relative;
 }
 div#logintooltipContent {
-    position:  absolute;
+    position: absolute;
     background: #fff;
     width: 350px;
     padding: 15px;
-    border:  1px solid #c5c5c5;
+    border: 1px solid #c5c5c5;
     border-radius: 8px;
     top: 60px;
     left: -270px;
-    z-index:  99;
+    z-index: 99;
 }
 button.loginBtn {
     width: 100%;
@@ -182,23 +182,23 @@ button.loginBtn {
     font-size: 16px;
 }
 .social-logins button {
-    width:  100%;
-    border-radius:  0;
-    height:  40px;
+    width: 100%;
+    border-radius: 0;
+    height: 40px;
 }
 .social-logins > .form-group {
-    margin-bottom:  5px;
+    margin-bottom: 5px;
 }
 .social-logins {
-    margin-top:  25px;
+    margin-top: 25px;
 }
 form.login-form a {
-    color:  #1d9a64;
-    font-size:  14px;
+    color: #1d9a64;
+    font-size: 14px;
 }
 .form-link {padding-top: 8px;}
 p.login-tooltip {
-    cursor:  pointer;
+    cursor: pointer;
 }
 .arowForToltip {
     position: absolute;
@@ -508,6 +508,36 @@ div#cart-tooltip  .arowForToltip{
 button.navbar-toggle{
   z-index: 99999999;
 }
+
+/* alinha a localização, carrinho e login em colunas distintas*/
+.show-grid {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    flex-shrink: 0;
+}
+
+.nbs {
+    width: 200px;
+    padding: 0%;
+    /*display: flex;*/
+}
+
+.container {
+    margin-top: 15px;
+    margin-left: 100px;
+    margin-right: 0;
+}
+
+#navdrop-dropdown {
+    height: 42px;
+}
+
+.download-app-button {
+    display: flex;
+    justify-content: flex-end;
+}
+
 @media (max-width:991px)
 {
   .header-nav ul.nav.navbar-nav.navbar-right button {

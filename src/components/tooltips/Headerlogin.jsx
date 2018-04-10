@@ -20,7 +20,7 @@ export default class Headerlogin extends Component {
     };
     return (
       <div className="tooltip-div">
-        <p className="login-tooltip" onClick={this.toggle.bind(this)}><strong>Contas e Listas</strong></p>
+        <p className="login-tooltip" onClick={this.toggle.bind(this)}><strong>Entre ou cadastre-se</strong></p>
         <div id="logintooltipContent" style={ shownLogin }>
           <h3>Identificação</h3>
           <Loginform />
