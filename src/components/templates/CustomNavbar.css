@@ -18,6 +18,9 @@ nav.navbar, .navbar-default {
 }
 .navbar-default .navbar-brand {
   color: white;
+  /* background-color: red; */
+  /* width: 2,431in;
+  height: 1,097in; */
 }
 
 .navbar-default .navbar-toggle {
@@ -105,7 +108,7 @@ nav.navbar, .navbar-default {
 }
 .searchbar > .dropdown > button span.caret:after {
     content: "\e259";
-    font-family: 'Glyphicons Halflings';
+    font-family: AvenirLTStd-Light;
     position: absolute;
     left: 0px;
     top: 0px;

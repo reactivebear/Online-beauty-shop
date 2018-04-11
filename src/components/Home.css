@@ -455,13 +455,15 @@ nav.main-navbar.navbar.navbar-default .container {
 .filter-button-product, .filter-button-service {
     width: 150px;
     height: 50px;
+    border: 2px solid #39a94a;
 }
 .filter-button-product {
-
+    border-radius: 10px 0px 0px 10px;
     color: #fff;
     background-color: #39a94a;
 }
 .filter-button-service {
+    border-radius: 0px 10px 10px 0px;
     color: #39a94a;
     background-color: #fff; 
 }
