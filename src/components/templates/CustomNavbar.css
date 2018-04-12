@@ -19,8 +19,6 @@ nav.navbar, .navbar-default {
 .navbar-default .navbar-brand {
   color: white;
   /* background-color: red; */
-  /* width: 2,431in;
-  height: 1,097in; */
 }
 
 .navbar-default .navbar-toggle {
@@ -46,7 +44,7 @@ nav.navbar, .navbar-default {
 }
 .navbar-side > p {
     color:  #fff;
-    margin:  0;
+    margin:  0px;
     font-size: 12px;
 }
 .searchbar {
@@ -74,17 +72,19 @@ nav.navbar, .navbar-default {
     width: 115px;
     left: 0;
 }
+
 .searchbar > .dropdown > button {
-    width: 100%;
+    width: 110%;
     height: 36px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    font-family: AvenirLTStd-Light;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
     background: #dedede;
-    font-size: 13px;
-    color: #474747;
+    font-size: 14px;
+    color: #000; /*antes: color: #474747*/
     letter-spacing: 1px;
-    -webkit-box-shadow: 11px 0px 15px rgba(222, 222, 222,0.3);
-            box-shadow: 11px 0px 15px rgba(222, 222, 222,0.3);
+    -webkit-box-shadow: 11px 0px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 11px 0px 15px rgba(0, 0, 0, 0.2);
     border: none;
     text-align: left;
     padding-left: 20px;
@@ -96,7 +96,8 @@ nav.navbar, .navbar-default {
 	width: 5px;
 	height: 5px;
 	right: 30px;
-	top: 10px;
+    top: 10px;
+    /* background: url(../../assets/icons/drp-arrow.png);   */
 }
 .searchbar span.glyphicon.glyphicon-search {
     width: 20px;
@@ -344,9 +345,10 @@ p.login-tooltip > strong {
     height: 19px;
     background: url(http://localhost:3000/assets/icons/sendto.png);
 }
-.navbar-collapse.collapse > .row:last-child strong {
+/* .navbar-collapse.collapse > .row:last-child strong {
     text-transform:  uppercase;
-}
+} */
+
 ul.nav.navbar-nav.navbar-right > li > a {
     padding-top: 0;
 }
@@ -522,14 +524,18 @@ button.navbar-toggle{
 
 .nbs {
     width: 200px;
-    padding: 0%;
-    /*display: flex;*/
+    height: 50px;
+    padding-right: 50%;
+    display: flex;
+    flex-flow: column wrap;
+    object-fit: contain;
 }
 
-.container {
-    margin-top: 15px;
-    margin-left: 100px;
-    margin-right: 0;
+.main-navbar>.container {
+    margin-top: 21px;
+    margin-left: 173px;
+    margin-right: 179px;
+    padding: 0px;
 }
 
 #navdrop-dropdown {
@@ -539,6 +545,23 @@ button.navbar-toggle{
 .download-app-button {
     display: flex;
     justify-content: flex-end;
+}
+
+.col-xs-4, .col-md-5, .col-xs-5, .col-md-7, .col-xs-7, .col-md-9, .col-xs-12 {
+    padding: 0px;
+}
+
+/* .main-navbar:first-child {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+} */
+
+.btn-success{
+    background-color: #579964;
+}
+
+.navbar-search {
+    border: 1px solid #fff;
 }
 
 @media (max-width:991px)

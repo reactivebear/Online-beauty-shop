@@ -459,9 +459,10 @@ nav.main-navbar.navbar.navbar-default .container {
 
 .filter-button-row:first-child {
     padding: 0px;
-    margin: -60px 0px -90px 10%;
+    margin: -13% -15% -7% 10%;
     display: flex;
     justify-content: center;
+    background-color: transparent;
 }
 .filter-button-product, .filter-button-service {
     width: 190px;       /*239px dimensão de cada botão no mockup*/
@@ -478,6 +479,9 @@ nav.main-navbar.navbar.navbar-default .container {
     border-radius: 0px 10px 10px 0px;
     color: #579964;
     background-color: #fff; 
+}
+.btn-success {
+    background-color: #579964;
 }
 
 /*  */

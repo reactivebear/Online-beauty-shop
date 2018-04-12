@@ -45,7 +45,7 @@ export default class CustomNavbar extends Component {
             <Row className="show-grid">
               <Col xs={12} md={9} className="navbar-left-section">
                 <div className="searchbar hidden-xs">
-                  <DropdownButton id="navdrop-dropdown" title="Todo" className="searchbarDropDown">
+                  <DropdownButton id="navdrop-dropdown" title="Todos" className="searchbarDropDown">
                      <MenuItem eventKey="1">Action</MenuItem>
                      <MenuItem eventKey="2">Another action</MenuItem>
                      <MenuItem eventKey="3" active>
@@ -86,6 +86,13 @@ export default class CustomNavbar extends Component {
                       <Headerlogin />
                     </div>
                   </Col>
+                  {/* <Col xs={4}>
+                    <p className="navbar-side location-div nbs">
+                      <Adicionar />
+                      Enviar para
+                      <strong>Bela Vista 01329900</strong>
+                    </p>
+                  </Col> */}
               </Row>
               </Col>
             </Row>
@@ -93,7 +100,7 @@ export default class CustomNavbar extends Component {
 
 
           <div className="searchbar hidden-lg hidden-sm hidden-md">
-            <DropdownButton id="navdrop-dropdown" title="Todo" className="searchbarDropDown">
+            <DropdownButton id="navdrop-dropdown" title="Todos" className="searchbarDropDown" noCaret>
                <MenuItem eventKey="1">Action</MenuItem>
                <MenuItem eventKey="2">Another action</MenuItem>
                <MenuItem eventKey="3" active>
@@ -102,7 +109,7 @@ export default class CustomNavbar extends Component {
                <MenuItem divider />
                <MenuItem eventKey="4">Separated link</MenuItem>
              </DropdownButton>
-            <Navbar.Form pullLeft>
+            <Navbar.Form className="navbar-search" pullLeft>
               <FormGroup>
                 <FormControl type="text" placeholder="Buscar por produtos e serviços" />
               </FormGroup>{' '}
@@ -120,12 +127,6 @@ export default class CustomNavbar extends Component {
                         <p><strong>Bela Vista 01329900</strong></p>
                       </div>
                     </Col>
-                  <Col xs={3}>
-                    <div className="navbar-side">
-                      <p>Encontre por</p>
-                      <p><strong>Produtos &nbsp; Serviços</strong></p>
-                    </div>
-                  </Col>
                   <Col xs={2}>
                     <div className="navbar-side-cart">
                       <Carttooltip />
