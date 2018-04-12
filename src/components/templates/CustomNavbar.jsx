@@ -13,7 +13,7 @@ export default class CustomNavbar extends Component {
         <Navbar default collapseOnSelect  className="main-navbar">
           <Navbar.Header>
             <Navbar.Brand>
-              <Link to="/"><Image src="assets/images/logo.png"  className="logo"/></Link>
+              <Link to="/"><Image src="assets/images/LogoVisualTotal.png"  className="logo"/></Link>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>

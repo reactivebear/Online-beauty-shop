@@ -69,7 +69,7 @@ h3 {
     top: 0;
     bottom:  0;
     margin:  auto;
-    color:  #39a94a;
+    color:  #579964;
 }
 ol.carousel-indicators {
     display:  none;
@@ -145,7 +145,7 @@ ol.carousel-indicators {
     font-size:  25px;
 }
 .now-price > span.discount {
-    color:  #39a94a;
+    color:  #579964;
     font-size:  15px;
 }
 .single-price {
@@ -443,7 +443,7 @@ nav.main-navbar.navbar.navbar-default .container {
     flex-flow: row wrap;
     justify-content: flex-start;
 }
-/*.catalog-card {*/
+/*.catalog-card {}*/
 
 .filter-button-row {
     background-color: #e6e4e1;
@@ -452,19 +452,31 @@ nav.main-navbar.navbar.navbar-default .container {
     justify-content: center;
     align-items: flex-start;
 }
+.page-content {
+    margin: 0px;
+    padding: 0px;
+}
+
+.filter-button-row:first-child {
+    padding: 0px;
+    margin: -60px 0px -90px 10%;
+    display: flex;
+    justify-content: center;
+}
 .filter-button-product, .filter-button-service {
-    width: 150px;
-    height: 50px;
-    border: 2px solid #39a94a;
+    width: 190px;       /*239px dimensão de cada botão no mockup*/
+    height: 40px;       /*46px dimensão de cada botão no mockup*/
+    border: 1px solid #579964;      /*Este é o verde correto!*/
+    font-size: 16px;
 }
 .filter-button-product {
     border-radius: 10px 0px 0px 10px;
     color: #fff;
-    background-color: #39a94a;
+    background-color: #579964;
 }
 .filter-button-service {
     border-radius: 0px 10px 10px 0px;
-    color: #39a94a;
+    color: #579964;
     background-color: #fff; 
 }
 

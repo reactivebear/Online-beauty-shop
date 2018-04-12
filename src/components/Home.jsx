@@ -34,7 +34,7 @@ export default class Home extends Component {
           </Carousel>
         </div>
         <Grid className="page-content">
-          <Row>
+          <Row className="filter-button-row">
             <FilterButton></FilterButton>
           </Row>
           <Row>
