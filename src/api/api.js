@@ -1,5 +1,11 @@
 import axios from "axios/index";
 
+export class ApiKey {
+  constructor(key = "") {
+    this.key = key;
+  }
+}
+
 export class Api {
   static BASE = 'http://visualtotal.com.br';
   static LOGIN = '/login';
@@ -19,11 +25,5 @@ export class Api {
 
   static setApiKey(apiKey = new ApiKey()) {
     Api.apiKey = apiKey;
-  }
-}
-
-export class ApiKey {
-  constructor(key = "") {
-    this.key = key;
   }
 }
