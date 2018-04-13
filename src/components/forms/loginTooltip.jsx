@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import axios from 'axios';
 import {Button, ControlLabel, FormControl, FormGroup} from 'react-bootstrap';
 import {Api} from '../../api/api';
 import {StorageKeys} from '../../utils/storagekeys';
@@ -12,22 +11,22 @@ export default class Loginform extends Component {
     state[e.target.name] = e.target.value;
     this.setState(state);
   };
-
   onSubmit = (e) => {
     e.preventDefault();
     const {email, password} = this.state;
 
-    console.log("Login URL: " + Api.LOGIN);
-
-    axios.post(Api.LOGIN, {
-          email: email,
-          password: password
-        })
+    Api.login(email, password)
         .then((res) => {
           this.setState({
-            msg: <div className="alert alert-success">Login Successful</div>
+            msg: <div className="alert alert-success">Login Successful
+              with {password}</div>
           });
-          localStorage.setItem(StorageKeys.APIKEY, res.data.apikey.key);
+
+          const newApiKey = res.data.apikey.key;
+          localStorage.setItem(StorageKeys.APIKEY, newApiKey);
+          Api.setApiKey(newApiKey);
+
+          console.log(newApiKey);
         })
         .catch((error) => {
           if (error.response) {
