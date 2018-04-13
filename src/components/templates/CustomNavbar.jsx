@@ -6,6 +6,8 @@ import Headerlogin from '../tooltips/Headerlogin.jsx';
 import Adicionar from '../tooltips/Adicionar-cep.jsx';
 import Carttooltip from '../tooltips/Carttooltip.jsx';
 import NavbarRightSection from '../templates/NavbarRightSection.jsx';
+import SearchbarDropdownButton from '../templates/SearchbarDropdownButton.jsx';
+import SearchBar from '../templates/SearchBar.jsx';
 export default class CustomNavbar extends Component {
 
   render() {
@@ -20,7 +22,7 @@ export default class CustomNavbar extends Component {
           </Navbar.Header>
           <Nav pullRight className="download-app-button">
             <NavItem eventKey={1} href="#">
-              <Button type="button" className="btn btn-sm btn-success btn-app"><i className="fa fa-mobile" aria-hidden="false"></i> Baixe grátis o app do Visual Total</Button>
+              <Button type="button" className="btn btn-sm btn-success btn-app" bsSize="xs"><i className="fa fa-mobile" aria-hidden="false"></i> Baixe grátis o app do Visual Total</Button>
             </NavItem>
           </Nav>
           <Navbar.Collapse>
@@ -47,7 +49,12 @@ export default class CustomNavbar extends Component {
               <Row className="show-grid">
                 <Col xs={12} md={9} className="navbar-left-section">
                   <div className="searchbar hidden-xs">
-                    <DropdownButton id="navdrop-dropdown" title="Todos" className="searchbarDropDown" noCaret>
+
+                    {/* Custom botão dropdown para a navbar*/}
+                    {/* <SearchbarDropdownButton /> */}
+
+                    {/* Botão dropdown da navbar, com react-bootstrap */}
+                    {/* <DropdownButton id="navdrop-dropdown" title="Todos" className="searchbarDropdown" noCaret>
                       <MenuItem eventKey="1">Action</MenuItem>
                       <MenuItem eventKey="2">Another action</MenuItem>
                       <MenuItem eventKey="3" active>
@@ -55,13 +62,18 @@ export default class CustomNavbar extends Component {
                       </MenuItem>
                       <MenuItem divider />
                       <MenuItem eventKey="4">Separated link</MenuItem>
-                    </DropdownButton>
-                    <Navbar.Form pullLeft>
+                    </DropdownButton> */}
+
+                    {/* Campo de input de pesquisa da navbar*/}
+                    <SearchBar />
+
+                    {/* Campo de input de pesquisa da navbar, com react-bootstrap*/}
+                    {/* <Navbar.Form pullLeft>
                       <FormGroup>
                         <FormControl type="text" placeholder="Buscar por produtos e serviços" />
                       </FormGroup>{' '}
-                      <Button type="submit" className="btn btn-success"><Glyphicon glyph="search" /></Button>
-                    </Navbar.Form>
+                      <Button type="submit" className="btn btn-success btn-magnifier"><Glyphicon glyph="search" /></Button>
+                    </Navbar.Form> */}
                   </div>
                 </Col>
                 
@@ -108,7 +120,12 @@ export default class CustomNavbar extends Component {
 
 
           <div className="searchbar hidden-lg hidden-sm hidden-md">
-            <DropdownButton id="navdrop-dropdown" title="Todos" className="searchbarDropDown" noCaret>
+
+            {/* Custom botão dropdown para a navbar*/}
+            {/* <SearchbarDropdownButton /> */}
+
+            {/* Botão dropdown da navbar, com react-bootstrap */}
+            {/* <DropdownButton id="navdrop-dropdown" title="Todos" className="searchbarDropDown" noCaret>
                <MenuItem eventKey="1">Action</MenuItem>
                <MenuItem eventKey="2">Another action</MenuItem>
                <MenuItem eventKey="3" active>
@@ -116,13 +133,18 @@ export default class CustomNavbar extends Component {
                </MenuItem>
                <MenuItem divider />
                <MenuItem eventKey="4">Separated link</MenuItem>
-             </DropdownButton>
-            <Navbar.Form className="navbar-search" pullLeft>
+             </DropdownButton> */}
+             
+            {/* Campo de input de pesquisa da navbar*/}
+            <SearchBar />
+
+            {/* Campo de input de pesquisa da navbar, com react-bootstrap*/}
+            {/* <Navbar.Form className="navbar-search" pullLeft>
               <FormGroup>
                 <FormControl type="text" placeholder="Buscar por produtos e serviços" />
               </FormGroup>{' '}
               <Button type="submit" className="btn btn-success"><Glyphicon glyph="search" /></Button>
-            </Navbar.Form>
+            </Navbar.Form> */}
           </div>
           <div className="hidden-lg hidden-sm hidden-md sub-header">
             <Grid>
