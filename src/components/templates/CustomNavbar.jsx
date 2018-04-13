@@ -5,6 +5,7 @@ import './CustomNavbar.css';
 import Headerlogin from '../tooltips/Headerlogin.jsx';
 import Adicionar from '../tooltips/Adicionar-cep.jsx';
 import Carttooltip from '../tooltips/Carttooltip.jsx';
+import NavbarRightSection from '../templates/NavbarRightSection.jsx';
 export default class CustomNavbar extends Component {
 
   render() {
@@ -62,18 +63,29 @@ export default class CustomNavbar extends Component {
                   </Navbar.Form>
                 </div>
               </Col>
-              <Col xs={6} md={3} className="navbar-right-section hidden-xs">
+              
+              <NavbarRightSection />
+
+              {/* <Col xs={6} md={3} className="navbar-right-section hidden-xs">
                 <Row className="show-grid">
-                  <Col xs={4}>
+                  <Col xs={1}>
                     <div className="navbar-side location-div nbs">
                       <Adicionar />
+                    </div>
+                  </Col>
+                  <Col xs={4}>
+                    <div className="navbar-side location-div nbs">
                       <p>Enviar para</p>
                       <p><strong>Bela Vista 01329900</strong></p>
                     </div>
                   </Col>
-                  <Col xs={5} md={5}>
+                  <Col xs={1} md={1}>
                     <div className="navbar-side-cart nbs">
                       <Carttooltip />
+                    </div>
+                  </Col>
+                  <Col xs={5} md={5}>
+                    <div className="navbar-side-cart nbs">
                       <div className="navbar-side">
                         <p>Meu</p>
                         <p><strong>Carrinho</strong></p>
@@ -86,15 +98,8 @@ export default class CustomNavbar extends Component {
                       <Headerlogin />
                     </div>
                   </Col>
-                  {/* <Col xs={4}>
-                    <p className="navbar-side location-div nbs">
-                      <Adicionar />
-                      Enviar para
-                      <strong>Bela Vista 01329900</strong>
-                    </p>
-                  </Col> */}
-              </Row>
-              </Col>
+                </Row>
+              </Col> */}
             </Row>
           </Navbar.Collapse>
 
@@ -118,33 +123,43 @@ export default class CustomNavbar extends Component {
           </div>
           <div className="hidden-lg hidden-sm hidden-md sub-header">
             <Row className="show-grid ">
-              <Col xs={12}>
-                <Row className="show-grid divs">
-                    <Col xs={4}>
-                      <div className="navbar-side location-div">
+
+              <NavbarRightSection />
+
+              {/* <Col xs={6} md={3} className="navbar-right-section hidden-xs">
+                <Row className="show-grid">
+                  <Col xs={1}>
+                    <div className="navbar-side location-div nbs">
                       <Adicionar />
-                        <p>Enviar para</p>
-                        <p><strong>Bela Vista 01329900</strong></p>
-                      </div>
-                    </Col>
-                  <Col xs={2}>
-                    <div className="navbar-side-cart">
+                    </div>
+                  </Col>
+                  <Col xs={4}>
+                    <div className="navbar-side location-div nbs">
+                      <p>Enviar para</p>
+                      <p><strong>Bela Vista 01329900</strong></p>
+                    </div>
+                  </Col>
+                  <Col xs={1} md={1}>
+                    <div className="navbar-side-cart nbs">
                       <Carttooltip />
+                    </div>
+                  </Col>
+                  <Col xs={5} md={5}>
+                    <div className="navbar-side-cart nbs">
                       <div className="navbar-side">
                         <p>Meu</p>
                         <p><strong>Carrinho</strong></p>
                       </div>
                     </div>
                   </Col>
-                <Col xs={3} >
-                  <div className="navbar-side">
-                    <p>Olá. Faça seu login</p>
-                    <Headerlogin />
-                  </div>
-                </Col>
-
+                  <Col xs={7} md={7}>
+                    <div className="navbar-side nbs">
+                      <p>Bem vindo</p>
+                      <Headerlogin />
+                    </div>
+                  </Col>
                 </Row>
-              </Col>
+              </Col> */}
             </Row>
           </div>
         </Navbar>

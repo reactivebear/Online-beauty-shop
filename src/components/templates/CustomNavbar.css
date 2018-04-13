@@ -514,21 +514,18 @@ button.navbar-toggle{
   z-index: 99999999;
 }
 
+.navbar-left-section.col-md-9.col-xs-12 {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    display: flex;
+    align-items: flex-start;
+}
+
 /* alinha a localização, carrinho e login em colunas distintas*/
 .show-grid {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: flex-start;
     flex-shrink: 0;
-}
-
-.nbs {
-    width: 200px;
-    height: 50px;
-    padding-right: 50%;
-    display: flex;
-    flex-flow: column wrap;
-    object-fit: contain;
 }
 
 .main-navbar>.container {
@@ -547,13 +544,19 @@ button.navbar-toggle{
     justify-content: flex-end;
 }
 
-.col-xs-4, .col-md-5, .col-xs-5, .col-md-7, .col-xs-7, .col-md-9, .col-xs-12 {
-    padding: 0px;
-}
-
-/* .main-navbar:first-child {
-    margin: 0px 0px 0px 0px;
+/* .col-xs-1, .col-md-1, .col-xs-4, .col-md-5, .col-xs-5, .col-md-7, .col-xs-7 {
     padding: 0px 0px 0px 0px;
+}   
+.col-xs-4 {
+    width: 100%;
+    height: 100%;
+    padding: 0px 0px 0px 10px;
+}
+.col-xs-5, .col-md-5 {
+    padding: 0px 10px 0px 0px;
+}
+.col-xs-7, .col-md-7 {
+    width: 100%;
 } */
 
 .btn-success{
@@ -562,6 +565,56 @@ button.navbar-toggle{
 
 .navbar-search {
     border: 1px solid #fff;
+}
+
+.navbar-table, .navbar-table * {
+    color: #fff;
+    margin: 0px;
+    padding: 0px;
+}
+.navbar-table {
+    margin: 2.5% 0px 42px 0px;     /* top right bottom left*/
+}
+.location-text-title, .location-text {
+    width: 130px;
+    height: 17px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+.cart-text-title, .cart-text {
+    width: 54px;
+    height: 17px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+.login-text-title, .login-button {
+    width: 128px;
+    height: 17px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+.location-text-title {
+    margin: 0px 22px 0px 0px;
+}
+.cart-text {
+    margin: 0px 33px 0px 0px;
+}
+
+.navbar-brand {
+    position: relative;
+    top: -18px;
+    left: -16px;
+}
+
+.navbar-table {
+    position: relative;
+    right: -100px;
+}
+
+.download-app-button {
+    position: relative;
+    top: -13px;
+    right: -100px;
 }
 
 @media (max-width:991px)
