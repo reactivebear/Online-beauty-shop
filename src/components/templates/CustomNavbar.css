@@ -60,10 +60,10 @@ nav.navbar, .navbar-default {
      padding: 0;
 }
 .searchbar > .navbar-form.navbar-left > .form-group > input{
-    width: 100%;
+    width: 985px;
+    height: 52px;
     padding-left: 145px;
     border: 1px solid #eeeeee;
-    height: 42px;
 }
 .searchbar > .dropdown {
     position: absolute;

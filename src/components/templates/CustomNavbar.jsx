@@ -6,7 +6,6 @@ import Headerlogin from '../tooltips/Headerlogin.jsx';
 import Adicionar from '../tooltips/Adicionar-cep.jsx';
 import Carttooltip from '../tooltips/Carttooltip.jsx';
 import NavbarRightSection from '../templates/NavbarRightSection.jsx';
-import SearchbarDropdownButton from '../templates/SearchbarDropdownButton.jsx';
 import SearchBar from '../templates/SearchBar.jsx';
 export default class CustomNavbar extends Component {
 

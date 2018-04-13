@@ -42,7 +42,8 @@
     display: none;
     position: absolute;
     background-color: #f9f9f9;  /*provisorio*/
-    min-width: 160px;
+    min-height: 52px;
+    min-width: 165px;              /* medida do mockup: min-width: 165*/
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
