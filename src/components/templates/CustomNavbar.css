@@ -49,7 +49,7 @@ nav.navbar, .navbar-default {
 }
 .searchbar {
     display:  inline-block;
-    width:  95%;
+    width:  100%;
     position: relative;
 }
 
@@ -60,9 +60,10 @@ nav.navbar, .navbar-default {
      padding: 0;
 }
 .searchbar > .navbar-form.navbar-left > .form-group > input{
-    width: 985px;
-    height: 52px;
-    padding-left: 145px;
+    width: 800px;
+    height: 42px;
+    padding-left: 3%;
+    text-align: left;
     border: 1px solid #eeeeee;
 }
 .searchbar > .dropdown {
@@ -515,6 +516,7 @@ button.navbar-toggle{
 }
 
 .navbar-left-section.col-md-9.col-xs-12 {
+    width: 850px;
     margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
     display: flex;
@@ -530,18 +532,32 @@ button.navbar-toggle{
 
 .main-navbar>.container {
     margin-top: 21px;
-    margin-left: 173px;
+    margin-left: 123px;
     margin-right: 179px;
     padding: 0px;
 }
 
-#navdrop-dropdown {
+/* #navdrop-dropdown {
     height: 42px;
-}
+} */
 
 .download-app-button {
     display: flex;
     justify-content: flex-end;
+}
+
+/* Botão de download do app para mobile*/
+
+.btn-app {
+    height: 43px;
+    border-radius: 5px;
+}
+
+.download-app-button {
+    width: 326px;
+    position: relative;
+    bottom: 13px;
+    left: 100px;
 }
 
 /* botões da right section da navbar, usando react-bootstrap*/
@@ -571,12 +587,13 @@ button.navbar-toggle{
     padding: 0px;
 }
 .navbar-table {
-    margin: 2.5% 0px 42px 0px;     /* top right bottom left*/
+    margin: 2.5% 0px 12px 10px;     /* top right bottom left*/
     position: relative;
-    left: 100px;
+    bottom: 12px
 }
 .location-text-title, .location-text {
-    width: 130px;
+    padding: 0px 0px 0px 10px;
+    width: 140px;
     height: 17px;
     display: flex;
     flex-flow: row nowrap;
@@ -600,16 +617,6 @@ button.navbar-toggle{
     margin: 0px 33px 0px 0px;
 }
 
-/* Regra não está sendo aplicada, razão desconhecida*/
-
-.navbar-search * {
-    border: 1px solid #fff;
-    border-radius: 5%;
-}
-
-/* .searchbarDropdown {
-    background-image: url("../../assets/icons/drp-arrow.png");
-} */
 .btn-magnifier {
     border: 1px solid #fff;
     border-radius: 5%;
@@ -618,22 +625,7 @@ button.navbar-toggle{
 /* Tamanho da logo 27% maior do que devia*/
 .navbar-brand {
     position: relative;
-    top: -18px;
-    left: -16px;
-}
-
-/* Botão de download do app para mobile*/
-.btn-app {
-    
-    height: 43px;
-    border-radius: 5px;
-}
-
-.download-app-button {
-    width: 326px;
-    position: relative;
-    top: -13px;
-    right: -100px;
+    bottom: 18px;
 }
 
 @media (max-width:991px)
