@@ -9,31 +9,54 @@ export class ApiKey {
 
 export class Api {
   // Routes
-  static BASE = 'http://visualtotal.com.br';
-  static LOGIN = '/login';
+  static BASE = "http://visualtotal.com.br";
+  static GUEST = "/guest";
+  static LOGIN = "/login";
+  static LOGOUT = "/logout";
+  static KEEP_TOKEN = "/api/keeptoken";
+  static CATEGORIES = "/api/categories";
 
   // Headers
   // noinspection SpellCheckingInspection
-  static HEADER_API_KEY = 'apikey';
+  static HEADER_API_KEY = "apikey";
 
   static apiKey = new ApiKey();
   static axios = axios.create({
     baseURL: Api.BASE,
   });
-  static CATEGORIES = '/api/categories';
 
   static login(email, password) {
     return Api.axios.post(Api.LOGIN, {
           email: email,
           password: password
         })
-        .then(res => {
-          const newApiKey = res.data.apikey.key;
+        .then(Api._handleNewApiToken);
+  }
 
-          localStorage.setItem(StorageKeys.APIKEY, newApiKey);
-          Api.setApiKey(new ApiKey(newApiKey));
+  static loginAsGuest() {
+    return Api.axios.get(this.GUEST)
+        .then(Api._handleNewApiToken);
+  }
 
-          return res;
+  static keepToken() {
+    return Api.axios.get(this.KEEP_TOKEN)
+        .then(Api._handleNewApiToken);
+  }
+
+  static _handleNewApiToken(res) {
+    const newApiKey = res.data.apikey.key;
+
+    localStorage.setItem(StorageKeys.APIKEY, newApiKey);
+    Api.setApiKey(new ApiKey(newApiKey));
+
+    return res;
+  }
+
+  static logout() {
+    return Api.axios.post(Api.LOGOUT)
+        .finally(() => {
+          localStorage.removeItem(StorageKeys.APIKEY);
+          Api.setApiKey();
         });
   }
 
@@ -51,6 +74,7 @@ export class Api {
   static getAllCategories() {
     return this._getCategories();
   }
+
   static getProductCategories() {
     return this._getCategories("/product");
   }
