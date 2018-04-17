@@ -1,4 +1,5 @@
 import axios from "axios/index";
+import {StorageKeys} from "../utils/storagekeys";
 
 export class ApiKey {
   constructor(key = "") {
@@ -22,15 +23,24 @@ export class Api {
 
   static login(email, password) {
     return Api.axios.post(Api.LOGIN, {
-      email: email,
-      password: password
-    });
+          email: email,
+          password: password
+        })
+        .then(res => {
+          const newApiKey = res.data.apikey.key;
+
+          localStorage.setItem(StorageKeys.APIKEY, newApiKey);
+          Api.setApiKey(new ApiKey(newApiKey));
+
+          return res;
+        });
   }
 
   static setApiKey(apiKey = new ApiKey()) {
     Api.apiKey = apiKey;
     // Update axios' headers
-    Api.axios = axios.create({...Api.axios.defaults,
+    Api.axios = axios.create({
+      ...Api.axios.defaults,
       headers: {
         [Api.HEADER_API_KEY]: Api.apiKey.key
       }

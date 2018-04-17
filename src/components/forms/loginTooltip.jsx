@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 import {Button, ControlLabel, FormControl, FormGroup} from 'react-bootstrap';
 import {Api} from '../../api/api';
-import {StorageKeys} from '../../utils/storagekeys';
-import axios from 'axios/index';
 
 export default class Loginform extends Component {
   onChange = (e) => {
@@ -21,12 +19,6 @@ export default class Loginform extends Component {
           this.setState({
             msg: <div className="alert alert-success">Login Successful</div>
           });
-
-          const newApiKey = res.data.apikey.key;
-          localStorage.setItem(StorageKeys.APIKEY, newApiKey);
-          Api.setApiKey(newApiKey);
-
-          console.log(newApiKey);
         })
         .catch((error) => {
           if (error.response) {
