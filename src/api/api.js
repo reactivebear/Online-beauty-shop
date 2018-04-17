@@ -7,11 +7,15 @@ export class ApiKey {
 }
 
 export class Api {
+  // Routes
   static BASE = 'http://visualtotal.com.br';
   static LOGIN = '/login';
 
-  static apiKey = new ApiKey();
+  // Headers
+  // noinspection SpellCheckingInspection
+  static HEADER_API_KEY = 'apikey';
 
+  static apiKey = new ApiKey();
   static axios = axios.create({
     baseURL: Api.BASE,
   });
@@ -25,5 +29,11 @@ export class Api {
 
   static setApiKey(apiKey = new ApiKey()) {
     Api.apiKey = apiKey;
+    // Update axios' headers
+    Api.axios = Api.axios.create({
+      headers: {
+        [Api.HEADER_API_KEY]: Api.apiKey.key
+      }
+    });
   }
 }
