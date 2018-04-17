@@ -6,6 +6,9 @@ import About from './components/About';
 import Produtos from './components/Produtos';
 import Navbar from './components/templates/CustomNavbar';
 import Footer from './components/templates/Footer';
+import {StorageKeys} from "./utils/storagekeys";
+import {Api} from "./api/api";
+
 class App extends Component {
   render() {
     return (
@@ -20,6 +23,15 @@ class App extends Component {
         </div>
       </Router>
     );
+  }
+
+  componentDidMount() {
+    const apiKeyString = localStorage.getItem(StorageKeys.APIKEY);
+
+    if (apiKeyString) {
+      Api.setApiKey(apiKeyString);
+      Api.keepToken();
+    }
   }
 }
 

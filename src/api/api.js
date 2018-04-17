@@ -61,7 +61,9 @@ export class Api {
   }
 
   static setApiKey(apiKey = new ApiKey()) {
-    Api.apiKey = apiKey;
+    Api.apiKey = typeof apiKey === 'string' ?
+        new ApiKey(apiKey)
+        : apiKey;
     // Update axios' headers
     Api.axios = axios.create({
       ...Api.axios.defaults,
