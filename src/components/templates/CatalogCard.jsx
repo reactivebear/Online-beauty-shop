@@ -6,11 +6,11 @@ export default props => {
     const renderRows = () => {
         const catalogs = props.catalogs || [];
         return catalogs.map(catalog => (
-            <div className = "catalog-card" key={catalog.catalogId}>
+            <div className = "product" key={catalog.catalogId}>
                 <Button>
                     <Panel className="card-frame">
                         <Panel.Body>
-                            <div className="catalog-icon-holder">
+                            <div className="product">
                                 <Image src={catalog.catalogImg} />
                             </div>
                             <div className="catalog-title">
@@ -29,26 +29,3 @@ export default props => {
         </div>
     )
 }
-
-
-// Antes da lista
-// export default class CatalogCard extends Component {
-//     render () {
-//         return (
-//             <div className="catalog-card">
-//                 <Button>
-//                     <Panel className="card-frame">
-//                         <Panel.Body>
-//                             <div className="catalog-icon-holder">
-//                                 <Image src="assets/icons/star.png" />
-//                             </div>
-//                             <div className="catalog-title">
-//                                 <h4>Esthetic Clinics</h4>
-//                             </div>
-//                         </Panel.Body>
-//                     </Panel>
-//                 </Button>
-//             </div>
-//         )
-//     }
-// }

@@ -2,23 +2,19 @@ import React, { Component } from 'react'
 import { Button, Image, Panel } from 'react-bootstrap'
 
 export default props => {
-
-    let productTitle = '';
-
-    const render = () => {
-        const list = props.list || [];
-        
-        return list.map(info => (
-            <div className="product-card">
+    const renderRows = () => {
+        const products = props.products || [];
+        return products.map(product => (
+            <div className="product-card" key={product.productId}>
                 <Panel className="card-frame">
                     <Panel.Body>
                         <div className="card-top">
                             <div className="product-img-holder">
-                                <Image src="assets/images/p2.jpg"/>
+                                <Image src={product.productImg} />
                             </div>
                             <div className="product-info-holder">
                                 <div className="product-title">
-                                    <h3>{productTitle}</h3>
+                                    <h3>{product.productTitle}</h3>
                                 </div>
                                 <div className="product-avaliation-holder">
                                     Avaliação
@@ -58,6 +54,12 @@ export default props => {
                     </Panel.Body>
                 </Panel>
             </div>
-        ))
+        ));
     }
+
+    return (
+        <div className="catalog-list">
+            {renderRows()}
+        </div>
+    )
 }
