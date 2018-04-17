@@ -30,7 +30,7 @@ export class Api {
   static setApiKey(apiKey = new ApiKey()) {
     Api.apiKey = apiKey;
     // Update axios' headers
-    Api.axios = Api.axios.create({
+    Api.axios = axios.create({...Api.axios.defaults,
       headers: {
         [Api.HEADER_API_KEY]: Api.apiKey.key
       }

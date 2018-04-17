@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Button, ControlLabel, FormControl, FormGroup} from 'react-bootstrap';
 import {Api} from '../../api/api';
 import {StorageKeys} from '../../utils/storagekeys';
+import axios from 'axios/index';
 
 export default class Loginform extends Component {
   onChange = (e) => {
@@ -18,8 +19,7 @@ export default class Loginform extends Component {
     Api.login(email, password)
         .then((res) => {
           this.setState({
-            msg: <div className="alert alert-success">Login Successful
-              with {password}</div>
+            msg: <div className="alert alert-success">Login Successful</div>
           });
 
           const newApiKey = res.data.apikey.key;
