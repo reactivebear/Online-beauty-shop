@@ -31,7 +31,7 @@ export default class Produtosemdestaque extends Component {
 
   render() {
     return (
-      <section className="produtos-section">
+      <section className="products-section">
         <Col sm={12} className="person-wrapper">
           <div className="section-heading text-left">
             <h3>Produtos em <strong>destaque</strong></h3>

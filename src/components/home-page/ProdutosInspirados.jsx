@@ -7,7 +7,7 @@ import ProductList from '../templates/ProductList';
 export default class ProdutosInspirados extends Component {
   render() {
     return (
-      <section className="produtos-section">
+      <section className="products-section">
         <Col sm={12} md={6}  className="person-wrapper">
           <div className="section-heading text-left">
             <h3>Produtos em <strong>inspirados</strong></h3>
@@ -18,11 +18,11 @@ export default class ProdutosInspirados extends Component {
           {/* <br/>
           <Row>
             <Col xs={12} sm={3} className="person-wrapper">
-              <div className="produtos">
-                <div className="produtos-image">
-                    <Image alt="produtos-image" src="assets/images/p1.jpg" />
+              <div className="products">
+                <div className="products-image">
+                    <Image alt="products-image" src="assets/images/p1.jpg" />
                 </div>
-                <div className="produtos-detail">
+                <div className="products-detail">
                   <div className="old-price">R$ 229</div>
                   <div className="now-price">R$ 179 <span className="discount">22% OFF</span></div>
                   <div className="single-price">12x R$ 17</div>
@@ -33,11 +33,11 @@ export default class ProdutosInspirados extends Component {
               </div>
             </Col>
             <Col xs={12} sm={3} className="person-wrapper">
-              <div className="produtos">
-                <div className="produtos-image">
-                  <Image alt="produtos-image" src="assets/images/p2.jpg" />
+              <div className="products">
+                <div className="products-image">
+                  <Image alt="products-image" src="assets/images/p2.jpg" />
                 </div>
-                <div className="produtos-detail">
+                <div className="products-detail">
                   <div className="old-price">R$ 229</div>
                   <div className="now-price">R$ 179 <span className="discount">22% OFF</span></div>
                   <div className="single-price">12x R$ 17</div>
@@ -48,11 +48,11 @@ export default class ProdutosInspirados extends Component {
               </div>
             </Col>
             <Col xs={12} sm={3} className="person-wrapper">
-              <div className="produtos">
-                <div className="produtos-image">
-                  <Image alt="produtos-image" src="assets/images/p3.jpg" />
+              <div className="products">
+                <div className="products-image">
+                  <Image alt="products-image" src="assets/images/p3.jpg" />
                 </div>
-                <div className="produtos-detail">
+                <div className="products-detail">
                   <div className="old-price">R$ 229</div>
                   <div className="now-price">R$ 179 <span className="discount">22% OFF</span></div>
                   <div className="single-price">12x R$ 17</div>
@@ -63,11 +63,11 @@ export default class ProdutosInspirados extends Component {
               </div>
             </Col>
             <Col xs={12} sm={3} className="person-wrapper">
-              <div className="produtos">
-                <div className="produtos-image">
-                  <Image alt="produtos-image" src="assets/images/p4.jpg" />
+              <div className="products">
+                <div className="products-image">
+                  <Image alt="products-image" src="assets/images/p4.jpg" />
                 </div>
-                <div className="produtos-detail">
+                <div className="products-detail">
                   <div className="old-price">R$ 229</div>
                   <div className="now-price">R$ 179 <span className="discount">22% OFF</span></div>
                   <div className="single-price">12x R$ 17</div>
