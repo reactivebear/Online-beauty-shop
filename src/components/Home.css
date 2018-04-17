@@ -443,8 +443,11 @@ nav.main-navbar.navbar.navbar-default .container {
     flex-flow: row wrap;
     justify-content: flex-start;
 }
-/*.catalog-card {}*/
+.catalog-card {
+    margin: 0px 10px 0px 10px;
+}
 
+/* filter-button */
 .filter-button-row {
     background-color: #e6e4e1;
     display: flex;

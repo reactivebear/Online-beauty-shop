@@ -7,7 +7,7 @@ export default props => {
         const catalogs = props.catalogs || [];
         return catalogs.map(catalog => (
             <li className = "product" key={catalog.catalogId}>
-                <Panel className="card-frame">
+                <Panel className="card-frame catalog-card">
                     <Panel.Body>
                         <div className="product">
                             <Image src={catalog.catalogImg} />

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Row, Col, ButtonGroup } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import CatalogCard from "../templates/CatalogCard";
 
 export default class Catalog extends Component {
@@ -26,15 +26,13 @@ export default class Catalog extends Component {
                          <h3>Catálogo de <strong>produtos</strong></h3>
                      </div>
                      <Row className="show-grid catalog-list">
-                         <ButtonGroup>
-                             <Col xs={12} sm={4} md={3} className="person-wrapper col-xs-12 col-sm-4 col-md-3">
-                                 <ul>
-                                    <CatalogCard
-                                        catalogs={this.state.catalogs}>
-                                    </CatalogCard>
-                                 </ul>
-                             </Col>
-                         </ButtonGroup>
+                        <Col xs={12} sm={4} md={3} className="person-wrapper col-xs-12 col-sm-4 col-md-3">
+                            <ul>
+                                <CatalogCard
+                                    catalogs={this.state.catalogs}>
+                                </CatalogCard>
+                            </ul>
+                        </Col>
                      </Row>
                  </Col>
              </section>
