@@ -589,7 +589,7 @@ button.navbar-toggle{
 .navbar-table {
     margin: 2.5% 0px 12px 10px;     /* top right bottom left*/
     position: relative;
-    bottom: 12px
+    bottom: 12px;
 }
 .location-text-title, .location-text {
     padding: 0px 0px 0px 10px;

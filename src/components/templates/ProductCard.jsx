@@ -3,7 +3,7 @@ import { Button, Image, Panel } from 'react-bootstrap'
 
 export default props => {
 
-    let product_title = '';
+    let productTitle = '';
 
     const render = () => {
         const list = props.list || [];
@@ -18,7 +18,7 @@ export default props => {
                             </div>
                             <div className="product-info-holder">
                                 <div className="product-title">
-                                    <h3>{product_title}</h3>
+                                    <h3>{productTitle}</h3>
                                 </div>
                                 <div className="product-avaliation-holder">
                                     Avaliação

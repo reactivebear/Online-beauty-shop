@@ -11,7 +11,7 @@ export default props => {
 
         const object = props.object || [];
         return object.map(product => (
-                <ProductCard product_title={product.name}></ProductCard>
+                <ProductCard productTitle={product.name}></ProductCard>
         ))
     }
 
