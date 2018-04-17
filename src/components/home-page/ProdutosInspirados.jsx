@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // import { Link } from 'react-router-dom';
-import { Row, Col, Image} from 'react-bootstrap';
+import { Row, Col} from 'react-bootstrap';
 
 import ProductList from '../templates/ProductList';
 
@@ -8,14 +8,14 @@ export default class ProdutosInspirados extends Component {
   render() {
     return (
       <section className="produtos-section">
-        <Col sm={12} className="person-wrapper">
+        <Col sm={12} md={6}  className="person-wrapper">
           <div className="section-heading text-left">
-            <h3>Produtos inspirados na sua navegação</h3>
+            <h3>Produtos em <strong>inspirados</strong></h3>
           </div>
           <Row className="show-grid">
             <ProductList></ProductList>
           </Row>
-          <br/>
+          {/* <br/>
           <Row>
             <Col xs={12} sm={3} className="person-wrapper">
               <div className="produtos">
@@ -77,7 +77,7 @@ export default class ProdutosInspirados extends Component {
                 </div>
               </div>
             </Col>
-          </Row>
+          </Row> */}
         </Col>
       </section>
     )

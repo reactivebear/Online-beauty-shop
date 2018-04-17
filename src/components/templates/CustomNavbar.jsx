@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
-import { Grid, Navbar, Nav, NavItem, Row, Col,FormGroup,FormControl,Button,Image,DropdownButton,MenuItem,Glyphicon} from 'react-bootstrap';
+import { Grid, Navbar, Nav, NavItem, Row, Col,FormGroup,FormControl,Button,Image,Glyphicon} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './CustomNavbar.css';
-import Headerlogin from '../tooltips/Headerlogin.jsx';
-import Adicionar from '../tooltips/Adicionar-cep.jsx';
-import Carttooltip from '../tooltips/Carttooltip.jsx';
 import NavbarRightSection from '../templates/NavbarRightSection.jsx';
 // import SearchBar from '../templates/SearchBar.jsx';
 export default class CustomNavbar extends Component {

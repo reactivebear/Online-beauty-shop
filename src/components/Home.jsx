@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import {Grid, Row,Carousel} from 'react-bootstrap';
 import FilterButton from './home-page/FilterButton.jsx';
 import Catalog from './home-page/Catalog.jsx';
-import ProdutosInspirados from './home-page/ProdutosInspirados.jsx';
+//import ProdutosInspirados from './home-page/ProdutosInspirados.jsx';
 import Produtosemdestaque from './home-page/Produtosemdestaque.jsx';
 import Blog from './home-page/Blog.jsx';
 import Reviews from './home-page/Reviews.jsx';
@@ -37,15 +37,15 @@ export default class Home extends Component {
           <Row className="filter-button-row">
             <FilterButton></FilterButton>
           </Row>
-          <Row>
+          <Row className="catalog">
             <Catalog/>
-          </Row>
-          <Row>
-            <ProdutosInspirados />
           </Row>
           <Row className="produtosemdestaque">
             <Produtosemdestaque />
           </Row>
+          {/* <Row className="produtosinspirados">
+            <ProdutosInspirados />
+          </Row> */}
           <Row className="blog">
             <Blog />
           </Row>
