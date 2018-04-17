@@ -20,6 +20,7 @@ export class Api {
   static axios = axios.create({
     baseURL: Api.BASE,
   });
+  static CATEGORIES = '/api/categories';
 
   static login(email, password) {
     return Api.axios.post(Api.LOGIN, {
@@ -45,5 +46,21 @@ export class Api {
         [Api.HEADER_API_KEY]: Api.apiKey.key
       }
     });
+  }
+
+  static getAllCategories() {
+    return this._getCategories();
+  }
+  static getProductCategories() {
+    return this._getCategories("/product");
+  }
+
+  static getServiceCategories() {
+    return this._getCategories("/service");
+  }
+
+  static _getCategories(suffix = "") {
+    suffix = suffix || "";
+    return Api.axios.get(Api.CATEGORIES + suffix);
   }
 }
