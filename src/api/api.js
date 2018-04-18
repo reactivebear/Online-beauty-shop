@@ -94,9 +94,9 @@ export class Api {
   static getAllProducts() {
     return this._getProducts();
   }
-  //concertar
-  static getProductsRecommended() {
-    return this._getProducts("/recommended");
+  
+  static getProductsFeatured() {
+    return this._getProducts();
   }
 
   static _getProducts(suffix = "") {

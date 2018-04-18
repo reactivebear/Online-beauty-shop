@@ -10,6 +10,7 @@ import Reviews from './home-page/Reviews.jsx';
 import Servicos from './home-page/Servicos.jsx';
 import Appstore from './home-page/Appstore.jsx';
 
+import { StorageKeys } from "../utils/storagekeys.js";
 import { Api } from "../api/api.js";
 
 import './Home.css';
@@ -17,11 +18,8 @@ import './Home.css';
 export default class Home extends Component {
 
   componentDidMount() {
-    //test login
-    // Api.login("c@teste.com" , "12345678" );
-    //take a guest token
-    Api.loginAsGuest();
-    console.log(this.key);
+    console.log(localStorage.getItem(StorageKeys.APIKEY));
+    Api.keepToken();
   }
 
   render() {

@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import { Row, Col } from 'react-bootstrap';
 import ProductCard from './ProductCard';
+
+import { StorageKeys } from "../../utils/storagekeys.js";
 import { Api } from "../../api/api";
 
 export default class Catalog extends Component {
@@ -15,8 +17,16 @@ export default class Catalog extends Component {
     }
 
     componentDidMount() {
-        //pega todos os produtos recomendados e envia essas informações para a lista de products
-        this.state.products.push(Api.getProductsRecommended());
+        console.log(localStorage.getItem(StorageKeys.APIKEY));
+        Api.keepToken();
+
+        //take all products featured and send that information to a list of products
+        Api.getProductsFeatured()
+            .then(res => {
+                this.setState({
+                    products: res.object
+                });
+            });
         console.log(this.state.products);
     }
 

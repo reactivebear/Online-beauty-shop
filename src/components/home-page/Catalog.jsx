@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Row, Col } from 'react-bootstrap';
 import CatalogCard from "../templates/CatalogCard";
+
+import { StorageKeys } from "../../utils/storagekeys.js";
 import { Api } from "../../api/api.js";
 
 export default class Catalog extends Component {
@@ -15,8 +17,16 @@ export default class Catalog extends Component {
     }
 
     componentDidMount () {
-        //pega todas as categorias de produtos e envia essas informações para a lista de catalogs
-        this.state.catalogs.push(Api.getProductCategories());
+        console.log(localStorage.getItem(StorageKeys.APIKEY));
+        Api.keepToken();
+
+        //take all product catalogs and send that information to a list of catalogs
+        Api.getProductCategories()
+            .then(res => {
+                this.setState({
+                    catalogs: res.object
+                });
+            });
         console.log(this.state.catalogs);
     }
 
