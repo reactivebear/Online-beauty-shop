@@ -7,8 +7,9 @@ export default class Catalog extends Component {
 
     constructor(props) {
         super(props);
-        const productsRecommended = "/api/products/recommended";
         this.state = {
+            status: "",
+            message: "",
             products: []
         }
     }

@@ -5,16 +5,16 @@ export default props => {
     const renderRows = () => {
         const products = props.products || [];
         return products.map(product => (
-            <div className="product-card" key={product.productId}>
+            <div className="product-card" key={product.id}>
                 <Panel className="card-frame">
                     <Panel.Body>
                         <div className="card-top">
                             <div className="product-img-holder">
-                                <Image src={product.productImg} />
+                                <Image src={product.image_url} />
                             </div>
                             <div className="product-info-holder">
                                 <div className="product-title">
-                                    <h3>{product.productTitle}</h3>
+                                    <h3>{product.name}</h3>
                                 </div>
                                 <div className="product-avaliation-holder">
                                     Avaliação

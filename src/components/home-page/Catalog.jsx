@@ -8,6 +8,8 @@ export default class Catalog extends Component {
     constructor (props) {
         super(props);
         this.state = {
+            status: "",
+            message: "",
             catalogs: []
         }
     }
