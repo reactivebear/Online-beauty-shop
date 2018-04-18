@@ -15,6 +15,7 @@ export class Api {
   static LOGOUT = "/logout";
   static KEEP_TOKEN = "/api/keeptoken";
   static CATEGORIES = "/api/categories";
+  static PRODUCTS = "/api/categories";
 
   // Headers
   // noinspection SpellCheckingInspection
@@ -88,5 +89,18 @@ export class Api {
   static _getCategories(suffix = "") {
     suffix = suffix || "";
     return Api.axios.get(Api.CATEGORIES + suffix);
+  }
+
+  static getAllProducts() {
+    return this._getProducts();
+  }
+  //concertar
+  static getProductsRecommended() {
+    return this._getProducts("/recommended");
+  }
+
+  static _getProducts(suffix = "") {
+    suffix = suffix || "";
+    return Api.axios.post(Api.PRODUCTS + suffix);
   }
 }

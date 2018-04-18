@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Row, Col } from 'react-bootstrap';
 import ProductCard from './ProductCard';
-import { keepToken, getProductCategories } from "../../api/api";
+import { Api } from "../../api/api";
 
 export default class Catalog extends Component {
 
@@ -9,20 +9,14 @@ export default class Catalog extends Component {
         super(props);
         const productsRecommended = "/api/products/recommended";
         this.state = {
-            products: [
-                // { productId: 1, productTitle: "Máscara Senscience Inner Restore Intensif 500ml - Único", productImg: "assets/images/p1.jpg" },
-                // { productId: 2, productTitle: "Máscara Senscience Inner Restore Intensif 750ml - Único", productImg: "assets/images/p2.jpg" },
-                // { productId: 3, productTitle: "Máscara Senscience Inner Restore Intensif 1l - Único", productImg: "assets/images/p3.jpg" },
-                // { productId: 4, productTitle: "Máscara Senscience Inner Restore Intensif 2l - Único", productImg: "assets/images/p4.jpg" },
-                // { productId: 5, productTitle: "Máscara Senscience Inner Restore Intensif 5l - Único", productImg: "assets/images/p5.jpg" },
-                // { productId: 6, productTitle: "Máscara Senscience Inner Restore Intensif 10l - Único", productImg: "assets/images/p6.jpg" }
-            ]
+            products: []
         }
     }
 
     componentDidMount() {
-        //pega todas as categorias de produtos e envia essas informações para a lista de products
-        this.state.products.push(this.Api.axios.post("/api/products/recommended"));
+        //pega todos os produtos recomendados e envia essas informações para a lista de products
+        this.state.products.push(Api.getProductsRecommended());
+        console.log(this.state.products);
     }
 
     render() {

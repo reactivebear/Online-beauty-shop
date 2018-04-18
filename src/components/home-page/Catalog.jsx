@@ -1,27 +1,21 @@
 import React, { Component } from 'react'
 import { Row, Col } from 'react-bootstrap';
 import CatalogCard from "../templates/CatalogCard";
-import { keepToken, getProductCategories } from "../../api/api.js";
+import { Api } from "../../api/api.js";
 
 export default class Catalog extends Component {
 
     constructor (props) {
         super(props);
         this.state = {
-            catalogs: [
-                // { catalogId: 1, catalogTitle: "Hairstylist", catalogImg: "assets/icons/star.png" },
-                // { catalogId: 2, catalogTitle: "Barber", catalogImg: "assets/icons/star.png" },
-                // { catalogId: 3, catalogTitle: "Nails", catalogImg: "assets/icons/star.png" },
-                // { catalogId: 4, catalogTitle: "Depilation", catalogImg: "assets/icons/star.png" },
-                // { catalogId: 5, catalogTitle: "Massage", catalogImg: "assets/icons/star.png" },
-                // { catalogId: 6, catalogTitle: "Esthetic Clinics", catalogImg: "assets/icons/star.png" }
-            ]
+            catalogs: []
         }
     }
 
     componentDidMount () {
         //pega todas as categorias de produtos e envia essas informações para a lista de catalogs
-        this.state.catalogs.push(getProductCategories());
+        this.state.catalogs.push(Api.getProductCategories());
+        console.log(this.state.catalogs);
     }
 
     render () {
