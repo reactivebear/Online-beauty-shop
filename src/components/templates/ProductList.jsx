@@ -12,11 +12,18 @@ export default class Catalog extends Component {
         this.state = {
             status: "",
             message: "",
-            products: []
+            products: [
+                { id: 1, name: "Oil", image_url: "assets/images/p5.jpg" },
+                { id: 2, name: "Shampoo", image_url: "assets/images/p10.jpg" },
+                { id: 3, name: "Perfume", image_url: "assets/images/p9.jpg" },
+                { id: 4, name: "Oil", image_url: "assets/images/p8.jpg" },
+                { id: 5, name: "Shampoo", image_url: "assets/images/p11.jpg" },
+                { id: 6, name: "Perfume", image_url: "assets/images/p12.jpg" }
+            ]
         }
     }
 
-    componentWillMount() {
+    componentDidUpdate () {
         console.log(localStorage.getItem(StorageKeys.APIKEY));
 
         //take all products featured and send that information to a list of products
