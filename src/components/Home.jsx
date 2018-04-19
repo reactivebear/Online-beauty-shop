@@ -11,7 +11,6 @@ import Servicos from './home-page/Servicos.jsx';
 import Appstore from './home-page/Appstore.jsx';
 
 import { StorageKeys } from "../utils/storagekeys.js";
-import { Api } from "../api/api.js";
 
 import './Home.css';
 
@@ -19,7 +18,6 @@ export default class Home extends Component {
 
   componentDidMount() {
     console.log(localStorage.getItem(StorageKeys.APIKEY));
-    Api.keepToken();
   }
 
   render() {

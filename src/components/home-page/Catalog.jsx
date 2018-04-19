@@ -16,9 +16,8 @@ export default class Catalog extends Component {
         }
     }
 
-    componentDidMount () {
+    componentWillMount () {
         console.log(localStorage.getItem(StorageKeys.APIKEY));
-        Api.keepToken();
 
         //take all product catalogs and send that information to a list of catalogs
         Api.getProductCategories()
