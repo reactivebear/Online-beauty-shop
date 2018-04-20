@@ -436,16 +436,16 @@ nav.main-navbar.navbar.navbar-default .container {
     position:relative;
 }
 
-/* align catalog */
+/* catalog */
 .catalog-list {
-    width: 1500px;      /* 900px renderiza 2 colunas, 1500 renderiza 3 colunas */
+    width: 1290px;      /* min 860px renders 2 cols, min 1290 renders 3 cols */
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
     font-family: AvenirLTStd-Light;
 }
 .catalog-card {
-    margin: 0px 10px -30px 0px;
+    margin: 0px 10px 10px 0px;
 }
 .catalog-card>.panel-body {
     height: 160px;
@@ -468,26 +468,23 @@ nav.main-navbar.navbar.navbar-default .container {
     justify-content: flex-end;
 }
 
+/* product card */
 .product-card {
     margin: 0px 10px 0px 0px;
 }
-/* product card dimensions */
-.product-card>.card-frame {
+.product-card>.card-frame {    /* product card dimensions */
     height: 250px;
     width: 420px;
 }
-
 .product-card>.card-frame>.panel-body {
     height: inherit;
     width: inherit;
 }
-
 .product-card>.card-frame>.panel-body>.card-top,
 .product-card>.card-frame>.panel-body>.card-bottom {
     display: flex;
     flex-flow: row wrap;
 }
-
 .product-card>.card-frame>.panel-body>.card-top>.product-info-holder {
     padding: 0px 0px 0px 5px;
     width: 240px;
@@ -502,7 +499,6 @@ nav.main-navbar.navbar.navbar-default .container {
     flex-flow: column wrap;
     justify-content: flex-end;
 }
-
 .product-card>.card-frame>.panel-body>.card-top>.product-img-holder>img {
     height: 150px;
     width: 150px;
@@ -510,7 +506,6 @@ nav.main-navbar.navbar.navbar-default .container {
     border: 1px solid rgba(0,0,0,0.2);
     border-radius: 10px;
 }
-
 .catalog>.card-frame, .product-card>.card-frame {
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 10px;
@@ -532,9 +527,12 @@ nav.main-navbar.navbar.navbar-default .container {
     justify-content: flex-start;
     align-items: center;
 }
+/* star */
 .star-rating>.star-sm {
     margin: 0px 3px 0px 0px;
 }
+
+/* price */
 .price {
     margin: 0px 20px 0px 0px;
 }
@@ -551,6 +549,7 @@ nav.main-navbar.navbar.navbar-default .container {
 
 /* filter-button */
 .filter-button-row {
+    width: inherit;
     background-color: #e6e4e1;
     display: flex;
     flex-flow: row nowrap;
@@ -610,9 +609,10 @@ nav.main-navbar.navbar.navbar-default .container {
     background-color: #579964;
 }
 
+/* left and right margin of home page content */
 .page-content:not(:first-child) {
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 120px;
+    margin-right: 120px;
 }
 /*  */
 @media (min-width: 991px){

@@ -32,11 +32,13 @@ export default props => {
                                     </div>
                                 </div>
                                 <div className="product-price-holder">
-                                    <div className="old-price price">
-                                        R$ 144,00
-                                    </div>
-                                    <div className="now-price price">
+                                    {!product.discount_price ? 
+                                    null
+                                    : <div className="old-price price">
                                         R$ {product.price}
+                                    </div>}
+                                    <div className="now-price price">
+                                        R$ {product.discount_price || product.price}
                                         <div className="zero-zero">
                                         ,00
                                         </div>

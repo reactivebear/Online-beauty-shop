@@ -96,11 +96,11 @@ export class Api {
   }
   
   static getProductsFeatured() {
-    return this._getProducts();
+    return this._getProducts({ featured_only: true });
   }
 
-  static _getProducts(suffix = "") {
+  static _getProducts(data = null, suffix = "") {
     suffix = suffix || "";
-    return Api.axios.post(Api.PRODUCTS + suffix);
+    return Api.axios.post(Api.PRODUCTS + suffix, data);
   }
 }

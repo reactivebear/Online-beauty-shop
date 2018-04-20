@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Row, Col } from 'react-bootstrap';
 import CatalogCard from "../templates/CatalogCard";
 
-import { StorageKeys } from "../../utils/storagekeys.js";
 import { Api } from "../../api/api.js";
 
 export default class Catalog extends Component {
