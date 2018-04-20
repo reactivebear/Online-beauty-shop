@@ -469,9 +469,35 @@ nav.main-navbar.navbar.navbar-default .container {
 .product-card {
     margin: 0 5px;
 }
+/* dimensions */
 .product-card>.card-frame {
-    height: 200px;
-    width: 400px;
+    height: 250px;
+    width: 420px;
+}
+
+.product-card>.card-frame>.panel-body {
+    height: inherit;
+    width: inherit;
+}
+
+.product-card>.card-frame>.panel-body>.card-top,
+.product-card>.card-frame>.panel-body>.card-bottom {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.product-card>.card-frame>.panel-body>.card-top>.product-info-holder {
+    width: 150px;
+    height: 180px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+}
+.product-card>.card-top>.panel-body>.card-top>.product-info-holder>.product-avaliation-holder,
+.product-card>.card-top>.panel-body>.card-top>.product-info-holder>.product-price-holder {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-end;
 }
 
 .product-card>.card-frame>.panel-body>.card-top>.product-img-holder>img {
@@ -485,6 +511,13 @@ nav.main-navbar.navbar.navbar-default .container {
 .catalog>.card-frame, .product-card>.card-frame {
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 10px;
+}
+.product-card>.card-frame>.panel-body>.card-top>.product-info-holder>.product-title,
+.product-card>.card-frame>.panel-body>.card-top>.product-info-holder>.product-availation-holder,
+.product-card>.card-frame>.panel-body>.card-top>.product-info-holder>.product-price-holder
+    {
+    width: 150px;
+    height: 50px;
 }
 
 /* filter-button */
@@ -523,6 +556,30 @@ nav.main-navbar.navbar.navbar-default .container {
     color: #579964;
     background-color: #fff; 
 }
+
+/* product card buttons */
+.card-bottom {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+.btn-buy-now, .btn-add-to-cart {
+    font-size: 16px;
+    width: 190px;
+    height: 40px;
+    border-radius: 10px;
+}
+.btn-buy-now {
+    color: #fff;
+    background-color: #579964;
+    border: 1px solid #579964;
+}
+.btn-add-to-cart {
+    color: #579964;
+    background-color: #fff;
+    border: 1px solid #579964;
+}
+
 .btn-success {
     background-color: #579964;
 }

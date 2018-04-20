@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Image, Panel } from 'react-bootstrap'
+import { Image, Panel } from 'react-bootstrap'
 
 export default props => {
     const renderRows = () => {
@@ -25,7 +25,7 @@ export default props => {
                                         <span className="star-sm fill"></span>
                                         <span className="star-sm fill"></span>
                                     </div>
-                                    <div className="add-wishlet">
+                                    <div className="add-wishlist">
                                         <span className="icon heart-green"></span>
                                     </div>
                                 </div>
@@ -41,14 +41,14 @@ export default props => {
                         </div>
                         <div className="card-bottom">
                             <div>
-                                <Button className="btn btn-sm btn-success">
+                                <button className="btn-buy-now btn btn-sm">
                                     Comprar Agora
-                                </Button>
+                                </button>
                             </div>
                             <div>
-                                <Button className="btn btn-sm btn-success">
+                                <button className="btn-add-to-cart btn btn-sm">
                                     Adicionar ao Carrinho
-                                </Button>
+                                </button>
                             </div>
                         </div>
                     </Panel.Body>
