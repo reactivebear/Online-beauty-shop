@@ -14,27 +14,32 @@ export default props => {
                             </div>
                             <div className="product-info-holder">
                                 <div className="product-title">
-                                    <h3>{product.name}</h3>
+                                    <h4>{product.name}</h4>
                                 </div>
                                 <div className="product-avaliation-holder">
-                                    Avaliação
-                                    <div className="star-rating">
-                                        <span className="star-sm fill"></span>
-                                        <span className="star-sm fill"></span>
-                                        <span className="star-sm fill"></span>
-                                        <span className="star-sm fill"></span>
-                                        <span className="star-sm fill"></span>
+                                    <div className="product-avaliation">
+                                        Avaliação
+                                        <div className="star-rating">
+                                            <span className="star-sm fill"></span>
+                                            <span className="star-sm fill"></span>
+                                            <span className="star-sm fill"></span>
+                                            <span className="star-sm fill"></span>
+                                            <span className="star-sm fill"></span>
+                                        </div>
                                     </div>
                                     <div className="add-wishlist">
                                         <span className="icon heart-green"></span>
                                     </div>
                                 </div>
                                 <div className="product-price-holder">
-                                    <div className="old-price">
-                                        144,00
+                                    <div className="old-price price">
+                                        R$ 144,00
                                     </div>
-                                    <div className="now-price">
-                                        72,00
+                                    <div className="now-price price">
+                                        R$ {product.price}
+                                        <div className="zero-zero">
+                                        ,00
+                                        </div>
                                     </div>
                                 </div>
                             </div>

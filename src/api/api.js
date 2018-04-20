@@ -15,7 +15,7 @@ export class Api {
   static LOGOUT = "/logout";
   static KEEP_TOKEN = "/api/keeptoken";
   static CATEGORIES = "/api/categories";
-  static PRODUCTS = "/api/categories";
+  static PRODUCTS = "/api/products";
 
   // Headers
   // noinspection SpellCheckingInspection

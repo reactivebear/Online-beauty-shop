@@ -10,30 +10,34 @@ export default class Catalog extends Component {
     constructor (props) {
         super(props);
         this.state = {
-            status: "",
-            message: "",
-            catalogs: [
-                { id: 1, name: "Hairstylist", image_url: "assets/icons/star.png" },
-                { id: 2, name: "Barber", image_url: "assets/icons/heart.png" },
-                { id: 3, name: "Nails", image_url: "assets/icons/star.png" },
-                { id: 4, name: "Depilation", image_url: "assets/icons/heart.png" },
-                { id: 5, name: "Massage", image_url: "assets/icons/star.png" },
-                { id: 6, name: "Esthetic Clinics", image_url: "assets/icons/heart.png" }
-            ]
+            catalogs: []
         }
     }
 
-    componentDidUpdate () {
-        console.log(localStorage.getItem(StorageKeys.APIKEY));
+    componentDidMount() {
+        this.catalogsID = setInterval(
+            () => this.fetchProductCategories(),
+            1000
+        );
+    }
 
-        //take all product catalogs and send that information to a list of catalogs
+    //take all product catalogs and send that information to a list of product catalogs
+    fetchProductCategories() {
         Api.getProductCategories()
             .then(res => {
                 this.setState({
-                    catalogs: res.object
+                    catalogs: res.data.object
                 });
+                // console.log(JSON.stringify(res.data.object, null, 4));
             });
-        console.log(this.state.catalogs);
+    }
+
+    componentDidUpdate() {
+        clearInterval(this.catalogsID);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.catalogsID);
     }
 
     render () {
