@@ -1,5 +1,5 @@
 nav.navbar, .navbar-default {
-  background-color: black !important; /*antes #474746*/
+  background-color: black !important; /* before #474746*/
   margin:0;
   z-index: 99;
   padding: 10px 0;
@@ -523,7 +523,7 @@ button.navbar-toggle{
     align-items: flex-start;
 }
 
-/* alinha a localização, carrinho e login em colunas distintas*/
+/* align localization, cart and login cols */
 .show-grid {
     display: flex;
     flex-flow: row nowrap;
@@ -546,7 +546,7 @@ button.navbar-toggle{
     justify-content: flex-end;
 }
 
-/* Botão de download do app para mobile*/
+/* mobile app download button */
 
 .btn-app {
     height: 43px;
@@ -560,7 +560,7 @@ button.navbar-toggle{
     left: 100px;
 }
 
-/* botões da right section da navbar, usando react-bootstrap*/
+/* navbar right section buttons, using react-bootstrap */
 .col-xs-1, .col-md-1, .col-xs-4, .col-md-5, .col-xs-5, .col-md-7, .col-xs-7 {
     padding: 0px 0px 0px 0px;
 }   
@@ -576,11 +576,7 @@ button.navbar-toggle{
     width: 100%;
 }
 
-.btn-success{
-    background-color: #579964;
-}
-
-/* botões da right section da navbar, usando table*/
+/* navbar right section buttons, using table instead of react-bootstrap */
 .navbar-table, .navbar-table * {
     color: #fff;
     margin: 0px;
@@ -622,10 +618,14 @@ button.navbar-toggle{
     border-radius: 5%;
 }
 
-/* Tamanho da logo 27% maior do que devia*/
+/* logo size appears 27% bigger than mockup */
 .navbar-brand {
     position: relative;
     bottom: 18px;
+}
+/* button colors */
+.btn-success {
+    background-color: #579964;
 }
 
 @media (max-width:991px)

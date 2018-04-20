@@ -572,13 +572,9 @@ nav.main-navbar.navbar.navbar-default .container {
 }
 .filter-button-product {
     border-radius: 10px 0px 0px 10px;
-    color: #fff;
-    background-color: #579964;
 }
 .filter-button-service {
     border-radius: 0px 10px 10px 0px;
-    color: #579964;
-    background-color: #fff; 
 }
 
 /* product card buttons */
@@ -594,19 +590,10 @@ nav.main-navbar.navbar.navbar-default .container {
     height: 40px;
     border-radius: 10px;
 }
-.btn-buy-now {
-    color: #fff;
-    background-color: #579964;
-    border: 1px solid #579964;
-}
+.btn-buy-now,
 .btn-add-to-cart {
-    color: #579964;
-    background-color: #fff;
-    border: 1px solid #579964;
-}
 
-.btn-success {
-    background-color: #579964;
+    border: 1px solid #579964;
 }
 
 /* left and right margin of home page content */
@@ -614,6 +601,20 @@ nav.main-navbar.navbar.navbar-default .container {
     margin-left: 120px;
     margin-right: 120px;
 }
+
+/* button colors */
+.btn-success {
+    background-color: #579964;
+}
+.btn-green>button {
+    color: #fff;
+    background-color: #579964;
+}
+.btn-white>button {
+    color: #579964;
+    background-color: #fff;
+}
+
 /*  */
 @media (min-width: 991px){
 

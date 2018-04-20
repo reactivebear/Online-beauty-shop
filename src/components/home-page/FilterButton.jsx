@@ -7,11 +7,11 @@ export default class FilterButton extends Component {
             <section className="filter-button-section">
                 <Col sm={12} className="person-wrapper">
                     <Row className="filter-button-row">
-                        <div className="filter-button-holder">
-                            <button type="button" className="filter-button-product" onClick="alert('Eu funciono!')">Produtos</button>
+                        <div className="filter-button-holder btn-green">
+                            <button type="button" className="filter-button-product  btn-sm btn" onClick="alert('Eu funciono!')">Produtos</button>
                         </div>
-                        <div className="filter-button-holder">
-                            <button type="button" className="filter-button-service" onClick="alert('Eu funciono!')">Serviços</button>
+                        <div className="filter-button-holder btn-white">
+                            <button type="button" className="filter-button-service btn-sm btn" onClick="alert('Eu funciono!')">Serviços</button>
                         </div>
                     </Row>
                 </Col>

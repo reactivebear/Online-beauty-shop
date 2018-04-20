@@ -47,12 +47,12 @@ export default props => {
                             </div>
                         </div>
                         <div className="card-bottom">
-                            <div>
+                            <div className="btn-green">
                                 <button className="btn-buy-now btn btn-sm">
                                     Comprar Agora
                                 </button>
                             </div>
-                            <div>
+                            <div className="btn-white">
                                 <button className="btn-add-to-cart btn btn-sm">
                                     Adicionar ao Carrinho
                                 </button>
