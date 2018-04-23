@@ -16,6 +16,7 @@ export class Api {
   static KEEP_TOKEN = "/api/keeptoken";
   static CATEGORIES = "/api/categories";
   static PRODUCTS = "/api/products";
+  static SERVICES = "/api/services";
 
   // Headers
   // noinspection SpellCheckingInspection
@@ -102,5 +103,14 @@ export class Api {
   static _getProducts(data = null, suffix = "") {
     suffix = suffix || "";
     return Api.axios.post(Api.PRODUCTS + suffix, data);
+  }
+
+  static getServicesFeatured() {
+    return this._getServices({ featured_only: true });
+  }
+
+  static _getServices(data = null, suffix = "") {
+    suffix = suffix || "";
+    return Api.axios.post(Api.SERVICES + suffix, data);
   }
 }

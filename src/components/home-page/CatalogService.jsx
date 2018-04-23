@@ -10,25 +10,26 @@ export default class Catalog extends Component {
         super(props);
         this.state = {
             catalogs: [
-                { id: 1, name: "Hairtylist & Makeup", image_url: "assets/icons/star.png"},
-                { id: 2, name: "Barber", image_url: "assets/icons/heart.png" },
-                { id: 3, name: "Depilation", image_url: "assets/icons/star.png" },
-                { id: 4, name: "Esthetic Clinics", image_url: "assets/icons/heart.png" },
-                { id: 5, name: "Spa & Massage", image_url: "assets/icons/star.png" }
+                { id: 1, name: "Face Care", image_url: "assets/icons/star.png"},
+                { id: 2, name: "Fraqnances", image_url: "assets/icons/heart.png" },
+                { id: 3, name: "Nail & Makeup", image_url: "assets/icons/star.png" },
+                { id: 4, name: "Body Care", image_url: "assets/icons/heart.png" },
+                { id: 5, name: "Hair", image_url: "assets/icons/star.png" },
+                { id: 6, name: "Supplement", image_url: "assets/icons/heart.png" }
             ]
         }
     }
 
     componentDidMount() {
         this.catalogsID = setInterval(
-            () => this.fetchProductCategories(),
+            () => this.fetchServiceCategories(),
             60000
         );
     }
 
     //take all product catalogs and send that information to a list of product catalogs
-    fetchProductCategories() {
-        Api.getProductCategories()
+    fetchServiceCategories() {
+        Api.getServiceCategories()
             .then(res => {
                 this.setState({
                     catalogs: res.data.object
@@ -50,7 +51,7 @@ export default class Catalog extends Component {
             <section className="catalog-section">
                  <Col xs={12} sm={6} md={12} className="person-wrapper col-xs-12 col-sm-6 col-md-12">
                      <div className="section-heading text-left">
-                         <h3>Catálogo de <strong>produtos</strong></h3>
+                         <h3>Catálogo de <strong>serviços</strong></h3>
                      </div>
                      <Row className="show-grid catalog-list">
                         <Col xs={12} sm={4} md={3} className="person-wrapper col-xs-12 col-sm-4 col-md-3">

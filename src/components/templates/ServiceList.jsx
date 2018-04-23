@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 import { Row, Col } from 'react-bootstrap';
-import ProductCard from './ProductCard';
+import ServiceCard from './ServiceCard';
 
 import { Api } from "../../api/api";
 
-export default class ProductList extends Component {
+export default class ServiceList extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            products: [
+            services: [
                 { id: 1, name: "Hairtylist & Makeup", price: 200, image_url: "assets/images/p7.jpg" },
                 { id: 2, name: "Barber", price: 100, image_url: "assets/images/p9.jpg" }
             ]
@@ -17,15 +17,15 @@ export default class ProductList extends Component {
     }
 
     componentDidMount () {
-        this.productsID = setInterval (
-            () => this.fetchFeaturedProducts(),
+        this.serviceID = setInterval (
+            () => this.fetchFeaturedServices(),
             60000
         );
     }
 
-    //take all products featured and send that information to a list of products
-    fetchFeaturedProducts () {
-        Api.getProductsFeatured()
+    //take all services featured and send that information to a list of services
+    fetchFeaturedServices () {
+        Api.getServicesFeatured()
             .then(res => {
                 this.setState({
                     products: res.data.object
@@ -51,9 +51,9 @@ export default class ProductList extends Component {
                     </div> */}
                     <Row className="show-grid catalog-list">
                         <Col xs={6} sm={3} className="person-wrapper">
-                            <ProductCard
-                                products={this.state.products}>
-                            </ProductCard>
+                            <ServiceCard
+                                services={this.state.servides}>
+                            </ServiceCard>
                         </Col>
                     </Row>
                 </Col>

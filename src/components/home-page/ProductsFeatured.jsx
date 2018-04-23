@@ -5,30 +5,13 @@ import { Row, Col} from 'react-bootstrap';
 
 import ProductList from '../templates/ProductList';
 
-export default class Produtosemdestaque extends Component {
+export default class ProductsFeatured extends Component {
 
   constructor(props) {    
     super(props);
     this.state = { products :[] };
-
-    this.refresh();
   }
-
-  //TODO: componentDidMount(){}?
-
-
-  //API busca produtos no banco 
-  refresh() {
-    Api.axios.post(`/api/products`, {
-      headers: {apikey: '9fa8d563-d239-4754-87ad-61d6f6a5eead'},
-      data: {
-        featured_only: true
-      }
-    })
-      .then(resp =>  console.log(resp.data));
-      // .then(resp => this.setState({ ...this.state, description, list: resp.data }));
-  }
-
+  
   render() {
     return (
       <section className="products-section">

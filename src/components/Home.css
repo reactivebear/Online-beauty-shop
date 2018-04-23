@@ -527,6 +527,78 @@ nav.main-navbar.navbar.navbar-default .container {
     justify-content: flex-start;
     align-items: center;
 }
+
+/* service card */
+.service-card {
+    margin: 0px 10px 0px 0px;
+}
+
+.service-card>.card-frame {
+    /* service card dimensions */
+    height: 250px;
+    width: 420px;
+}
+
+.service-card>.card-frame>.panel-body {
+    height: inherit;
+    width: inherit;
+}
+
+.service-card>.card-frame>.panel-body>.card-top,
+.service-card>.card-frame>.panel-body>.card-bottom {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.service-card>.card-frame>.panel-body>.card-top>.service-info-holder {
+    padding: 0px 0px 0px 5px;
+    width: 240px;
+    height: 200px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+}
+
+.service-card>.card-top>.panel-body>.card-top>.service-info-holder>.service-avaliation-holder,
+.service-card>.card-top>.panel-body>.card-top>.service-info-holder>.service-price-holder {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-end;
+}
+
+.service-card>.card-frame>.panel-body>.card-top>.service-img-holder>img {
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.catalog>.card-frame,
+.service-card>.card-frame {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.service-card>.card-frame>.panel-body>.card-top>.service-info-holder>.service-title,
+.service-card>.card-frame>.panel-body>.card-top>.service-info-holder>.service-avaliation-holder,
+.service-card>.card-frame>.panel-body>.card-top>.service-info-holder>.service-price-holder {
+    width: inherit;
+}
+
+.service-card>.card-frame>.panel-body>.card-top>.service-info-holder>.service-avaliation-holder {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.service-card>.card-frame>.panel-body>.card-top>.service-info-holder>.service-price-holder {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 /* star */
 .star-rating>.star-sm {
     margin: 0px 3px 0px 0px;
@@ -593,6 +665,21 @@ nav.main-navbar.navbar.navbar-default .container {
 .btn-buy-now,
 .btn-add-to-cart {
 
+    border: 1px solid #579964;
+}
+
+/* service card buttons */
+
+.btn-buy-now,
+.btn-add-to-cart {
+    font-size: 16px;
+    width: 190px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.btn-buy-now,
+.btn-add-to-cart {
     border: 1px solid #579964;
 }
 

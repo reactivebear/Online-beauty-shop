@@ -3,14 +3,16 @@ import React, { Component } from 'react'
 import {Grid, Row,Carousel} from 'react-bootstrap';
 import FilterButton from './home-page/FilterButton.jsx';
 import Catalog from './home-page/Catalog.jsx';
+import CatalogService from './home-page/CatalogService.jsx';
 //import ProdutosInspirados from './home-page/ProdutosInspirados.jsx';
-import Produtosemdestaque from './home-page/Produtosemdestaque.jsx';
-import Blog from './home-page/Blog.jsx';
+import ProductsFeatured from './home-page/ProductsFeatured.jsx';
+import ServicesFeatured from './home-page/ServicesFeatured.jsx';
 import Reviews from './home-page/Reviews.jsx';
-import Servicos from './home-page/Servicos.jsx';
+import Blog from './home-page/Blog.jsx';
 import Appstore from './home-page/Appstore.jsx';
 
 import { StorageKeys } from "../utils/storagekeys.js";
+import { Api } from "../api/api.js";
 
 import './Home.css';
 
@@ -45,20 +47,20 @@ export default class Home extends Component {
           <Row className="filter-button-row">
             <FilterButton></FilterButton>
           </Row>
-          <Row className="catalog">
+          <Row className="catalog catalog-product">
             <Catalog/>
           </Row>
           <Row className="produtosemdestaque">
-            <Produtosemdestaque />
+            <ProductsFeatured />
           </Row>
-          {/* <Row className="produtosinspirados">
-            <ProdutosInspirados />
-          </Row> */}
-          <Row className="blog">
-            <Blog />
+          <Row className="catalog catalog-service">
+            <CatalogService />
           </Row>
           <Row>
-            <Servicos />
+            <ServicesFeatured />
+          </Row>
+          <Row className="blog">
+            <Blog />
           </Row>
           <Row className="reviews">
             <Reviews />
