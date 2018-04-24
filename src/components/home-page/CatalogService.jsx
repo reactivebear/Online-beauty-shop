@@ -10,12 +10,12 @@ export default class Catalog extends Component {
         super(props);
         this.state = {
             catalogs: [
-                { id: 1, name: "Face Care", image_url: "assets/icons/star.png"},
-                { id: 2, name: "Fraqnances", image_url: "assets/icons/heart.png" },
-                { id: 3, name: "Nail & Makeup", image_url: "assets/icons/star.png" },
-                { id: 4, name: "Body Care", image_url: "assets/icons/heart.png" },
-                { id: 5, name: "Hair", image_url: "assets/icons/star.png" },
-                { id: 6, name: "Supplement", image_url: "assets/icons/heart.png" }
+                // { id: 1, name: "Face Care", image_url: "assets/icons/star.png"},
+                // { id: 2, name: "Fraqnances", image_url: "assets/icons/heart.png" },
+                // { id: 3, name: "Nail & Makeup", image_url: "assets/icons/star.png" },
+                // { id: 4, name: "Body Care", image_url: "assets/icons/heart.png" },
+                // { id: 5, name: "Hair", image_url: "assets/icons/star.png" },
+                // { id: 6, name: "Supplement", image_url: "assets/icons/heart.png" }
             ]
         }
     }
@@ -23,6 +23,7 @@ export default class Catalog extends Component {
     componentDidMount() {
         this.catalogsID = setInterval(
             () => this.fetchServiceCategories(),
+            //1000
             60000
         );
     }

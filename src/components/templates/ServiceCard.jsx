@@ -5,19 +5,19 @@ export default props => {
     const renderRows = () => {
         const services = props.services || [];
         return services.map(service => (
-            <div className="service-card" key={service.id}>
+            <div className="product-card service-card" key={service.id}>
                 <Panel className="card-frame">
                     <Panel.Body>
                         <div className="card-top">
-                            <div className="service-img-holder">
+                            <div className="product-img-holder service-img-holder">
                                 <Image src={service.image_url} />
                             </div>
-                            <div className="service-info-holder">
-                                <div className="service-title">
+                            <div className="product-info-holder service-info-holder">
+                                <div className="product-title service-title">
                                     <h4>{service.title}</h4>
                                 </div>
-                                <div className="service-avaliation-holder">
-                                    <div className="service-avaliation">
+                                <div className="product-avaliation-holder service-avaliation-holder">
+                                    <div className="product-avaliation service-avaliation">
                                         Avaliação
                                         <div className="star-rating">
                                             <span className="star-sm fill"></span>
@@ -31,14 +31,15 @@ export default props => {
                                         <span className="icon heart-green"></span>
                                     </div>
                                 </div>
-                                <div className="service-price-holder">
-                                    {!service.discount_price ? 
+                                <div className="product-price-holder service-price-holder">
+                                    {/* {!service.discount_price ? 
                                     null
                                     : <div className="old-price price">
                                         R$ {service.price}
-                                    </div>}
+                                    </div>} */}
                                     <div className="now-price price">
-                                        R$ {service.discount_price || service.price}
+                                        R$ {service.price}
+                                        {/* {service.discount_price || service.price} */}
                                         <div className="zero-zero">
                                         ,00
                                         </div>

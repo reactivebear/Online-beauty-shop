@@ -10,11 +10,11 @@ export default class Catalog extends Component {
         super(props);
         this.state = {
             catalogs: [
-                { id: 1, name: "Hairtylist & Makeup", image_url: "assets/icons/star.png"},
-                { id: 2, name: "Barber", image_url: "assets/icons/heart.png" },
-                { id: 3, name: "Depilation", image_url: "assets/icons/star.png" },
-                { id: 4, name: "Esthetic Clinics", image_url: "assets/icons/heart.png" },
-                { id: 5, name: "Spa & Massage", image_url: "assets/icons/star.png" }
+                // { id: 1, name: "Hairtylist & Makeup", image_url: "assets/icons/star.png"},
+                // { id: 2, name: "Barber", image_url: "assets/icons/heart.png" },
+                // { id: 3, name: "Depilation", image_url: "assets/icons/star.png" },
+                // { id: 4, name: "Esthetic Clinics", image_url: "assets/icons/heart.png" },
+                // { id: 5, name: "Spa & Massage", image_url: "assets/icons/star.png" }
             ]
         }
     }
@@ -22,6 +22,7 @@ export default class Catalog extends Component {
     componentDidMount() {
         this.catalogsID = setInterval(
             () => this.fetchProductCategories(),
+            //1000
             60000
         );
     }

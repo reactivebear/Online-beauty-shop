@@ -9,12 +9,12 @@ export default class ServicesFeatured extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { products: [] };
+    this.state = { services: [] };
   }
 
   render() {
     return (
-      <section className="products-section">
+      <section className="products-section services-section">
         <Col sm={12} className="person-wrapper">
           <div className="section-heading text-left">
             <h3>Serviços em <strong>destaque</strong></h3>
