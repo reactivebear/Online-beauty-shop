@@ -10,8 +10,8 @@ export default class ServiceList extends Component {
         super(props);
         this.state = {
             services: [
-                { id: 1, title: "Hairtylist & Makeup", price: 200, image_url: "assets/images/p7.jpg" },
-                { id: 2, title: "Barber", price: 100, image_url: "assets/images/p9.jpg" }
+                // { id: 1, title: "Hairtylist & Makeup", price: 200, image_url: "assets/images/p7.jpg" },
+                // { id: 2, title: "Barber", price: 100, image_url: "assets/images/p9.jpg" }
             ]
         }
     }
@@ -36,11 +36,11 @@ export default class ServiceList extends Component {
     }
 
     componentDidUpdate () {
-        clearInterval(this.productsID);
+        clearInterval(this.serviceID);
     }
 
     componentWillUnmount () {
-        clearInterval(this.productsID);
+        clearInterval(this.serviceID);
     }
 
     render() {

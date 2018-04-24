@@ -12,6 +12,11 @@ export default props => {
                             <div className="product-img-holder service-img-holder">
                                 <Image src={service.image_url} />
                             </div>
+                            <div className="service-category-holder">
+                                <div className="service-category">
+                                    {/* <button className=""></button> */}
+                                </div>
+                            </div>
                             <div className="product-info-holder service-info-holder">
                                 <div className="product-title service-title">
                                     <h4>{service.title}</h4>
@@ -45,17 +50,28 @@ export default props => {
                                         </div>
                                     </div>
                                 </div>
+                                <div className="store-name-holder">
+                                    <div className="store-name">Nino Garcia Hair</div>
+                                </div>
+                                <div className="store-address-holder">
+                                    <div className="store-address">Avenida Pedroso de Morais, 1017 - Pinheiros</div>
+                                </div>
                             </div>
                         </div>
                         <div className="card-bottom">
-                            <div className="btn-green">
-                                <button className="btn-buy-now btn btn-sm">
-                                    Comprar Agora
+                            <div className="btn-white">
+                                <button className="btn-add-to-cart btn-schedule-now btn btn-sm">
+                                    Agendar agora
                                 </button>
                             </div>
                             <div className="btn-white">
                                 <button className="btn-add-to-cart btn btn-sm">
-                                    Adicionar ao Carrinho
+                                    Adicionar ao carrinho
+                                </button>
+                            </div>
+                            <div className="btn-green">
+                                <button className="btn-buy-now btn-show-services btn btn-sm">
+                                    Exibir serviços
                                 </button>
                             </div>
                         </div>

@@ -535,7 +535,7 @@ nav.main-navbar.navbar.navbar-default .container {
 
 .service-card>.card-frame {
     /* service card dimensions */
-    height: 250px;
+    height: 500px;
     width: 420px;
 }
 
@@ -552,7 +552,7 @@ nav.main-navbar.navbar.navbar-default .container {
 
 .service-card>.card-frame>.panel-body>.card-top>.service-info-holder {
     padding: 0px 0px 0px 5px;
-    width: 240px;
+    width: 390px;
     height: 200px;
     display: flex;
     flex-flow: row wrap;
@@ -568,7 +568,7 @@ nav.main-navbar.navbar.navbar-default .container {
 
 .service-card>.card-frame>.panel-body>.card-top>.service-img-holder>img {
     height: 150px;
-    width: 150px;
+    width: 390px;
     object-fit: cover;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 10px;
@@ -669,18 +669,10 @@ nav.main-navbar.navbar.navbar-default .container {
 }
 
 /* service card buttons */
-
-.btn-buy-now,
-.btn-add-to-cart {
-    font-size: 16px;
-    width: 190px;
-    height: 40px;
-    border-radius: 10px;
-}
-
-.btn-buy-now,
-.btn-add-to-cart {
-    border: 1px solid #579964;
+.btn-schedule-now {}
+.btn-show-services {
+    margin: 5px 0px 0px 0px;
+    width: 385px;
 }
 
 /* left and right margin of home page content */

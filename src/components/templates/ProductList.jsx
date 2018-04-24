@@ -19,8 +19,8 @@ export default class ProductList extends Component {
     componentDidMount () {
         this.productsID = setInterval (
             () => this.fetchFeaturedProducts(),
-            //1000
-            60000
+            1000
+            //60000
         );
     }
 

@@ -22,8 +22,8 @@ export default class Catalog extends Component {
     componentDidMount() {
         this.catalogsID = setInterval(
             () => this.fetchProductCategories(),
-            //1000
-            60000
+            1000
+            //60000
         );
     }
 
