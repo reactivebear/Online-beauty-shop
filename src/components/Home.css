@@ -730,6 +730,12 @@ nav.main-navbar.navbar.navbar-default .container {
 }
 
 /*  */
+@media (max-width: 1296px) {
+    .catalog-list {
+        margin-left: 15%;
+    }
+}
+
 @media (min-width: 991px){
 
 .person-wrapper.products-wrap.col-md-3.col-sm-6.col-xs-6:not(:last-child) {

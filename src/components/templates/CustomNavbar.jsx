@@ -61,27 +61,6 @@ export default class CustomNavbar extends Component {
               </Row>
             </Grid>
           </Navbar.Collapse>
-
-
-          <div className="searchbar hidden-lg hidden-sm hidden-md">
-
-            {/* Campo de input de pesquisa da navbar, com react-bootstrap*/}
-            <Navbar.Form className="navbar-search" pullLeft>
-              <FormGroup>
-                <FormControl type="text" placeholder="Buscar por produtos e serviços" />
-              </FormGroup>{' '}
-              <Button type="submit" className="btn btn-success"><Glyphicon glyph="search" /></Button>
-            </Navbar.Form>
-          </div>
-          <div className="hidden-lg hidden-sm hidden-md sub-header">
-            <Grid>
-              <Row className="show-grid ">
-
-                <NavbarRightSection />
-
-              </Row>
-            </Grid>
-          </div>
         </Navbar>
       </div>
     )

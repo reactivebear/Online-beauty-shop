@@ -515,7 +515,7 @@ button.navbar-toggle{
   z-index: 99999999;
 }
 
-.navbar-left-section.col-md-9.col-xs-12 {
+.navbar-left-section {
     width: 850px;
     margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
@@ -557,7 +557,7 @@ button.navbar-toggle{
     width: 326px;
     position: relative;
     bottom: 13px;
-    left: 100px;
+    left: 10%;
 }
 
 /* navbar right section buttons, using react-bootstrap */
@@ -628,12 +628,163 @@ button.navbar-toggle{
     background-color: #579964;
 }
 
-@media (max-width:991px)
+@media (max-width: 1296px) {
+    .container:first-child {
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+    .navbar-ul {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .show-grid {
+        margin-left: -6%;
+        display: flex;
+        flex-flow: row wrap;
+    }
+    .btn-app {
+        position: relative;
+        right: 50%;
+        top: 100px;
+    }
+
+}
+
+@media (max-width: 1218px) {
+    .btn-app {
+        position: relative;
+        top: 10px;
+        right: 85%;
+    }
+    
+    /* input search field */
+    .navbar-left-section {
+        /* width: 1050px; */
+        width: 85%;
+    }
+
+    .searchbar>.navbar-form.navbar-left>.form-group>input {
+        /* width: 990px; */
+        width: 95%;
+    }
+}
+
+@media (max-width: 1199px) {
+    .main-navbar {
+        height: 240px;
+    }
+
+    .btn-app {
+        position: relative;
+        top: 0px;
+        left: 250%;
+    }
+
+    /* input search field */
+    .navbar-left-section {
+        width: 990px;
+    }
+    .searchbar>.navbar-form.navbar-left>.form-group>input {
+        width: 940px;
+    }
+
+}
+
+@media (max-width: 1090px) {
+    .navbar-ul:first-child {
+        width: 670px;
+    }
+    .btn-app {
+        position: relative;
+        left: 210%;
+    }
+
+    /* input search field */
+
+    .navbar-left-section {
+        width: 890px;
+    }
+
+    .searchbar>.navbar-form.navbar-left>.form-group>input {
+        width: 860px;
+    }
+}
+
+@media (max-width:990px)
 {
-  .header-nav ul.nav.navbar-nav.navbar-right button {
+    .main-navbar {
+        height: 260px;
+    }
+
+    .navbar-ul:first-child {
+        width: 870px;
+    }
+    
+    .navbar-brand>img.logo {
+        position: relative;
+        top: 40px;
+    }
+
+    .btn-app {
+        position: relative;
+        left: 225%;
+    }
+
+    .header-nav ul.nav.navbar-nav.navbar-right button {
       margin: 0;
   }
 }
+
+@media (max-width:950px) {
+    .main-navbar {
+        height: 260px;
+    }
+
+    .navbar-ul:first-child {
+        width: 730px;
+    }
+    .searchbar>.navbar-form.navbar-left>.form-group>input {
+        width: 710px;
+    }
+    .navbar-left-section {
+        width: 720px;
+    }
+
+    .navbar-brand>img.logo {
+        position: relative;
+        top: 0px;
+    }
+
+    .btn-app {
+        position: relative;
+        left: 165%;
+    }
+}
+
+@media (max-width: 800px) {
+    .main-navbar {
+        height: 300px;
+    }
+
+    .navbar-ul:first-child {
+        margin-right: 0px;
+        width: 600px;
+    }
+
+    .searchbar>.navbar-form.navbar-left>.form-group>input {
+        width: 600px;
+    }
+
+    .navbar-left-section {
+        width: 650px;
+    }
+
+    .btn-app {
+        position: relative;
+        left: 135%;
+    }
+}
+
 @media (max-width:767px){
 .navbar-side.location-div {
     position:  relative;
