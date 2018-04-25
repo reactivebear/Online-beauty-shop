@@ -19,11 +19,25 @@ export default class Home extends Component {
 
   constructor(props) {
     super(props);
-    this.psorder = true;
+    this.state = {psorder: true};
+
+    this.handleProductClick = this.handleProductClick.bind(this);
+    this.handleServiceClick = this.handleServiceClick.bind(this);
   }
 
   componentDidMount() {
     console.log(localStorage.getItem(StorageKeys.APIKEY));
+  }
+
+  handleProductClick () {
+    this.setState(
+      { psorder: true }
+    );
+  }
+  handleServiceClick() {
+    this.setState(
+      { psorder: false }
+    );
   }
 
   render() {
@@ -54,16 +68,25 @@ export default class Home extends Component {
               <Col sm={12} className="person-wrapper">
                 <Row className="filter-button-row">
                   <div className="filter-button-holder btn-green">
-                    <button type="button" className="filter-button-product  btn-sm btn" onClick={this.psorder=true}>Produtos</button>
+                      {this.state.psorder ?
+                        <button type="button" className="filter-button-product btn-sm btn btn-green"
+                        onClick={this.handleProductClick}>Produtos</button> :
+                        <button type="button" className ="filter-button-product btn-sm btn btn-white"
+                        onClick={this.handleProductClick}>Produtos</button>}
                   </div>
                   <div className="filter-button-holder btn-white">
-                    <button type="button" className="filter-button-service btn-sm btn" onClick={this.psorder=false}>Serviços</button>
+                    {this.state.psorder ?
+                      <button type="button" className = "filter-button-service btn-sm btn btn-white"
+                      onClick={this.handleServiceClick}>Serviços</button> :
+                      <button type="button" className="filter-button-service btn-sm btn btn-green"
+                        onClick={this.handleServiceClick}>Serviços</button>}
                   </div>
                 </Row>
               </Col>
             </section>
           </Row>
-          {!this.psorder?
+
+          {this.state.psorder ?
           <div>
             <section className="product-section">
               <Row className="catalog catalog-product">
@@ -101,6 +124,8 @@ export default class Home extends Component {
               </Row>
             </section>
           </div>}
+
+
           {/* <div >
             <section className="product-section">
               <Row className="catalog catalog-product">
