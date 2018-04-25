@@ -436,6 +436,11 @@ nav.main-navbar.navbar.navbar-default .container {
     position:relative;
 }
 
+/* product & service section */
+.product-section, .service-section {
+    margin-top: 40px;
+}
+
 /* catalog */
 .catalog-list {
     width: 1290px;      /* min 860px renders 2 cols, min 1290 renders 3 cols */
@@ -448,15 +453,15 @@ nav.main-navbar.navbar.navbar-default .container {
     margin: 0px 10px 10px 0px;
 }
 .catalog-card>.panel-body {
-    height: 160px;
+    height: 220px;
     width: 120px;
 }
 .catalog-card>.panel-body>.catalog-content {
-    height: 100px;
+    height: 150px;
 }
 .catalog-card>.panel-body>.catalog-content>.catalog-icon>img {
-    height: 50px;
-    width: 50px;
+    height: 65px;
+    width: 65px;
     object-fit: cover;
 }
 .catalog-card>.panel-body>.catalog-content>.catalog-title>h4 {
@@ -468,12 +473,22 @@ nav.main-navbar.navbar.navbar-default .container {
     justify-content: flex-end;
 }
 
+.catalog-list {
+    padding: 0px;
+    margin: 0px;
+}
+
+/* product & service grid */
+.products-section>.person-wrapper>.show-grid {
+    margin-top: -55px;
+}
+
 /* product card */
 .product-card {
     margin: 0px 10px 0px 0px;
 }
 .product-card>.card-frame {    /* product card dimensions */
-    height: 250px;
+    height: 260px;
     width: 420px;
 }
 .product-card>.card-frame>.panel-body {
@@ -599,6 +614,17 @@ nav.main-navbar.navbar.navbar-default .container {
     align-items: center;
 }
 
+/* service store data */
+.store-name-holder, .store-address-holder {
+    width: 100%;
+}
+.store-name-holder {
+    font-size: 22px;
+}
+.store-address-holder {
+    font-size: 18px;
+}
+
 /* star */
 .star-rating>.star-sm {
     margin: 0px 3px 0px 0px;
@@ -651,28 +677,37 @@ nav.main-navbar.navbar.navbar-default .container {
 
 /* product card buttons */
 .card-bottom {
-    margin: -10px 0 0 0;
+    margin: 0 0 0 0;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
 }
-.btn-buy-now, .btn-add-to-cart {
+.btn-buy-now,
+.btn-add-to-cart,
+.btn-schedule-now,
+.btn-show-services,
+.btn-card-category {
     font-size: 16px;
     width: 190px;
     height: 40px;
     border-radius: 10px;
 }
 .btn-buy-now,
-.btn-add-to-cart {
+.btn-add-to-cart,
+.btn-schedule-now,
+.btn-card-category {
 
     border: 1px solid #579964;
 }
 
 /* service card buttons */
-.btn-schedule-now {}
 .btn-show-services {
     margin: 5px 0px 0px 0px;
     width: 385px;
+}
+
+.btn-card-category {
+    width: 100%;
 }
 
 /* left and right margin of home page content */

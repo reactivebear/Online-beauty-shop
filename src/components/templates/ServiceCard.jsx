@@ -1,5 +1,6 @@
 import React from 'react'
 import { Image, Panel } from 'react-bootstrap'
+// import ServiceCardCategories from './ServiceCardCategories';
 
 export default props => {
     const renderRows = () => {
@@ -12,11 +13,13 @@ export default props => {
                             <div className="product-img-holder service-img-holder">
                                 <Image src={service.image_url} />
                             </div>
-                            <div className="service-category-holder">
+                            {/* <div className="service-category-holder">
                                 <div className="service-category">
-                                    {/* <button className=""></button> */}
+                                    <ServiceCardCategories
+                                        categories={this.category}
+                                    ></ServiceCardCategories>
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="product-info-holder service-info-holder">
                                 <div className="product-title service-title">
                                     <h4>{service.title}</h4>
@@ -60,7 +63,7 @@ export default props => {
                         </div>
                         <div className="card-bottom">
                             <div className="btn-white">
-                                <button className="btn-add-to-cart btn-schedule-now btn btn-sm">
+                                <button className="btn-schedule-now btn btn-sm">
                                     Agendar agora
                                 </button>
                             </div>
@@ -70,7 +73,7 @@ export default props => {
                                 </button>
                             </div>
                             <div className="btn-green">
-                                <button className="btn-buy-now btn-show-services btn btn-sm">
+                                <button className="btn-show-services btn btn-sm">
                                     Exibir serviços
                                 </button>
                             </div>

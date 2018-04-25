@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
-import { Api } from '../../api/api.js';
 import { Row, Col } from 'react-bootstrap';
 
 import ServiceList from '../templates/ServiceList';

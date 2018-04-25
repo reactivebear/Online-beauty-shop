@@ -4,7 +4,7 @@ import CatalogCard from "../templates/CatalogCard";
 
 import { Api } from "../../api/api.js";
 
-export default class Catalog extends Component {
+export default class CatalogProduct extends Component {
 
     constructor (props) {
         super(props);
