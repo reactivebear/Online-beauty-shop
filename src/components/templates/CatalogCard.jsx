@@ -27,7 +27,7 @@ export default props => {
     }
 
     return (
-        <div className="catalog-list col-sm-6 col-md-4">
+        <div className="catalog-list">
             {renderRows()}
         </div>
     )

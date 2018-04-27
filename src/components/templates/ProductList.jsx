@@ -46,12 +46,12 @@ export default class ProductList extends Component {
     render() {
         return (
             <section className="product-section">
-                <Col sm={12} className="person-wrapper">
+                <Col className="person-wrapper">
                     {/* <div className="section-heading text-left">
                         <h3>Produtos em <strong>destaque</strong></h3>
                     </div> */}
                     <Row className="show-grid catalog-list">
-                        <Col xs={6} sm={3} className="person-wrapper">
+                        <Col className="person-wrapper">
                             <ProductCard
                                 products={this.state.products}>
                             </ProductCard>

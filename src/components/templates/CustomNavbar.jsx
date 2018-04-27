@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { Grid, Navbar, Nav, NavItem, Row, Col,FormGroup,FormControl,Button,Image,Glyphicon} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import './CustomNavbar.css';
+import DownloadAppButtonSmall from '../templates/DownloadAppButtonSmall.jsx';
 import NavbarRightSection from '../templates/NavbarRightSection.jsx';
 // import SearchBar from '../templates/SearchBar.jsx';
+import './CustomNavbar.css';
 export default class CustomNavbar extends Component {
 
   render() {
@@ -16,11 +17,9 @@ export default class CustomNavbar extends Component {
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
-          <Nav pullRight className="download-app-button">
-            <NavItem eventKey={1} href="#">
-              <Button type="button" className="btn btn-sm btn-success btn-app" bsSize="xs"><i className="fa fa-mobile" aria-hidden="false"></i> Baixe grátis o app do Visual Total</Button>
-            </NavItem>
-          </Nav>
+
+          <DownloadAppButtonSmall className="hidden-xs"/>
+          
           <Navbar.Collapse>
           </Navbar.Collapse>
           <Grid>
@@ -44,7 +43,7 @@ export default class CustomNavbar extends Component {
               </Nav>
             </Row>
             <Row className="show-grid">
-              <Col xs={12} md={9} className="navbar-left-section">
+              <Col className="navbar-left-section">
                 <div className="searchbar">
                   {/* Campo de input de pesquisa da navbar, com react-bootstrap*/}
                   <Navbar.Form pullLeft>

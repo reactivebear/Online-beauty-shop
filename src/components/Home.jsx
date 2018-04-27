@@ -2,11 +2,7 @@ import React, { Component } from 'react'
 // import { Link } from 'react-router-dom';
 import {Col, Grid, Row,Carousel} from 'react-bootstrap';
 // import FilterButton from './home-page/FilterButton.jsx';
-import CatalogProduct from './home-page/CatalogProduct.jsx';
-import CatalogService from './home-page/CatalogService.jsx';
 //import ProdutosInspirados from './home-page/ProdutosInspirados.jsx';
-import ProductsFeatured from './home-page/ProductsFeatured.jsx';
-import ServicesFeatured from './home-page/ServicesFeatured.jsx';
 import ProductSection from './templates/ProductSection.jsx';
 import ServiceSection from './templates/ServiceSection.jsx';
 import Reviews from './home-page/Reviews.jsx';
@@ -67,7 +63,7 @@ export default class Home extends Component {
           <Row className="filter-button-row">
             {/* <FilterButton ></FilterButton> */}
             <section className="filter-button-section">
-              <Col sm={12} className="person-wrapper">
+              <Col className="person-wrapper">
                 <Row className="filter-button-row">
                   <div className="filter-button-holder btn-green">
                       {this.state.psorder ?
@@ -89,35 +85,16 @@ export default class Home extends Component {
           </Row>
 
           {this.state.psorder ?
-          <div>
+          <section className="featured-section">
             <ProductSection />
             <ServiceSection />
-          </div>
+          </section>
           :
-          <div>
+          <section className="featured-section">
             <ServiceSection />
             <ProductSection />
-          </div>}
+          </section>}
 
-
-          {/* <div >
-            <section className="product-section">
-              <Row className="catalog catalog-product">
-                <CatalogProduct />
-              </Row>
-              <Row className="products-featured">
-                <ProductsFeatured />
-              </Row>
-            </section>
-            <section className="service-section">
-              <Row className="catalog catalog-service">
-                <CatalogService />
-              </Row>
-              <Row className="services-featured">
-                <ServicesFeatured />
-              </Row>
-            </section>
-          </div> */}
           <Row className="blog">
             <Blog />
           </Row>

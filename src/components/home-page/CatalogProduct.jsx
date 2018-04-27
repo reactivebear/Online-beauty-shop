@@ -49,12 +49,12 @@ export default class CatalogProduct extends Component {
     render () {
         return (
             <section className="catalog-section">
-                 <Col xs={12} sm={6} md={12} className="person-wrapper col-xs-12 col-sm-6 col-md-12">
+                 <Col className="person-wrapper">
                      <div className="section-heading text-left">
                          <h3>Catálogo de <strong>produtos</strong></h3>
                      </div>
                      <Row className="show-grid catalog-list">
-                        <Col xs={12} sm={4} md={3} className="person-wrapper col-xs-12 col-sm-4 col-md-3">
+                        <Col className="person-wrapper">
                             <CatalogCard
                                 catalogs={this.state.catalogs}>
                             </CatalogCard>

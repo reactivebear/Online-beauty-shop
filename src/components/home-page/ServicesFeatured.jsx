@@ -14,7 +14,7 @@ export default class ServicesFeatured extends Component {
   render() {
     return (
       <section className="products-section services-section">
-        <Col sm={12} className="person-wrapper">
+        <Col className="person-wrapper">
           <div className="section-heading text-left">
             <h3>Serviços em <strong>destaque</strong></h3>
           </div>

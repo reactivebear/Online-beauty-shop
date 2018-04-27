@@ -60,7 +60,7 @@ nav.navbar, .navbar-default {
      padding: 0;
 }
 .searchbar > .navbar-form.navbar-left > .form-group > input{
-    width: 800px;
+    width: inherit;
     height: 42px;
     padding-left: 3%;
     text-align: left;
@@ -541,23 +541,16 @@ button.navbar-toggle{
     height: 42px;
 } */
 
-.download-app-button {
-    display: flex;
-    justify-content: flex-end;
-}
 
 /* mobile app download button */
 
 .btn-app {
     height: 43px;
     border-radius: 5px;
-}
-
-.download-app-button {
     width: 326px;
     position: relative;
     bottom: 13px;
-    left: 10%;
+    left: 9%;
 }
 
 /* navbar right section buttons, using react-bootstrap */
@@ -628,198 +621,29 @@ button.navbar-toggle{
     background-color: #579964;
 }
 
+@media (max-width: 1200px) {
+    .main-navbar {
+        width: 100%;
+    }
+    .main-navbar>.container {
+        width: calc(100% - 200px);
+    }
+    .main-navbar>.container>.container {
+        width: 100%;
+    }
+}
 
-@media (max-width: 1790px) {
-    .main-navbar:first-child {
-        margin-left: -50px;
-    }
-    .navbar-ul {
-        width: 880px;
-        display: flex;
-        justify-content: flex-end;
-    }
-    .show-grid {
-        margin-left: 0%;
+@media (max-width: 770px) {
+    .container>.show-grid {
         display: flex;
         flex-flow: row wrap;
-    }
-    .btn-app {
-        position: absolute;
-        right: 400px;
+        height: 120px;
     }
 }
 
-
-@media (max-width: 800px) {
-    .main-navbar {
-        height: 300px;
+@media (max-width: 415px) {
+    .navbar-brand>img {
+        width: 80%;
+        height: 80%;
     }
-
-    .navbar-ul:first-child {
-        margin-right: 0px;
-        width: 600px;
-    }
-
-    .searchbar>.navbar-form.navbar-left>.form-group>input {
-        width: 600px;
-    }
-
-    .navbar-left-section {
-        width: 650px;
-    }
-
-    .btn-app {
-        position: relative;
-        left: 135%;
-    }
-}
-
-@media (max-width:767px){
-
-    .main-navbar {
-        height: 240px;
-    }
-
-    .navbar-ul:first-child {
-        margin-right: 0px;
-        width: 200px;
-    }
-
-    .searchbar>.navbar-form.navbar-left>.form-group>input {
-        width: 600px;
-    }
-
-    .navbar-left-section {
-        width: 650px;
-    }
-
-    .btn-app {
-        position: relative;
-        left: 135%;
-    }
-
-    /* .navbar-side.location-div {
-        position: relative;
-        padding-left: 30px;
-    }
-    .navbar-side.location-div .tooltip-div {
-        position: absolute;
-        left: 5px;
-        top: 6px;
-    }
-    button.navbar-toggle.collapsed{
-    margin-right: 0;
-    }
-    a.navbar-brand img {
-        width: 100%;
-        height: auto;
-    }
-    .sub-header{
-    margin-top: 15px;
-    }
-    .navbar-brand{
-    width: 180px;
-    }
-    .header-nav ul.nav.navbar-nav.navbar-right {
-        position: absolute;
-        right: 60px;
-        top: 2px;
-    }
-    .navbar-form.navbar-left {
-        margin: 0;
-        border: none;
-    }
-    .searchbar > .dropdown{
-        top: 0;
-        left: 0px;
-    }
-    .searchbar.hidden-lg.hidden-sm.hidden-md{
-    margin-top: 10px;
-    }
-    .navbar-header a.navbar-brand{
-    padding-left: 0;
-    }
-    .navbar-ul.row {
-        margin-left: 0;
-        margin-right: 0;
-    }
-    .navbar-default .navbar-nav > li > a{
-        font-size: 14px;
-    } */
-}
-@media (max-width:635px) {
-    .searchbar > .dropdown {
-        width: 95px !important;
-    }
-    .searchbar > .navbar-form.navbar-left > .form-group > input {
-        padding-left: 115px;
-    }
-    p.login-tooltip > strong,.navbar-side > p > strong{
-    font-size: 12px;
-    }
-}
-@media (max-width:612px){
-.sub-header .divs > div {
-width: 50%;
-margin: 10px 0;
-}
-.navbar-side-cart {
-    padding-left: 8px;
-}
-div#adicionartooltipContent {
-    display: none;
-    width: 300px;
-    left: -3px;
-}
-div#cart-tooltip {
-    display: block;
-    left: -8px;
-    width: 300px;
-}
-div#cart-tooltip .arowForToltip {
-    left: 15px;
-    right: auto;
-}
-div#logintooltipContent {
-    left: -161px;
-    width: 300px;
-}
-.arowForToltip {
-    right: 90px;
-}
-form.zip-form.form-inline .form-group,
-form.zip-form.form-inline button {
-    width: 100%;
-}
-.cart-product-img {
-    display: none !important;
-}
-.cart-product-detail {
-    width: 200px;
-}
-}
-@media (max-width:520px){
-  .header-nav ul.nav.navbar-nav.navbar-right button {
-    width: 31px;
-    overflow: hidden;
-  }
-  ul.nav.navbar-nav.navbar-right > li > a {padding-right: 40px;}
-}
-@media (max-width:374px){
-  .sub-header .divs > div{
-    padding: 0 10px;
-  }
-  .searchbar > .navbar-form.navbar-left > .form-group + button {
-    position: static;
-    width: 100%;
-    border-radius: 4px;
-    border: none;
-}
-
-.searchbar > .navbar-form.navbar-left > .form-group > input {
-    padding-left: 100px;
-}
-
-
-
 }

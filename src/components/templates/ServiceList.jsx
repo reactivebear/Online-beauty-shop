@@ -45,13 +45,13 @@ export default class ServiceList extends Component {
 
     render() {
         return (
-            <section className="product-section service-section">
-                <Col sm={12} className="person-wrapper">
+            <section className="service-section">
+                <Col className="person-wrapper">
                     {/* <div className="section-heading text-left">
                         <h3>Produtos em <strong>destaque</strong></h3>
                     </div> */}
                     <Row className="show-grid catalog-list">
-                        <Col xs={6} sm={3} className="person-wrapper">
+                        <Col className="person-wrapper">
                             <ServiceCard
                                 services={this.state.services}>
                             </ServiceCard>

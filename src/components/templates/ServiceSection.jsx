@@ -3,7 +3,7 @@ import { Row } from 'react-bootstrap';
 import CatalogService from '../home-page/CatalogService.jsx';
 import ServicesFeatured from '../home-page/ServicesFeatured';
 
-export default class ProductSection extends Component {
+export default class ServicetSection extends Component {
 
     render () {
         return (
