@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Grid, Navbar, Nav, NavItem, Row, Col,FormGroup,FormControl,Button,Image,Glyphicon} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import DownloadAppButtonBig from '../templates/DownloadAppButtonBig.jsx';
 import DownloadAppButtonSmall from '../templates/DownloadAppButtonSmall.jsx';
 import NavbarRightSection from '../templates/NavbarRightSection.jsx';
 // import SearchBar from '../templates/SearchBar.jsx';
@@ -11,6 +12,7 @@ export default class CustomNavbar extends Component {
     return (
       <div className="header-nav">
         <Navbar default collapseOnSelect  className="main-navbar">
+          <DownloadAppButtonBig  />
           <Navbar.Header>
             <Navbar.Brand>
               <Link to="/"><Image src="assets/images/LogoVisualTotal.png"  className="logo"/></Link>
@@ -18,7 +20,7 @@ export default class CustomNavbar extends Component {
             <Navbar.Toggle />
           </Navbar.Header>
 
-          <DownloadAppButtonSmall className="hidden-xs"/>
+          <DownloadAppButtonSmall />
           
           <Navbar.Collapse>
           </Navbar.Collapse>

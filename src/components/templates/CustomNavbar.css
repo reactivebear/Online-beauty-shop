@@ -621,6 +621,15 @@ button.navbar-toggle{
     background-color: #579964;
 }
 
+/* visibility */
+.visible {
+    visibility: visible;
+}
+.invisible {
+    visibility: hidden;
+}
+
+
 @media (max-width: 1200px) {
     .main-navbar {
         width: 100%;
