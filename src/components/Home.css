@@ -730,7 +730,7 @@ nav.main-navbar.navbar.navbar-default .container {
 }
 
 /*  */
-@media (max-width: 1296px) {
+/* @media (max-width: 1296px) {
     .catalog-list {
         margin-left: 15%;
     }
@@ -763,7 +763,7 @@ nav.main-navbar.navbar.navbar-default .container {
     padding-left: 5px !important;
     padding-right:  13px;
 }
-}
+} */
 @media (max-width: 991px){
   div#logintooltipContent{
     top: 49px !important;

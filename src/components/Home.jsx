@@ -7,6 +7,8 @@ import CatalogService from './home-page/CatalogService.jsx';
 //import ProdutosInspirados from './home-page/ProdutosInspirados.jsx';
 import ProductsFeatured from './home-page/ProductsFeatured.jsx';
 import ServicesFeatured from './home-page/ServicesFeatured.jsx';
+import ProductSection from './templates/ProductSection.jsx';
+import ServiceSection from './templates/ServiceSection.jsx';
 import Reviews from './home-page/Reviews.jsx';
 import Blog from './home-page/Blog.jsx';
 import Appstore from './home-page/Appstore.jsx';
@@ -88,41 +90,13 @@ export default class Home extends Component {
 
           {this.state.psorder ?
           <div>
-            <section className="product-section">
-              <Row className="catalog catalog-product">
-                <CatalogProduct />
-              </Row>
-              <Row className="products-featured">
-                <ProductsFeatured />
-              </Row>
-            </section>
-            <section className="service-section">
-              <Row className="catalog catalog-service">
-                <CatalogService />
-              </Row>
-              <Row className="services-featured">
-                <ServicesFeatured />
-              </Row>
-            </section>
+            <ProductSection />
+            <ServiceSection />
           </div>
           :
           <div>
-            <section className="service-section">
-              <Row className="catalog catalog-service">
-                <CatalogService />
-              </Row>
-              <Row className="services-featured">
-                <ServicesFeatured />
-              </Row>
-            </section>
-            <section className="product-section">
-              <Row className="catalog catalog-product">
-                <CatalogProduct />
-              </Row>
-              <Row className="products-featured">
-                <ProductsFeatured />
-              </Row>
-            </section>
+            <ServiceSection />
+            <ProductSection />
           </div>}
 
 
