@@ -14,7 +14,7 @@ nav.navbar, .navbar-default {
 }
 .navbar-default .navbar-nav > li > a {
   color: white;
-  font-size: 15 px;
+  font-size: 13px;
 }
 .navbar-default .navbar-brand {
   color: white;
@@ -131,6 +131,8 @@ nav.navbar, .navbar-default {
 }
 .navbar-header {
     padding: 0 15px;
+    position: relative;
+    right: 300px;
 }
 .navbar-header,.navbar-header  a.navbar-brand {
     height: 80px;
@@ -140,7 +142,17 @@ nav.navbar, .navbar-default {
     padding:0 15px;
 }
 
+.navbar-ul {
+    width: 65%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+}
+
 .navbar-ul > ul.main-ul {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
     margin-top: 45px;
 }
 
@@ -233,19 +245,7 @@ p.login-tooltip {
 location {
     max-width:  40px;
 }
-.location.col-md-1.col-xs-1 {
-    max-width:  40px;
-}
-.location.col-md-1.col-xs-1 > div {
-    width: 18px;
-    text-align:  center;
-    padding: 0 !important;
-    font-size:  20px;
-    color:  #fff;
-    position:  relative;
-    top: 4px;
-    cursor:pointer;
-}
+
 .loginBtnfb {
     background:  #415da2;
 }
@@ -614,7 +614,13 @@ button.navbar-toggle{
 /* logo size appears 27% bigger than mockup */
 .navbar-brand {
     position: relative;
-    bottom: 18px;
+    top: 100px;
+    right: 20px;
+}
+
+.navbar-brand>img {
+    width: 80%;
+    height: 80%;
 }
 /* button colors */
 .btn-success {
