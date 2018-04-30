@@ -20,7 +20,7 @@ export default class CustomNavbar extends Component {
             <Navbar.Toggle />
           </Navbar.Header>
 
-          <DownloadAppButtonSmall />
+          <DownloadAppButtonSmall   />
           
           <Navbar.Collapse>
           </Navbar.Collapse>

@@ -132,10 +132,10 @@ nav.navbar, .navbar-default {
 .navbar-header {
     padding: 0 15px;
     position: relative;
-    right: 300px;
+    right: 320px;
 }
 .navbar-header,.navbar-header  a.navbar-brand {
-    height: 80px;
+    height: 45px;
 }
 
 .navbar-header  a.navbar-brand{
@@ -153,7 +153,7 @@ nav.navbar, .navbar-default {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-end;
-    margin-top: 45px;
+    margin-top: 0px;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -531,6 +531,7 @@ button.navbar-toggle{
 }
 
 .main-navbar>.container {
+    height: auto;
     margin-top: 21px;
     margin-left: 120px;
     margin-right: 120px;
@@ -612,15 +613,14 @@ button.navbar-toggle{
 }
 
 /* logo size appears 27% bigger than mockup */
-.navbar-brand {
+/* .navbar-brand {
     position: relative;
     top: 100px;
     right: 20px;
-}
+} */
 
 .navbar-brand>img {
     width: 80%;
-    height: 80%;
 }
 /* button colors */
 .btn-success {
@@ -636,7 +636,7 @@ button.navbar-toggle{
 }
 
 
-@media (max-width: 1200px) {
+@media (max-width: 1025px) {
     .main-navbar {
         width: 100%;
     }
@@ -646,19 +646,39 @@ button.navbar-toggle{
     .main-navbar>.container>.container {
         width: 100%;
     }
+    .navbar-brand {
+        width: 80%;
+        position: relative;
+        left: 160px;
+        top: 50px;
+    }
+    .navbar-ul {
+        width: 400px;
+        margin: 0;
+    }
 }
 
 @media (max-width: 770px) {
+    .main-navbar {
+        width: 1024px;
+    }
     .container>.show-grid {
         display: flex;
         flex-flow: row wrap;
+        justify-content: flex-end;
         height: 120px;
+    }
+    .navbar-ul {
+        width: 100%;
+        margin: 0;
+    }
+    .navbar-brand {
+        position: relative;
+        left: 210px;
+        top: 20px;
     }
 }
 
 @media (max-width: 415px) {
-    .navbar-brand>img {
-        width: 80%;
-        height: 80%;
-    }
+    
 }
