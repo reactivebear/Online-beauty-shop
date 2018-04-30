@@ -10,38 +10,38 @@ export default class ProductList extends Component {
         super(props);
         this.state = {
             products: [
-                { id: 1, name: "Hairtylist & Makeup", price: 200, image_url: "assets/images/p7.jpg" },
-                { id: 2, name: "Barber", price: 100, image_url: "assets/images/p9.jpg" }
+                // { id: 1, name: "Hairtylist & Makeup", price: 200, image_url: "assets/images/p7.jpg" },
+                // { id: 2, name: "Barber", price: 100, image_url: "assets/images/p9.jpg" }
             ]
         }
     }
 
-    // componentDidMount () {
-    //     this.productsID = setInterval (
-    //         () => this.fetchFeaturedProducts(),
-    //         1000
-    //         //60000
-    //     );
-    // }
+    componentDidMount () {
+        this.productsID = setInterval (
+            () => this.fetchFeaturedProducts(),
+            1000
+            //60000
+        );
+    }
 
-    // //take all products featured and send that information to a list of products
-    // fetchFeaturedProducts () {
-    //     Api.getProductsFeatured()
-    //         .then(res => {
-    //             this.setState({
-    //                 products: res.data.object
-    //             });
-    //             // console.log(JSON.stringify(res.data.object, null, 4));
-    //         });
-    // }
+    //take all products featured and send that information to a list of products
+    fetchFeaturedProducts () {
+        Api.getProductsFeatured()
+            .then(res => {
+                this.setState({
+                    products: res.data.object
+                });
+                // console.log(JSON.stringify(res.data.object, null, 4));
+            });
+    }
 
-    // componentDidUpdate () {
-    //     clearInterval(this.productsID);
-    // }
+    componentDidUpdate () {
+        clearInterval(this.productsID);
+    }
 
-    // componentWillUnmount () {
-    //     clearInterval(this.productsID);
-    // }
+    componentWillUnmount () {
+        clearInterval(this.productsID);
+    }
 
     render() {
         return (

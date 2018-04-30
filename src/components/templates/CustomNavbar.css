@@ -635,6 +635,30 @@ button.navbar-toggle{
     visibility: hidden;
 }
 
+/* download app section, visible only on xs devices */
+.download-app-section {
+    background-color: #579964;
+    margin: 0;
+    padding: 0;
+    width: 414px;
+    display: flex;
+    justify-content: center;
+}
+.download-app-section>ul {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+.download-app-section>ul.nav>li>a>h2, .download-app-section>ul.nav>li>a>p {
+    color: #fff;
+    text-align: center;
+}
+.download-app-section>ul>li>a>button {
+    border: 1px solid white;
+    border-radius: 15px;
+    text-align: center;
+}
 
 @media (max-width: 1025px) {
     .main-navbar {
@@ -655,6 +679,7 @@ button.navbar-toggle{
     .navbar-ul {
         width: 400px;
         margin: 0;
+        margin-left: 100px;
     }
 }
 
@@ -680,5 +705,53 @@ button.navbar-toggle{
 }
 
 @media (max-width: 415px) {
-    
+    .main-navbar {
+        width: 100%;
+        height: 300px;
+    }
+    .main-navbar>.container {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+    }
+    .navbar-table {
+        width: 400px;
+        display: flex;
+        flex-flow: column wrap;
+    }
+    .navbar-table:first-child {
+        width: 300px;
+        display: flex;
+        flex-flow: row wrap;
+        position: relative;
+    }
+    /* td.location, td.cart, td.login {
+        display: flex;
+        flex-flow: row wrap;
+        height: 40px;
+    } */
+
+    .location-text-title, .location-text, .cart-text-title, .cart-text, .login-text-title, .login-button {   
+        font-size: 12px;
+    }
+    .navbar-brand {
+        margin-left: 230px;
+        position: relative;
+        top: -60px;
+        left: 0;
+    }
+    .main-navbar>.container>.container {
+        width: 300px;
+    }
+    .navbar-toggle {
+        position: relative;
+        left: 380px;
+        top: -70px;
+        border: 0px solid;
+    }
+
+    .searchbar {
+        position: relative;
+        left: -80px;
+    }
 }

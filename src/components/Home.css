@@ -730,8 +730,32 @@ nav.main-navbar.navbar.navbar-default .container {
 }
 
 /*  */
-@media (max-width: 1500px) {
+@media (max-width: 1025px) {
     .catalog-list {
         width: 100%;
     }
+    .page-content>.filter-button-row {
+        position: relative;
+        left: -120px;
+    }
+}
+
+@media (max-width: 770px) {
+    .homePage {
+        width: 1024px;
+    }
+    .page-content>.filter-button-row {
+        position: relative;
+        left: 0px;
+    }
+    /* .catalog-list>.person-wrapper>.catalog-list>.product-card {
+        width: 40%;
+    }
+    .catalog-list>.person-wrapper>.catalog-list>.product-card>.card-frame {
+        width: 80%;
+    } */
+}
+
+@media (max-width: 415px) {
+
 }

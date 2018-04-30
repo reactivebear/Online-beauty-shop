@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Grid, Navbar, Nav, NavItem, Row, Col,FormGroup,FormControl,Button,Image,Glyphicon} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import DownloadAppButtonBig from '../templates/DownloadAppButtonBig.jsx';
+import DownloadAppSection from '../templates/DownloadAppSection.jsx';
 import DownloadAppButtonSmall from '../templates/DownloadAppButtonSmall.jsx';
 import NavbarRightSection from '../templates/NavbarRightSection.jsx';
 // import SearchBar from '../templates/SearchBar.jsx';
@@ -11,8 +11,10 @@ export default class CustomNavbar extends Component {
   render() {
     return (
       <div className="header-nav">
+
+        <DownloadAppSection />
+
         <Navbar default collapseOnSelect  className="main-navbar">
-          <DownloadAppButtonBig  />
           <Navbar.Header>
             <Navbar.Brand>
               <Link to="/"><Image src="assets/images/LogoVisualTotal.png"  className="logo"/></Link>
@@ -22,11 +24,10 @@ export default class CustomNavbar extends Component {
 
           <DownloadAppButtonSmall   />
           
-          <Navbar.Collapse>
-          </Navbar.Collapse>
+          <Navbar.Collapse />
           <Grid>
             <Row className="navbar-ul">
-              <Nav  className="main-ul hidden-xs">
+              <Nav  className="main-ul hidden-xs d-none d-sm-block">
                 <NavItem eventKey={1} componentClass={Link} href="/" to="/">
                   Hairtylist & Makeup
                 </NavItem>
