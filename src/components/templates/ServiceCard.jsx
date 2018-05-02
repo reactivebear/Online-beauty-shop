@@ -6,11 +6,11 @@ export default props => {
     const renderRows = () => {
         const services = props.services || [];
         return services.map(service => (
-            <div className="product-card service-card" key={service.id}>
+            <div className="service-card" key={service.id}>
                 <Panel className="card-frame">
                     <Panel.Body>
                         <div className="card-top">
-                            <div className="product-img-holder service-img-holder">
+                            <div className="service-img-holder">
                                 <Image src={service.image_url} />
                             </div>
                             {/* <div className="service-category-holder">
@@ -20,12 +20,12 @@ export default props => {
                                     ></ServiceCardCategories>
                                 </div>
                             </div> */}
-                            <div className="product-info-holder service-info-holder">
-                                <div className="product-title service-title">
+                            <div className="service-info-holder">
+                                <div className="service-title">
                                     <h4>{service.title}</h4>
                                 </div>
-                                <div className="product-avaliation-holder service-avaliation-holder">
-                                    <div className="product-avaliation service-avaliation">
+                                <div className="service-avaliation-holder">
+                                    <div className="service-avaliation">
                                         Avaliação
                                         <div className="star-rating">
                                             <span className="star-sm fill"></span>
@@ -39,7 +39,7 @@ export default props => {
                                         <span className="icon heart-green"></span>
                                     </div>
                                 </div>
-                                <div className="product-price-holder service-price-holder">
+                                <div className="service-price-holder">
                                     {/* {!service.discount_price ? 
                                     null
                                     : <div className="old-price price">

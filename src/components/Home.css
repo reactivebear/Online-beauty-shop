@@ -439,7 +439,7 @@ nav.main-navbar.navbar.navbar-default .container {
 }
 
 /* catalog */
-.catalog-list {
+.catalog-list, .service-list, .product-list {
     width: 1290px;      /* min 860px renders 2 cols, min 1290 renders 3 cols */
     display: flex;
     flex-flow: row wrap;
@@ -452,14 +452,14 @@ nav.main-navbar.navbar.navbar-default .container {
     margin: 0px 10px 10px 0px;
 }
 .catalog-card>.panel-body {
-    height: 220px;
-    width: 120px;
+    height: 200px;
+    width: 150px;
 }
 .catalog-card>.panel-body>.catalog-content {
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
-    height: 150px;
+    height: 130px;
 }
 .catalog-card>.panel-body>.catalog-content>.catalog-icon>img {
     height: 65px;
@@ -731,37 +731,106 @@ nav.main-navbar.navbar.navbar-default .container {
 
 /*  */
 @media (max-width: 1025px) {   /* iPad Pro width: 1024px */
-    .catalog-list {
+    .homePage>.page-content {
+        width: 80%;
+    }
+
+    .catalog-list, .product-list, .service-list {
         width: 100%;
     }
     .page-content>.filter-button-row {
         position: relative;
-        left: -120px;
+        left: 60px;
+    }
+
+    .carousel-caption {
+        height: 45%;
+        text-align: center;
+    }
+
+    .carousel-caption>h1{
+        font-size: 48px;
+    }
+    .carousel-caption>p {
+        font-size: 16px;
+        text-align: center;
     }
 }
 
 @media (max-width: 770px) {    /* iPad width: 768px */
     .homePage {
-        width: 1024px;
+        width: 100%;
     }
+
     .page-content>.filter-button-row {
-        position: relative;
         left: 0px;
     }
-    /* .catalog-list>.person-wrapper>.catalog-list>.product-card {
-        width: 40%;
+
+    .carousel-caption {
+        height: 50%;
     }
-    .catalog-list>.person-wrapper>.catalog-list>.product-card>.card-frame {
-        width: 80%;
-    } */
+    .carousel-caption>h1 {
+        font-size: 38px;
+        margin-bottom: 10px;
+    }
+
+    .carousel-caption>p {
+        font-size: 13px;
+        margin-top: 10px;
+    }
 }
 
 @media (max-width: 415px) {    /* iPhone 6/7/8 Plus width: 414px */
+    .carousel-caption {
+        height: 90%;
+    }
+
+    .carousel-caption>h1 {
+        font-size: 38px;
+        margin-bottom: 0px;
+
+    }
+    .carousel-caption>p {
+        font-size: 13px;
+        margin-top: 0px;
+    }
+
+    .page-content:not(:first-child) {
+        margin: 0 100px 0 30px;
+    }
+
+    .filter-button-row {
+        position: relative;
+        left: 50px;
+    }
+    .filter-button-section, .person-wrapper>.filter-button-row {
+        width: 280px;
+    }
+    .filter-button-holder, .filter-button-product, .filter-button-service {
+        width: 140px;
+    }
 
 }
 
 @media (max-width: 380px) {    /* iPhone 6/7/8 width: 375px */
+    .catalog-list, .service-list, .product-list {
+        width: 360px;
+    }
+    .product-card, .service-card, .product-card>.card-frame, .service-card>.card-frame {
+        width: 360px;
+        height: 280px;
+    }
+    
+    .product-card>.card-frame>.panel-body>.card-top>.product-info-holder,
+    .service-card>.card-frame>.panel-body>.card-top>.service-info-holder {
+        width: 180px;
+    }
+    .card-bottom {
+        width: 300px;
+    }
+    .btn-buy-now, .btn-add-to-cart {
 
+    }
 }
 
 @media (max-width: 325px) {    /* iPhone 5/SE width: 320px */

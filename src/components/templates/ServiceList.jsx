@@ -50,7 +50,7 @@ export default class ServiceList extends Component {
                     {/* <div className="section-heading text-left">
                         <h3>Produtos em <strong>destaque</strong></h3>
                     </div> */}
-                    <Row className="show-grid catalog-list">
+                    <Row className="show-grid service-list">
                         <Col className="person-wrapper">
                             <ServiceCard
                                 services={this.state.services}>
