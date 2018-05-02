@@ -65,20 +65,29 @@ export default class Home extends Component {
             <section className="filter-button-section">
               <Col className="person-wrapper">
                 <Row className="filter-button-row">
-                  <div className="filter-button-holder btn-green">
-                      {this.state.psorder ?
-                        <button type="button" className="filter-button-product btn-sm btn btn-green"
-                        onClick={this.handleProductClick}>Produtos</button> :
-                        <button type="button" className ="filter-button-product btn-sm btn btn-white"
-                        onClick={this.handleProductClick}>Produtos</button>}
-                  </div>
-                  <div className="filter-button-holder btn-white">
-                    {this.state.psorder ?
+                  
+                  {this.state.psorder ?
+                    <div className="filter-button-holder btn-green">
+                      <button type="button" className="filter-button-product btn-sm btn btn-green"
+                      onClick={this.handleProductClick}>Produtos</button>
+                    </div>
+                    :
+                    <div className="filter-button-holder btn-white">
+                      <button type="button" className ="filter-button-product btn-sm btn btn-white"    
+                      onClick={this.handleProductClick}>Produtos</button>
+                    </div>
+                  }
+                  {this.state.psorder ?
+                    <div className="filter-button-holder btn-white">
                       <button type="button" className = "filter-button-service btn-sm btn btn-white"
-                      onClick={this.handleServiceClick}>Serviços</button> :
+                      onClick={this.handleServiceClick}>Serviços</button>
+                    </div>
+                    :
+                    <div className="filter-button-holder btn-green">
                       <button type="button" className="filter-button-service btn-sm btn btn-green"
-                        onClick={this.handleServiceClick}>Serviços</button>}
-                  </div>
+                      onClick={this.handleServiceClick}>Serviços</button>
+                    </div>
+                  }
                 </Row>
               </Col>
             </section>

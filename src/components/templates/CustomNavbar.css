@@ -660,7 +660,7 @@ button.navbar-toggle{
     text-align: center;
 }
 
-@media (max-width: 1025px) {
+@media (max-width: 1025px) {        /* iPad Pro */
     .main-navbar {
         width: 100%;
     }
@@ -683,7 +683,7 @@ button.navbar-toggle{
     }
 }
 
-@media (max-width: 770px) {
+@media (max-width: 770px) {     /* iPad */
     .main-navbar {
         width: 1024px;
     }
@@ -704,7 +704,7 @@ button.navbar-toggle{
     }
 }
 
-@media (max-width: 415px) {
+@media (max-width: 415px) {     /* iPhone 6/7/8 Plus */
     .main-navbar {
         width: 100%;
         height: 300px;
