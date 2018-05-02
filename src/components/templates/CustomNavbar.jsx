@@ -1,18 +1,55 @@
 import React, { Component } from 'react'
 import { Grid, Navbar, Nav, NavItem, Row, Col,FormGroup,FormControl,Button,Image,Glyphicon} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import DownloadAppSection from '../templates/DownloadAppSection.jsx';
+// import DownloadAppBig from '../templates/DownloadAppBig.jsx';
 import DownloadAppButtonSmall from '../templates/DownloadAppButtonSmall.jsx';
 import NavbarRightSection from '../templates/NavbarRightSection.jsx';
 // import SearchBar from '../templates/SearchBar.jsx';
 import './CustomNavbar.css';
 export default class CustomNavbar extends Component {
 
+  constructor (props) {
+    super(props);
+    this.state = { dismissDownload: false };
+
+    this.handleDismissClick = this.handleDismissClick.bind(this);
+  }
+
+  handleDismissClick () {
+    this.setState (
+      { dismissDownload: true }
+    );
+  }
+
   render() {
     return (
       <div className="header-nav">
 
-        <DownloadAppSection />
+        {!this.state.dismissDownload ?
+          <div className="download-app-big d-block d-sm-none">
+            <Nav>
+              <NavItem>
+                <h2>
+                  <strong>Use grátis o app do Visual Total</strong>
+                </h2>
+                <button type="button" className="close" aria-label="Close"
+                  onClick={this.handleDismissClick}>
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </NavItem>
+              <NavItem>
+                <p>
+                  Descubra a melhor experiência na hora de comprar pela internet
+                </p>
+              </NavItem>
+              <NavItem eventKey={1} href="#">
+                <Button type="button" className="btn btn-sm btn-success btn-app" bsSize="xs"><i className="fa fa-mobile" aria-hidden="false"></i> Baixar</Button>
+              </NavItem>
+            </Nav>
+          </div>
+          :
+          <span />
+        }
 
         <Navbar default collapseOnSelect  className="main-navbar">
           <Navbar.Header>
@@ -62,6 +99,6 @@ export default class CustomNavbar extends Component {
           </Grid>
         </Navbar>
       </div>
-    )
+    );
   }
 }

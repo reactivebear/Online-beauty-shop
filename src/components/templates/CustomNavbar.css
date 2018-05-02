@@ -636,7 +636,7 @@ button.navbar-toggle{
 }
 
 /* download app section, visible only on xs devices */
-.download-app-section {
+.download-app-big {
     background-color: #579964;
     margin: 0;
     padding: 0;
@@ -644,17 +644,17 @@ button.navbar-toggle{
     display: flex;
     justify-content: center;
 }
-.download-app-section>ul {
+.download-app-big>ul {
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
 }
 
-.download-app-section>ul.nav>li>a>h2, .download-app-section>ul.nav>li>a>p {
+.download-app-big>ul.nav>li>a>h2, .download-app-big>ul.nav>li>a>p {
     color: #fff;
     text-align: center;
 }
-.download-app-section>ul>li>a>button {
+.download-app-big>ul>li>a>button {
     border: 1px solid white;
     border-radius: 15px;
     text-align: center;
