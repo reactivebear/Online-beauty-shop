@@ -30,7 +30,8 @@ class App extends Component {
 
     if (apiKeyString) {
       Api.setApiKey(apiKeyString);
-      Api.keepToken();
+      Api.keepToken()
+        .catch(Api.loginAsGuest);
     } else {
       Api.loginAsGuest();
     }

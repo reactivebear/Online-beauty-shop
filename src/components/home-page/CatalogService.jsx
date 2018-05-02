@@ -10,42 +10,42 @@ export default class Catalog extends Component {
         super(props);
         this.state = {
             catalogs: [
-                { id: 1, name: "Face Care", image_url: "assets/icons/star.png"},
-                { id: 2, name: "Fraqnances", image_url: "assets/icons/heart.png" },
-                { id: 3, name: "Nail & Makeup", image_url: "assets/icons/star.png" },
-                { id: 4, name: "Body Care", image_url: "assets/icons/heart.png" },
-                { id: 5, name: "Hair", image_url: "assets/icons/star.png" },
-                { id: 6, name: "Supplement", image_url: "assets/icons/heart.png" }
+                // { id: 1, name: "Face Care", image_url: "assets/icons/star.png"},
+                // { id: 2, name: "Fraqnances", image_url: "assets/icons/heart.png" },
+                // { id: 3, name: "Nail & Makeup", image_url: "assets/icons/star.png" },
+                // { id: 4, name: "Body Care", image_url: "assets/icons/heart.png" },
+                // { id: 5, name: "Hair", image_url: "assets/icons/star.png" },
+                // { id: 6, name: "Supplement", image_url: "assets/icons/heart.png" }
             ]
         }
     }
 
-    // componentDidMount() {
-    //     this.catalogsID = setInterval(
-    //         () => this.fetchServiceCategories(),
-    //         1000
-    //         //60000
-    //     );
-    // }
+    componentDidMount() {
+        this.catalogsID = setInterval(
+            () => this.fetchServiceCategories(),
+            1000
+            //60000
+        );
+    }
 
-    // //take all product catalogs and send that information to a list of product catalogs
-    // fetchServiceCategories() {
-    //     Api.getServiceCategories()
-    //         .then(res => {
-    //             this.setState({
-    //                 catalogs: res.data.object
-    //             });
-    //             console.log(JSON.stringify(res.data.object, null, 4));
-    //         });
-    // }
+    //take all product catalogs and send that information to a list of product catalogs
+    fetchServiceCategories() {
+        Api.getServiceCategories()
+            .then(res => {
+                this.setState({
+                    catalogs: res.data.object
+                });
+                console.log(JSON.stringify(res.data.object, null, 4));
+            });
+    }
 
-    // componentDidUpdate() {
-    //     clearInterval(this.catalogsID);
-    // }
+    componentDidUpdate() {
+        clearInterval(this.catalogsID);
+    }
 
-    // componentWillUnmount() {
-    //     clearInterval(this.catalogsID);
-    // }
+    componentWillUnmount() {
+        clearInterval(this.catalogsID);
+    }
 
     render () {
         return (

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Nav, NavItem, Button } from 'react-bootstrap';
+import { Nav, NavItem, Button, Modal } from 'react-bootstrap';
 
 export default class DownloadAppSection extends Component {
     render() {
@@ -7,7 +7,7 @@ export default class DownloadAppSection extends Component {
             // <Nav className="download-app-button-big " style={{display: "none"}}>
             <section className="download-app-section d-block d-sm-none">
                 
-                <div className="modal" tabindex="-1" role="dialog">
+                {/* <div className="modal" tabindex="-1" role="dialog">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
@@ -24,7 +24,7 @@ export default class DownloadAppSection extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 
                 {/* <button type="button" class="close" aria-label="Close">
                     <span aria-hidden="true">&times;</span>

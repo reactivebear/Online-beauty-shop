@@ -10,38 +10,38 @@ export default class ServiceList extends Component {
         super(props);
         this.state = {
             services: [
-                { id: 1, title: "Hairtylist & Makeup", price: 200, image_url: "assets/images/p7.jpg" },
-                { id: 2, title: "Barber", price: 100, image_url: "assets/images/p9.jpg" }
+                // { id: 1, title: "Hairtylist & Makeup", price: 200, image_url: "assets/images/p7.jpg" },
+                // { id: 2, title: "Barber", price: 100, image_url: "assets/images/p9.jpg" }
             ]
         }
     }
 
-    // componentDidMount () {
-    //     this.serviceID = setInterval (
-    //         () => this.fetchFeaturedServices(),
-    //         1000
-    //         //60000
-    //     );
-    // }
+    componentDidMount () {
+        this.serviceID = setInterval (
+            () => this.fetchFeaturedServices(),
+            1000
+            //60000
+        );
+    }
 
-    // //take all services featured and send that information to a list of services
-    // fetchFeaturedServices () {
-    //     Api.getServicesFeatured()
-    //         .then(res => {
-    //             this.setState({
-    //                 services: res.data.object
-    //             });
-    //             // console.log(JSON.stringify(res.data.object, null, 4));
-    //         });
-    // }
+    //take all services featured and send that information to a list of services
+    fetchFeaturedServices () {
+        Api.getServicesFeatured()
+            .then(res => {
+                this.setState({
+                    services: res.data.object
+                });
+                // console.log(JSON.stringify(res.data.object, null, 4));
+            });
+    }
 
-    // componentDidUpdate () {
-    //     clearInterval(this.serviceID);
-    // }
+    componentDidUpdate () {
+        clearInterval(this.serviceID);
+    }
 
-    // componentWillUnmount () {
-    //     clearInterval(this.serviceID);
-    // }
+    componentWillUnmount () {
+        clearInterval(this.serviceID);
+    }
 
     render() {
         return (
