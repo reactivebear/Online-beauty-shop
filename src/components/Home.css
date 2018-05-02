@@ -730,7 +730,7 @@ nav.main-navbar.navbar.navbar-default .container {
 }
 
 /*  */
-@media (max-width: 1025px) {
+@media (max-width: 1025px) {   /* iPad Pro width: 1024px */
     .catalog-list {
         width: 100%;
     }
@@ -740,7 +740,7 @@ nav.main-navbar.navbar.navbar-default .container {
     }
 }
 
-@media (max-width: 770px) {
+@media (max-width: 770px) {    /* iPad width: 768px */
     .homePage {
         width: 1024px;
     }
@@ -756,6 +756,14 @@ nav.main-navbar.navbar.navbar-default .container {
     } */
 }
 
-@media (max-width: 415px) {
+@media (max-width: 415px) {    /* iPhone 6/7/8 Plus width: 414px */
+
+}
+
+@media (max-width: 380px) {    /* iPhone 6/7/8 width: 375px */
+
+}
+
+@media (max-width: 325px) {    /* iPhone 5/SE width: 320px */
 
 }

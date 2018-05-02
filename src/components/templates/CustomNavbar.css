@@ -640,7 +640,7 @@ button.navbar-toggle{
     background-color: #579964;
     margin: 0;
     padding: 0;
-    width: 414px;
+    width: 100%;
     display: flex;
     justify-content: center;
 }
@@ -660,7 +660,7 @@ button.navbar-toggle{
     text-align: center;
 }
 
-@media (max-width: 1025px) {        /* iPad Pro */
+@media (max-width: 1025px) {        /* iPad Pro width: 1024px */
     .main-navbar {
         width: 100%;
     }
@@ -683,7 +683,7 @@ button.navbar-toggle{
     }
 }
 
-@media (max-width: 770px) {     /* iPad */
+@media (max-width: 770px) {     /* iPad width: 768px */
     .main-navbar {
         width: 1024px;
     }
@@ -704,7 +704,7 @@ button.navbar-toggle{
     }
 }
 
-@media (max-width: 415px) {     /* iPhone 6/7/8 Plus */
+@media (max-width: 415px) {     /* iPhone 6/7/8 Plus width: 414px */
     .main-navbar {
         width: 100%;
         height: 300px;
@@ -713,45 +713,80 @@ button.navbar-toggle{
         display: flex;
         flex-flow: column wrap;
         justify-content: center;
+        width: 100%;
     }
     .navbar-table {
-        width: 400px;
-        display: flex;
-        flex-flow: column wrap;
-    }
-    .navbar-table:first-child {
-        width: 300px;
+        width: 181px;
+        height: 70px;
         display: flex;
         flex-flow: row wrap;
+        justify-content: flex-start;
         position: relative;
+        left: -300px;
     }
-    /* td.location, td.cart, td.login {
-        display: flex;
-        flex-flow: row wrap;
-        height: 40px;
-    } */
-
+    .navbar-table>tr {
+        width: 181px;
+        height: 70px;
+    }
     .location-text-title, .location-text, .cart-text-title, .cart-text, .login-text-title, .login-button {   
-        font-size: 12px;
+        font-size: 10px;
     }
     .navbar-brand {
+        width: 50%;
         margin-left: 230px;
         position: relative;
-        top: -60px;
+        top: -30px;
         left: 0;
     }
+    .show-grid {
+        width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+    }
     .main-navbar>.container>.container {
-        width: 300px;
+        width: 100%;
     }
     .navbar-toggle {
         position: relative;
-        left: 380px;
+        left: 200px;
         top: -70px;
         border: 0px solid;
     }
-
     .searchbar {
         position: relative;
         left: -80px;
+    }
+}
+
+@media (max-width: 380px) {     /* iPhone 6/7/8 width: 375px */
+    .download-app-big>ul>li>a>.btn-app {
+        width: 80%;
+    }
+    .navbar-brand {
+        left: -30px;
+    }
+    .searchbar {
+        left: -90px;
+    }
+    .navbar-table {
+        left: -260px;
+    }
+    .location-text-title, .location-text, .cart-text-title, .cart-text {
+        margin: 0;
+    }
+}
+
+@media (max-width: 325px) {     /* iPhone 5/SE width: 320px */
+    .navbar-table {
+        left: -210px;
+    }
+
+    .location-text-title,
+    .location-text {
+        width: 70px;
+    }
+    .location-text {
+        height: 35px;
     }
 }

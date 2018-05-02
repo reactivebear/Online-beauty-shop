@@ -25,6 +25,7 @@ export default class CustomNavbar extends Component {
     return (
       <div className="header-nav">
 
+        {/* download-app-big */}
         {!this.state.dismissDownload ?
           <div className="download-app-big d-block d-sm-none">
             <Nav>
