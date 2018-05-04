@@ -799,6 +799,8 @@ nav.main-navbar.navbar.navbar-default .container {
         margin: 0 100px 0 30px;
     }
 
+    /* filter-button */
+
     .filter-button-row {
         position: relative;
         left: 50px;
@@ -880,13 +882,6 @@ nav.main-navbar.navbar.navbar-default .container {
         width: 165px;
     }
 
-    .btn-buy-now,
-    .btn-add-to-cart,
-    .btn-schedule-now,
-    .btn-card-category {
-        border: 1px solid #579964;
-    }
-
     /* service card buttons */
     .btn-show-services {
         margin: 5px 0px 0px 0px;
@@ -895,26 +890,201 @@ nav.main-navbar.navbar.navbar-default .container {
 }
 
 @media (max-width: 380px) {    /* iPhone 6/7/8 width: 375px */
-    .catalog-list, .service-list, .product-list {
-        width: 360px;
-    }
-    .product-card, .service-card, .product-card>.card-frame, .service-card>.card-frame {
-        width: 360px;
-        height: 280px;
-    }
-    
-    .product-card>.card-frame>.panel-body>.card-top>.product-info-holder,
-    .service-card>.card-frame>.panel-body>.card-top>.service-info-holder {
-        width: 180px;
-    }
-    .card-bottom {
-        width: 300px;
-    }
-    /* .btn-buy-now, .btn-add-to-cart {
+   
+    /* filter-button */
 
-    } */
+    .filter-button-row {
+        height: 40px;
+        left: 30px;
+    }
+
+    .filter-button-product,
+    .filter-button-service {
+        width: 180px;
+        /*239px mockup dimension */
+        height: 30px;
+        /*46px mockup dimension */
+    }
+
+    .filter-button-section,
+    .person-wrapper>.filter-button-row {
+        width: 270px;
+    }
+
+    .filter-button-holder,
+    .filter-button-product,
+    .filter-button-service {
+        width: 130px;
+    }
+
+    /* product card */
+
+   .product-card>.card-frame {
+       /* product card dimensions */
+       height: 280px;
+       width: 350px;
+       /* before: height: 290px, width: 360px */
+       /* mockup: height: 314px, width: 391px */
+   }
+
+   .product-card>.card-frame>.panel-body>.card-top>.product-info-holder {
+       width: 190px;
+       height: 170px;
+   }
+
+   .product-card>.card-frame>.panel-body>.card-top>.product-img-holder>img {
+       height: 90px;
+       width: 90px;
+   }
+
+   .product-card>.card-frame>.panel-body>.card-bottom {
+       width: 330px;
+   }
+
+   /* service card */
+
+   .service-card>.card-frame {
+       /* service card dimensions */
+       height: 535px;
+       width: 350px;
+       /* before: height: 545px, width: 360px */
+       /* mockup: height: 594px, width: 392px */
+   }
+
+   .service-card>.card-frame>.panel-body>.card-top>.service-info-holder {
+       width: 310px;
+       height: 210px;
+   }
+
+   .service-card>.card-frame>.panel-body>.card-top>.service-img-holder>img {
+       height: 120px;
+       width: 310px;
+   }
+
+   .service-card>.card-frame>.panel-body>.card-bottom {
+       justify-content: space-between;
+       width: 330px;
+   }
+
+   /* service store data */
+
+   .store-name-holder {
+       font-size: 20px;
+   }
+
+   .store-address-holder {
+       font-size: 16px;
+   }
+
+   /* product card buttons */
+
+   .btn-buy-now,
+   .btn-show-services,
+   .btn-card-category,
+   .product-card>.card-frame>.panel-body>.card-bottom>.btn-white>.btn-add-to-cart {
+       font-size: 14px;
+       width: 330px;
+       height: 30px;
+       margin-bottom: 4px;
+   }
+
+   .btn-schedule-now,
+   .service-card>.card-frame>.panel-body>.card-bottom>.btn-white>.btn-add-to-cart {
+       font-size: 14px;
+       width: 155px;
+   }
+
+   /* service card buttons */
+
+   .btn-show-services {
+       margin: 5px 0px 0px 0px;
+       width: 330px;
+   }
 }
 
 @media (max-width: 325px) {    /* iPhone 5/SE width: 320px */
 
+        /* product card */
+
+        .product-card>.card-frame {
+            /* product card dimensions */
+            height: 240px;
+            width: 310px;
+            /* before: height: 280px, width: 350px */
+            /* mockup: height: 314px, width: 391px */
+        }
+
+        .product-card>.card-frame>.panel-body>.card-top>.product-info-holder {
+            width: 150px;
+            height: 130px;
+        }
+
+        .product-card>.card-frame>.panel-body>.card-top>.product-img-holder>img {
+            height: 60px;
+            width: 60px;
+        }
+
+        .product-card>.card-frame>.panel-body>.card-bottom {
+            width: 290px;
+        }
+
+        /* service card */
+
+        .service-card>.card-frame {
+            /* service card dimensions */
+            height: 495px;
+            width: 320px;
+            /* before: height: 535px, width: 350px */
+            /* mockup: height: 594px, width: 392px */
+        }
+
+        .service-card>.card-frame>.panel-body>.card-top>.service-info-holder {
+            width: 270px;
+            height: 170px;
+        }
+
+        .service-card>.card-frame>.panel-body>.card-top>.service-img-holder>img {
+            height: 80px;
+            width: 270px;
+        }
+
+        .service-card>.card-frame>.panel-body>.card-bottom {
+            justify-content: space-between;
+            width: 290px;
+        }
+
+        /* service store data */
+
+        .store-name-holder {
+            font-size: 18px;
+        }
+
+        .store-address-holder {
+            font-size: 14px;
+        }
+
+        /* product card buttons */
+
+        .btn-buy-now,
+        .btn-show-services,
+        .btn-card-category,
+        .product-card>.card-frame>.panel-body>.card-bottom>.btn-white>.btn-add-to-cart {
+            font-size: 12px;
+            width: 290px;
+            height: 30px;
+            margin-bottom: 2px;
+        }
+
+        .btn-schedule-now,
+        .service-card>.card-frame>.panel-body>.card-bottom>.btn-white>.btn-add-to-cart {
+            font-size: 12px;
+            width: 135px;
+        }
+
+        /* service card buttons */
+
+        .btn-show-services {
+            margin: 5px 0px 0px 0px;
+            width: 290px;
+        }
 }

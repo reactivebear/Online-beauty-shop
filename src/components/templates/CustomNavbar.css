@@ -102,7 +102,7 @@ nav.navbar, .navbar-default {
 }
 .searchbar span.glyphicon.glyphicon-search {
     width: 20px;
-    height: 19px;
+    height: 18px;
     background: url(../../assets/icons/search-icon.png);
 }
 .searchbar span.glyphicon.glyphicon-search:before{
@@ -719,6 +719,7 @@ button.navbar-toggle{
         justify-content: center;
         width: 100%;
         margin-left: 0;
+        margin-right: 0;
     }
     .navbar-table {
         width: 181px;
@@ -804,5 +805,15 @@ button.navbar-toggle{
     }
     .location-text {
         height: 35px;
+    }
+
+    .navbar-left-section>.searchbar {
+        width: 270px;
+    }
+
+    .navbar-header>.navbar-toggle {
+        margin: 0;
+        position: relative;
+        left: 300px;
     }
 }
