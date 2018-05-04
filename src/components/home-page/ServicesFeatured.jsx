@@ -13,7 +13,7 @@ export default class ServicesFeatured extends Component {
 
   render() {
     return (
-      <section className="products-section services-section">
+      <section className="services-section">
         <Col className="person-wrapper">
           <div className="section-heading text-left">
             <h3>Serviços em <strong>destaque</strong></h3>

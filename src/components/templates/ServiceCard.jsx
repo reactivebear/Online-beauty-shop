@@ -78,7 +78,7 @@ export default props => {
     }
 
     return (
-        <div className="catalog-list">
+        <div className="service-list">
             {renderRows()}
         </div>
     )

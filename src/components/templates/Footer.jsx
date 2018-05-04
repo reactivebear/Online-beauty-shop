@@ -9,7 +9,7 @@ export default class Footer extends Component {
       <footer>
           <Grid>
             <Row className="content">
-              <Col xs={6} md={3}>
+              <Col >
                 <div className="footerLogo">
                   <Image src="assets/images/footerLogo.png" />
                 </div>
@@ -31,7 +31,7 @@ export default class Footer extends Component {
                   </div>
                 </div>
               </Col>
-              <Col xs={6} md={2}>
+              <Col >
                 <div className="site-links">
                   <div className="footer-heading">
                     <h4>Quem somos</h4>
@@ -49,7 +49,7 @@ export default class Footer extends Component {
                   </ul>
                 </div>
               </Col>
-              <Col xs={6} md={3}>
+              <Col >
                 <div className="site-links">
                   <div className="footer-heading">
                     <h4>Serviços</h4>
@@ -67,7 +67,7 @@ export default class Footer extends Component {
                   </ul>
                 </div>
               </Col>
-              <Col xs={6} md={3}>
+              <Col >
                 <div className="site-links">
                   <div className="footer-heading">
                     <h4>Informação</h4>
@@ -87,7 +87,7 @@ export default class Footer extends Component {
               </Col>
             </Row>
             <Row>
-              <Col sm={12}>
+              <Col >
                 <div className="copyright">
                   <p>© 2018 visual total</p>
                 </div>

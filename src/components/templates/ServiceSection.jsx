@@ -8,7 +8,7 @@ export default class ServicetSection extends Component {
     render () {
         return (
             <section className="service-section">
-                <Row className="catalog catalog-service">
+                <Row className="catalog-service">
                     <CatalogService />
                 </Row>
                 <Row className="services-featured">

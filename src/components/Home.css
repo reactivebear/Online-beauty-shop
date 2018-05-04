@@ -424,22 +424,30 @@ nav.main-navbar.navbar.navbar-default .container {
     position:relative;
 }
 
-/* product & service section */
+/* product, service, blogpost sections */
+
 .featured-section {
     margin-left: -20px;
 }
 
-.product-section, .service-section {
+.product-section,
+.service-section,
+.blogposts-section {
     margin-top: 40px;
 }
 
 .show-grid>.product-section,
-.show-grid>.service-section {
+.show-grid>.service-section,
+.show-grid>.blogposts-section {
     margin-left: 10px;
 }
 
 /* catalog */
-.catalog-list, .service-list, .product-list {
+
+.catalog-list,
+.service-list,
+.product-list,
+.blogpost-list {
     width: 1290px;      /* min 860px renders 2 cols, min 1290 renders 3 cols */
     display: flex;
     flex-flow: row wrap;
@@ -476,13 +484,16 @@ nav.main-navbar.navbar.navbar-default .container {
     justify-content: flex-end;
 }
 
-/* product & service grid */
+/* product, service, blogpost grid */
+
 .service-section>.person-wrapper>.show-grid,
-.products-section>.person-wrapper>.show-grid {
+.products-section>.person-wrapper>.show-grid,
+.blogpost-section>.person-wrapper>.show-grid {
     margin-top: -35px;
 }
 
 /* product card */
+
 .product-card {
     margin: 0px 10px 0px 0px;
 }
@@ -543,6 +554,7 @@ nav.main-navbar.navbar.navbar-default .container {
 }
 
 /* service card */
+
 .service-card {
     margin: 0px 10px 0px 0px;
 }
@@ -614,6 +626,7 @@ nav.main-navbar.navbar.navbar-default .container {
 }
 
 /* service store data */
+
 .store-name-holder, .store-address-holder {
     width: 100%;
 }
@@ -625,11 +638,13 @@ nav.main-navbar.navbar.navbar-default .container {
 }
 
 /* star */
+
 .star-rating>.star-sm {
     margin: 0px 3px 0px 0px;
 }
 
 /* price */
+
 .price {
     margin: 0px 20px 0px 0px;
 }
@@ -645,6 +660,7 @@ nav.main-navbar.navbar.navbar-default .container {
 }
 
 /* filter-button */
+
 .filter-button-row {
     height: 50px;
     width: inherit;
@@ -676,6 +692,7 @@ nav.main-navbar.navbar.navbar-default .container {
 }
 
 /* product card buttons */
+
 .card-bottom {
     margin: 0 0 0 0;
     display: flex;
@@ -701,6 +718,7 @@ nav.main-navbar.navbar.navbar-default .container {
 }
 
 /* service card buttons */
+
 .btn-show-services {
     margin: 5px 0px 0px 0px;
     width: 340px;
@@ -711,12 +729,14 @@ nav.main-navbar.navbar.navbar-default .container {
 }
 
 /* left and right margin of home page content */
+
 .page-content:not(:first-child) {
     margin-left: 120px;
     margin-right: 120px;
 }
 
 /* button colors */
+
 .btn-success {
     background-color: #579964;
 }
@@ -729,7 +749,73 @@ nav.main-navbar.navbar.navbar-default .container {
     background-color: #fff;
 }
 
-/*  */
+/* blogpost */
+
+.show-grid>.blogpost-section>.person-wrapper>.blogpost-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+/* blogpost card */
+
+.blogpost-card {
+    margin: 0px 10px 0px 0px;
+}
+
+.blogpost-card>.card-frame {
+    /* blogpost card dimensions */
+    height: 390px;
+    width: 300px;
+    /* mockup: heigth: 340px, width: 260px */
+}
+
+.blogpost-card>.card-frame>.panel-body {
+    height: inherit;
+    width: inherit;
+    padding: 0;
+}
+
+.blogpost-card>.card-frame>.panel-body>.card-top,
+.blogpost-card>.card-frame>.panel-body>.card-bottom {
+    display: flex;
+    flex-flow: row wrap;
+    width: inherit;
+}
+
+.blogpost-card>.card-frame>.panel-body>.card-bottom>.blogpost-info-holder {
+    width: inherit;
+    height: inherit;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    margin: 10px;
+}
+
+.blogpost-card>.card-frame>.panel-body>.card-top>.blogpost-img-holder {
+    width: inherit;
+    height: 280px;
+}
+
+.blogpost-card>.card-frame>.panel-body>.card-top>.blogpost-img-holder>img {
+    height: inherit;
+    width: inherit;
+    object-fit: cover;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.blogpost-card>.card-frame {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.blogpost-title>h4 {
+    font-size: 23px;
+}
+
+/* responsiveness */
+
 @media (max-width: 1025px) {   /* iPad Pro width: 1024px */
     .homePage>.page-content {
         width: 80%;
@@ -781,6 +867,9 @@ nav.main-navbar.navbar.navbar-default .container {
 }
 
 @media (max-width: 415px) {    /* iPhone 6/7/8 Plus width: 414px */
+
+    /* carousel */
+
     .carousel-caption {
         height: 90%;
     }
@@ -917,28 +1006,36 @@ nav.main-navbar.navbar.navbar-default .container {
         width: 130px;
     }
 
+    /* catalog-list */
+
+    .catalog-list,
+    .product-list,
+    .service-list {
+        width: 300px;
+    }
+
     /* product card */
 
    .product-card>.card-frame {
        /* product card dimensions */
-       height: 280px;
-       width: 350px;
+       height: 240px;
+       width: 300px;
        /* before: height: 290px, width: 360px */
        /* mockup: height: 314px, width: 391px */
    }
 
    .product-card>.card-frame>.panel-body>.card-top>.product-info-holder {
-       width: 190px;
-       height: 170px;
+       width: 160px;
+       height: 140px;
    }
 
    .product-card>.card-frame>.panel-body>.card-top>.product-img-holder>img {
-       height: 90px;
-       width: 90px;
+       height: 100px;
+       width: 100px;
    }
 
    .product-card>.card-frame>.panel-body>.card-bottom {
-       width: 330px;
+       width: 260px;
    }
 
    /* service card */
@@ -946,24 +1043,24 @@ nav.main-navbar.navbar.navbar-default .container {
    .service-card>.card-frame {
        /* service card dimensions */
        height: 535px;
-       width: 350px;
+       width: 290px;
        /* before: height: 545px, width: 360px */
        /* mockup: height: 594px, width: 392px */
    }
 
    .service-card>.card-frame>.panel-body>.card-top>.service-info-holder {
-       width: 310px;
+       width: 260px;
        height: 210px;
    }
 
    .service-card>.card-frame>.panel-body>.card-top>.service-img-holder>img {
        height: 120px;
-       width: 310px;
+       width: 260px;
    }
 
    .service-card>.card-frame>.panel-body>.card-bottom {
        justify-content: space-between;
-       width: 330px;
+       width: 260px;
    }
 
    /* service store data */
@@ -982,109 +1079,32 @@ nav.main-navbar.navbar.navbar-default .container {
    .btn-show-services,
    .btn-card-category,
    .product-card>.card-frame>.panel-body>.card-bottom>.btn-white>.btn-add-to-cart {
-       font-size: 14px;
-       width: 330px;
+       font-size: 12px;
+       width: 260px;
        height: 30px;
        margin-bottom: 4px;
+       padding-left: 0;
+       padding-right: 0;
    }
 
    .btn-schedule-now,
    .service-card>.card-frame>.panel-body>.card-bottom>.btn-white>.btn-add-to-cart {
-       font-size: 14px;
-       width: 155px;
+       font-size: 12px;
+       width: 125px;
+       padding-left: 0;
+       padding-right: 0;
    }
 
    /* service card buttons */
 
    .btn-show-services {
        margin: 5px 0px 0px 0px;
-       width: 330px;
+       width: 260px;
+       padding-left: 0;
+       padding-right: 0;
    }
 }
 
 @media (max-width: 325px) {    /* iPhone 5/SE width: 320px */
-
-        /* product card */
-
-        .product-card>.card-frame {
-            /* product card dimensions */
-            height: 240px;
-            width: 310px;
-            /* before: height: 280px, width: 350px */
-            /* mockup: height: 314px, width: 391px */
-        }
-
-        .product-card>.card-frame>.panel-body>.card-top>.product-info-holder {
-            width: 150px;
-            height: 130px;
-        }
-
-        .product-card>.card-frame>.panel-body>.card-top>.product-img-holder>img {
-            height: 60px;
-            width: 60px;
-        }
-
-        .product-card>.card-frame>.panel-body>.card-bottom {
-            width: 290px;
-        }
-
-        /* service card */
-
-        .service-card>.card-frame {
-            /* service card dimensions */
-            height: 495px;
-            width: 320px;
-            /* before: height: 535px, width: 350px */
-            /* mockup: height: 594px, width: 392px */
-        }
-
-        .service-card>.card-frame>.panel-body>.card-top>.service-info-holder {
-            width: 270px;
-            height: 170px;
-        }
-
-        .service-card>.card-frame>.panel-body>.card-top>.service-img-holder>img {
-            height: 80px;
-            width: 270px;
-        }
-
-        .service-card>.card-frame>.panel-body>.card-bottom {
-            justify-content: space-between;
-            width: 290px;
-        }
-
-        /* service store data */
-
-        .store-name-holder {
-            font-size: 18px;
-        }
-
-        .store-address-holder {
-            font-size: 14px;
-        }
-
-        /* product card buttons */
-
-        .btn-buy-now,
-        .btn-show-services,
-        .btn-card-category,
-        .product-card>.card-frame>.panel-body>.card-bottom>.btn-white>.btn-add-to-cart {
-            font-size: 12px;
-            width: 290px;
-            height: 30px;
-            margin-bottom: 2px;
-        }
-
-        .btn-schedule-now,
-        .service-card>.card-frame>.panel-body>.card-bottom>.btn-white>.btn-add-to-cart {
-            font-size: 12px;
-            width: 135px;
-        }
-
-        /* service card buttons */
-
-        .btn-show-services {
-            margin: 5px 0px 0px 0px;
-            width: 290px;
-        }
+    
 }

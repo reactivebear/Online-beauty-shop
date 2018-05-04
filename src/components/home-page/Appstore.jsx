@@ -6,9 +6,9 @@ export default class Appstore extends Component {
   render() {
     return (
       <section className="appstore-section">
-        <Col sm={12} className="col-wrapper">
+        <Col className="col-wrapper">
           <Row className="show-grid">
-            <Col xs={12} sm={12} className="appstore-wrapper person-wrapper ">
+            <Col className="appstore-wrapper person-wrapper ">
               <div className="content-sec mobile-app">
                 <h2>Baixe nosso app</h2>
                 <p>Compre e venda de qualquer lugar<br/>

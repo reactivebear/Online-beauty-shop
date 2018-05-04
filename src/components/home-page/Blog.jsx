@@ -5,13 +5,13 @@ import { Row, Col, Image,Pagination} from 'react-bootstrap';
 export default class Blog extends Component {
   render() {
     return (
-      <section className="produtos-section">
-        <Col sm={12} className="person-wrapper">
+      <section className="blog-section">
+        <Col className="person-wrapper">
           <div className="section-heading text-left">
             <h3>Blog</h3>
           </div>
           <Row className="show-grid">
-            <Col xs={12} sm={3} className="person-wrapper">
+            <Col className="person-wrapper">
               <div className="produtos">
                 <div className="produtos-image">
                     <Image alt="produtos-image" src="assets/images/b1.jpg" />
@@ -23,7 +23,7 @@ export default class Blog extends Component {
                 </div>
               </div>
             </Col>
-            <Col xs={12} sm={3} className="person-wrapper">
+            <Col className="person-wrapper">
               <div className="produtos">
                 <div className="produtos-image">
                   <Image alt="produtos-image" src="assets/images/b2.jpg" />
@@ -35,7 +35,7 @@ export default class Blog extends Component {
                 </div>
               </div>
             </Col>
-            <Col xs={12} sm={3} className="person-wrapper">
+            <Col className="person-wrapper">
               <div className="produtos">
                 <div className="produtos-image">
                   <Image alt="produtos-image" src="assets/images/b3.jpg" />
@@ -47,7 +47,7 @@ export default class Blog extends Component {
                 </div>
               </div>
             </Col>
-            <Col xs={12} sm={3} className="person-wrapper">
+            <Col className="person-wrapper">
               <div className="produtos">
                 <div className="produtos-image">
                   <Image alt="produtos-image" src="assets/images/b4.jpg" />

@@ -5,8 +5,9 @@ import {Col, Grid, Row,Carousel} from 'react-bootstrap';
 //import ProdutosInspirados from './home-page/ProdutosInspirados.jsx';
 import ProductSection from './templates/ProductSection.jsx';
 import ServiceSection from './templates/ServiceSection.jsx';
+// import Blog from './home-page/Blog.jsx';
+import BlogpostsFeatured from './home-page/BlogpostsFeatured';
 import Reviews from './home-page/Reviews.jsx';
-import Blog from './home-page/Blog.jsx';
 import Appstore from './home-page/Appstore.jsx';
 
 import { StorageKeys } from "../utils/storagekeys.js";
@@ -97,16 +98,15 @@ export default class Home extends Component {
           <section className="featured-section">
             <ProductSection />
             <ServiceSection />
+            <BlogpostsFeatured />
           </section>
           :
           <section className="featured-section">
             <ServiceSection />
             <ProductSection />
+            <BlogpostsFeatured />
           </section>}
 
-          <Row className="blog">
-            <Blog />
-          </Row>
           <Row className="reviews">
             <Reviews />
           </Row>

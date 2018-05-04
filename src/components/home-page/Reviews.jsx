@@ -6,9 +6,9 @@ export default class Reviews extends Component {
   render() {
     return (
       <section className="reviews-section">
-        <Col sm={12} className="col-wrapper">
+        <Col className="col-wrapper">
           <Row className="show-grid">
-            <Col xs={12} sm={12} className="reviews-wrapper person-wrapper ">
+            <Col className="reviews-wrapper person-wrapper ">
               <div className="review">
                 <div className="review-heading">
                   <h3>It has been a couple of</h3>
