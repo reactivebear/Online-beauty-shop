@@ -107,6 +107,11 @@ export default class Home extends Component {
             <BlogpostsFeatured />
           </section>}
 
+          <Row>
+            <div className="slick-carousel"></div>
+          </Row>
+
+          
           <Row className="reviews">
             <Reviews />
           </Row>
