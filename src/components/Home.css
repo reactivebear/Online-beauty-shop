@@ -810,6 +810,88 @@ nav.main-navbar.navbar.navbar-default .container {
         width: 140px;
     }
 
+    /* product card */
+    .product-card>.card-frame {
+        /* product card dimensions */
+        height: 290px;
+        width: 360px;
+        /* before: height: 260px, width: 380px */
+        /* mockup: height: 314px, width: 391px */
+    }
+    .product-card>.card-frame>.panel-body>.card-top>.product-info-holder {
+        width: 200px;
+        height: 180px;
+    }
+    .product-card>.card-frame>.panel-body>.card-top>.product-img-holder>img {
+        height: 100px;
+        width: 100px;
+    }
+    .product-card>.card-frame>.panel-body>.card-bottom {
+        width: 340px;
+    }
+
+    /* service card */
+    .service-card>.card-frame {
+        /* service card dimensions */
+        height: 545px;
+        width: 360px;
+        /* before: height: 500px, width: 380px */
+        /* mockup: height: 594px, width: 392px */
+    }
+    .service-card>.card-frame>.panel-body>.card-top>.service-info-holder {
+        width: 320px;
+        height: 220px;
+    }
+    .service-card>.card-frame>.panel-body>.card-top>.service-img-holder>img {
+        height: 130px;
+        width: 320px;
+    }
+    .service-card>.card-frame>.panel-body>.card-bottom {
+        justify-content: space-between;
+        width: 340px;
+    }
+
+    /* service store data */
+    .store-name-holder,
+    .store-address-holder {
+        width: 100%;
+    }
+    .store-name-holder {
+        font-size: 20px;
+    }
+    .store-address-holder {
+        font-size: 16px;
+    }
+
+    /* product card buttons */
+    .btn-buy-now,
+    .btn-show-services,
+    .btn-card-category,
+    .product-card>.card-frame>.panel-body>.card-bottom>.btn-white>.btn-add-to-cart {
+        font-size: 14px;
+        width: 340px;
+        height: 40px;
+        margin-bottom: 4px;
+    }
+
+    .btn-schedule-now,
+    .service-card>.card-frame>.panel-body>.card-bottom>.btn-white>.btn-add-to-cart {
+        font-size: 14px;
+        width: 165px;
+    }
+
+    .btn-buy-now,
+    .btn-add-to-cart,
+    .btn-schedule-now,
+    .btn-card-category {
+        border: 1px solid #579964;
+    }
+
+    /* service card buttons */
+    .btn-show-services {
+        margin: 5px 0px 0px 0px;
+        width: 340px;
+    }
 }
 
 @media (max-width: 380px) {    /* iPhone 6/7/8 width: 375px */
@@ -828,9 +910,9 @@ nav.main-navbar.navbar.navbar-default .container {
     .card-bottom {
         width: 300px;
     }
-    .btn-buy-now, .btn-add-to-cart {
+    /* .btn-buy-now, .btn-add-to-cart {
 
-    }
+    } */
 }
 
 @media (max-width: 325px) {    /* iPhone 5/SE width: 320px */

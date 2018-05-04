@@ -13,13 +13,6 @@ export default props => {
                             <div className="service-img-holder">
                                 <Image src={service.image_url} />
                             </div>
-                            {/* <div className="service-category-holder">
-                                <div className="service-category">
-                                    <ServiceCardCategories
-                                        categories={this.category}
-                                    ></ServiceCardCategories>
-                                </div>
-                            </div> */}
                             <div className="service-info-holder">
                                 <div className="service-title">
                                     <h4>{service.title}</h4>
