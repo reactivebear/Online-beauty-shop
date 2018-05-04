@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import BlogpostCard from './BlogpostCard';
+import ReactCarousel from 'react-carousel';
 
 // import { Api } from "../../api/api";
 
@@ -48,9 +49,11 @@ export default class BlogpostList extends Component {
                 <Col className="person-wrapper">
                     <Row className="show-grid blogpost-list">
                         <Col className="person-wrapper">
-                            <BlogpostCard
-                                blogposts={this.state.blogposts}>
-                            </BlogpostCard>
+                            {/* <ReactCarousel> */}
+                                <BlogpostCard
+                                    blogposts={this.state.blogposts}>
+                                </BlogpostCard>
+                            {/* </ReactCarousel> */}
                         </Col>
                     </Row>
                 </Col>

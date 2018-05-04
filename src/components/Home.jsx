@@ -12,6 +12,8 @@ import Appstore from './home-page/Appstore.jsx';
 
 import { StorageKeys } from "../utils/storagekeys.js";
 
+import ReactCarousel from "react-carousel";
+
 import './Home.css';
 
 export default class Home extends Component {
@@ -108,7 +110,11 @@ export default class Home extends Component {
           </section>}
 
           <Row>
-            <div className="slick-carousel"></div>
+            <ReactCarousel>
+              <div key={1}>your content</div>
+              <div key={2}>your content</div>
+              <div key={3}>your content</div>
+            </ReactCarousel>
           </Row>
 
           

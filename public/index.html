@@ -16,10 +16,6 @@
     
     <link rel="stylesheet" href="./assets/bootstrap.min.css">
 
-    <!-- Importing Slick -->
-    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
-
     <!-- TODO: This title should be consistent with the content of the page -->
     <title>Visual Total</title>
   </head>
@@ -28,40 +24,6 @@
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
-
-
-    <!-- Needed to use Slick, a better carousel for web apps -->
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="slick/slick.min.js"></script>
-
-    <script>
-      $('.slick-carousel').slick({
-          centerMode: true,
-          centerPadding: '60px',
-          slidesToShow: 3,
-          responsive: [
-            {
-              breakpoint: 768,
-              settings: {
-                arrows: false,
-                centerMode: true,
-                centerPadding: '40px',
-                slidesToShow: 3
-              }
-            },
-            {
-              breakpoint: 480,
-              settings: {
-                arrows: false,
-                centerMode: true,
-                centerPadding: '40px',
-                slidesToShow: 1
-              }
-            }
-          ]
-        });
-    </script>
 
   </body>
 </html>
