@@ -424,7 +424,7 @@ nav.main-navbar.navbar.navbar-default .container {
     position:relative;
 }
 
-/* product, service, blogpost sections */
+/* product, service, blogpost, appstore sections */
 
 .featured-section {
     margin-left: 0px;
@@ -432,7 +432,8 @@ nav.main-navbar.navbar.navbar-default .container {
 
 .product-section,
 .service-section,
-.blogposts-section {
+.blogposts-section,
+.appstore-section {
     margin-top: 40px;
 }
 
@@ -442,13 +443,14 @@ nav.main-navbar.navbar.navbar-default .container {
     margin-left: 10px;
 }
 
-/* catalog product, service, blogpost, review lists */
+/* catalog product, service, blogpost, review, appstore lists */
 
 .catalog-list,
 .service-list,
 .product-list,
 .blogpost-list,
-.review-list {
+.review-list,
+.appstore-section>.col-wrapper {
     width: 1290px;
     /* min 860px renders 2 cols, min 1290 renders 3 cols */
     display: flex;
@@ -464,7 +466,8 @@ nav.main-navbar.navbar.navbar-default .container {
 .service-section>.person-wrapper>.show-grid,
 .products-section>.person-wrapper>.show-grid,
 .blogpost-section>.person-wrapper>.show-grid,
-.reviews-section>.person-wrapper>.show-grid {
+.reviews-section>.person-wrapper>.show-grid,
+.appstore-section>.col-wrapper>.show-grid {
     margin-top: -35px;
 }
 
@@ -892,6 +895,32 @@ nav.main-navbar.navbar.navbar-default .container {
 
 .review-text>p {
     font-size: 18px;
+}
+
+/* appstore */
+
+/* .appstore-section set before */
+
+/* .appstore-section>.col-wrapper set before */
+
+.appstore-section>.col-wrapper>.show-grid {
+    width: inherit;
+}
+
+.appstore-section>.col-wrapper>.show-grid>.appstore-wrapper {
+    width: inherit;
+}
+
+.appstore-section>.col-wrapper>.show-grid>.appstore-wrapper>.person-wrapper {
+    width: inherit;
+}
+
+.appstore-section>.col-wrapper>.show-grid>.appstore-wrapper>.person-wrapper>.mobile-app>.downloadBtns {
+    width: inherit;
+}
+
+.appstore-section>.col-wrapper>.show-grid>.appstore-wrapper>.person-wrapper>.mobile-app>.downloadBtns>a>img[src*="/icons/"] {
+    width: inherit;
 }
 
 /* responsiveness */
