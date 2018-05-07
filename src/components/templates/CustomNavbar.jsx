@@ -10,7 +10,7 @@ export default class CustomNavbar extends Component {
 
   constructor (props) {
     super(props);
-    this.state = { dismissDownload: false };
+    this.state = { dismissDownload: false, catalogs: [] };
 
     this.handleDismissClick = this.handleDismissClick.bind(this);
   }
@@ -20,6 +20,38 @@ export default class CustomNavbar extends Component {
       { dismissDownload: true }
     );
   }
+
+  /* API depends on information from home; needs to know if the Products or Services filter button is selected */
+  // componentDidMount() {
+  //   if (???) {
+  //     this.catalogsID = setInterval(
+  //       () => this.fetchServiceCategories(),
+  //       1000
+  //     );
+  //   } else {
+  //     this.catalogsID = setInterval(
+  //       () => this.fetchProductCategories(),
+  //       1000
+  //     );
+  //   }
+  // }
+
+  // fetchServiceCategories() {
+  //   Api.getServiceCategories()
+  //     .then(res => {
+  //       this.setState({
+  //         catalogs: res.data.object
+  //       });
+  //     });
+  // }
+
+  // componentDidUpdate() {
+  //   clearInterval(this.catalogsID);
+  // }
+
+  // componentWillUnmount() {
+  //   clearInterval(this.catalogsID);
+  // }
 
   render() {
     return (
