@@ -924,6 +924,7 @@ nav.main-navbar.navbar.navbar-default .container {
 }
 
 /* responsiveness */
+/* TODO: blogpopst, review, appstore */
 
 @media (max-width: 1025px) {   /* iPad Pro width: 1024px */
     .homePage>.page-content {
