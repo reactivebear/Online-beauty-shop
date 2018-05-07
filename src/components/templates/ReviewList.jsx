@@ -10,9 +10,9 @@ export default class ReviewList extends Component {
         super(props);
         this.state = {
             reviews: [
-                { id: 1, name: "Hairtylist & Makeup", price: 200, image_url: "assets/images/p7.jpg" },
-                { id: 2, name: "Barber", price: 100, image_url: "assets/images/p9.jpg" },
-                { id: 3, }
+                { id: 1, author: "Tony Start", text: "Lorem Ipsum is simply dumb text of the printing and typesetting industry." },
+                { id: 2, author: "Jon Snow", text: "Lorem Ipsum is simply dumb text of the printing and typesetting industry." },
+                { id: 3, author: "Bruce Wayne", text: "Lorem Ipsum is simply dumb text of the printing and typesetting industry." }
             ]
         }
     }
@@ -49,7 +49,7 @@ export default class ReviewList extends Component {
                     <Row className="show-grid review-list">
                         <Col className="person-wrapper">
                             <ReviewCard
-                                products={this.state.reviews}>
+                                reviews={this.state.reviews}>
                             </ReviewCard>
                         </Col>
                     </Row>

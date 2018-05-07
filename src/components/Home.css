@@ -427,7 +427,7 @@ nav.main-navbar.navbar.navbar-default .container {
 /* product, service, blogpost sections */
 
 .featured-section {
-    margin-left: -20px;
+    margin-left: 0px;
 }
 
 .product-section,
@@ -442,13 +442,15 @@ nav.main-navbar.navbar.navbar-default .container {
     margin-left: 10px;
 }
 
-/* catalog */
+/* catalog product, service, blogpost, review lists */
 
 .catalog-list,
 .service-list,
 .product-list,
-.blogpost-list {
-    width: 1290px;      /* min 860px renders 2 cols, min 1290 renders 3 cols */
+.blogpost-list,
+.review-list {
+    width: 1290px;
+    /* min 860px renders 2 cols, min 1290 renders 3 cols */
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
@@ -456,6 +458,18 @@ nav.main-navbar.navbar.navbar-default .container {
     padding: 0px;
     margin: 0px;
 }
+
+/* product, service, blogpost, review grid */
+
+.service-section>.person-wrapper>.show-grid,
+.products-section>.person-wrapper>.show-grid,
+.blogpost-section>.person-wrapper>.show-grid,
+.reviews-section>.person-wrapper>.show-grid {
+    margin-top: -35px;
+}
+
+/* catalog */
+
 .catalog-card {
     margin: 0px 10px 10px 0px;
 }
@@ -482,14 +496,6 @@ nav.main-navbar.navbar.navbar-default .container {
     margin-top: 10px;
     display: flex;
     justify-content: flex-end;
-}
-
-/* product, service, blogpost grid */
-
-.service-section>.person-wrapper>.show-grid,
-.products-section>.person-wrapper>.show-grid,
-.blogpost-section>.person-wrapper>.show-grid {
-    margin-top: -35px;
 }
 
 /* product card */
@@ -812,6 +818,80 @@ nav.main-navbar.navbar.navbar-default .container {
 
 .blogpost-title>h4 {
     font-size: 23px;
+}
+
+/* review */
+
+.show-grid>.person-wrapper>.review-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.show-grid>.review-section>.person-wrapper>.review-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+/* review card */
+
+.review-card {
+    margin: 0px 10px 0px 0px;
+}
+
+.review-card>.card-frame {
+    /* review card dimensions */
+    height: 250px;
+    width: 400px;
+    /* mockup: heigth: 340px, width: 260px */
+}
+
+.review-card>.card-frame>.panel-body {
+    height: inherit;
+    width: inherit;
+    padding: 0;
+}
+
+.review-card>.card-frame>.panel-body>.card-bottom {
+    display: flex;
+    flex-flow: row wrap;
+    width: inherit;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+}
+
+.review-card>.card-frame>.panel-body>.card-top {
+    display: flex;
+    flex-flow: column wrap;
+    width: inherit;
+    justify-content: flex-start;  
+}
+
+.review-card>.card-frame>.panel-body>.card-top>.review-info-holder {
+    width: inherit;
+    height: inherit;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.review-card>.card-frame {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.review-author>h4 {
+    font-size: 20px;
+    /* before: font-size: 23px */
+}
+
+.review-text>p {
+    font-size: 18px;
 }
 
 /* responsiveness */

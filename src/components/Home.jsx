@@ -7,7 +7,8 @@ import ProductSection from './templates/ProductSection.jsx';
 import ServiceSection from './templates/ServiceSection.jsx';
 // import Blog from './home-page/Blog.jsx';
 import BlogpostsFeatured from './home-page/BlogpostsFeatured';
-import Reviews from './home-page/Reviews.jsx';
+// import Reviews from './home-page/Reviews.jsx';
+import ReviewsFeatured from './home-page/ReviewsFeatured';
 import Appstore from './home-page/Appstore.jsx';
 
 import { StorageKeys } from "../utils/storagekeys.js";
@@ -27,7 +28,7 @@ export default class Home extends Component {
   }
 
   componentDidMount() {
-    console.log(localStorage.getItem(StorageKeys.APIKEY));
+    // console.log(localStorage.getItem(StorageKeys.APIKEY));
   }
 
   handleProductClick () {
@@ -100,27 +101,33 @@ export default class Home extends Component {
           <section className="featured-section">
             <ProductSection />
             <ServiceSection />
-            <BlogpostsFeatured />
+            <section className="blog-section">
+              <BlogpostsFeatured />
+            </section>
+            <section className="review-section">
+              <ReviewsFeatured />
+            </section>
           </section>
           :
           <section className="featured-section">
             <ServiceSection />
             <ProductSection />
-            <BlogpostsFeatured />
+            <section className="blog-section">
+                <BlogpostsFeatured />
+            </section>
+            <section className="review-section">
+                <ReviewsFeatured />
+            </section>
           </section>}
 
           <Row>
             <ReactCarousel>
-              <div key={1}>your content</div>
-              <div key={2}>your content</div>
-              <div key={3}>your content</div>
+              <img key={1} src="assets/person-1.jpg" />
+              <img key={2} src="assets/person-2.jpg" />
+              <img key={3} src="assets/person-3.jpg" />
             </ReactCarousel>
           </Row>
 
-          
-          <Row className="reviews">
-            <Reviews />
-          </Row>
           <Row className="appstore">
             <Appstore/>
           </Row>

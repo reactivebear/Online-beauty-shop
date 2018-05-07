@@ -34,7 +34,7 @@ export default class CatalogProduct extends Component {
                 this.setState({
                     catalogs: res.data.object
                 });
-                console.log(JSON.stringify(res.data.object, null, 4));
+                // console.log(JSON.stringify(res.data.object, null, 4));
             });
     }
 
