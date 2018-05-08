@@ -61,7 +61,7 @@ export default class Home extends Component {
               <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam </p>
             </Carousel.Caption>
           </Carousel.Item>
-          </Carousel>
+        </Carousel>
         </div>
         <Grid className="page-content">
           <Row className="filter-button-row">
@@ -101,6 +101,14 @@ export default class Home extends Component {
           <section className="featured-section">
             <ProductSection />
             <ServiceSection />
+          </section>
+          :
+          <section className="featured-section">
+            <ServiceSection />
+            <ProductSection />
+          </section>}
+
+          <section className="featured-section">
             <section className="blog-section">
               <BlogpostsFeatured />
             </section>
@@ -108,29 +116,19 @@ export default class Home extends Component {
               <ReviewsFeatured />
             </section>
           </section>
-          :
-          <section className="featured-section">
-            <ServiceSection />
-            <ProductSection />
-            <section className="blog-section">
-                <BlogpostsFeatured />
-            </section>
-            <section className="review-section">
-                <ReviewsFeatured />
-            </section>
-          </section>}
-
-          <Row>
-            <ReactCarousel>
-              <img key={1} src="assets/person-1.jpg" />
-              <img key={2} src="assets/person-2.jpg" />
-              <img key={3} src="assets/person-3.jpg" />
-            </ReactCarousel>
-          </Row>
 
           <Row className="appstore">
             <Appstore/>
           </Row>
+          
+          {/* <Row>
+            <ReactCarousel className="teste">
+              <img alt="teste1" key={1} src="assets/person-1.jpg" />
+              <img alt="teste2" key={2} src="assets/person-2.jpg" />
+              <img alt="teste3" key={3} src="assets/person-3.jpg" />
+            </ReactCarousel>
+          </Row> */}
+
         </Grid>
       </div>
     )

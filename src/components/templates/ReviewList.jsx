@@ -3,6 +3,7 @@ import { Row, Col } from 'react-bootstrap';
 import ReviewCard from './ReviewCard';
 
 import { Api } from "../../api/api";
+import ReactCarousel from 'react-carousel';
 
 export default class ReviewList extends Component {
 

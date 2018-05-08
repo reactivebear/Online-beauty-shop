@@ -12,10 +12,10 @@ export default class Footer extends Component {
       <footer>
           <Grid>
             <Row className="content">
-              <Col >
+
                 <Row className="footer-top">
-                  <div className="footerLogo">
-                    <Image src="assets/images/footerLogo.png" />
+                  <div className="footer-logo">
+                    <Image src="assets/images/LogoVisualTotal.png" />
                   </div>
 
                   <DownloadAppButtonSmall />
@@ -50,6 +50,8 @@ export default class Footer extends Component {
                       <p>Conheça a WeMind</p>
                     </Col>
                   </Row>
+                </Row>
+                <Row className="footer-bottom">
                   <Row>
                     <Col>
                       <p>Uma empresa WeMind Group - www.wemindgroup.com</p>
@@ -92,90 +94,14 @@ export default class Footer extends Component {
                       </DropdownButton>
                     </Col>
                   </Row>
-
-                </Row>
-                <Row className="footer-bottom">
-                  <Col>
-                  <p>© WeMind 2018 - TODOS OS DIREITOS RESERVADOS.</p>
-                  </Col>
+                  <Row>
+                    <Col className="copyright">
+                      <p>© WeMind 2018 - TODOS OS DIREITOS RESERVADOS.</p>
+                    </Col>
+                  </Row>
                 </Row>
                 
-              </Col>
-
-              
-              {/* <Col >
-                <div className="site-links">
-                  <div className="footer-heading">
-                    <h4>Quem somos</h4>
-                  </div>
-                  <ul>
-                    <li>
-                      <a href="">Conheça-nos</a>
-                    </li>
-                    <li>
-                      <a href="">Sobre o App</a>
-                    </li>
-                    <li>
-                      <a href="">Sobre o Blog</a>
-                    </li>
-                  </ul>
-                </div>
-              </Col>
-              <Col >
-                <div className="site-links">
-                  <div className="footer-heading">
-                    <h4>Serviços</h4>
-                  </div>
-                  <ul>
-                    <li>
-                      <a href="">Ofereça seus serviços</a>
-                    </li>
-                    <li>
-                      <a href="">Anuncie seus produtos</a>
-                    </li>
-                    <li>
-                      <a href="">Anuncie no site e no app</a>
-                    </li>
-                  </ul>
-                </div>
-              </Col>
-              <Col >
-                <div className="site-links">
-                  <div className="footer-heading">
-                    <h4>Informação</h4>
-                  </div>
-                  <ul>
-                    <li>
-                      <a href="">Deixe-nos te ajudar</a>
-                    </li>
-                    <li>
-                      <a href="">Políticas</a>
-                    </li>
-                    <li>
-                      <a href="">Vantagens</a>
-                    </li>
-                  </ul>
-                </div>
-              </Col> */}
-
             </Row>
-
-            {/* <Row>
-              <Col >
-                <div className="copyright">
-                  <p>© 2018 visual total</p>
-                </div>
-                <div  className="pull-right flags">
-                  <a href="">
-                    <Image src="assets/images/american-flag.png" />
-                  </a>
-                  <a href="">
-                    <Image src="assets/images/flag-2.png" />
-                  </a>
-                </div>
-              </Col>
-            </Row> */}
-
           </Grid>
       </footer>
     )
