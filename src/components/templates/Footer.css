@@ -25,15 +25,20 @@ footer .content.row {
 .footer-top>.footer-logo {
     display: flex;
     justify-content: inherit;
+    margin-bottom: 20px;
 }
 
-.btn-app {
-    height: 43px;
-    border-radius: 5px;
-    width: 326px;
+.footer-top>.download-app-button>li>a>.btn-app {
+    width: 110%;
+    margin-right: 0;
     position: relative;
     bottom: 0;
     left: 0;
+}
+
+.footer-top>.download-app-button>li>a>.btn-app>.fa-mobile:first-child {
+    height: 10px;
+    width: 10px;
 }
 
 /* footer center */
@@ -45,17 +50,18 @@ footer .content.row {
 }
 
 .footer-center>.row>div {
-    width: 150px;
-    margin: 50px 40px;
+    width: 200px;
+    margin: 70px 10px;
+    text-align: center;
 }
 
 .footer-center>.row>div>h4 {
-    color: #b5b5b5;
+    color: #fff;
     margin-bottom: 50px;
 }
 
 .footer-center>.row>div>p {
-    color: #b5b5b5;
+    color: #fff;
     font-size: 13px;
     margin-bottom: 10px;
 }
@@ -64,8 +70,17 @@ footer .content.row {
 
 .footer-bottom {
     display: flex;
-    flex-flow: row;
+    flex-flow: row wrap;
     justify-content: space-between;
+    width: inherit;
+}
+
+.row>div>.wemind-group {
+    width: 65%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-self: flex-end;
 }
 
 /* copyright */
@@ -75,7 +90,8 @@ footer .content.row {
 }
 
 .copyright > p {
-    color: #b5b5b5;
+    /* before: color: #b5b5b5 */
+    color: #fff;
     margin:  0;
     font-size: 13px;
     text-transform:  uppercase;
@@ -108,6 +124,14 @@ footer .social > div:not(:first-child) {
     width:  100%;
     height:  100%;
     color:  #fff;
+}
+
+/* line separator */
+
+.separator {
+    height: 2px;
+    width: 100%;
+    background-color: #fff;
 }
 
 @media (max-width: 767px){

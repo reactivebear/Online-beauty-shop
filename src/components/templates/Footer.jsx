@@ -53,31 +53,29 @@ export default class Footer extends Component {
                 </Row>
                 <Row className="footer-bottom">
                   <Row>
-                    <Col>
+                    <Col className="wemind-group">
                       <p>Uma empresa WeMind Group - www.wemindgroup.com</p>
                     </Col>
-                    <Col>
-                      <div className="social">
-                        <div className="facebook">
-                          <a href=""><FontAwesome
-                            name='facebook'
-                          /></a>
-                        </div>
-                        <div className="instagram">
-                          <a href=""><FontAwesome
-                            name='instagram'
-                          /></a>
-                        </div>
-                        <div className="twiter">
-                          <a href=""><FontAwesome
-                            name='twitter'
-                          /></a>
-                        </div>
-                        <div className="google-plus">
-                          <a href=""><FontAwesome
-                            name='google-plus'
-                          /></a>
-                        </div>
+                    <Col className="social">
+                      <div className="facebook">
+                        <a href=""><FontAwesome
+                          name='facebook'
+                        /></a>
+                      </div>
+                      <div className="instagram">
+                        <a href=""><FontAwesome
+                          name='instagram'
+                        /></a>
+                      </div>
+                      <div className="twiter">
+                        <a href=""><FontAwesome
+                          name='twitter'
+                        /></a>
+                      </div>
+                      <div className="google-plus">
+                        <a href=""><FontAwesome
+                          name='google-plus'
+                        /></a>
                       </div>
                     </Col>
                     <Col>
@@ -88,13 +86,13 @@ export default class Footer extends Component {
                         title="Selecione um país/região"
                         key={1}
                         noCaret
+                        dropup
                       >
                         <MenuItem id="Brazil - Português" key={1} active>Brazil - Português</MenuItem>
                         <MenuItem id="EUA - English" key={2}>EUA - English</MenuItem>
                       </DropdownButton>
                     </Col>
-                  </Row>
-                  <Row>
+                    <Row className="separator"></Row>
                     <Col className="copyright">
                       <p>© WeMind 2018 - TODOS OS DIREITOS RESERVADOS.</p>
                     </Col>
