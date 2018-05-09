@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import BlogpostCard from './BlogpostCard';
 import ReactCarousel from 'react-carousel';
-import { Carousel as ReactResponsiveCarousel } from 'react-responsive-carousel';
 /* TODO: implement API */
 // import { Api } from "../../api/api";
 
@@ -59,36 +58,4 @@ export default class BlogpostList extends Component {
             </section>
         );
     }
-}
-
-export class BlogpostCarousel extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            blogposts: [
-                { id: 1, name: "Chromecast 2 Hdmi Edição 2017 Original 1080p Google New", image_url: "assets/images/b1.jpg" },
-                { id: 2, name: "Chromecast 2 Hdmi Edição 2017 Original 1080p Google New", image_url: "assets/images/b2.jpg" },
-                { id: 3, name: "Chromecast 2 Hdmi Edição 2017 Original 1080p Google New", image_url: "assets/images/b3.jpg" },
-                { id: 4, name: "Chromecast 2 Hdmi Edição 2017 Original 1080p Google New", image_url: "assets/images/b4.jpg" }
-            ]
-        }
-    }
-
-    render() {
-        return (
-            <ReactResponsiveCarousel className="blogpost-section" showIndicators={false} showArrows={false} showThumbs={false} centerMode={"true"} emulateTouch={"true"} swipeScrollTolerance={8} showStatus={false}>
-                <Col className="person-wrapper">
-                    <Row className="show-grid blogpost-list">
-                        <Col className="person-wrapper">
-                            <BlogpostCard
-                                blogposts={this.state.blogposts}>
-                            </BlogpostCard>
-                        </Col>
-                    </Row>
-                </Col>
-            </ReactResponsiveCarousel>
-        );
-
-    }
-
 }

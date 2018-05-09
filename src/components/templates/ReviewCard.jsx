@@ -1,5 +1,6 @@
 import React from 'react'
 import { Image, Panel } from 'react-bootstrap'
+import { Carousel as ReactResponsiveCarousel } from 'react-responsive-carousel';
 
 export default props => {
     const renderRows = () => {
@@ -39,7 +40,15 @@ export default props => {
 
     return (
         <div className="review-list">
-            {renderRows()}
+            {/* visibility: false for screens bellow small () */}
+            <div className="d-none d-sm-block">
+                {renderRows()}
+            </div>
+
+            {/* visibility: true for screens bellow small () */}
+            <ReactResponsiveCarousel className="d-sm-none" showIndicators={false} showArrows={false} showThumbs={false} centerMode={"true"} emulateTouch={"true"} swipeScrollTolerance={8} showStatus={false}>
+                {renderRows()}
+            </ReactResponsiveCarousel>
         </div>
     )
 }
