@@ -11,7 +11,9 @@ import BlogpostsFeatured from './home-page/BlogpostsFeatured.jsx';
 import ReviewsFeatured from './home-page/ReviewsFeatured.jsx';
 import Appstore from './home-page/Appstore.jsx';
 
-import SwipeableCarousel from './templates/SwipeableCarousel.jsx';
+// import SwipeableCarousel from './templates/SwipeableCarousel.jsx';
+import { BlogpostCarousel } from './templates/BlogpostList.jsx';
+import { ReviewCarousel } from './templates/ReviewList.jsx';
 
 import { StorageKeys } from "../utils/storagekeys.js";
 
@@ -110,7 +112,8 @@ export default class Home extends Component {
             <ProductSection />
           </section>}
 
-          <section className="featured-section">
+          {/* visibility: false for screens bellow small () */}
+          <section className="featured-section d-none d-sm-block">  
             <section className="blog-section">
               <BlogpostsFeatured />
             </section>
@@ -119,11 +122,21 @@ export default class Home extends Component {
             </section>
           </section>
 
+          {/* visibility: true for screens bellow small () */}
+          <section className="featured-section d-sm-none">
+            <section className="blog-section">
+              <BlogpostCarousel />
+            </section>
+            <section className="review-section">
+              <ReviewCarousel />
+            </section>
+          </section>
+
           <Row className="appstore">
             <Appstore/>
           </Row>
 
-          <SwipeableCarousel></SwipeableCarousel>
+          {/* <SwipeableCarousel></SwipeableCarousel> */}
 
         </Grid>
       </div>

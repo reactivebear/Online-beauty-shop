@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import ReviewCard from './ReviewCard';
-
-import { Api } from "../../api/api";
-import ReactCarousel from 'react-carousel';
+import { Carousel as ReactResponsiveCarousel } from 'react-responsive-carousel';
+/* TODO: implement API */
+// import { Api } from "../../api/api";
 
 export default class ReviewList extends Component {
 
@@ -58,4 +58,35 @@ export default class ReviewList extends Component {
             </section>
         );
     }
+}
+
+export class ReviewCarousel extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            reviews: [
+                { id: 1, author: "Tony Start", text: "Lorem Ipsum is simply dumb text of the printing and typesetting industry." },
+                { id: 2, author: "Jon Snow", text: "Lorem Ipsum is simply dumb text of the printing and typesetting industry." },
+                { id: 3, author: "Bruce Wayne", text: "Lorem Ipsum is simply dumb text of the printing and typesetting industry." }
+            ]
+        }
+    }
+
+    render() {
+        return (
+            <ReactResponsiveCarousel className="review-section" showIndicators={false} showArrows={false} showThumbs={false} centerMode={"true"} emulateTouch={"true"} swipeScrollTolerance={8} showStatus={false}>
+                <Col className="review-wrapper">
+                    <Row className="show-grid review-list">
+                        <Col className="person-wrapper">
+                            <ReviewCard
+                                reviews={this.state.reviews}>
+                            </ReviewCard>
+                        </Col>
+                    </Row>
+                </Col>
+            </ReactResponsiveCarousel>
+        );
+
+    }
+
 }

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import {ReactDom} from 'react-dom';
+import { ReactDom } from 'react-dom';
 import { Carousel as ReactResponsiveCarousel } from 'react-responsive-carousel';
-
-
 
 export default class SwipeableCarousel extends Component {
     constructor (props) {
