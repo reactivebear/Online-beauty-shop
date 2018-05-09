@@ -14,6 +14,13 @@ footer .content.row {
     justify-content: center;
 }
 
+/* container */
+
+footer>.container {
+    margin: 10px 146px;
+    padding: 0;
+}
+
 /* footer top */
 
 .footer-top {
@@ -36,9 +43,23 @@ footer .content.row {
     left: 0;
 }
 
-.footer-top>.download-app-button>li>a>.btn-app>.fa-mobile:first-child {
-    height: 10px;
+/* download button */
+
+.footer-top>.download-app-button>li>a {
+    background-color: transparent;
+}
+
+.footer-top>.download-app-button>li>a>button>i {
     width: 10px;
+    height: 17px;
+    margin-right: 6px;
+    background: url(../../assets/icons/phone-icon.png);
+    position: relative;
+    vertical-align: text-bottom;
+}
+
+.footer-top>.download-app-button>li>a>button>i:before {
+    content: "";
 }
 
 /* footer center */
@@ -76,7 +97,7 @@ footer .content.row {
 }
 
 .row>div>.wemind-group {
-    width: 65%;
+    width: 63%;
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
@@ -104,6 +125,7 @@ footer .content.row {
 
 footer .social {
     margin-top:  20px;
+    margin-right: 10px;
 }
 
 footer .social > div {

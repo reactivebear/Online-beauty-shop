@@ -6,10 +6,12 @@ import {Col, Grid, Row,Carousel} from 'react-bootstrap';
 import ProductSection from './templates/ProductSection.jsx';
 import ServiceSection from './templates/ServiceSection.jsx';
 // import Blog from './home-page/Blog.jsx';
-import BlogpostsFeatured from './home-page/BlogpostsFeatured';
+import BlogpostsFeatured from './home-page/BlogpostsFeatured.jsx';
 // import Reviews from './home-page/Reviews.jsx';
-import ReviewsFeatured from './home-page/ReviewsFeatured';
+import ReviewsFeatured from './home-page/ReviewsFeatured.jsx';
 import Appstore from './home-page/Appstore.jsx';
+
+import SwipeableCarousel from './templates/SwipeableCarousel.jsx';
 
 import { StorageKeys } from "../utils/storagekeys.js";
 
@@ -120,14 +122,8 @@ export default class Home extends Component {
           <Row className="appstore">
             <Appstore/>
           </Row>
-          
-          {/* <Row>
-            <ReactCarousel className="teste">
-              <img alt="teste1" key={1} src="assets/person-1.jpg" />
-              <img alt="teste2" key={2} src="assets/person-2.jpg" />
-              <img alt="teste3" key={3} src="assets/person-3.jpg" />
-            </ReactCarousel>
-          </Row> */}
+
+          <SwipeableCarousel></SwipeableCarousel>
 
         </Grid>
       </div>

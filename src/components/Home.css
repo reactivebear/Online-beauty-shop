@@ -740,8 +740,8 @@ nav.main-navbar.navbar.navbar-default .container {
 /* left and right margin of home page content */
 
 .page-content:not(:first-child) {
-    margin-left: 120px;
-    margin-right: 120px;
+    margin-left: 146px;
+    margin-right: 146px;
 }
 
 /* button colors */
@@ -922,6 +922,17 @@ nav.main-navbar.navbar.navbar-default .container {
 .appstore-section>.col-wrapper>.show-grid>.appstore-wrapper>.person-wrapper>.mobile-app>.downloadBtns>a>img[src*="/icons/"] {
     width: inherit;
 }
+
+/* teste react-carousel */
+
+.row>.teste {
+    width: 1500px;
+}
+
+.row>.teste>img {
+    width: 1500px;
+}
+
 
 /* responsiveness */
 /* TODO: blogpopst, review, appstore */
