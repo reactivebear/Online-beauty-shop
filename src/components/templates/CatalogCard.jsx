@@ -28,14 +28,14 @@ export default props => {
     }
 
     return (
-        <div className="catalog-list">
+        <div className="catalog-list-holder">
             {/* visibility: false for screens bellow small () */}
-            <div className="d-none d-sm-block">
+            <div className="catalog-list d-none d-sm-block">
                 {renderRows()}
             </div>
 
             {/* visibility: true for screens bellow small () */}
-            <ReactResponsiveCarousel className="d-sm-none" showIndicators={false} showArrows={false} showThumbs={false} centerMode={"true"} emulateTouch={"true"} swipeScrollTolerance={8} showStatus={false}>
+            <ReactResponsiveCarousel className="catalog-list d-sm-none" showIndicators={false} showArrows={false} showThumbs={false} centerMode={"true"} emulateTouch={"true"} swipeScrollTolerance={8} showStatus={false}>
                 {renderRows()}
             </ReactResponsiveCarousel>
         </div>

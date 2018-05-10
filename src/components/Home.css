@@ -760,7 +760,7 @@ nav.main-navbar.navbar.navbar-default .container {
 
 /* blogpost */
 
-.show-grid>.blogpost-section>.person-wrapper>.blogpost-list {
+.show-grid>.blogpost-section>.person-wrapper>.blogpost-list-holder>.blogpost-list {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
@@ -825,13 +825,13 @@ nav.main-navbar.navbar.navbar-default .container {
 
 /* review */
 
-.show-grid>.person-wrapper>.review-list {
+.show-grid>.person-wrapper>.review-list-holder>.review-list {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
 }
 
-.show-grid>.review-section>.person-wrapper>.review-list {
+.show-grid>.review-section>.person-wrapper>.review-list-holder>.review-list {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
