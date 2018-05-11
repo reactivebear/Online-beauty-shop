@@ -445,14 +445,24 @@ nav.main-navbar.navbar.navbar-default .container {
 
 /* catalog product, service, blogpost, review, appstore lists */
 
+.catalog-list-holder {
+    width: 1290;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    padding: 0px;
+    margin: 0px;
+}
+
+
 .catalog-list,
 .service-list,
 .product-list,
 .blogpost-list,
 .review-list,
 .appstore-section>.col-wrapper {
-    width: 1290px;
     /* min 860px renders 2 cols, min 1290 renders 3 cols */
+    width: 1290px;
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
@@ -464,7 +474,7 @@ nav.main-navbar.navbar.navbar-default .container {
 /* product, service, blogpost, review grid */
 
 .service-section>.person-wrapper>.show-grid,
-.products-section>.person-wrapper>.show-grid,
+.product-section>.person-wrapper>.show-grid,
 .blogpost-section>.person-wrapper>.show-grid,
 .reviews-section>.person-wrapper>.show-grid,
 .appstore-section>.col-wrapper>.show-grid {
@@ -760,7 +770,8 @@ nav.main-navbar.navbar.navbar-default .container {
 
 /* blogpost */
 
-.show-grid>.blogpost-section>.person-wrapper>.blogpost-list-holder>.blogpost-list {
+.person-wrapper>.blogpost-list-holder>.blogpost-list {
+    width: 1200px;
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
@@ -769,13 +780,17 @@ nav.main-navbar.navbar.navbar-default .container {
 /* blogpost card */
 
 .blogpost-card {
+    height: 390px;
+    width: 300px;
+    /* mockup: heigth: 340px, width: 260px */
+
     margin: 0px 10px 0px 0px;
 }
 
 .blogpost-card>.card-frame {
     /* blogpost card dimensions */
-    height: 390px;
-    width: 300px;
+    height: inherit;
+    width: inherit;
     /* mockup: heigth: 340px, width: 260px */
 }
 
@@ -923,15 +938,8 @@ nav.main-navbar.navbar.navbar-default .container {
     width: inherit;
 }
 
-/* teste react-carousel */
+/* test */
 
-.row>.teste {
-    width: 1500px;
-}
-
-.row>.teste>img {
-    width: 1500px;
-}
 
 
 /* responsiveness */

@@ -18,6 +18,8 @@ export class Api {
   static PRODUCTS = "/api/products";
   static SERVICES = "/api/services";
 
+  // static GOOGLE_DISTANCE_MATRIX = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=Washington,DC&destinations=New+York+City,NY&key=YOUR_API_KEY";
+
   // Headers
   // noinspection SpellCheckingInspection
   static HEADER_API_KEY = "apikey";

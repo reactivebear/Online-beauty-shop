@@ -53,7 +53,7 @@ export default class CatalogProduct extends Component {
                      <div className="section-heading text-left">
                          <h3>Catálogo de <strong>produtos</strong></h3>
                      </div>
-                     <Row className="show-grid catalog-list">
+                     <Row className="show-grid">
                         <Col className="person-wrapper">
                             <CatalogCard
                                 catalogs={this.state.catalogs}>
