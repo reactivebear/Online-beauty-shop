@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import style from './btn_main.css'
+import './btn_main.css'
 
 class BtnMain extends Component {
     render() {

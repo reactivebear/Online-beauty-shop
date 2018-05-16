@@ -1,33 +1,23 @@
 import api from 'api'
-import Cookies from 'js-cookie'
 import * as types from './types.js'
 
-export function loginAsGuest() {
-    return dispatch => {
-        return api.loginAsGuest()
-        .then(json => {
-            if (json.apikey) {
-            	dispatch(setToken(json.apikey.key))
-            }
-        })
-    }
+export const getCategories = token => dispatch => {
+    return api.getCategories(token)
+    .then(json => {
+        if (json.object) {
+            dispatch(setCategories(json.object))
+        }
+    })
 }
 
-export function setToken(value) {
-    Cookies.set('token', value)
-    return {
-        type: types.SET_TOKEN,
-        value
-    }
-}
+export const setCategories = data => 
+    ({
+        type: types.SET_CATEGORIES,
+        data
+    })
 
-export function getCategories(token) {
-    return dispatch => {
-        return api.getCategories(token)
-        .then(json => {
-            if (json.data) {
-
-            }
-        })
-    }
-}
+export const setActiveCategory = cat => 
+    ({
+        type: types.SET_ACTIVE_CATEGORY,
+        cat
+    })

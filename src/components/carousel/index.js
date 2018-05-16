@@ -16,9 +16,18 @@ class Carousel extends Component {
             nextArrow: <NextArrow />,
             prevArrow: <PrevArrow />,
             infinite: true,
-            autoplay: true,
+            autoplay: false,
+            responsive: [
+                {
+                    breakpoint: 768, 
+                    settings: {
+                        arrows: false
+                    }
+                }
+            ],
+            ...this.props.settings
         };
-
+        
         return (
             <Slider {...settings}>
                 { this.props.items.map((item, i) => this.printItems(item, i))}

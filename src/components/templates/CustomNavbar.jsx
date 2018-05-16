@@ -1,137 +1,88 @@
 import React, { Component } from 'react'
-import { Grid, Navbar, Nav, NavItem, Row, Col,FormGroup,FormControl,Button,Image,Glyphicon} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-// import DownloadAppBig from '../templates/DownloadAppBig.jsx';
-import DownloadAppButtonSmall from '../templates/DownloadAppButtonSmall.jsx';
-import NavbarRightSection from '../templates/NavbarRightSection.jsx';
-// import SearchBar from '../templates/SearchBar.jsx';
-import './CustomNavbar.css';
+import { Grid, Navbar, Nav, NavItem, Row, Col,FormGroup,FormControl,Button,Image,Glyphicon} from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import DownloadAppButtonSmall from '../templates/DownloadAppButtonSmall.jsx'
+import NavbarRightSection from '../templates/NavbarRightSection.jsx'
+import BtnMain from 'components/buttons/btn_main.js'
+import Search from 'components/search'
+
 export default class CustomNavbar extends Component {
+    state = {dismissDownload: false}
 
-  constructor (props) {
-    super(props);
-    this.state = { dismissDownload: false, catalogs: [] };
+    handleDismissClick = () => {
+        this.setState (
+            { dismissDownload: true }
+        );
+    }
 
-    this.handleDismissClick = this.handleDismissClick.bind(this);
-  }
+    render() {
+        return (
+            <div className="header-nav">
+                {  
+                    ! this.state.dismissDownload 
+                    ?   <div className="row download-app-big p-5 d-sm-none">
+                            <div className="d-block text-center text-white">
+                                <div className="form-group">
+                                    <strong>Use grátis o app do Visual Total</strong>
+                                    <i onClick={this.handleDismissClick} className="fa fa-times float-right" aria-hidden="true"></i>
+                                </div>
+                                <div className="form-group">
+                                    <span>Descubra a melhor experiência na hora de comprar pela internet</span>
+                                </div>
+                                <BtnMain
+                                    className="btn-block"
+                                    title="Baixar" />
+                            </div>
+                        </div>
+                    :   ''
+                }
 
-  handleDismissClick () {
-    this.setState (
-      { dismissDownload: true }
-    );
-  }
-
-  /* API depends on information from home; needs to know if the Products or Services filter button is selected */
-  // componentDidMount() {
-  //   if (???) {
-  //     this.catalogsID = setInterval(
-  //       () => this.fetchServiceCategories(),
-  //       1000
-  //     );
-  //   } else {
-  //     this.catalogsID = setInterval(
-  //       () => this.fetchProductCategories(),
-  //       1000
-  //     );
-  //   }
-  // }
-
-  // fetchServiceCategories() {
-  //   Api.getServiceCategories()
-  //     .then(res => {
-  //       this.setState({
-  //         catalogs: res.data.object
-  //       });
-  //     });
-  // }
-
-  // componentDidUpdate() {
-  //   clearInterval(this.catalogsID);
-  // }
-
-  // componentWillUnmount() {
-  //   clearInterval(this.catalogsID);
-  // }
-
-  render() {
-    return (
-      <div className="header-nav">
-
-        {/* download-app-big */}
-        {!this.state.dismissDownload ?
-          <div className="download-app-big d-block d-sm-none">
-            <Nav>
-              <NavItem>
-                <h2>
-                  <strong>Use grátis o app do Visual Total</strong>
-                </h2>
-                <button type="button" className="close" aria-label="Close"
-                  onClick={this.handleDismissClick}>
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </NavItem>
-              <NavItem>
-                <p>
-                  Descubra a melhor experiência na hora de comprar pela internet
-                </p>
-              </NavItem>
-              <NavItem eventKey={1} href="#">
-                <Button type="button" className="btn btn-sm btn-success btn-app" bsSize="xs"><i className="fa fa-mobile" aria-hidden="false"></i> Baixar</Button>
-              </NavItem>
-            </Nav>
-          </div>
-          :
-          <span />
-        }
-
-        <Navbar default collapseOnSelect  className="main-navbar">
-          <Navbar.Header>
-            <Navbar.Brand>
-              <Link to="/"><Image src="assets/images/LogoVisualTotal.png"  className="logo"/></Link>
-            </Navbar.Brand>
-            <Navbar.Toggle />
-          </Navbar.Header>
-
-          <DownloadAppButtonSmall   />
-          
-          <Navbar.Collapse />
-          <Grid>
-            <Row className="navbar-ul">
-              <Nav  className="main-ul hidden-xs d-none d-sm-block">
-                <NavItem eventKey={1} componentClass={Link} href="/" to="/">
-                  Hairtylist & Makeup
-                </NavItem>
-                <NavItem eventKey={2} componentClass={Link} href="/about" to="/about">
-                  Barber
-                </NavItem>
-                <NavItem eventKey={3} componentClass={Link} href="/news" to="/news">
-                  Depilation
-                </NavItem>
-                <NavItem eventKey={3} componentClass={Link} href="/news" to="/news">
-                  Esthetic Clinics
-                </NavItem>
-                <NavItem eventKey={3} componentClass={Link} href="/news" to="/news">
-                  Spa & Massage
-                </NavItem>
-              </Nav>
-            </Row>
-            <Row className="show-grid">
-              <Col className="navbar-left-section">
-                <div className="searchbar">
-                  {/* Campo de input de pesquisa da navbar, com react-bootstrap*/}
-                  <Navbar.Form pullLeft>
-                    <FormGroup>
-                      <FormControl type="text" placeholder="Buscar por produtos e serviços" />
-                    </FormGroup>{' '}
-                    <Button type="submit" className="btn btn-success btn-magnifier"><Glyphicon glyph="search" /></Button>
-                  </Navbar.Form>
+                <div className="bg-dark effect6 pt-46 pb-77">
+                    <div className="container text-white">
+                        <div className="row font-avenir mb-26">
+                            <div className="col-sm-2 align-self-end">
+                                <img src="assets/img/logo.png" alt="" className="img-fluid logo" />
+                            </div>
+                            <div className="col align-self-end">
+                                <span>Hairtylist & Makeup</span>
+                            </div>
+                            <div className="col align-self-end">
+                                <span>Barber</span>
+                            </div>
+                            <div className="col align-self-end">
+                                <span>Depilation</span>
+                            </div>
+                            <div className="col align-self-end">
+                                <span>Spa & Massage</span>
+                            </div>
+                            <div className="col align-self-end">
+                                <span>Esthetic Clinics</span>
+                            </div>
+                            <div className="col align-self-start">
+                                <BtnMain
+                                        title="Baixe grátis o app do Visual Total" />
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col">
+                                <Search />
+                            </div>
+                            <div className="col-md-auto">
+                                Enviar para<br />
+                                <strong>Bela Vista 01329900</strong>
+                            </div>
+                            <div className="col col-lg-2">
+                                Meu<br />
+                                <strong>Carrinho</strong>
+                            </div>
+                            <div className="col col-lg-2">
+                                Bem vindo<br />
+                                <strong>Entre ou cadastre-se</strong>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </Col>
-              <NavbarRightSection />
-            </Row>
-          </Grid>
-        </Navbar>
-      </div>
-    );
-  }
+            </div>
+        );
+    }
 }

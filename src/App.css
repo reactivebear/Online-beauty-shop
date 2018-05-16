@@ -1,0 +1,93 @@
+@font-face {
+	font-family: 'Avenir LT Std 45 Book';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Avenir LT Std 45 Book'), url('assets/fonts/AvenirLTStd-Book.woff') format('woff');
+}
+@font-face {
+	font-family: 'Avenir LT Std 85 Heavy';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Avenir LT Std 85 Heavy'), url('assets/fonts/AvenirLTStd-Heavy.woff') format('woff');
+}
+@font-face {
+	font-family: 'Avenir LT Std 65 Medium';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Avenir LT Std 65 Medium'), url('assets/fonts/AvenirLTStd-Medium.woff') format('woff');
+}
+
+.App {
+	overflow-x: hidden;
+}
+
+.bg-main {
+	background-color: #F3F3F3;
+}
+
+.pt-55 {
+	padding-top: 55px;
+}
+
+.main-wrap {
+	position: relative;
+	left: 0px;
+	transition: left 0.5s;
+}
+
+.main-wrap.unactive {
+	left: -100px;
+}
+
+.font-avenir {
+	font-family: 'Avenir LT Std 45 Book';
+}
+
+.img-icon {
+	width: 18px;
+}
+
+.img-icon-header {
+	width: 26px;
+}
+
+.fs-18 {
+	font-size: 18px;
+}
+
+.fs-22 {
+	font-size: 22px;
+}
+
+.color-grey {
+	color: #A7A7A8;
+}
+
+.price-old {
+	color: #A7A7A8;
+	text-decoration: line-through;
+}
+
+.range-stripe {
+    right: 0;
+    background: #579864;
+    color: #fff;
+    position: absolute;
+    border-radius: 10px 0px 0px 10px;
+    bottom: 20px;
+    padding: 7px 17px 7px 17px;
+}
+
+.tag {
+	border-radius: 5px;
+	padding: 1px 10px 3px 10px;
+	margin: 0 3px;
+}
+
+.rounded {
+	border-radius: 10px !important;
+}
+
+.pointer {
+	cursor: pointer;
+}

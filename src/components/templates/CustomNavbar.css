@@ -2,7 +2,6 @@ nav.navbar, .navbar-default {
   background-color: black !important; /* before #474746*/
   margin:0;
   z-index: 99;
-  padding: 10px 0;
 }
 .header-nav .nav>li>a {
     padding-left: 16px;
@@ -366,25 +365,13 @@ ul.nav.navbar-nav.navbar-right > li > a > button > i {
     position: relative;
     top: 2px;
 }
+
 .header-nav {
     overflow:  visible;
     position:  relative;
     background: transparent;
 }
-.header-nav:after {
-    content: '';
-    -webkit-box-shadow: 0 0 40px rgba(0,0,0,0.8);
-    box-shadow: 0 0 40px rgba(0,0,0,0.8);
-    position: absolute;
-    left: 0;
-    bottom: 0px;
-    right: 0;
-    height: 80px;
-    border-radius: 100%;
-    z-index: 8;
-    width: 100%;
-    margin: 0 auto;
-}
+
 .navbar-right-section{
     width: 844px;
 }
@@ -635,14 +622,8 @@ button.navbar-toggle{
     visibility: hidden;
 }
 
-/* download app section, visible only on xs devices */
 .download-app-big {
     background-color: #579964;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
 }
 .download-app-big>ul {
     display: flex;

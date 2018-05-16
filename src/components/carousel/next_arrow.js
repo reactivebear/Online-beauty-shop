@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import style from './style.css' 
 
 class NextArrow extends Component {
     
     render() {
         return (
-            <div onClick={this.props.onClick}>
-                <i className="fas fa-chevron-right fa-3x"></i>
+            <div className={`${style.nextArrow}  ${style.wrap}`} onClick={this.props.onClick}>
+                <img style={{width: 30}} src="/assets/icons/icons8-chevron-right-48.png" />
             </div>
         );
     }

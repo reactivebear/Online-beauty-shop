@@ -1,0 +1,24 @@
+.wrap-side-menu {
+	background-color: #000;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 100%;
+	width: 100%;
+	z-index: 2;
+	overflow-y: auto;
+	font-family: 'Avenir LT Std 45 Book';
+	transition: left 0.5s;
+}
+
+.wrap-side-menu.active {
+	left: 0%;
+}
+
+.wrap-side-menu a {
+	color: #fff;
+}
+
+.wrap-side-menu i {
+	font-size: 18px;
+}

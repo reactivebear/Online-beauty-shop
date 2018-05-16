@@ -5,7 +5,9 @@ class Stars extends Component {
 
     render() {
         return (
-            this.getArray().map((item, i) => (<i key={i} style={{color: this.props.active > i ? '#609D6D' : 'inherit'}} className="far fa-star"></i>))
+        	<span style={{letterSpacing: 3}}>
+            	{ this.getArray().map((item, i) => (<i key={i} style={{color: this.props.active > i ? '#609D6D' : 'inherit'}} className="far fa-star"></i>)) }
+        	</span>
         );
     }
 }

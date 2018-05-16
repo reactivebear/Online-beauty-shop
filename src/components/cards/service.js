@@ -3,7 +3,7 @@ import Stars from 'components/stars'
 import Price from 'components/price'
 import Tag from 'components/tags'
 import BtnMain from 'components/buttons/btn_main.js'
-import style from './service.css'
+import './service.css'
 
 class CardService extends Component {
 	state = {
@@ -20,53 +20,54 @@ class CardService extends Component {
     	const tags = ['Hair', 'Salao', 'Wedding']
     	const collapseClass = this.state.active ? 'collapsed active box-shadow-bottom' : 'collapsed'
         return (
-	        	<div className="card rounded p-3 pointer box-shadow" onClick={this.toggleCard}>
-	        		
-	            	<div className="relative">
-	            		<img className="rounded img-fluid" src="assets/img/default-image.png" alt="" />
+	        	<div className="card rounded p-4 pointer mb-3" onClick={this.toggleCard}>
+	            	<div className="position-relative mb-3">
+	            		<img className="rounded img-fluid" src="assets/images/default-image.png" alt="" />
 	            		<div className="range-stripe">
 	            			21.3 km
 	            		</div>
 	            	</div>
+	            	<div className="mb-2">
+	            		<strong>{this.props.title}</strong>
+	            	</div>
+
+	            	<div className="color-grey d-flex justify-content-between align-items-center mb-2">
+	            		<div>
+		            		Avaliação<br />
+		            		<Stars active={this.props.rating} />
+	            		</div>
+	            		<i className="far fa-heart fs-22"></i>
+	            	</div>
+
 	            	<div>
-	            		Massage & Ofuro - Premium
+	            		<Price current={this.props.price} old={180.50} />
 	            	</div>
-	            	<div className="color-grey">
-	            		Avaliação<br />
-	            		<Stars active={5} />
-	            		<i className="far fa-heart float-right"></i>
-	            	</div>
-	            	<div>
-	            		<Price current={159.50} old={180.90} />
-	            	</div>
-	            	<div className="relative">
-		            	<div className={collapseClass}>
-		            		Nino Garcia Hair
-		            		<div className="color-grey">
-		            			R. Girassol, 1158 - Vila Madalena, Sao Paulo - SP, 05433-00
-		            		</div>
-		            		<div className="form-group">
-		            			{ tags.map((item, i) => <Tag key={i} title={item} />) }
-		            		</div>
-		            		<div>
-		            			<div className="row justify-content-between mb-1">
-		            				<div className="col-6">
-				            			<BtnMain
-				            				className="btn-block btn-outline"
-				            				title="Agendar agora" />
-		            				</div>
-		            				<div className="col-6">
-				        				<BtnMain
-				        					className="btn-block btn-outline"
-				            				title="Exibir servicos" />
-		            				</div>
-		        				</div>
+
+	            	<div className="mb-2">
+	            		<strong>Nino Garcia Hair</strong>
+            		</div>
+
+            		<div className="color-grey w-75 mb-3">
+            			R. Girassol, 1158 - Vila Madalena, Sao Paulo - SP, 05433-00
+            		</div>
+
+            		<div>
+            			<div className="d-flex justify-content-between mb-1">
+            				<div className="w-50 pr-1">
 		            			<BtnMain
-		            				className="btn-block"
+		            				className="btn-block btn-outline font-weight-bold"
+		            				title="Agendar agora" />
+            				</div>
+            				<div className="w-50 pl-1">
+		        				<BtnMain
+		        					className="btn-block btn-outline font-weight-bold"
 		            				title="Adicionar ao carrinho" />
-		            		</div>
-		            	</div>
-	            	</div>
+            				</div>
+        				</div>
+            			<BtnMain
+            				className="btn-block font-weight-bold"
+            				title="Exibir servicos" />
+            		</div>
 				</div>
         );
     }

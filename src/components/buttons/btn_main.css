@@ -1,6 +1,14 @@
-.btn-primary {
+.btn-primary,
+.btn-primary:active {
 	background-color: #579a64;
-	border-color: #81b38a;
+	border-color: #81b38a !important;
+	color: #fff;
+	outline: unset;
+	border-radius: 10px;
+}
+
+.input-group .btn-primary {
+	border-radius: 5px;
 }
 
 .btn-primary:hover {
@@ -16,4 +24,24 @@
 .btn-outline:hover {
 	background-color: #579a64;
 	color: #fff;
+}
+
+.btn-group .btn-primary.unactive {
+	background-color: #fff !important;
+	color:  #579a64;
+}
+
+.btn-group.btn-group-lg .btn-primary:focus {
+	box-shadow: unset;
+	background-color: #579a64;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+	background-color: #579a64;
+	outline: unset;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus {
+	box-shadow: unset;
+	outline: unset;
 }

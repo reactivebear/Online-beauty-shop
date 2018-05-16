@@ -1,14 +1,13 @@
 import * as config from 'config'
+import Cookies from 'js-cookie'
 
-const responseHandler = (response) => {
+const responseHandler = response => {
     /*if (response.status == 401) {
         store.dispatch(logout())
         return
     }*/
-    
     let promise = response.json()
     let ok = response.ok
-    
     /*promise.then(response => {
         if (response.validate) {
             for (let k in response.validate) {
@@ -33,13 +32,12 @@ const responseHandler = (response) => {
     return promise;
 }
 
-const getHeader = token => 
+const getHeader = () => 
     ({
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        [config.APIKEY]: token
+        [config.APIKEY]: Cookies.get('token')
     })
-
 
 export default {
     loginAsGuest() {
@@ -53,9 +51,35 @@ export default {
         })
         .then(responseHandler)
     },
-    getCategories(token) {
+    keepToken() {
+        return fetch(config.API_URL + '/api/keeptoken', {
+            method: 'get',
+            credentials: 'same-origin',
+        })
+        .then(responseHandler)
+        .catch(error => {
+            console.log(error)
+        })
+    },
+    getCategories() {
         return fetch(config.API_URL + '/api/categories', {
             method: 'get',
+            credentials: 'same-origin',
+            headers: getHeader()
+        })
+        .then(responseHandler)
+    },
+    getProducts(type) {
+        return fetch(config.API_URL + '/api/products', {
+            method: 'post',
+            credentials: 'same-origin',
+            headers: getHeader()
+        })
+        .then(responseHandler)
+    },
+    getServices(type) {
+        return fetch(config.API_URL + '/api/services', {
+            method: 'post',
             credentials: 'same-origin',
             headers: getHeader()
         })

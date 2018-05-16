@@ -1,0 +1,22 @@
+:local(.wrap) {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 1;
+	cursor: pointer;
+	background-color: #fff;
+	padding: 12px 2px;
+	border: 2px solid #D8D7D8;
+}
+
+:local(.nextArrow) {
+	right: 0;
+    border-radius: 8px 0px 0px 8px;
+    border-right: none;
+}
+
+:local(.prevArrow) {
+	left: 0;
+    border-radius: 0px 8px 8px 0px;
+    border-left: none;
+}

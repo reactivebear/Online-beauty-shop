@@ -1,0 +1,19 @@
+.wrap-category-item {
+	padding: 0 3px;
+}
+
+.inner-category-item {
+	position: relative;
+	padding: 10px;
+	background-color: #fff;
+	border-radius: 10px;
+	border: 1px solid #F8F8F8;
+	min-height: 150px;
+}
+
+.category-arrow {
+    position: absolute;
+    right: 7px;
+    bottom: 4px;
+    width: 28px;
+}

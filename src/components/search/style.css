@@ -1,0 +1,11 @@
+.input-group .form-control {
+	height: 46px;
+}
+
+.btn-search {
+	width: 58px;
+}
+
+.btn-search .fa-search {
+	font-size: 1.8em;
+}

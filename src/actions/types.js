@@ -1,1 +1,10 @@
 export const SET_TOKEN = 'SET_TOKEN'
+export const SET_USER = 'SET_USER'
+
+export const SET_CATEGORIES = 'SET_CATEGORIES'
+export const SET_ACTIVE_CATEGORY = 'SET_ACTIVE_CATEGORY'
+
+export const SET_PRODUCTS = 'SET_PRODUCTS'
+export const SET_SERVICES = 'SET_SERVICES'
+
+export const TOGGLE_SIDE_MENU = 'TOGGLE_SIDE_MENU'
