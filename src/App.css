@@ -29,6 +29,14 @@
 	padding-top: 55px;
 }
 
+.w-30 {
+	width: 30%;
+}
+
+.w-70 {
+	width: 70%;
+}
+
 .main-wrap {
 	position: relative;
 	left: 0px;
@@ -47,6 +55,10 @@
 	width: 18px;
 }
 
+.footer-icon {
+	width: 48px;
+}
+
 .img-icon-header {
 	width: 26px;
 }
@@ -57,6 +69,10 @@
 
 .fs-22 {
 	font-size: 22px;
+}
+
+.mh-1 {
+	min-height: 1px;
 }
 
 .color-grey {

@@ -6,25 +6,26 @@ import BtnGroup from 'components/buttons/btn_group.js'
 import { connect } from 'react-redux'
 import Carousel from 'components/carousel'
 import MainSection from 'components/sections/main.js'
+import BlogSection from 'components/sections/blog.js'
 
 class Main extends Component {
 	state = {
-		firstClass: 'order-first',
-		lastClass: 'order-last'
+		firstClass: 'order-1',
+		lastClass: 'order-6'
 	}
 
 	toggleCat = item => e => {
 		switch (item) {
 			case 'serviceCategories':
 				this.setState({
-					firstClass: 'order-last',
-					lastClass: 'order-first'
+					firstClass: 'order-6',
+					lastClass: 'order-1'
 				})
 				break
 			case 'productCategories':
 				this.setState({
-					firstClass: 'order-first',
-					lastClass: 'order-last'
+					firstClass: 'order-1',
+					lastClass: 'order-6'
 				})
 				break
 		}
@@ -72,9 +73,13 @@ class Main extends Component {
         			<Carousel items={carouselItems} />
     			</div>
         		<div className="container">
-        			<div className="text-center form-group">
-			            <BtnGroup
-			            	buttons={catButtons} />
+        			<div className="row">
+        				<div className="col-sm-4 col-sm-offset-4">
+		        			<div className="text-center form-group">
+					            <BtnGroup
+					            	buttons={catButtons} />
+			            	</div>
+		            	</div>
 	            	</div>
 
 		            <div className="row">
@@ -89,6 +94,9 @@ class Main extends Component {
 			            		title="serviços"
 			            		type="services"
 			            		categories={serviceCategories} />
+	            		</div>
+	            		<div className="col-sm-12 order-12">
+	            			<BlogSection />
 	            		</div>
 		            </div>
 	            </div>

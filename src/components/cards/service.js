@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import Stars from 'components/stars'
 import Price from 'components/price'
-import Tag from 'components/tags'
 import BtnMain from 'components/buttons/btn_main.js'
+import Distance from 'utils/distance.js'
 import './service.css'
 
 class CardService extends Component {
 	state = {
-		active: false
+		active: false,
+		range: '0.0 km'
 	}
 
 	toggleCard = () => {
@@ -16,15 +17,48 @@ class CardService extends Component {
 		})
 	}
 
+	getAddress = address => {
+		return `${address.title}, ${address.street}, ${address.city} - ${address.state}, ${address.zipcode}`
+	}
+
+	distance = (lat1, lon1, lat2, lon2, unit) => {
+		let radlat1 = Math.PI * lat1/180
+		let radlat2 = Math.PI * lat2/180
+		let theta = lon1-lon2
+		let radtheta = Math.PI * theta/180
+		let dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+		dist = Math.acos(dist)
+		dist = dist * 180/Math.PI
+		dist = dist * 60 * 1.1515
+		if (unit=="K") { dist = dist * 1.609344 }
+		if (unit=="N") { dist = dist * 0.8684 }
+		return dist
+	}
+
+	getDistance = () => {
+		let range = false
+		navigator.geolocation.getCurrentPosition((pos) => {
+			range = Distance.get(pos.coords.latitude, pos.coords.longitude, this.props.vendor.address.latitude, this.props.vendor.address.longitude)
+			if (range) {
+				this.setState({
+					range: range
+				})
+			}
+		})
+	}
+
+	componentWillMount() {
+		this.getDistance()
+	}
+
     render() {
-    	const tags = ['Hair', 'Salao', 'Wedding']
     	const collapseClass = this.state.active ? 'collapsed active box-shadow-bottom' : 'collapsed'
         return (
 	        	<div className="card rounded p-4 pointer mb-3" onClick={this.toggleCard}>
 	            	<div className="position-relative mb-3">
 	            		<img className="rounded img-fluid" src="assets/images/default-image.png" alt="" />
 	            		<div className="range-stripe">
-	            			21.3 km
+	            			{this.state.range}
 	            		</div>
 	            	</div>
 	            	<div className="mb-2">
@@ -40,15 +74,15 @@ class CardService extends Component {
 	            	</div>
 
 	            	<div>
-	            		<Price current={this.props.price} old={180.50} />
+	            		<Price current={this.props.price} old={this.props.discount_price} />
 	            	</div>
 
 	            	<div className="mb-2">
-	            		<strong>Nino Garcia Hair</strong>
+	            		<strong>{this.props.vendor.organization_name}</strong>
             		</div>
 
             		<div className="color-grey w-75 mb-3">
-            			R. Girassol, 1158 - Vila Madalena, Sao Paulo - SP, 05433-00
+            			{this.getAddress(this.props.vendor.address)}
             		</div>
 
             		<div>

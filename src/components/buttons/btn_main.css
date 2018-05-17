@@ -45,3 +45,9 @@
 	box-shadow: unset;
 	outline: unset;
 }
+
+@media (max-width: 360px) {
+	.btn-primary {
+		font-size: 11px;
+	}
+}

@@ -1,0 +1,6 @@
+.tooltip-wrap {
+	z-index: 1;
+    min-width: 350px;
+    top: 85px;
+    right: 0;
+}

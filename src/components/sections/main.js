@@ -14,11 +14,12 @@ class MainSection extends Component {
             slidesToShow: 6,
             mobileFirst: true,
             swipeToSlide: true,
+            infinite: false,
             responsive: [
                 {
                     breakpoint: 768, 
                     settings: {
-                        slidesToShow: 3,
+                        slidesToShow: 2.5,
                     }
                 }
             ]

@@ -27,6 +27,10 @@
     font-family: 'Avenir LT Std 45 Book';
 }
 
+.wrap-header a {
+    text-decoration: none;
+}
+
 .download-app-big {
     background-color: #579964;
     letter-spacing: 1px;

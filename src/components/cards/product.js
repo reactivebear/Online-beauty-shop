@@ -1,11 +1,55 @@
 import React, { Component } from 'react'
 import './product.css'
+import Stars from 'components/stars'
+import Price from 'components/price'
+import BtnMain from 'components/buttons/btn_main.js'
 
 class CardProduct extends Component {
+	state = {
+		display: 'block'
+	}
+
+	handleOnLoad = e => { this.setState({display: 'none'}) }
+
 	render() {
+		const image = this.props.images.length ? this.props.images[0].image_url : ''
+		
 		return (
-			<div className="wrap-product">
-				
+			<div className="card product rounded p-4 pointer mb-3 d-flex flex-column justify-content-between">
+				<div className="d-flex">
+					<div className="w-30">
+		            	<div className="mb-3">
+		            		<img className="rounded img-fluid" style={{display: this.state.display}} src='assets/images/default-image-square.png' alt="" />
+		            		<img onLoad={this.handleOnLoad} className="rounded img-fluid" src={image} alt="" />
+		            	</div>
+	            	</div>
+	            	<div className="px-2 w-70">
+		            	<div className="mb-2">
+		            		<strong>{this.props.name}</strong>
+		            	</div>
+		            	<div className="mb-2">
+		            		<strong>{this.props.description}</strong>
+		            	</div>
+		            	<div>
+		            		<Price current={this.props.price} old={this.props.discount_price} />
+		            	</div>
+	            	</div>
+            	</div>
+            	<div className="color-grey d-flex justify-content-between align-items-center mb-2">
+            		<div>
+	            		Avaliação<br />
+	            		<Stars active={this.props.rating} />
+            		</div>
+            		<i className="far fa-heart fs-22"></i>
+            	</div>
+            	<div>
+        			<BtnMain
+        				className="btn-block btn-outline font-weight-bold"
+        				title="Exibir servicos" />
+    				<BtnMain
+        				className="btn-block font-weight-bold"
+        				title="Exibir servicos" />
+        		</div>
 			</div>
 		)
 	}

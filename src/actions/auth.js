@@ -16,11 +16,12 @@ export const loginAsGuest = () => dispatch => {
 export const keepToken = () => dispatch => {
     return api.keepToken()
     .then(json => {
-        console.log(json)
         /*if (json.apikey) {
             dispatch(setToken(json.apikey.key))
         }*/
-    })
+    }).catch((error) =>
+        dispatch(loginAsGuest())
+    )
 }
 
 export const setUser = data =>

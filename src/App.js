@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
-import Footer from './components/templates/Footer'
+import Footer from 'components/footer'
 import * as pages from './containers'
 import { Route, Switch } from 'react-router-dom'
 import routing from 'config/route.js'
@@ -16,6 +16,8 @@ class App extends Component {
         super(props)
         if (!this.props.user.token) {
             store.dispatch(loginAsGuest())
+        } else {
+            store.dispatch(keepToken(this.props.user.token))
         }
     }
 
@@ -34,6 +36,7 @@ class App extends Component {
                     <Switch>
                         { routes.map((route, i) => this.printRoutes(route, i)) }
                     </Switch>
+                    <Footer />
                 </div>
                 <SideMenu />
             </div>

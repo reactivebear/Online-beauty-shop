@@ -57,9 +57,6 @@ export default {
             credentials: 'same-origin',
         })
         .then(responseHandler)
-        .catch(error => {
-            console.log(error)
-        })
     },
     getCategories() {
         return fetch(config.API_URL + '/api/categories', {
@@ -73,7 +70,8 @@ export default {
         return fetch(config.API_URL + '/api/products', {
             method: 'post',
             credentials: 'same-origin',
-            headers: getHeader()
+            headers: getHeader(),
+            body: JSON.stringify({page_size: 6})
         })
         .then(responseHandler)
     },
@@ -81,7 +79,8 @@ export default {
         return fetch(config.API_URL + '/api/services', {
             method: 'post',
             credentials: 'same-origin',
-            headers: getHeader()
+            headers: getHeader(),
+             body: JSON.stringify({page_size: 6})
         })
         .then(responseHandler)
     },
