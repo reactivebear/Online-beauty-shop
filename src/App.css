@@ -2,19 +2,19 @@
 	font-family: 'Avenir LT Std 45 Book';
 	font-style: normal;
 	font-weight: normal;
-	src: local('Avenir LT Std 45 Book'), url('assets/fonts/AvenirLTStd-Book.woff') format('woff');
+	src: local('Avenir LT Std 45 Book'), url('/assets/fonts/AvenirLTStd-Book.woff') format('woff');
 }
 @font-face {
 	font-family: 'Avenir LT Std 85 Heavy';
 	font-style: normal;
 	font-weight: normal;
-	src: local('Avenir LT Std 85 Heavy'), url('assets/fonts/AvenirLTStd-Heavy.woff') format('woff');
+	src: local('Avenir LT Std 85 Heavy'), url('/assets/fonts/AvenirLTStd-Heavy.woff') format('woff');
 }
 @font-face {
 	font-family: 'Avenir LT Std 65 Medium';
 	font-style: normal;
 	font-weight: normal;
-	src: local('Avenir LT Std 65 Medium'), url('assets/fonts/AvenirLTStd-Medium.woff') format('woff');
+	src: local('Avenir LT Std 65 Medium'), url('/assets/fonts/AvenirLTStd-Medium.woff') format('woff');
 }
 
 .App {
