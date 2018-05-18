@@ -54,14 +54,14 @@ class Footer extends Component {
                         </div>
                     </div>
 
-                    <div className="row border-bottom border-white mb-5 align-items-end">
+                    <div className="row border-bottom border-white pb-3 mb-5 align-items-end">
                         <div className="col-sm-6 text-right">
-                            <div className="row align-items-end mb-5">
-                                <div className="col-sm col-xs-6">
+                            <div className="row align-items-end mb-5 mb-sm-0">
+                                <div className="col-sm col-xs-4">
                                     <img src="assets/icons/facebook-icon.png" className="footer-icon px-2" />
                                     <img src="assets/icons/instagram-icon.png" className="footer-icon px-2" />
                                 </div>
-                                <div className="col-sm col-xs-6 text-left">
+                                <div className="col-sm col-xs-8 text-left">
                                     <p>Selecione um país/região</p>
                                     <select className="form-control form-control-lg">
                                         <option value="br">Brazil - Português</option>
@@ -71,7 +71,7 @@ class Footer extends Component {
                             </div>
                         </div>
                         <div className="col-sm-6 order-sm-first">
-                            <p>Uma empresa WeMind Group - www.wemindgroup.com</p>
+                            <span>Uma empresa WeMind Group - www.wemindgroup.com</span>
                         </div>
                     </div>
                     <p>© WeMind 2018 - TODOS OS DIREITOS RESERVADOS.</p>
