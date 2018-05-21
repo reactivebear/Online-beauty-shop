@@ -8,10 +8,10 @@ class Footer extends Component {
         return (
             <footer className="bg-dark text-white pt-5 font-avenir">
                 <div className="container">
-                    <div className="row mb-5 text-center">
-                        <div className="col-sm-4 col-sm-offset-4">
+                    <div className="row mb-5 text-center justify-content-center">
+                        <div className="col-sm-4">
                             <div className="mb-5">
-                                <Image src="assets/images/LogoVisualTotal.png" />
+                                <Image src="/assets/images/LogoVisualTotal.png" />
                             </div>
                             <div className="mb-3">
                                 <BtnMain
@@ -58,8 +58,8 @@ class Footer extends Component {
                         <div className="col-sm-6 text-right">
                             <div className="row align-items-end mb-5 mb-sm-0">
                                 <div className="col-sm col-xs-4">
-                                    <img src="assets/icons/facebook-icon.png" className="footer-icon px-2" />
-                                    <img src="assets/icons/instagram-icon.png" className="footer-icon px-2" />
+                                    <img src="/assets/icons/facebook-icon.png" className="footer-icon px-2" />
+                                    <img src="/assets/icons/instagram-icon.png" className="footer-icon px-2" />
                                 </div>
                                 <div className="col-sm col-xs-8 text-left">
                                     <p>Selecione um país/região</p>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { history } from 'store'
 import './product.css'
 import Stars from 'components/stars'
 import Price from 'components/price'
@@ -11,11 +12,13 @@ class CardProduct extends Component {
 
 	handleOnLoad = e => { this.setState({display: 'none'}) }
 
+	goToProduct = e => history.push(`/product/${this.props.id}`)
+
 	render() {
 		const image = this.props.images.length ? this.props.images[0].image_url : ''
 		
 		return (
-			<div className="card product rounded p-4 pointer mb-3 d-flex flex-column justify-content-between">
+			<div className="card product rounded p-4 pointer mb-3 d-flex flex-column justify-content-between" onClick={this.goToProduct}>
 				<div className="d-flex">
 					<div className="w-30">
 		            	<div className="mb-3">

@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 
 class Price extends Component {
     render() {
-        const current = this.props.current.toString().split('.')
-
-        
+        const current = this.props.current ? this.props.current.toString().split('.') : '0'
         const old = this.props.old ? this.props.old.toString().split('.') : ''
         
         const cent = current[1] ? current[1].length > 1 ? current[1] : `${current[1]}0` : '00'

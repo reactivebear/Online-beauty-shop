@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import './App.css'
+import 'App.css'
 import Footer from 'components/footer'
 import * as pages from './containers'
 import { Route, Switch } from 'react-router-dom'
+import { history } from 'store'
 import routing from 'config/route.js'
 import { connect } from 'react-redux'
 import store from 'store'
@@ -19,6 +20,11 @@ class App extends Component {
         } else {
             store.dispatch(keepToken(this.props.user.token))
         }
+
+        history.listen((location, action) => {
+            console.log(location)
+            console.log(action)
+        })
     }
 
     printRoutes = (route, i) => <Route key={i} path={route.path} exact component={pages[route.component]} />

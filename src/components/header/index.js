@@ -63,18 +63,18 @@ class Header extends Component {
                 <div className="bg-dark effect6">
                     <div className="container text-white pt-4">
                         <div className="row pb-5 d-sm-none">
-                            <div className="col-xs-6 align-self-end">
-                                <img src="assets/images/logo.png" alt="" className="img-fluid logo" />
+                            <div className="col-6 align-self-end">
+                                <img src="/assets/images/logo.png" alt="" className="img-fluid logo" />
                             </div>
-                            <div className="col-xs-6 align-self-end text-right px-5">
+                            <div className="col-6 align-self-end text-right px-5">
                                 <i className="fa fa-bars fa-2x" onClick={this.toggleSideMenu(true)} aria-hidden="true"></i>
                             </div>
                         </div>
-                        <div className="row mb-sm-4">
+                        <div className="row mb-4">
                             <div className="col-sm-7">
                                 <div className="d-none d-sm-flex align-items-end justify-content-between mb-3">
                                     <div>
-                                        <img src="assets/images/logo.png" alt="" className="img-fluid" />
+                                        <img src="/assets/images/logo.png" alt="" className="img-fluid" />
                                     </div>
                                     <div>
                                         <a href="javascript:;" className="text-white">Hairtylist & Makeup</a>
@@ -99,12 +99,12 @@ class Header extends Component {
                         
                             <div className="col-sm-5">
                                 <div className="row align-items-end h-100">
-                                    <div className="d-none d-sm-block col-xs-12 order-sm-first align-self-start text-right">
+                                    <div className="d-none d-sm-block col-12 order-sm-first align-self-start text-right">
                                         <BtnMain
                                             title="Baixe grátis o app do Visual Total" />
                                     </div>
-                                    <div onClick={this.toggleTooltip('cart')} id="cart" className="col-xs-6 col-sm-3 px-sm-0 form-group pointer">
-                                        <img src="assets/icons/cart-icon.png" id="cart" className="img-icon-header align-middle" />
+                                    <div onClick={this.toggleTooltip('cart')} id="cart" className="col-6 col-sm-3 px-sm-0 form-group pointer">
+                                        <img src="/assets/icons/cart-icon.png" id="cart" className="img-icon-header align-middle" />
                                         <div className="align-middle d-inline-block px-3" id="cart">
                                             Meu<br />
                                             <strong id="cart">Carrinho</strong>
@@ -115,7 +115,7 @@ class Header extends Component {
                                             :   ''
                                         }
                                     </div>
-                                    <div onClick={this.toggleTooltip('login')} id="login" className="col-xs-6 col-sm-4 px-sm-0 form-group pointer">
+                                    <div onClick={this.toggleTooltip('login')} id="login" className="col-6 col-sm-4 px-sm-0 form-group pointer">
                                         Bem vindo<br />
                                         <strong id="login">Entre ou cadastre-se</strong>
                                         {
@@ -124,8 +124,8 @@ class Header extends Component {
                                             :   ''
                                         }
                                     </div>
-                                    <div onClick={this.toggleTooltip('zip')} id="zip" className="col-xs-12 col-sm-5 px-sm-0 order-sm-first form-group pointer">
-                                        <img src="assets/icons/pin-icon.png" id="zip" className="img-icon-header align-middle" />
+                                    <div onClick={this.toggleTooltip('zip')} id="zip" className="col-12 col-sm-5 px-sm-0 order-sm-first form-group pointer">
+                                        <img src="/assets/icons/pin-icon.png" id="zip" className="img-icon-header align-middle" />
                                         <div className="align-middle d-inline-block px-3" id="zip">
                                             Enviar para<br />
                                             <strong id="zip">Bela Vista 01329900</strong>

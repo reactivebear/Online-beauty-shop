@@ -75,6 +75,14 @@ export default {
         })
         .then(responseHandler)
     },
+    getProduct(id) {
+        return fetch(config.API_URL + '/api/product/' + id, {
+            method: 'get',
+            credentials: 'same-origin',
+            headers: getHeader(),
+        })
+        .then(responseHandler)
+    },
     getServices(type) {
         return fetch(config.API_URL + '/api/services', {
             method: 'post',

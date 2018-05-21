@@ -4,12 +4,18 @@ export default {
             'path': '/',
             'component': 'Main'
         }, {
+            'path': '/product/:id',
+            'component': 'Product'
+        }, {
             'path': '*',
             'component': 'NotFound'
         }
     ],
     'private': [
         {
+            'path': '/product/:id',
+            'component': 'Product'
+        }, {
             'path': '/',
             'component': 'Main'
         }, {

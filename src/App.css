@@ -29,12 +29,28 @@
 	padding-top: 55px;
 }
 
+.w-15 {
+	width: 15%;
+}
+
 .w-30 {
 	width: 30%;
 }
 
+.w-40 {
+	width: 40%;
+}
+
+.w-60 {
+	width: 60%;
+}
+
 .w-70 {
 	width: 70%;
+}
+
+.w-85 {
+	width: 85%;
 }
 
 .main-wrap {
@@ -77,6 +93,10 @@
 
 .color-grey {
 	color: #A7A7A8;
+}
+
+.color-green {
+	color: #609D6D;
 }
 
 .price-old {

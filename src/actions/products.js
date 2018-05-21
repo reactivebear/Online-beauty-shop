@@ -10,11 +10,25 @@ export const getProducts = type => dispatch => {
     })
 }
 
-export const setProducts = (data, key) => {
-	return {
-	        type: types.SET_PRODUCTS,
-	        data,
-	        key
-	    }
+export const getProduct = id => dispatch => {
+    return api.getProduct(id)
+    .then(json => {
+        if (json.object) {
+            dispatch(setProduct(json.object))
+        }
+    })
 }
+
+export const setProducts = (data, key) => 
+    ({
+        type: types.SET_PRODUCTS,
+        data,
+        key
+    })
+
+export const setProduct = data => 
+    ({
+        type: types.SET_PRODUCT,
+        data
+    })
     

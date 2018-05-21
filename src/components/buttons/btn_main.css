@@ -5,6 +5,7 @@
 	color: #fff;
 	outline: unset;
 	border-radius: 10px;
+	transition: all .4s;
 }
 
 .input-group .btn-primary {
@@ -12,8 +13,10 @@
 }
 
 .btn-primary:hover {
-	background-color: #1da464;
+	background-color: #579a64;
 	border-color: #63c094;
+    box-shadow: 0 4px 14px 0px rgba(87,154,100,0.5);
+    transition: all .4s;
 }
 
 .btn-outline {
