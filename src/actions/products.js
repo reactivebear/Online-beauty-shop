@@ -1,8 +1,8 @@
 import api from 'api'
 import * as types from './types.js'
 
-export const getProducts = type => dispatch => {
-    return api.getProducts(type)
+export const getProducts = (type, param) => dispatch => {
+    return api.getProducts(param)
     .then(json => {
         if (json.object) {
         	dispatch(setProducts(json.object, type))

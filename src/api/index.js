@@ -58,20 +58,21 @@ export default {
         })
         .then(responseHandler)
     },
-    getCategories() {
-        return fetch(config.API_URL + '/api/categories', {
+    getCategories(param) {
+        const url = param ? ('/api/categories/' + param) : '/api/categories'
+        return fetch(config.API_URL + url, {
             method: 'get',
             credentials: 'same-origin',
             headers: getHeader()
         })
         .then(responseHandler)
     },
-    getProducts(type) {
+    getProducts(param) {
         return fetch(config.API_URL + '/api/products', {
             method: 'post',
             credentials: 'same-origin',
             headers: getHeader(),
-            body: JSON.stringify({page_size: 6})
+            body: JSON.stringify(param)
         })
         .then(responseHandler)
     },
@@ -83,12 +84,21 @@ export default {
         })
         .then(responseHandler)
     },
-    getServices(type) {
+    getServices(param) {
         return fetch(config.API_URL + '/api/services', {
             method: 'post',
             credentials: 'same-origin',
             headers: getHeader(),
-             body: JSON.stringify({page_size: 6})
+             body: JSON.stringify(param)
+        })
+        .then(responseHandler)
+    },
+    getServicesCategory(param) {
+        return fetch(config.API_URL + '/api/services', {
+            method: 'post',
+            credentials: 'same-origin',
+            headers: getHeader(),
+             body: JSON.stringify(param)
         })
         .then(responseHandler)
     },

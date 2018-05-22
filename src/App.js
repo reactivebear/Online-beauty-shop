@@ -10,6 +10,7 @@ import store from 'store'
 import { loginAsGuest, keepToken } from 'actions/auth.js'
 import Header from 'components/header'
 import SideMenu from 'components/menu/side_menu.js'
+import Modal from 'components/modal'
 
 
 class App extends Component {
@@ -22,8 +23,7 @@ class App extends Component {
         }
 
         history.listen((location, action) => {
-            console.log(location)
-            console.log(action)
+            
         })
     }
 
@@ -45,6 +45,7 @@ class App extends Component {
                     <Footer />
                 </div>
                 <SideMenu />
+                <Modal />
             </div>
         )
     }

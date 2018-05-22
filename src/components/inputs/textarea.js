@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './input.css'
 
-class Input extends Component {
+class TextArea extends Component {
     thisRef = ref => {
         this.props.inputRef(ref)
         this.input = ref
@@ -16,15 +16,15 @@ class Input extends Component {
                 	? 	<sup style={{color: '#70C49C'}}><small>&#9733;</small></sup>
                 	: 	''
                 }
-                <input 
-                    type="text" 
+                <textarea 
+                    className="form-control"
                     placeholder={this.props.placeholder}
-                    className="form-control" 
                     ref={this.thisRef}
-                    defaultValue={this.props.value} />
+                    defaultValue={this.props.value}
+                    rows="3"></textarea>
             </div>
         );
     }
 }
 
-export default Input
+export default TextArea

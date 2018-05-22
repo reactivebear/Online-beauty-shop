@@ -1,5 +1,6 @@
 .card.product {
 	min-height: 295px;
+    max-height: 295px;
 }
 
 .flex-item-img {

@@ -17,6 +17,10 @@
 	src: local('Avenir LT Std 65 Medium'), url('/assets/fonts/AvenirLTStd-Medium.woff') format('woff');
 }
 
+body {
+	font-size: 14px;
+}
+
 .App {
 	overflow-x: hidden;
 }
@@ -25,12 +29,20 @@
 	background-color: #F3F3F3;
 }
 
+.border-green {
+	border: 1px solid #609D6D;
+}
+
 .pt-55 {
 	padding-top: 55px;
 }
 
 .w-15 {
 	width: 15%;
+}
+
+.w-20 {
+	width: 20%;
 }
 
 .w-30 {
@@ -47,6 +59,10 @@
 
 .w-70 {
 	width: 70%;
+}
+
+.w-80 {
+	width: 80%;
 }
 
 .w-85 {
@@ -126,4 +142,12 @@
 
 .pointer {
 	cursor: pointer;
+}
+
+[aria-selected='true'] .accordion__arrow::before {
+    transform: rotate(-45deg);
+}
+
+[aria-selected='true'] .accordion__arrow::after {
+    transform: rotate(45deg);
 }

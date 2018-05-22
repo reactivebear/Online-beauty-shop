@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import store from 'store'
 import { connect } from 'react-redux'
 import { getProduct } from 'actions/products.js'
+import { getCategories, toggleModal } from 'actions'
 import ImageMultiPreview from 'components/images/multi_preview.js'
 import ImagePreview from 'components/images/preview.js'
 import Price from 'components/price'
@@ -10,6 +11,9 @@ import Counter from 'components/counter'
 import BtnMain from 'components/buttons/btn_main.js'
 import Tabs from 'components/tabs'
 import SalonInfo from 'components/blocks/salon_info.js'
+import MainList from 'components/lists/main.js'
+import Accordion from 'components/accordion'
+import { CommentForm } from 'components/forms'
 
 class Product extends Component {
 	constructor(props) {
@@ -17,15 +21,53 @@ class Product extends Component {
 		if (props.match.params.id) {
 			store.dispatch(getProduct(props.match.params.id))
 		}
+
+		store.dispatch(getCategories('service'))
+	}
+
+	getReviewList = () => {
+		return 	<div>
+					{
+						this.props.products.salon.reviews.map((item, i) => {
+							return 	<div key={i}>
+										<div className="d-flex">
+											<div className="w-15 px-2">
+												<img src="/assets/images/default-reviewer.png" className="img-fluid" alt="" />
+											</div>
+											<div className="w-85">
+												<div className="d-flex justify-content-between">
+													<h5>{ item.reviewer.username }</h5>
+													<div><Stars active={item.rating} /></div>
+												</div>
+												<div>
+													<span className="color-grey">{ item.comment }</span>
+												</div>
+											</div>
+										</div>
+										<div className="border-bottom col-12 pt-4 mb-4"></div>
+									</div>
+						})
+					}
+					<div className="col-sm-6 offset-sm-3">
+						<BtnMain
+	        				className="font-weight-bold btn-block"
+	        				onClick={this.comment}
+	        				title="Fazer comentário" />
+    				</div>
+				</div>
 	}
 
 	buy = () => {
 		console.log(this.count)
 	}
 
+	comment = () => {
+		store.dispatch(toggleModal(true, CommentForm))
+	}
+
     render() {
-    	
     	const { product, salon } = this.props.products
+    	const servicesCategories = this.props.categories.service
         return (
         	<div className="font-avenir pt-1">
         		<div className="container">
@@ -75,17 +117,20 @@ class Product extends Component {
 	            			<h5>Descrição</h5>
 	            			<span className="color-grey">{ product.description }</span>
 	            		</div>
-	            		<div className="rounded py-4 bg-white">
+	            		<div className="rounded pb-4 bg-white">
 	            			<Tabs tabs={[
 	            				{
 	            					title: 'Sobre',
 	            					content: <SalonInfo {...salon} />
 	            				}, {
-	            					title: 'Produtos'
+	            					title: 'Produtos',
+	            					content: <MainList type="products" itemType="small" />
 	            				}, {
-	            					title: 'Serviços'
+	            					title: 'Serviços',
+	            					content: <Accordion list={servicesCategories} />
 	            				}, {
-	            					title: 'Avaliações'
+	            					title: 'Avaliações',
+	            					content: this.getReviewList()
 	            				}, {
             						title: 'Perguntas'
 	            				}]} />
@@ -102,6 +147,9 @@ const mapStateToProps = state =>
         products: {
         	product: state.products.product,
         	salon: state.products.salon
+        },
+        categories: {
+        	service: state.categories.service
         }
     })
 

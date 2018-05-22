@@ -8,6 +8,10 @@
 	transition: all .4s;
 }
 
+.btn {
+	font-size: 14px;
+}
+
 .input-group .btn-primary {
 	border-radius: 5px;
 }
@@ -51,6 +55,6 @@
 
 @media (max-width: 360px) {
 	.btn-primary {
-		font-size: 11px;
+		font-size: 10px;
 	}
 }

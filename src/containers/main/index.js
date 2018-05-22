@@ -16,13 +16,13 @@ class Main extends Component {
 
 	toggleCat = item => e => {
 		switch (item) {
-			case 'serviceCategories':
+			case 'service':
 				this.setState({
 					firstClass: 'order-6',
 					lastClass: 'order-1'
 				})
 				break
-			case 'productCategories':
+			case 'product':
 				this.setState({
 					firstClass: 'order-1',
 					lastClass: 'order-6'
@@ -32,39 +32,39 @@ class Main extends Component {
 		store.dispatch(setActiveCategory(item))
 	}
 
-	isEmptyCategories = categories => (! categories.serviceCategories.length || ! categories.productCategories.length)
+	isEmptyCategories = categories => (! categories.service.length || ! categories.product.length)
 
 	componentDidMount() {
 		if (this.props.user.token && this.isEmptyCategories(this.props.categories)) {
-			store.dispatch(getCategories(this.props.user.token))
+			store.dispatch(getCategories())
 		}
 	}
 
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.user.token && this.isEmptyCategories(nextProps.categories)) {
-			store.dispatch(getCategories(nextProps.user.token))
+			store.dispatch(getCategories())
 		}
 	}
 
     render() {
-    	const { productCategories, serviceCategories, active } = this.props.categories
+    	const { product, service, active } = this.props.categories
 
     	const catButtons = [
     		{
 				title: 'Produtos', 
-				onClick: this.toggleCat('productCategories'),
-				active: this.props.categories.active === 'productCategories'
+				onClick: this.toggleCat('product'),
+				active: this.props.categories.active === 'product'
 			}, {
 				title: 'Serviços', 
-				onClick: this.toggleCat('serviceCategories'),
-				active: this.props.categories.active === 'serviceCategories'
+				onClick: this.toggleCat('service'),
+				active: this.props.categories.active === 'service'
 			}
 		]
 
     	const carouselItems = [
-    		<img style={{width: '100%', minHeight: 175}} src="assets/images/banner.png" alt="" />, 
-    		<img style={{width: '100%', minHeight: 175}} src="assets/images/banner.png" alt="" />, 
-    		<img style={{width: '100%', minHeight: 175}} src="assets/images/banner.png" aly="" />
+    		<img style={{width: '100%', minHeight: 175}} src="/assets/images/banner.png" alt="" />, 
+    		<img style={{width: '100%', minHeight: 175}} src="/assets/images/banner.png" alt="" />, 
+    		<img style={{width: '100%', minHeight: 175}} src="/assets/images/banner.png" aly="" />
 		]
 		
         return (
@@ -74,7 +74,7 @@ class Main extends Component {
     			</div>
         		<div className="container">
         			<div className="row">
-        				<div className="col-sm-4 col-sm-offset-4">
+        				<div className="col-sm-4 offset-sm-4">
 		        			<div className="text-center form-group">
 					            <BtnGroup
 					            	buttons={catButtons} />
@@ -87,13 +87,13 @@ class Main extends Component {
 			            	<MainSection
 			            		title="produtos"
 			            		type="products"
-			            		categories={productCategories} />
+			            		categories={product} />
 	            		</div>
 	            		<div className={'col-sm-12 ' + this.state.lastClass}>
 		            		<MainSection
 			            		title="serviços"
 			            		type="services"
-			            		categories={serviceCategories} />
+			            		categories={service} />
 	            		</div>
 	            		<div className="col-sm-12 order-12">
 	            			<BlogSection />
@@ -111,8 +111,8 @@ const mapStateToProps = state => {
             token: state.user.token
         },
         categories: {
-        	productCategories: state.categories.productCategories,
-        	serviceCategories: state.categories.serviceCategories,
+        	product: state.categories.product,
+        	service: state.categories.service,
         	active: state.categories.active
         }
     }

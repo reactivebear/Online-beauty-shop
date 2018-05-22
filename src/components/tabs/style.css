@@ -20,3 +20,7 @@
 .nav-tabs .nav-link.active {
 	border-bottom: 2px solid #609D6D;
 }
+
+.nav-pills .nav-link.active {
+	background-color: #609D6D;
+}

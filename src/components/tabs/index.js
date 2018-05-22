@@ -25,11 +25,17 @@ class Tabs extends Component {
     render() {
         return (
         	<div>
-	            <ul className="nav nav-tabs">
+	            <ul className="nav nav-tabs d-none d-sm-flex pt-4">
 	            	{ this.props.tabs.map((item, i) => this.printLink(item, i)) }
 				</ul>
 
-				<div className="tab-content p-3">
+				<div className="bg-main pb-4 d-sm-none">
+					<nav className="nav nav-pills flex-column d-sm-none text-center border-green rounded bg-main">
+						{ this.props.tabs.map((item, i) => this.printLink(item, i)) }
+					</nav>
+				</div>
+
+				<div className="tab-content p-3 rounded">
 					{ this.props.tabs.map((item, i) => this.printContent(item, i)) }
 				</div>
 			</div>

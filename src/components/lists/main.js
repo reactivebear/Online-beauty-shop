@@ -5,6 +5,7 @@ import { getProducts } from 'actions/products.js'
 import { getServices } from 'actions/services.js'
 import CardProduct from 'components/cards/product.js'
 import CardService from 'components/cards/service.js'
+import CardProductSmall from 'components/cards/product_small.js'
 
 class ListMain extends Component {
 
@@ -13,14 +14,14 @@ class ListMain extends Component {
     getData = type => {
         switch (type) {
             case 'products':
-                store.dispatch(getProducts('recommended'))
+                store.dispatch(getProducts('list', {page_size: 6}))
             case 'services':
-                store.dispatch(getServices('recommended'))
+                store.dispatch(getServices('list', {page_size: 6}))
         }
     }
 
     componentDidMount() {
-        const isEmptyData = this.isEmptyData(this.props[this.props.type].recommended)
+        const isEmptyData = this.isEmptyData(this.props[this.props.type].list)
         if (this.props.user.token && isEmptyData) {
             this.getData(this.props.type)
             
@@ -28,7 +29,7 @@ class ListMain extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        const isEmptyData = this.isEmptyData(nextProps[nextProps.type].recommended)
+        const isEmptyData = this.isEmptyData(nextProps[nextProps.type].list)
         if (nextProps.user.token && isEmptyData) {
             this.getData(nextProps.type)
         }
@@ -36,13 +37,22 @@ class ListMain extends Component {
 
     printList = (item, i) => {
         if (i < 6) {
-            const component = this.props.type === 'products' ? <CardProduct {...item} /> : <CardService {...item} />
+            let component
+            switch (this.props.type) {
+                case 'products':
+                    component = this.props.itemType === 'small' ? <CardProductSmall {...item} /> : <CardProduct {...item} />
+                    break
+                case 'services':
+                    component = this.props.itemType === 'small' ? <CardService {...item} /> : <CardService {...item} />
+                    break
+            }
+
             return <div key={i} className="col-sm-4">{component}</div>
         }  
     }
 
     render() {
-        const list = this.props[this.props.type].recommended
+        const list = this.props[this.props.type].list
         return (
             <div className="row">
                { list.map((item, i) => this.printList(item, i)) }
@@ -57,10 +67,10 @@ const mapStateToProps = state => {
             token: state.user.token
         },
         products: {
-            recommended: state.products.recommended
+            list: state.products.list
         },
         services: {
-            recommended: state.services.recommended
+            list: state.services.list
         }
     }
 }

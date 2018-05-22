@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-// import { Link } from 'react-router-dom';
-import { Col, DropdownButton, Grid, Image, MenuItem, Row} from 'react-bootstrap';
 import BtnMain from 'components/buttons/btn_main.js'
 
 class Footer extends Component {
@@ -11,7 +9,7 @@ class Footer extends Component {
                     <div className="row mb-5 text-center justify-content-center">
                         <div className="col-sm-4">
                             <div className="mb-5">
-                                <Image src="/assets/images/LogoVisualTotal.png" />
+                                <img src="/assets/images/LogoVisualTotal.png" className="img-fluid" alt="" />
                             </div>
                             <div className="mb-3">
                                 <BtnMain

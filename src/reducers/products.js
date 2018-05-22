@@ -1,11 +1,12 @@
 import * as types from 'actions/types.js'
 
 const initialState = {
-    recommended: [],
+    list: [],
     product: {},
     salon: {
         address: {},
-        social_media: []
+        social_media: [],
+        reviews: []
     }
 }
 
