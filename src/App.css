@@ -29,6 +29,10 @@ body {
 	background-color: #F3F3F3;
 }
 
+.bg-green {
+	background-color: #609D6D;
+}
+
 .border-green {
 	border: 1px solid #609D6D;
 }
@@ -136,12 +140,20 @@ body {
 	margin: 0 3px;
 }
 
+.fa-12x {
+	font-size: 1.2rem;
+}
+
 .rounded {
 	border-radius: 10px !important;
 }
 
 .pointer {
 	cursor: pointer;
+}
+
+.cursor-default {
+	cursor: default;
 }
 
 [aria-selected='true'] .accordion__arrow::before {

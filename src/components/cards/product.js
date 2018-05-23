@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { history } from 'store'
+import store, { history } from 'store'
 import './product.css'
 import Stars from 'components/stars'
 import Price from 'components/price'
 import BtnMain from 'components/buttons/btn_main.js'
+import { addToCart } from 'actions/cart.js'
 
 class CardProduct extends Component {
 	state = {
@@ -13,6 +14,11 @@ class CardProduct extends Component {
 	handleOnLoad = e => { this.setState({display: 'none'}) }
 
 	goToProduct = e => history.push(`/product/${this.props.id}`)
+
+	addToCart = e => {
+		e.stopPropagation()
+		store.dispatch(addToCart(this.props.id, 'product', {quantity: 1}))
+	}
 
 	render() {
 		const image = this.props.images.length ? this.props.images[0].image_url : ''
@@ -48,10 +54,11 @@ class CardProduct extends Component {
             	<div>
         			<BtnMain
         				className="btn-block btn-outline font-weight-bold"
-        				title="Exibir servicos" />
+        				onClick={this.addToCart}
+        				title="Adicionar ao carrinho" />
     				<BtnMain
         				className="btn-block font-weight-bold"
-        				title="Exibir servicos" />
+        				title="Comprar agora" />
         		</div>
 			</div>
 		)

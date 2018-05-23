@@ -7,7 +7,7 @@
     display: block;
     margin: 0;
     padding: 0;
-    border-radius: .25rem!important;
+    border-radius: .25rem;
 }
 
 .sw-theme-arrows > ul.step-anchor {
@@ -27,7 +27,7 @@
 .sw-theme-arrows > ul.step-anchor > li > a, .sw-theme-arrows > ul.step-anchor > li > a:hover {
     color: #bbb;
     text-decoration: none;
-    padding: 15px 0 15px 50px;
+    padding: 20px 0 20px 50px;
     position: relative;
     display: block;
     border: 0 !important;
@@ -78,12 +78,12 @@
 .step-number {
 	background-color: #1DA464;
 	color: #fff;
-    padding: 5px 11px;
+    padding: 6px 11px;
     border-radius: 50%;
 }
 
 .step-number.check {
-	padding: 5px 8px;
+	padding: 6px 8px;
 }
 
 .active .step-description {
@@ -93,4 +93,15 @@
 
 .step-description {
 	display: none;
+}
+
+@media(max-width: 375px) {
+    .sw-theme-arrows > ul.step-anchor > li > a,
+    .sw-theme-arrows > ul.step-anchor > li > a:hover {
+        padding: 20px 0 20px 38px;
+    }
+
+    .sw-theme-arrows > ul.step-anchor > li:first-child > a {
+        padding-left: 10px;
+    }
 }

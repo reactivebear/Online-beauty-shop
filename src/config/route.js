@@ -13,11 +13,14 @@ export default {
     ],
     'private': [
         {
+            'path': '/',
+            'component': 'Main'
+        }, {
             'path': '/product/:id',
             'component': 'Product'
         }, {
-            'path': '/',
-            'component': 'Main'
+            'path': '/cart',
+            'component': 'Cart'
         }, {
             'path': '*',
             'component': 'NotFound'

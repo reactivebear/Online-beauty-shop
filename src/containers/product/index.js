@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import store from 'store'
+import store, { history } from 'store'
 import { connect } from 'react-redux'
 import { getProduct } from 'actions/products.js'
 import { getCategories, toggleModal } from 'actions'
@@ -58,7 +58,7 @@ class Product extends Component {
 	}
 
 	buy = () => {
-		console.log(this.count)
+		
 	}
 
 	comment = () => {
@@ -69,7 +69,7 @@ class Product extends Component {
     	const { product, salon } = this.props.products
     	const servicesCategories = this.props.categories.service
         return (
-        	<div className="font-avenir pt-1">
+        	<div className="font-avenir pt-4">
         		<div className="container">
 		            <div className="row">
 		            	<div className="col-12 col-sm-4">

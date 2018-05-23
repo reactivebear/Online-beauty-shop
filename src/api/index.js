@@ -102,4 +102,29 @@ export default {
         })
         .then(responseHandler)
     },
+    addToCart(id, type, param) {
+        return fetch(`${config.API_URL}/api/cart/add/${type}/${id}`, {
+            method: 'post',
+            credentials: 'same-origin',
+            headers: getHeader(),
+            body: JSON.stringify(param)
+        })
+        .then(responseHandler)
+    },
+    removeFromCart(id) {
+        return fetch(`${config.API_URL}/api/cart/remove-item/${id}`, {
+            method: 'delete',
+            credentials: 'same-origin',
+            headers: getHeader()
+        })
+        .then(responseHandler)
+    },
+    getCart() {
+        return fetch(`${config.API_URL}/api/cart`, {
+            method: 'get',
+            credentials: 'same-origin',
+            headers: getHeader(),
+        })
+        .then(responseHandler)
+    },
 }

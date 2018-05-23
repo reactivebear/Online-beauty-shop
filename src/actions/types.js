@@ -13,3 +13,5 @@ export const SET_SERVICE_CATEGORY = 'SET_SERVICE_CATEGORY'
 
 export const TOGGLE_SIDE_MENU = 'TOGGLE_SIDE_MENU'
 export const TOGGLE_MODAL = 'TOGGLE_MODAL'
+
+export const SET_CART = 'SET_CART'

@@ -11,14 +11,14 @@ class StepsArrow extends Component {
                              ?  <span className="step-number">{i+1}</span>
                              :  <span className="step-number check"><i className="fas fa-check"></i></span>
                         }
-                        <span className="step-description">Agendamento</span>
+                        <span className="step-description">{item.title}</span>
                     </a>
                 </li>
     }
     render() {
         return (
-            <div className="sw-main sw-theme-arrows">
-                <ul className="nav nav-tabs step-anchor">
+            <div className={`sw-main sw-theme-arrows ${this.props.className}`}>
+                <ul className="nav nav-tabs step-anchor rounded">
                     { this.props.steps.map((item, i) => this.printSteps(item, i)) }
                    
                 </ul>

@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import store from 'store'
+import { addToCart } from 'actions/cart.js'
 import Stars from 'components/stars'
 import Price from 'components/price'
 import BtnMain from 'components/buttons/btn_main.js'
@@ -17,27 +19,17 @@ class CardService extends Component {
 		})
 	}
 
+	addToCart = () => {
+		store.dispatch(addToCart(this.props.id, 'service', {quantity: 1}))
+	}
+
 	getAddress = address => {
 		return `${address.title}, ${address.street}, ${address.city} - ${address.state}, ${address.zipcode}`
 	}
 
-	distance = (lat1, lon1, lat2, lon2, unit) => {
-		let radlat1 = Math.PI * lat1/180
-		let radlat2 = Math.PI * lat2/180
-		let theta = lon1-lon2
-		let radtheta = Math.PI * theta/180
-		let dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-		dist = Math.acos(dist)
-		dist = dist * 180/Math.PI
-		dist = dist * 60 * 1.1515
-		if (unit=="K") { dist = dist * 1.609344 }
-		if (unit=="N") { dist = dist * 0.8684 }
-		return dist
-	}
-
 	getDistance = () => {
 		let range = false
-		navigator.geolocation.getCurrentPosition((pos) => {
+		navigator.geolocation.getCurrentPosition(pos => {
 			range = Distance.get(pos.coords.latitude, pos.coords.longitude, this.props.vendor.address.latitude, this.props.vendor.address.longitude)
 			if (range) {
 				this.setState({
@@ -94,7 +86,8 @@ class CardService extends Component {
             				</div>
             				<div className="w-50 pl-1">
 		        				<BtnMain
-		        					className="btn-block btn-outline font-weight-bold"
+		        					className="btn-block btn-outline font-weight-bold px-1"
+		        					onClick={this.addToCart}
 		            				title="Adicionar ao carrinho" />
             				</div>
         				</div>

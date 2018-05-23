@@ -4,6 +4,7 @@ import BtnMain from 'components/buttons/btn_main.js'
 import store from 'store'
 import { toggleSideMenu } from 'actions/design.js'
 import Tooltip from 'components/tooltip'
+import CartHeader from 'components/cart/cart_header.js'
 import './style.css'
 
 class Header extends Component {
@@ -22,10 +23,10 @@ class Header extends Component {
     }
 
     closeTooltip = e => {
-        if (! e.target.id) {
+        if (! e.target.id && ! e.target.closest('#child')) {
             this.setState({tooltip: false})
+            document.body.removeEventListener('click', this.closeTooltip)
         }
-        document.body.removeEventListener('click', this.closeTooltip)
     }
 
     toggleTooltip = type => e => {
@@ -70,7 +71,7 @@ class Header extends Component {
                                 <i className="fa fa-bars fa-2x" onClick={this.toggleSideMenu(true)} aria-hidden="true"></i>
                             </div>
                         </div>
-                        <div className="row mb-4">
+                        <div className="row">
                             <div className="col-sm-7">
                                 <div className="d-none d-sm-flex align-items-end justify-content-between mb-3">
                                     <div>
@@ -111,7 +112,7 @@ class Header extends Component {
                                         </div>
                                         {
                                             this.state.tooltip == 'cart'
-                                            ?   <Tooltip title="cart" />
+                                            ?   <Tooltip title="Adicionado ao seu carrinho" content={CartHeader} close={() => this.setState({tooltip: false})} />
                                             :   ''
                                         }
                                     </div>

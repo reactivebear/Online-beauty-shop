@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
+import routing from 'config/route.js'
+import store, { history } from 'store'
+import { Route, Switch } from 'react-router-dom'
+import { connect } from 'react-redux'
 import 'App.css'
 import Footer from 'components/footer'
 import * as pages from './containers'
-import { Route, Switch } from 'react-router-dom'
-import { history } from 'store'
-import routing from 'config/route.js'
-import { connect } from 'react-redux'
-import store from 'store'
 import { loginAsGuest, keepToken } from 'actions/auth.js'
 import Header from 'components/header'
 import SideMenu from 'components/menu/side_menu.js'
 import Modal from 'components/modal'
-
 
 class App extends Component {
     constructor(props) {
@@ -19,11 +17,11 @@ class App extends Component {
         if (!this.props.user.token) {
             store.dispatch(loginAsGuest())
         } else {
-            store.dispatch(keepToken(this.props.user.token))
+            //store.dispatch(keepToken(this.props.user.token))
         }
 
         history.listen((location, action) => {
-            
+            document.documentElement.scrollTop = 0
         })
     }
 
@@ -34,7 +32,6 @@ class App extends Component {
         const key = token ? 'private' : 'public'
         const routes = routing[key]
         const unactiveClass = this.props.design.sideMenu ? 'unactive' : ''
-        
         return (
             <div className="App">
                 <div className={'main-wrap ' + unactiveClass}>

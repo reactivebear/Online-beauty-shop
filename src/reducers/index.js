@@ -5,6 +5,7 @@ import categories from './categories.js'
 import design from './design.js'
 import products from './products.js'
 import services from './services.js'
+import cart from './cart.js'
 
 const reducer = combineReducers({
     routing: routerReducer,
@@ -12,7 +13,8 @@ const reducer = combineReducers({
     categories,
     design,
     products,
-    services
+    services,
+    cart
 })
 
 export default reducer
