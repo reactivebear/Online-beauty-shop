@@ -1,32 +1,34 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import store from 'store'
+import { setStep } from 'actions/cart.js'
 import StepsArrow from 'components/steps/steps_arrow.js'
 import { StepFirst, StepSecond, StepThird, StepFourth } from 'components/cart'
 
 class Cart extends Component {
-	state = {
-		step: 1
+	constructor(props) {
+		super(props)
+		this.steps = [{title: 'Meu carrinho'}, {title: 'Entrega'}, {title: 'Pagamento'}, {title: 'Confirmação'}]
 	}
 
 	changeStep = step => e => {
-		this.setState({step})
+		store.dispatch(setStep(step))
 	}
 
 	getStep = () => {
-		switch(this.state.step) {
-			case 1: return <StepFirst />
-			case 2: return <StepSecond />
-			case 3: return <StepThird />
-			case 4: return <StepFourth />
+		switch(this.props.cart.step) {
+			case 1: return <StepFirst step={this.props.cart.step} />
+			case 2: return <StepSecond step={this.props.cart.step} />
+			case 3: return <StepThird step={this.props.cart.step} />
+			case 4: return <StepFourth step={this.props.cart.step} />
 		}
 	}
 
     render() {
-    	const steps = [{title: 'Meu carrinho'}, {title: 'Entrega'}, {title: 'Pagamento'}, {title: 'Confirmação'}]
-
         return (
         	<div className="bg-main font-avenir pt-4">
 	            <div className="container">
-	            	<StepsArrow className="rounded mb-5" steps={steps} active={this.state.step} onClick={this.changeStep} />
+	            	<StepsArrow className="rounded mb-5" steps={this.steps} active={this.props.cart.step} onClick={this.changeStep} />
 	            	{ this.getStep() }
 	            </div>
 			</div>
@@ -34,4 +36,14 @@ class Cart extends Component {
     }
 }
 
-export default Cart
+const mapStateToProps = state => {
+    return {
+        cart: {
+        	step: state.cart.step
+        }
+    }
+}
+
+export default connect(
+    mapStateToProps
+)(Cart)

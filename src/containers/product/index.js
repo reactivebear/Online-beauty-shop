@@ -95,7 +95,7 @@ class Product extends Component {
 		            		<div className="row form-group">
 		            			<div className="col-6 col-sm-3">
 			            			<span className="color-green">Calcular frete</span><br />
-			            			<Counter onChange={val => this.count = val} />
+			            			<Counter onChange={val => this.count = val} value={1} />
 		            			</div>
 		            		</div>
 		            		<div className="form-group">

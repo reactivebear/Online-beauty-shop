@@ -5,6 +5,8 @@ const initialState = {
         product: [],
         service: []
     },
+    total: {},
+    step: 1
     
 }
 
@@ -17,7 +19,14 @@ export default function cart(cart = initialState, action = {}) {
             return Object.assign({}, cart, {
                 list: tempList
             });
-        
+        case types.SET_CART_TOTAL:
+            return Object.assign({}, cart, {
+                total: action.data
+            });
+        case types.SET_STEP:
+            return Object.assign({}, cart, {
+                step: action.step
+            });
         default:
             return cart;
     }

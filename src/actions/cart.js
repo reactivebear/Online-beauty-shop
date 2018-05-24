@@ -26,8 +26,36 @@ export const getCart = () => dispatch => {
     })
 }
 
+export const getCartTotal = () => dispatch => {
+    return api.getCartTotal()
+    .then(json => {
+        if (json.object) {
+            dispatch(setCartTotal(json.object))
+        }
+    })
+}
+
+export const changeQuantity = (id, val) => dispatch => {
+    return api.changeQuantity(id, val)
+    .then(json => {
+        console.log(json)
+    })
+}
+
 export const setCart = data => 
     ({
         type: types.SET_CART,
         data
+    })
+
+export const setCartTotal = data => 
+    ({
+        type: types.SET_CART_TOTAL,
+        data
+    })
+
+export const setStep = step => 
+    ({
+        type: types.SET_STEP,
+        step
     })

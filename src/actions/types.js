@@ -15,3 +15,5 @@ export const TOGGLE_SIDE_MENU = 'TOGGLE_SIDE_MENU'
 export const TOGGLE_MODAL = 'TOGGLE_MODAL'
 
 export const SET_CART = 'SET_CART'
+export const SET_CART_TOTAL = 'SET_CART_TOTAL'
+export const SET_STEP = 'SET_STEP'

@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import CartTotal from 'components/cards/cart_total.js'
 
 class StepFourth extends Component {
     render() {
@@ -8,11 +10,22 @@ class StepFourth extends Component {
         			Step fourth
         		</div>
         		<div className="col-sm-6">
-        			Step fourth
+        			<h4>Resumo do pedido</h4>
+                    <CartTotal value={this.props.cart.total} step={this.props.step} />
         		</div>
         	</div>
         );
     }
 }
 
-export default StepFourth
+const mapStateToProps = state => {
+    return {
+        cart: {
+            total: state.cart.total
+        }
+    }
+}
+
+export default connect(
+    mapStateToProps
+)(StepFourth)

@@ -1,0 +1,21 @@
+.radio-switch.check {
+    background-color: #1DA464;
+    color: #fff;
+    padding: 6px 8px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+}
+
+.radio-switch {
+	border: 1px solid #ccc;
+	padding: 6px 8px;
+ 	border-radius: 50%;
+}
+
+.radio-switch i {
+	opacity: 0;
+}
+
+.radio-switch.check i {
+	opacity: 1;
+}

@@ -119,8 +119,24 @@ export default {
         })
         .then(responseHandler)
     },
+    changeQuantity(id, val) {
+        return fetch(`${config.API_URL}/api/cart/change-quantity/${id}/${val}`, {
+            method: 'patch',
+            credentials: 'same-origin',
+            headers: getHeader()
+        })
+        .then(responseHandler)
+    },
     getCart() {
         return fetch(`${config.API_URL}/api/cart`, {
+            method: 'get',
+            credentials: 'same-origin',
+            headers: getHeader(),
+        })
+        .then(responseHandler)
+    },
+    getCartTotal() {
+        return fetch(`${config.API_URL}/api/cart/value`, {
             method: 'get',
             credentials: 'same-origin',
             headers: getHeader(),

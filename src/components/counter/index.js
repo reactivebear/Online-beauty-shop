@@ -19,6 +19,14 @@ class Counter extends Component {
 		}
 	}
 
+	componentDidMount() {
+    	this.setState({count: this.props.value})
+    }
+
+    componentWillReceiveProps(nextProps) {
+    	this.setState({count: nextProps.value})
+    }
+
     render() {
     	const color = this.state.count > 1 ? 'color-green pointer' : 'color-grey'
         return (
