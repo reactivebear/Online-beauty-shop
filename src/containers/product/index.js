@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import store, { history } from 'store'
 import { connect } from 'react-redux'
 import { getProduct } from 'actions/products.js'
+import { addToCart } from 'actions/cart.js'
 import { getCategories, toggleModal } from 'actions'
 import ImageMultiPreview from 'components/images/multi_preview.js'
 import ImagePreview from 'components/images/preview.js'
@@ -21,7 +22,7 @@ class Product extends Component {
 		if (props.match.params.id) {
 			store.dispatch(getProduct(props.match.params.id))
 		}
-
+		this.count = 1
 		store.dispatch(getCategories('service'))
 	}
 
@@ -61,6 +62,10 @@ class Product extends Component {
 		
 	}
 
+	addToCart = () => {
+		store.dispatch(addToCart(this.props.products.product.id, 'product', {quantity: this.count}))
+	}
+
 	comment = () => {
 		store.dispatch(toggleModal(true, CommentForm))
 	}
@@ -95,7 +100,7 @@ class Product extends Component {
 		            		<div className="row form-group">
 		            			<div className="col-6 col-sm-3">
 			            			<span className="color-green">Calcular frete</span><br />
-			            			<Counter onChange={val => this.count = val} value={1} />
+			            			<Counter onChange={val => this.count = val} value={this.count} />
 		            			</div>
 		            		</div>
 		            		<div className="form-group">
@@ -105,7 +110,7 @@ class Product extends Component {
 			        				title="Comprar agora" />
 		        				<BtnMain
 			        				className="font-weight-bold btn-outline ml-2"
-			        				onClick={this.buy}
+			        				onClick={this.addToCart}
 			        				title="Adicionar ao carrinho" />
 	        				</div>
 		            	</div>

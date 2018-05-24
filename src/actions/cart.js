@@ -26,6 +26,15 @@ export const getCart = () => dispatch => {
     })
 }
 
+export const getDelivery = id => dispatch => {
+    return api.getDelivery(id)
+    .then(json => {
+        if (json.object) {
+            console.log(json.object)
+        }
+    })
+}
+
 export const getCartTotal = () => dispatch => {
     return api.getCartTotal()
     .then(json => {

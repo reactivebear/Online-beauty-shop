@@ -1,5 +1,6 @@
 export const SET_TOKEN = 'SET_TOKEN'
 export const SET_USER = 'SET_USER'
+export const SET_USER_ADDRESSES = 'SET_USER_ADDRESSES'
 
 export const SET_CATEGORIES = 'SET_CATEGORIES'
 export const SET_CATEGORY = 'SET_CATEGORY'
@@ -13,6 +14,7 @@ export const SET_SERVICE_CATEGORY = 'SET_SERVICE_CATEGORY'
 
 export const TOGGLE_SIDE_MENU = 'TOGGLE_SIDE_MENU'
 export const TOGGLE_MODAL = 'TOGGLE_MODAL'
+export const SET_LOCATION = 'SET_LOCATION'
 
 export const SET_CART = 'SET_CART'
 export const SET_CART_TOTAL = 'SET_CART_TOTAL'

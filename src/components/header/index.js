@@ -5,6 +5,8 @@ import store from 'store'
 import { toggleSideMenu } from 'actions/design.js'
 import Tooltip from 'components/tooltip'
 import CartHeader from 'components/cart/cart_header.js'
+import LoginForm from 'components/forms/login_form.js'
+import ZipForm from 'components/forms/zip_form.js'
 import './style.css'
 
 class Header extends Component {
@@ -121,7 +123,7 @@ class Header extends Component {
                                         <strong id="login">Entre ou cadastre-se</strong>
                                         {
                                             this.state.tooltip == 'login'
-                                            ?   <Tooltip title="login" />
+                                            ?   <Tooltip title="login" content={LoginForm} close={() => this.setState({tooltip: false})} />
                                             :   ''
                                         }
                                     </div>
@@ -133,7 +135,7 @@ class Header extends Component {
                                         </div>
                                         {
                                             this.state.tooltip == 'zip'
-                                            ?   <Tooltip title="zip" />
+                                            ?   <Tooltip title="zip" content={ZipForm} close={() => this.setState({tooltip: false})} />
                                             :   ''
                                         }
                                     </div>

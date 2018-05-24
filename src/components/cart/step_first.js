@@ -17,7 +17,7 @@ class StepFirst extends Component {
 		const { product, service } = this.props.cart.list
         
         return (
-        	<div className="row">
+        	<div className="row pb-5">
         		<div className="col-sm-6">
                     <h4>Meu carrinho</h4>
         			{ [...product, ...service].map((item, i) => this.printList(item, i)) }

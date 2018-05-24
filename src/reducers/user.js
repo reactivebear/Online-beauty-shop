@@ -3,7 +3,9 @@ import Cookies from 'js-cookie'
 
 const initialState = {
     token: Cookies.get('token'),
-    user: {}
+    data: {
+        addresses: []
+    }
 }
 
 export default function user(user = initialState, action = {}) {
@@ -16,6 +18,11 @@ export default function user(user = initialState, action = {}) {
         case types.SET_USER:
             return Object.assign({}, user, {
                 user: action.data
+            });
+        case types.SET_USER_ADDRESSES:
+            temp.addresses = action.data
+            return Object.assign({}, user, {
+                data: temp
             });
         default:
             return user;

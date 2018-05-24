@@ -58,6 +58,14 @@ export default {
         })
         .then(responseHandler)
     },
+    getUserAddresses() {
+        return fetch(config.API_URL + '/api/user/main-address', {
+            method: 'get',
+            credentials: 'same-origin',
+            headers: getHeader(),
+        })
+        .then(responseHandler)
+    },
     getCategories(param) {
         const url = param ? ('/api/categories/' + param) : '/api/categories'
         return fetch(config.API_URL + url, {
@@ -129,6 +137,14 @@ export default {
     },
     getCart() {
         return fetch(`${config.API_URL}/api/cart`, {
+            method: 'get',
+            credentials: 'same-origin',
+            headers: getHeader(),
+        })
+        .then(responseHandler)
+    },
+    getDelivery(id) {
+        return fetch(`/api/cart/delivery/${id}`, {
             method: 'get',
             credentials: 'same-origin',
             headers: getHeader(),

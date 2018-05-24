@@ -7,6 +7,7 @@ import 'App.css'
 import Footer from 'components/footer'
 import * as pages from './containers'
 import { loginAsGuest, keepToken } from 'actions/auth.js'
+import { setLocation } from 'actions/design.js'
 import Header from 'components/header'
 import SideMenu from 'components/menu/side_menu.js'
 import Modal from 'components/modal'
@@ -21,7 +22,8 @@ class App extends Component {
         }
 
         history.listen((location, action) => {
-            document.documentElement.scrollTop = 0
+            store.dispatch(setLocation(location.pathname))
+            window.scrollTo(0, 0)
         })
     }
 

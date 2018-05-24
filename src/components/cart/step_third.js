@@ -5,9 +5,9 @@ import CartTotal from 'components/cards/cart_total.js'
 class StepThird extends Component {
     render() {
         return (
-        	<div className="row">
+        	<div className="row pb-5">
         		<div className="col-sm-6">
-        			Step third
+        			<h4>Dados do cartão</h4>
         		</div>
         		<div className="col-sm-6">
         			<h4>Resumo do pedido</h4>

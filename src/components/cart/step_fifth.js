@@ -1,18 +1,22 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import CartTotal from 'components/cards/cart_total.js'
-import ProductCart from 'components/cards/product_cart.js'
 
-class StepFourth extends Component {
-    printList = (item, i) => <ProductCart key={i} {...item} />
+class StepFifth extends Component {
 
     render() {
-        const { product, service } = this.props.cart.list
         return (
         	<div className="row pb-5">
         		<div className="col-sm-6">
         			<h4>Meu carrinho</h4>
-                    { [...product, ...service].map((item, i) => this.printList(item, i)) }
+                    <div className="rounded pt-4 pb-5 bg-white text-center">
+                        <div className="row">
+                            <div className="col-sm-4 col-6 offset-3 offset-sm-4 mb-3">
+                                <img src="/assets/icons/check-icon-big.png" alt="" className="img-fluid" />
+                            </div>
+                        </div>
+                        <h5>Pedido realizado com sucesso!</h5>
+                    </div>
         		</div>
         		<div className="col-sm-6">
         			<h4>Resumo do pedido</h4>
@@ -26,7 +30,6 @@ class StepFourth extends Component {
 const mapStateToProps = state => {
     return {
         cart: {
-            list: state.cart.list,
             total: state.cart.total
         }
     }
@@ -34,4 +37,4 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps
-)(StepFourth)
+)(StepFifth)

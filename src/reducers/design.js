@@ -5,7 +5,8 @@ const initialState = {
     modal: {
     	open: false,
     	content: ''
-    }
+    },
+    location: '/'
 }
 
 export default function design(design = initialState, action = {}) {
@@ -17,6 +18,10 @@ export default function design(design = initialState, action = {}) {
         case types.TOGGLE_MODAL:
             return Object.assign({}, design, {
                modal: {open: action.open, content: action.content}
+            });
+        case types.SET_LOCATION:
+            return Object.assign({}, design, {
+               location: action.location
             });
         default:
             return design;

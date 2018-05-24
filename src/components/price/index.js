@@ -7,8 +7,10 @@ class Price extends Component {
         
         const cent = current[1] ? current[1].length > 1 ? current[1] : `${current[1]}0` : '00'
         const centOld = old[1] ? old[1].length > 1 ? old[1] : `${old[1]}0` : '00'
+        console.log(this.props.className)
         return (
-            <div>
+
+            <div className={this.props.className} style={{marginBottom: -7}}>
                 {
                     this.props.old
                     ?   <span><span className="price-old fs-18">R$ {old[0]}<sup><small>,{centOld}</small></sup></span>&nbsp;&nbsp;&nbsp;</span>
