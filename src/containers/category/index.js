@@ -30,7 +30,7 @@ class Category extends Component {
 	            			<SearchMenuWeb />
 	            		</div>
 	            		<div className="col-md-8">
-	            			<h4>Pesquisa: {category.name}</h4>
+	            			 <h4><small>Pesquisa: </small>{category.name}</h4>
 	            			<div className="row">
 	            				{ list.map((item, i) => this.printList(item, i)) }
             				</div>
