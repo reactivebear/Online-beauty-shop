@@ -2,6 +2,7 @@ import * as types from 'actions/types.js'
 
 const initialState = {
     list: [],
+    category_list: [],
     product: {},
     salon: {
         address: {},

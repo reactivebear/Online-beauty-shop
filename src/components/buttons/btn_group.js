@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-//import style from './btn_main.css'
-import BtnMain from './btn_main.js'
 
 class BtnGroup extends Component {
     printButtons = (item , i) => {

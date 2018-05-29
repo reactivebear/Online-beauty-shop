@@ -7,7 +7,7 @@ const responseHandler = response => {
         return
     }*/
     let promise = response.json()
-    let ok = response.ok
+    //let ok = response.ok
     /*promise.then(response => {
         if (response.validate) {
             for (let k in response.validate) {
@@ -51,15 +51,51 @@ export default {
         })
         .then(responseHandler)
     },
+    login(data) {
+        return fetch(config.API_URL + '/login', {
+            method: 'post',
+            credentials: 'same-origin',
+            headers: getHeader(),
+            body: JSON.stringify(data)
+        })
+        .then(responseHandler)
+    },
     keepToken() {
         return fetch(config.API_URL + '/api/keeptoken', {
             method: 'get',
             credentials: 'same-origin',
+            headers: getHeader(),
+        })
+        .then(responseHandler)
+    },
+    registration(data) {
+        return fetch(config.API_URL + '/signup/client', {
+            method: 'post',
+            credentials: 'same-origin',
+            headers: getHeader(),
+            body: JSON.stringify(data)
+        })
+        .then(responseHandler)
+    },
+    updateUser(data) {
+        return fetch(config.API_URL + '/api/user/edit', {
+            method: 'put',
+            credentials: 'same-origin',
+            headers: getHeader(),
+            body: JSON.stringify(data)
         })
         .then(responseHandler)
     },
     getUserAddresses() {
         return fetch(config.API_URL + '/api/user/main-address', {
+            method: 'get',
+            credentials: 'same-origin',
+            headers: getHeader(),
+        })
+        .then(responseHandler)
+    },
+    getWishlist() {
+        return fetch(config.API_URL + '/api/wishlist', {
             method: 'get',
             credentials: 'same-origin',
             headers: getHeader(),
@@ -75,12 +111,28 @@ export default {
         })
         .then(responseHandler)
     },
+    getCategoryList(param) {
+        return fetch(`${config.API_URL}/api/categories/${param}`, {
+            method: 'get',
+            credentials: 'same-origin',
+            headers: getHeader()
+        })
+        .then(responseHandler)
+    },
     getProducts(param) {
         return fetch(config.API_URL + '/api/products', {
             method: 'post',
             credentials: 'same-origin',
             headers: getHeader(),
             body: JSON.stringify(param)
+        })
+        .then(responseHandler)
+    },
+    getCategoryProducts(param) {
+        return fetch(config.API_URL + '/api/categories/product', {
+            method: 'get',
+            credentials: 'same-origin',
+            headers: getHeader(),
         })
         .then(responseHandler)
     },

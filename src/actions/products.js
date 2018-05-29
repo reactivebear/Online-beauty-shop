@@ -10,6 +10,15 @@ export const getProducts = (type, param) => dispatch => {
     })
 }
 
+export const getCategoryProducts = (type, param) => dispatch => {
+    return api.getCategoryProducts(param)
+    .then(json => {
+        if (json.object) {
+            console.log(json.object)
+        }
+    })
+}
+
 export const getProduct = id => dispatch => {
     return api.getProduct(id)
     .then(json => {

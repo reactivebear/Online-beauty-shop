@@ -5,8 +5,6 @@ import { getCart, removeFromCart } from 'actions/cart.js'
 import BtnMain from 'components/buttons/btn_main.js'
 import Price from 'components/price'
 import ImagePreview from 'components/images/preview.js'
-import { Link } from 'react-router-dom'
-import Header from 'components/header'
 
 class CartHeader extends Component {
 	componentWillMount() {

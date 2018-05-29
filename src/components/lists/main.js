@@ -13,10 +13,13 @@ class ListMain extends Component {
 
     getData = type => {
         switch (type) {
-            case 'products':
-                store.dispatch(getProducts('list', {page_size: 6}))
-            case 'services':
-                store.dispatch(getServices('list', {page_size: 6}))
+            case 'product':
+                store.dispatch(getProducts('list', {page_size: 6, featured_only: false}))
+                break
+            case 'service':
+                store.dispatch(getServices('list', {page_size: 6, featured_only: false}))
+                break
+            default: return
         }
     }
 
@@ -39,16 +42,17 @@ class ListMain extends Component {
         if (i < 6) {
             let component
             switch (this.props.type) {
-                case 'products':
+                case 'product':
                     component = this.props.itemType === 'small' ? <CardProductSmall {...item} /> : <CardProduct {...item} />
                     break
-                case 'services':
+                case 'service':
                     component = this.props.itemType === 'small' ? <CardService {...item} /> : <CardService {...item} />
                     break
+                default: return
             }
 
             return <div key={i} className="col-sm-4">{component}</div>
-        }  
+        }   
     }
 
     render() {
@@ -61,19 +65,18 @@ class ListMain extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
+const mapStateToProps = state =>
+    ({
         user: {
             token: state.user.token
         },
-        products: {
+        product: {
             list: state.products.list
         },
-        services: {
+        service: {
             list: state.services.list
         }
-    }
-}
+    })
 
 export default connect(
     mapStateToProps

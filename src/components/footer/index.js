@@ -56,8 +56,8 @@ class Footer extends Component {
                         <div className="col-sm-6 text-right">
                             <div className="row align-items-end mb-5 mb-sm-0">
                                 <div className="col-sm col-xs-4">
-                                    <img src="/assets/icons/facebook-icon.png" className="footer-icon px-2" />
-                                    <img src="/assets/icons/instagram-icon.png" className="footer-icon px-2" />
+                                    <img src="/assets/icons/facebook-icon.png" alt="" className="footer-icon px-2" />
+                                    <img src="/assets/icons/instagram-icon.png" alt="" className="footer-icon px-2" />
                                 </div>
                                 <div className="col-sm col-xs-8 text-left">
                                     <p>Selecione um país/região</p>

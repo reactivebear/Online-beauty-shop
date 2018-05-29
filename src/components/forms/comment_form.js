@@ -9,11 +9,11 @@ import { toggleModal } from 'actions'
 class CommentForm extends Component {
 
 	sendComment = () => {
-        const data = {
+        /*const data = {
             email: this.text.value,
             message: this.message.value,
             rating: this.stars
-        }
+        }*/
 	}
 
 	closeModal = () => {

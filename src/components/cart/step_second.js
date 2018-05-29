@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import store from 'store'
-import { getDelivery } from 'actions/cart.js'
 import CartTotal from 'components/cards/cart_total.js'
 import RadioSwitch from 'components/inputs/radio_switch.js'
 import BtnMain from 'components/buttons/btn_main.js'
@@ -18,7 +16,6 @@ class StepSecond extends Component {
     }
 
     componentWillMount() {
-        console.log(this.props.user.data.addresses)
         //store.dispatch(getDelivery(this.props.user.data.addresses[0].id))
     }
 

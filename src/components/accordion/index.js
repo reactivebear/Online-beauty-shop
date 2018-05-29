@@ -11,7 +11,7 @@ import Price from 'components/price'
 
 class CustomAccordion extends Component {
     printBody = (item, i, length) => {
-        const last = length == i + 1
+        const last = length === i + 1
         return  <div key={i}>
                     <div className="row">
                         <div className="col-sm-6">

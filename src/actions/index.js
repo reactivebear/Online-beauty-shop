@@ -1,6 +1,7 @@
 import api from 'api'
 import * as types from './types.js'
 import { getServicesCategory } from './services.js'
+import { getProducts } from './products.js'
 
 export const getCategories = param => dispatch => {
     return api.getCategories(param)
@@ -21,6 +22,23 @@ export const getCategories = param => dispatch => {
         }
     })
 }
+
+export const getCategoryList = (param, id) => dispatch => 
+    (api.getCategoryList(param)
+    .then(json => {
+        if (json.object) {
+           dispatch(setCategoryList(json.object, param, id))
+           dispatch(getProducts('list', {category: id, page_size: 14}))
+        }
+    }))
+
+export const setCategoryList = (data, key, id) => 
+    ({
+        type: types.SET_CATEGORY_LIST,
+        data,
+        key,
+        id
+    })
 
 export const setCategories = data => 
     ({

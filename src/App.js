@@ -7,7 +7,7 @@ import 'App.css'
 import Footer from 'components/footer'
 import * as pages from './containers'
 import { loginAsGuest, keepToken } from 'actions/auth.js'
-import { setLocation } from 'actions/design.js'
+import { setLocation, toggleSideMenu } from 'actions/design.js'
 import Header from 'components/header'
 import SideMenu from 'components/menu/side_menu.js'
 import Modal from 'components/modal'
@@ -18,11 +18,14 @@ class App extends Component {
         if (!this.props.user.token) {
             store.dispatch(loginAsGuest())
         } else {
-            //store.dispatch(keepToken(this.props.user.token))
+            store.dispatch(keepToken(this.props.user.token))
         }
 
         history.listen((location, action) => {
             store.dispatch(setLocation(location.pathname))
+            if (this.props.design.sideMenu) {
+                store.dispatch(toggleSideMenu(false))
+            }
             window.scrollTo(0, 0)
         })
     }
@@ -50,16 +53,16 @@ class App extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
+const mapStateToProps = state =>
+    ({
         user: {
-            token: state.user.token
+            token: state.user.token,
+            guest: state.user.guest,
         },
         design: {
             sideMenu: state.design.sideMenu
         }
-    }
-}
+    })
 
 export default connect(
     mapStateToProps

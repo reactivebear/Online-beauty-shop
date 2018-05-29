@@ -44,7 +44,6 @@ class CardService extends Component {
 	}
 
     render() {
-    	const collapseClass = this.state.active ? 'collapsed active box-shadow-bottom' : 'collapsed'
         return (
 	        	<div className="card rounded p-4 pointer mb-3" onClick={this.toggleCard}>
 	            	<div className="position-relative mb-3">

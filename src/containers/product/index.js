@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import store, { history } from 'store'
+import store from 'store'
 import { connect } from 'react-redux'
 import { getProduct } from 'actions/products.js'
 import { addToCart } from 'actions/cart.js'
@@ -103,7 +103,7 @@ class Product extends Component {
 			            			<Counter onChange={val => this.count = val} value={this.count} />
 		            			</div>
 		            		</div>
-		            		<div className="form-group">
+		            		<div className="d-flex form-group">
 			            		<BtnMain
 			        				className="font-weight-bold px-4"
 			        				onClick={this.buy}

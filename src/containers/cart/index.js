@@ -24,6 +24,7 @@ class Cart extends Component {
 			case 3: return <StepThird step={this.props.cart.step} />
 			case 4: return <StepFourth step={this.props.cart.step} />
 			case 5: return <StepFifth step={this.props.cart.step} />
+			default: return
 		}
 	}
 

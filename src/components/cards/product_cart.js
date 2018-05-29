@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import store from 'store'
+import { Link } from 'react-router-dom'
 import ImagePreview from 'components/images/preview.js'
 import Counter from 'components/counter'
 import Price from 'components/price'
@@ -25,7 +26,7 @@ class ProductCart extends Component {
 	            	{ this.props[this.props.type].name || this.props[this.props.type].title }
 	            	<div className="form-group">
 	            		<span className="color-grey">Vendido e entregue por </span>
-	            		<a href="javascript:;">{this.props[this.props.type].brand_id || this.props[this.props.type].vendor.organization_name}</a>
+	            		<Link to="company/">{this.props[this.props.type].brand_id || this.props[this.props.type].vendor.organization_name}</Link>
 	            		<i className="far fa-trash-alt fa-12x color-green pointer float-right d-block d-sm-none" onClick={this.removeFromCart}></i>
 	            	</div>
 	            	<div className="row align-items-stretch">

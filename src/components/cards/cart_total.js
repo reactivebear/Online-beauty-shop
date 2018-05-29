@@ -14,7 +14,7 @@ class CartTotal extends Component {
 		return (
 			<div className="rounded bg-white p-4">
 				{
-					this.props.step != 3
+					this.props.step !== 3
 					? 	<div className="d-flex justify-content-between color-grey">
 							<div><h5>Subtotal:</h5></div>
 							<div><Price current={this.props.value.products} /></div>
@@ -29,7 +29,7 @@ class CartTotal extends Component {
 				}
 
 				{
-					this.props.step == 2 || this.props.step == 4 || this.props.step == 5
+					this.props.step === 2 || this.props.step === 4 || this.props.step === 5
 					? 	<div className="d-flex justify-content-between color-grey">
 							<div><h5>Frete:</h5></div>
 							<div><Price current={this.props.value.delivery} /></div>
@@ -37,7 +37,7 @@ class CartTotal extends Component {
 					: 	''
 				}
 				{
-					this.props.step == 4 || this.props.step == 5
+					this.props.step === 4 || this.props.step === 5
 					? 	<div className="d-flex justify-content-between color-grey">
 							<div><h5>Créditos:</h5></div>
 							<div><Price current={0} /></div>
@@ -55,7 +55,7 @@ class CartTotal extends Component {
 				}
 				<div className="col-sm-10 offset-sm-1">
 					{
-						this.props.step == 4
+						this.props.step === 4
 						? 	<BtnMain
 			                    className="btn-block btn-outline font-weight-bold"
 			                    onClick={this.changeStep}
@@ -63,7 +63,7 @@ class CartTotal extends Component {
 						: 	''
 					}
 					{
-						this.props.step == 5
+						this.props.step === 5
 						?	<div>
 								<BtnMain
 				                    className="btn-block btn-outline font-weight-bold"

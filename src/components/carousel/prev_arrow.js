@@ -6,7 +6,7 @@ class PrevArrow extends Component {
     render() {
         return (
             <div className={`${style.prevArrow} ${style.wrap}`} onClick={this.props.onClick}>
-                <img style={{width: 30}} src="/assets/icons/icons8-chevron-left-48.png" />
+                <img style={{width: 30}} src="/assets/icons/icons8-chevron-left-48.png" alt="" />
             </div>
         );
     }

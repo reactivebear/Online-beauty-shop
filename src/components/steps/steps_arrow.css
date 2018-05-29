@@ -24,7 +24,7 @@
     margin-bottom: -1px;
 }
 
-.sw-theme-arrows > ul.step-anchor > li > a, .sw-theme-arrows > ul.step-anchor > li > a:hover {
+.sw-theme-arrows > ul.step-anchor > li > span, .sw-theme-arrows > ul.step-anchor > li > span:hover {
     color: #bbb;
     text-decoration: none;
     padding: 20px 0 20px 50px;
@@ -36,15 +36,15 @@
     background: #fff;
 }
 
-.sw-theme-arrows > ul.step-anchor > li.active > a:after {
+.sw-theme-arrows > ul.step-anchor > li.active > span:after {
     border-left: 30px solid #fff !important;
 }
 
-.sw-theme-arrows > ul.step-anchor > li:first-child > a {
+.sw-theme-arrows > ul.step-anchor > li:first-child > span {
     padding-left: 40px;
 }
 
-.sw-theme-arrows > ul.step-anchor > li > a:before {
+.sw-theme-arrows > ul.step-anchor > li > span:before {
     content: " ";
     display: block;
     width: 0;
@@ -60,7 +60,7 @@
     z-index: 1;
 }
 
-.sw-theme-arrows > ul.step-anchor > li > a:after {
+.sw-theme-arrows > ul.step-anchor > li > span:after {
 	content: " ";
     display: block;
     width: 0;
@@ -95,13 +95,13 @@
 	display: none;
 }
 
-@media(max-width: 375px) {
-    .sw-theme-arrows > ul.step-anchor > li > a,
-    .sw-theme-arrows > ul.step-anchor > li > a:hover {
+@media(max-width: 376px) {
+    .sw-theme-arrows > ul.step-anchor > li > span,
+    .sw-theme-arrows > ul.step-anchor > li > span:hover {
         padding: 20px 0 20px 38px;
     }
 
-    .sw-theme-arrows > ul.step-anchor > li:first-child > a {
+    .sw-theme-arrows > ul.step-anchor > li:first-child > span {
         padding-left: 10px;
     }
 }

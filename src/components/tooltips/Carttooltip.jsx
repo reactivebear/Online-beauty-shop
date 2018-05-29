@@ -34,7 +34,7 @@ export default class Carttooltip extends Component {
               </div>
               <div className="cart-product-price">
                 <h5>R$ 54,98</h5>
-                <a href="">Deletar</a>
+                <a href="javascript:;">Deletar</a>
               </div>
             </div>
           );

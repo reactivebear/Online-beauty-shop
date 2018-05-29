@@ -2,27 +2,39 @@ import React, { Component } from 'react'
 import './input.css'
 
 class Input extends Component {
-    thisRef = ref => {
-        this.props.inputRef(ref)
-        this.input = ref
-    }
-
+    
     render() {
+        const { 
+            placeholder = '',
+            disabled = false,
+            type = 'text',
+            onChange,
+            inputRef,
+            className = '',
+            value 
+        } = this.props
+
         return (
-            <div className="form-group">
-                <label>{this.props.label}:</label>
-                {
-            		this.props.required
-                	? 	<sup style={{color: '#70C49C'}}><small>&#9733;</small></sup>
-                	: 	''
-                }
-                <input 
-                    type="text" 
-                    placeholder={this.props.placeholder}
-                    className="form-control" 
-                    ref={this.thisRef}
-                    defaultValue={this.props.value} />
-            </div>
+                <div id="first" className="form-group">
+                    <label>{this.props.label}:</label>
+                    {
+                        this.props.required
+                        ?   <sup style={{color: '#70C49C'}}><small>&#9733;</small></sup>
+                        :   ''
+                    }{
+                        this.props.description
+                        ?   <span style={{color: '#70C49C'}}> ({this.props.description})</span>
+                        :   ''
+                    }
+                    <input 
+                        type={type}
+                        disabled={disabled}
+                        placeholder={placeholder}
+                        className={`form-control${ className}`}
+                        ref={inputRef}
+                        onChange={onChange}
+                        defaultValue={value} />
+                </div>
         );
     }
 }

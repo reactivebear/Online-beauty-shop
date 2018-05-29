@@ -28,6 +28,26 @@
 	color: #579a64;
 }
 
+.btn-facebook {
+	background-color: #3b5998;
+	border-color: #3b5998 !important;
+}
+
+.btn-facebook:hover {
+	background-color: #3b5998;
+	box-shadow: 0 4px 14px 0px rgba(59,89,152,0.5);
+}
+
+.btn-google {
+	background-color: #d62d20;
+	border-color: #d62d20 !important;
+}
+
+.btn-google:hover {
+	background-color: #d62d20;
+	box-shadow: 0 4px 14px 0px rgba(214,45,32,0.5);
+}
+
 .btn-outline:hover {
 	background-color: #579a64;
 	color: #fff;

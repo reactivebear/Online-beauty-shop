@@ -13,7 +13,7 @@ class Tabs extends Component {
 	printLink = (item, i) => {
 		const className =  i + 1 === this.state.active ? 'nav-link active' : 'nav-link'
 		return 	<li key={i} className="nav-item">
-					<a className={className} id="home-tab" href="javascript:;" onClick={this.toggleTab(i)}>{item.title}</a>
+					<span className={`${className} pointer`} id="home-tab" onClick={this.toggleTab(i)}>{item.title}</span>
 				</li>
 	}
 

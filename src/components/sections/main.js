@@ -6,7 +6,7 @@ import ListMain from 'components/lists/main.js'
 class MainSection extends Component {
     printCategories = (item, i) => <div className="col"><CategoryItem key={i} {...item} /></div>
 
-    printMobileCategories = () => this.props.categories.map((item, i) => <CategoryItem key={i} {...item} />)
+    printMobileCategories = () => this.props.categories.map((item, i) => <CategoryItem key={i} {...item} type={this.props.type} />)
     
     render() {
         const settings = {
@@ -33,7 +33,6 @@ class MainSection extends Component {
                     <div className="row">
                         <div className="col-sm-8">
                             <div>
-                                {/* this.props.categories.map((item, i) => this.printCategories(item, i)) */}
                                 <Carousel items={this.printMobileCategories()} settings={settings} />
                             </div>
                         </div>

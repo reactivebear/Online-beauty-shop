@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { compose, withProps } from 'recompose';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
-import { InfoBox } from "react-google-maps/lib/components/addons/InfoBox"
 
 const AddressMap = compose(
   	withProps({

@@ -25,6 +25,10 @@ body {
 	overflow-x: hidden;
 }
 
+path.cls-8 {
+	fill: #fff !important;
+}
+
 .bg-main {
 	background-color: #F3F3F3;
 }
@@ -51,6 +55,10 @@ body {
 
 .w-30 {
 	width: 30%;
+}
+
+.w-35 {
+	width: 35%;
 }
 
 .w-40 {

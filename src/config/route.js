@@ -16,11 +16,47 @@ export default {
             'path': '/',
             'component': 'Main'
         }, {
+            'path': '/category/:type/:id',
+            'component': 'Category'
+        }, {
             'path': '/product/:id',
             'component': 'Product'
         }, {
             'path': '/cart',
             'component': 'Cart'
+        }, {
+            'path': '/registration',
+            'component': 'Registration'
+        },  {
+            'path': '/profile',
+            'component': 'Profile'
+        }, {
+            'path': '/profile/*',
+            'component': 'Profile'
+        }, {
+            'path': '/vouchers',
+            'component': 'Profile'
+        }, {
+            'path': '/credits',
+            'component': 'Profile'
+        }, {
+            'path': '/purchased',
+            'component': 'Profile'
+        }, {
+            'path': '/schedules',
+            'component': 'Profile'
+        }, {
+            'path': '/notifications',
+            'component': 'Profile'
+        }, {
+            'path': '/feedback',
+            'component': 'Profile'
+        }, {
+            'path': '/wishlist',
+            'component': 'Profile'
+        }, {
+            'path': '/support',
+            'component': 'Profile'
         }, {
             'path': '*',
             'component': 'NotFound'

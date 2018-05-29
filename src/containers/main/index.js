@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import store from 'store'
 import { getCategories, setActiveCategory } from 'actions'
-import CardService from 'components/cards/service.js'
 import BtnGroup from 'components/buttons/btn_group.js'
 import { connect } from 'react-redux'
 import Carousel from 'components/carousel'
@@ -28,6 +27,7 @@ class Main extends Component {
 					lastClass: 'order-6'
 				})
 				break
+			default: return
 		}
 		store.dispatch(setActiveCategory(item))
 	}
@@ -53,18 +53,18 @@ class Main extends Component {
     		{
 				title: 'Produtos', 
 				onClick: this.toggleCat('product'),
-				active: this.props.categories.active === 'product'
+				active: active === 'product'
 			}, {
 				title: 'Serviços', 
 				onClick: this.toggleCat('service'),
-				active: this.props.categories.active === 'service'
+				active: active === 'service'
 			}
 		]
 
     	const carouselItems = [
     		<img style={{width: '100%', minHeight: 175}} src="/assets/images/banner.png" alt="" />, 
     		<img style={{width: '100%', minHeight: 175}} src="/assets/images/banner.png" alt="" />, 
-    		<img style={{width: '100%', minHeight: 175}} src="/assets/images/banner.png" aly="" />
+    		<img style={{width: '100%', minHeight: 175}} src="/assets/images/banner.png" alt="" />
 		]
 		
         return (
@@ -86,13 +86,13 @@ class Main extends Component {
 		            	<div className={'col-sm-12 ' + this.state.firstClass}>
 			            	<MainSection
 			            		title="produtos"
-			            		type="products"
+			            		type="product"
 			            		categories={product} />
 	            		</div>
 	            		<div className={'col-sm-12 ' + this.state.lastClass}>
 		            		<MainSection
 			            		title="serviços"
-			            		type="services"
+			            		type="service"
 			            		categories={service} />
 	            		</div>
 	            		<div className="col-sm-12 order-12">

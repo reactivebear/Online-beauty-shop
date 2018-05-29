@@ -1,10 +1,13 @@
 import * as types from 'actions/types.js'
-import Cookies from 'js-cookie'
 
 const initialState = {
     product: [],
     service: [],
-    active: 'product'
+    active: 'product',
+    product_list: [],
+    service_list: [],
+    active_category: {}
+
 }
 
 export default function categories(categories = initialState, action = {}) {
@@ -18,6 +21,12 @@ export default function categories(categories = initialState, action = {}) {
         case types.SET_CATEGORY:
             return Object.assign({}, categories, {
                 [action.key]: action.data,
+            });
+        case types.SET_CATEGORY_LIST:
+            const active_category = action.data.find(item => item.id == action.id)
+            return Object.assign({}, categories, {
+                [`${action.key}_list`]: action.data,
+                active_category
             });
         case types.SET_ACTIVE_CATEGORY:
             return Object.assign({}, categories, {
