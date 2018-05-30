@@ -27,8 +27,17 @@ export const setUserAddresses = data =>
         data
     })
 
-export const getWishlist = () => dispatch => {
-    return api.getWishlist()
+export const getWishlist = type => dispatch => {
+    return api.getWishlist(type)
+    .then(json => {
+        if (json.object) {
+            console.log(json.object)
+        }
+    })
+}
+
+export const getCredits = () => dispatch => {
+    return api.getCredits()
     .then(json => {
         if (json.object) {
             console.log(json.object)

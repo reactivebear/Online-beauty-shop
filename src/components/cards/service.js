@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import store from 'store'
 import { addToCart } from 'actions/cart.js'
+import { addToWishList } from 'actions'
 import Stars from 'components/stars'
 import Price from 'components/price'
 import BtnMain from 'components/buttons/btn_main.js'
 import Distance from 'utils/distance.js'
+import Heart from 'components/heart'
 import './service.css'
 
 class CardService extends Component {
@@ -39,6 +41,12 @@ class CardService extends Component {
 		})
 	}
 
+	toggleWish = val => {
+		if (val) {
+			store.dispatch(addToWishList('service', this.props.id))
+		}
+	}
+
 	componentWillMount() {
 		this.getDistance()
 	}
@@ -47,7 +55,7 @@ class CardService extends Component {
         return (
 	        	<div className="card rounded p-4 pointer mb-3" onClick={this.toggleCard}>
 	            	<div className="position-relative mb-3">
-	            		<img className="rounded img-fluid" src="assets/images/default-image.png" alt="" />
+	            		<img className="rounded img-fluid" src="/assets/images/default-image.png" alt="" />
 	            		<div className="range-stripe">
 	            			{this.state.range}
 	            		</div>
@@ -61,7 +69,7 @@ class CardService extends Component {
 		            		Avaliação<br />
 		            		<Stars active={this.props.rating} />
 	            		</div>
-	            		<i className="far fa-heart fs-22"></i>
+	            		<Heart onChange={this.toggleWish} />
 	            	</div>
 
 	            	<div>

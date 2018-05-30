@@ -22,6 +22,7 @@ class TextArea extends Component {
                     ref={this.thisRef}
                     defaultValue={this.props.value}
                     rows="3"></textarea>
+                <small className="color-grey">{this.props.bottomText}</small>
             </div>
         );
     }

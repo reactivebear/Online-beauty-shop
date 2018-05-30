@@ -5,5 +5,6 @@ import AddressForm from './address_form.js'
 import ProfileForm from './profile_form.js'
 import CardForm from './card_form.js'
 import RegistrationForm from './registration_form.js'
+import SendCreditsForm from './send_credits_form.js'
 
-export { CommentForm, LoginForm, ZipForm, ProfileForm, AddressForm, CardForm, RegistrationForm }
+export { CommentForm, LoginForm, ZipForm, ProfileForm, AddressForm, CardForm, RegistrationForm, SendCreditsForm }

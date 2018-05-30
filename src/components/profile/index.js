@@ -8,6 +8,6 @@ import Credits from './credits.js'
 import Notifications from './notifications.js'
 import Feedback from './feedback.js'
 import Purchased from './purchased.js'
-import Schedules from './purchased.js'
+import Schedules from './schedules.js'
 
 export { Info, Edit, List, Wishlist, Support, Vouchers, Credits, Notifications, Feedback, Purchased, Schedules }

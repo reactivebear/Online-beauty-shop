@@ -1,7 +1,7 @@
 .wrap-collapsed-body {
 	overflow: hidden;
 	max-height: 0px;
-	transition: all .3s;
+	transition: max-height 0.3s;
 }
 
 .wrap-collapsed-body.active {

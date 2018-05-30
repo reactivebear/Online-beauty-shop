@@ -94,8 +94,8 @@ export default {
         })
         .then(responseHandler)
     },
-    getWishlist() {
-        return fetch(config.API_URL + '/api/wishlist', {
+    getWishlist(type) {
+        return fetch(`${config.API_URL}/api/wishlist/${type}s`, {
             method: 'get',
             credentials: 'same-origin',
             headers: getHeader(),
@@ -205,6 +205,22 @@ export default {
     },
     getCartTotal() {
         return fetch(`${config.API_URL}/api/cart/value`, {
+            method: 'get',
+            credentials: 'same-origin',
+            headers: getHeader(),
+        })
+        .then(responseHandler)
+    },
+    addToWishList(type, id) {
+        return fetch(`${config.API_URL}/api/wishlist/add/${type}/${id}`, {
+            method: 'post',
+            credentials: 'same-origin',
+            headers: getHeader(),
+        })
+        .then(responseHandler)
+    },
+    getCredits() {
+        return fetch(`${config.API_URL}/api/credits`, {
             method: 'get',
             credentials: 'same-origin',
             headers: getHeader(),

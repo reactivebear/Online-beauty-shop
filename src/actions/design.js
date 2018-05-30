@@ -11,3 +11,11 @@ export const setLocation = location =>
         type: types.SET_LOCATION,
         location
     })
+
+export const toggleModal = (open, content, className) => 
+    ({
+        type: types.TOGGLE_MODAL,
+        open,
+        content,
+        className
+    })

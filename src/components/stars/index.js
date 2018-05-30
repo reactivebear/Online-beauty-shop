@@ -24,7 +24,7 @@ class Stars extends Component {
 
     render() {
         return (
-        	<span style={{letterSpacing: 3}}>
+        	<span className={this.props.wrapClass} style={{letterSpacing: 3}}>
             	{ 	
             		this.getArray().map((item, i) => {
             			const className = this.props.editable ? 'far fa-star pointer' : 'far fa-star'

@@ -5,13 +5,13 @@ import { LIST_MENU } from 'config'
 class SideMenuWeb extends Component {
     printList = (item, i) => {
         const [, first] = history.location.pathname.split('/')
-        let className = 'pl-4 py-3 d-flex align-items-center pointer menu-web-item color-grey'
+        let className = 'pl-3 py-3 d-flex align-items-center pointer menu-web-item color-grey'
         if (item.url === first) {
             className += ' active'
         }
         return  <div key={i} className={className} onClick={e => history.push(`/${item.url}`)}>
-                    <img src={`/assets/icons/${item.icon}.png`} alt="" className="img-fluid w-15 h-100 px-2" />
-                    <span className="w-85 fs-22 pl-5">{item.title}</span>
+                    <img src={`/assets/icons/${item.icon}.png`} alt="" className="img-fluid w-15 h-100 pr-2" />
+                    <span className="w-85 fs-18 pl-4">{item.title}</span>
                 </div>
     }
 

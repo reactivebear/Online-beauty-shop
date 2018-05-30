@@ -2,6 +2,11 @@ import * as types from 'actions/types.js'
 
 const initialState = {
     list: [],
+    pagination: {
+    	items: [],
+    	page: 1,
+    	total_pages: 1
+    }
 }
 
 export default function services(services = initialState, action = {}) {

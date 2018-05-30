@@ -8,6 +8,11 @@ const initialState = {
         address: {},
         social_media: [],
         reviews: []
+    },
+    pagination: {
+        items: [],
+        page: 1,
+        total_pages: 1
     }
 }
 

@@ -34,6 +34,7 @@ class Input extends Component {
                         ref={inputRef}
                         onChange={onChange}
                         defaultValue={value} />
+                    <small className="color-grey">{this.props.bottomText}</small>
                 </div>
         );
     }

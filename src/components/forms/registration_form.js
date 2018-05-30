@@ -11,7 +11,16 @@ class RegistrationForm extends Component {
         this.auth = {}
     }
 
-    registration = () => {
+    getMyPosition = () => {
+        navigator.geolocation.getCurrentPosition(pos => {
+            this.registration({
+                latitude: pos.coords.latitude,
+                longitude: pos.coords.longitude
+            })
+        }, this.registration)
+    }
+
+    registration = pos => {
         const data = {
             first_name: this.auth.first_name.value,
             last_name: this.auth.last_name.value,
@@ -19,11 +28,10 @@ class RegistrationForm extends Component {
             password: this.auth.password.value,
             address: {
                 street: 'Prince Roman',
-                longitude: 123,
-                latitude: 132,
+                longitude: pos.latitude || '',
+                latitude:  pos.longitude || '',
             }
         }
-
         store.dispatch(registration(data))
     }
 
@@ -74,7 +82,7 @@ class RegistrationForm extends Component {
                     <div className="col-sm-10 offset-sm-1">
                         <BtnMain
                             className="font-weight-bold btn-block"
-                            onClick={this.registration}
+                            onClick={this.getMyPosition}
                             title="Criar conta" />
                     </div>
                 </div>

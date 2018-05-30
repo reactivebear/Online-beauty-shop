@@ -4,7 +4,8 @@ const initialState = {
     sideMenu: false,
     modal: {
     	open: false,
-    	content: ''
+    	content: null,
+        className: ''
     },
     location: '/'
 }
@@ -17,7 +18,7 @@ export default function design(design = initialState, action = {}) {
             });
         case types.TOGGLE_MODAL:
             return Object.assign({}, design, {
-               modal: {open: action.open, content: action.content}
+               modal: {open: action.open, content: action.content, className: action.className}
             });
         case types.SET_LOCATION:
             return Object.assign({}, design, {

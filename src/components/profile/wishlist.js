@@ -11,7 +11,7 @@ class Wishlist extends Component {
 	}
 
 	componentWillMount() {
-		store.dispatch(getWishlist())
+		store.dispatch(getWishlist(this.state.active))
 	}
 
 	toggleCat = item => e => {
@@ -22,6 +22,7 @@ class Wishlist extends Component {
 					lastClass: 'order-1',
 					active: item
 				})
+				store.dispatch(getWishlist(item))
 				break
 			case 'product':
 				this.setState({
@@ -29,6 +30,7 @@ class Wishlist extends Component {
 					lastClass: 'order-6',
 					active: item
 				})
+				store.dispatch(getWishlist(item))
 				break
 			default: return
 		}

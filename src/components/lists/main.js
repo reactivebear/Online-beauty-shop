@@ -14,10 +14,10 @@ class ListMain extends Component {
     getData = type => {
         switch (type) {
             case 'product':
-                store.dispatch(getProducts('list', {page_size: 6, featured_only: false}))
+                store.dispatch(getProducts('list', {page_size: 6}))
                 break
             case 'service':
-                store.dispatch(getServices('list', {page_size: 6, featured_only: false}))
+                store.dispatch(getServices('list', {page_size: 6}))
                 break
             default: return
         }

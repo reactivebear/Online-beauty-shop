@@ -25,6 +25,7 @@ export default function categories(categories = initialState, action = {}) {
         case types.SET_CATEGORY_LIST:
             const active_category = action.data.find(item => item.id == action.id)
             return Object.assign({}, categories, {
+                
                 [`${action.key}_list`]: action.data,
                 active_category
             });

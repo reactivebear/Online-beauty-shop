@@ -1,6 +1,6 @@
 import api from 'api'
 import * as types from './types.js'
-import { getServicesCategory } from './services.js'
+import { getServicesCategory, getServices } from './services.js'
 import { getProducts } from './products.js'
 
 export const getCategories = param => dispatch => {
@@ -27,8 +27,16 @@ export const getCategoryList = (param, id) => dispatch =>
     (api.getCategoryList(param)
     .then(json => {
         if (json.object) {
-           dispatch(setCategoryList(json.object, param, id))
-           dispatch(getProducts('list', {category: id, page_size: 14}))
+            dispatch(setCategoryList(json.object, param, id))
+            return id
+        }
+    }))
+
+export const addToWishList = (type, id) => dispatch => 
+    (api.addToWishList(type, id)
+    .then(json => {
+        if (json.object) {
+            console.log(json.object)
         }
     }))
 
@@ -57,11 +65,4 @@ export const setActiveCategory = cat =>
     ({
         type: types.SET_ACTIVE_CATEGORY,
         cat
-    })
-
-export const toggleModal = (open, content) => 
-    ({
-        type: types.TOGGLE_MODAL,
-        open,
-        content
     })
