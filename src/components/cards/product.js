@@ -20,6 +20,8 @@ class CardProduct extends Component {
 		store.dispatch(addToCart(this.props.id, 'product', {quantity: 1}))
 	}
 
+	getDescription = text => text.length > 25 ? `${text.slice(0, 25)}...` : text
+
 	render() {
 		const image = this.props.images.length ? this.props.images[0].image_url : ''
 		
@@ -37,7 +39,7 @@ class CardProduct extends Component {
 		            		<strong>{this.props.name}</strong>
 		            	</div>
 		            	<div className="mb-2">
-		            		<strong>{this.props.description}</strong>
+		            		<strong>{this.getDescription(this.props.description)}</strong>
 		            	</div>
 		            	<div>
 		            		<Price current={this.props.price} old={this.props.discount_price} />
