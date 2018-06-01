@@ -39,3 +39,5 @@ export const LIST_MENU = [
                 url: 'support'
             }
         ]
+
+export const DROP_LIST = ['Mais relevantes', 'Menor preço', 'Maior preço']

@@ -16,6 +16,9 @@ export default {
             'path': '/',
             'component': 'Main'
         }, {
+            'path': '/company/:id',
+            'component': 'Company'
+        }, {
             'path': '/category/:type/:id',
             'component': 'Category'
         }, {
@@ -41,6 +44,9 @@ export default {
             'component': 'Profile'
         }, {
             'path': '/purchased',
+            'component': 'Profile'
+        }, {
+            'path': '/purchased/:id',
             'component': 'Profile'
         }, {
             'path': '/schedules',

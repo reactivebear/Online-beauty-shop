@@ -6,6 +6,13 @@ export const toggleSideMenu = state =>
         state
     })
 
+export const toggleLeftMenu = (state, body) => 
+    ({
+        type: types.TOGGLE_LEFT_MENU,
+        state,
+        body
+    })
+
 export const setLocation = location => 
     ({
         type: types.SET_LOCATION,
@@ -18,4 +25,16 @@ export const toggleModal = (open, content, className) =>
         open,
         content,
         className
+    })
+
+export const setAlert = (text, level) =>
+    ({
+        type: types.SHOW_ALERT,
+        text,
+        level
+    })
+
+export const removeAlert = () =>
+    ({
+        type: types.REMOVE_ALERT
     })

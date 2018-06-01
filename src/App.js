@@ -10,7 +10,9 @@ import { loginAsGuest, keepToken } from 'actions/auth.js'
 import { setLocation, toggleSideMenu } from 'actions/design.js'
 import Header from 'components/header'
 import SideMenu from 'components/menu/side_menu.js'
+import LeftMenu from 'components/menu/left_menu.js'
 import Modal from 'components/modal'
+import Alert from 'components/alert'
 
 class App extends Component {
     constructor(props) {
@@ -47,7 +49,9 @@ class App extends Component {
                     <Footer />
                 </div>
                 <SideMenu />
+                <LeftMenu />
                 <Modal />
+                <Alert />
             </div>
         )
     }

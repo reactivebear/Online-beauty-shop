@@ -4,7 +4,8 @@ class Feedback extends Component {
 	render() {
 		return (
 			<div>
-				Feedback
+				<h4 className="mb-3">Revisão</h4>
+				<h4 className="mb-3">Feedback</h4>
 			</div>
 		)
 	}

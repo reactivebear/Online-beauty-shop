@@ -9,15 +9,15 @@ class Counter extends Component {
 
 	increment = e => {
 		e.preventDefault()
-		this.setState({count: this.state.count += this.step})
-		this.props.onChange(this.state.count)
+		this.setState({count: this.state.count + this.step})
+		this.props.onChange(this.state.count + this.step)
 	}
 
 	decrement = e => {
 		e.preventDefault()
 		if (this.state.count > 1) {
-			this.setState({count: this.state.count -= this.step})
-			this.props.onChange(this.state.count)
+			this.setState({count: this.state.count - this.step})
+			this.props.onChange(this.state.count - this.step)
 		}
 	}
 
@@ -31,7 +31,6 @@ class Counter extends Component {
 
     render() {
     	const color = this.state.count > 1 ? 'color-green pointer' : 'color-grey'
-    	console.log(this.step)
         return (
         	<div className={`color-grey ${this.props.className}`}>
 	        	{

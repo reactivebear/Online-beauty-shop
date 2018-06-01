@@ -17,6 +17,8 @@ class ProductCart extends Component {
 
     render() {
     	const col = this.props.type === 'product' ? 'col-sm-8 col-6' : 'col-12'
+    	const vendor_id = this.props[this.props.type].brand_id || this.props[this.props.type].vendor.id
+
         return (
         	<div className="d-flex rounded bg-white p-2 mb-3">
 	            <div className="w-20">
@@ -26,7 +28,7 @@ class ProductCart extends Component {
 	            	{ this.props[this.props.type].name || this.props[this.props.type].title }
 	            	<div className="form-group">
 	            		<span className="color-grey">Vendido e entregue por </span>
-	            		<Link to="company/">{this.props[this.props.type].brand_id || this.props[this.props.type].vendor.organization_name}</Link>
+	            		<Link to={`company/${vendor_id}`}>{this.props[this.props.type].brand_id || this.props[this.props.type].vendor.organization_name}</Link>
 	            		<i className="far fa-trash-alt fa-12x color-green pointer float-right d-block d-sm-none" onClick={this.removeFromCart}></i>
 	            	</div>
 	            	<div className="row align-items-stretch">

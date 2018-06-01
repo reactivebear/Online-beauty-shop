@@ -5,5 +5,6 @@ import Cart from './cart'
 import Profile from './profile'
 import Registration from './registration'
 import Category from './category'
+import Company from './company'
 
-export { NotFound, Main, Product, Cart, Profile, Registration, Category }
+export { NotFound, Main, Product, Cart, Profile, Registration, Category, Company }

@@ -1,27 +1,25 @@
 import api from 'api'
+import { get } from 'api/request'
 import * as types from './types.js'
-import { getServicesCategory, getServices } from './services.js'
-import { getProducts } from './products.js'
 
-export const getCategories = param => dispatch => {
-    return api.getCategories(param)
-    .then(json => {
-        if (json.object) {
-            if (param) {
-                dispatch(setCategory(json.object, param))
-                for (let cat of json.object) {
-                    let param = {
-                        page_size: 2,
-                        category: cat.id
-                    }
-                    dispatch(getServicesCategory(cat.id, param))
-                }
-            } else {
+export const getCategories = () => dispatch => 
+    (
+        get(`api/categories`).then(json => {
+            if (json.object) {
                 dispatch(setCategories(json.object))
+                return json.object
             }
-        }
-    })
-}
+        })
+    )
+
+export const getCategoriesByType = type => dispatch => 
+    (
+        get(`api/categories/${type}`).then(json => {
+            if (json.object) {
+                return json.object
+            }
+        })
+    )
 
 export const getCategoryList = (param, id) => dispatch => 
     (api.getCategoryList(param)
@@ -34,6 +32,22 @@ export const getCategoryList = (param, id) => dispatch =>
 
 export const addToWishList = (type, id) => dispatch => 
     (api.addToWishList(type, id)
+    .then(json => {
+        if (json.object) {
+            console.log(json.object)
+        }
+    }))
+
+export const getCompany = id => dispatch => 
+    (api.getCompany(id)
+    .then(json => {
+        if (json.object) {
+            console.log(json.object)
+        }
+    }))
+
+export const getBlogs = () => dispatch => 
+    (api.getBlogs()
     .then(json => {
         if (json.object) {
             console.log(json.object)

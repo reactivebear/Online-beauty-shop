@@ -1,20 +1,31 @@
 import api from 'api'
 import * as types from './types.js'
+import { post } from 'api/request'
 
-export const getServices = (type, param) => dispatch => {
-    return api.getServices(param)
-    .then(json => {        
-        if (json.object) {
-        	dispatch(setServices(json.object, type))
-        }
-    })
-}
+export const getServices = (type, param) => dispatch => 
+    (
+        post('api/services', false, param).then(json => {
+            if (json.object) {
+                dispatch(setServices(json.object, type))
+            }
+        })
+    )
 
-export const getServicesCategory = (catId, param) => dispatch => {
+/*export const getServicesCategory = param => dispatch => 
+    (
+        post('api/services', false, param).then(json => {
+            if (json.object) {
+                dispatch(setServiceCategory(param.category, json.object))
+            }
+        })
+    )*/
+
+
+export const getServicesCategory = param => dispatch => {
     return api.getServicesCategory(param)
     .then(json => {        
         if (json.object) {
-            dispatch(setServiceCategory(catId, json.object))
+            dispatch(setServiceCategory(param.category, json.object))
         }
     })
 }

@@ -12,40 +12,49 @@ class CardForm extends Component {
     render() {
         const card = history.location.state || {}
         return (
-        	<div>
+        	<form onChange={this.props.onChange(this.card)}>
                 <Input 
                     required
                     label="Nome para o cartão"
                     description="ex: meu cartão1, meu cartão2"
-                    value={card.title}
-                    inputRef={ref => this.card.title = ref} />
+                    value={card.card_name}
+                    inputRef={ref => this.card.card_name = ref} />
                 <Input 
                     required
                     label="Nome impresso no cartão"
-                    value={card.first_name}
-                    inputRef={ref => this.card.first_name = ref} />
+                    value={card.name_on_card}
+                    inputRef={ref => this.card.name_on_card = ref} />
                 <Input 
                     required
                     label="Número do cartão"
-                    value={card.last_name}
-                    inputRef={ref => this.card.last_name = ref} />
+                    value={card.card_number}
+                    inputRef={ref => this.card.card_number = ref} />
                 <div className="row">
                     <div className="col-sm-6">
-                        <Input 
-                            required
-                            label="Validate"
-                            value={card.last_name}
-                            inputRef={ref => this.card.last_name = ref} />
+                        <div className="d-flex align-items-center">
+                            <Input 
+                                required
+                                label="Validate"
+                                placeholder="Month"
+
+                                value={card.validity_month}
+                                inputRef={ref => this.card.validity_month = ref} />
+                            <Input 
+                                value={card.validity_year}
+                                placeholder="Year"
+                                className="ml-2"
+                                inputRef={ref => this.card.validity_year = ref} />
+                        </div>
                     </div>
                     <div className="col-sm-6">
                         <Input 
                             required
                             label="Código de segurança"
-                            value={card.last_name}
-                            inputRef={ref => this.card.last_name = ref} />
+                            value={card.cvv}
+                            inputRef={ref => this.card.cvv = ref} />
                     </div>
                 </div>
-			</div>
+			</form>
         );
     }
 }

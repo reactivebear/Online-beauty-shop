@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { history } from 'store'
+import store, { history } from 'store'
 import BtnMain from 'components/buttons/btn_main.js'
 import CheckBox from 'components/inputs/checkbox.js'
 import { ProfileForm, AddressForm, CardForm } from 'components/forms'
+import { saveCard } from 'actions/user'
 
 class Edit extends Component {
 	state = {
@@ -14,6 +15,21 @@ class Edit extends Component {
     	this.setState({showAddressForm: e.target.checked})
     }
 
+    getCardData = fields => e => {
+    	this.cardData = {
+    		card_name: fields.card_name.value,
+    		name_on_card: fields.name_on_card.value,
+    		card_number: fields.card_number.value,
+    		cvv: fields.cvv.value,
+    		validity_month: fields.validity_month.value,
+    		validity_year: fields.validity_year.value,
+    	}
+    }
+
+    saveCard = () => {
+    	store.dispatch(saveCard(this.cardData))
+    }
+
 	componentWillMount() {
 		switch(this.props.match.params.formType) {
 			case 'address':
@@ -21,7 +37,7 @@ class Edit extends Component {
 				this.title = 'Adicionar endereço'
 				break
 			case 'cards':
-				this.form = <CardForm />
+				this.form = <CardForm onChange={this.getCardData} />
 				this.title = 'Adicionar cartão'
 				break
 			default:
@@ -58,7 +74,7 @@ class Edit extends Component {
 			                            title="Cancelar" />
 			                        <BtnMain
 			                            className="font-weight-bold btn-block"
-			                            onClick={this.save}
+			                            onClick={this.saveCard}
 			                            title="Salvar" />
 			                    </div>
 			                </div>

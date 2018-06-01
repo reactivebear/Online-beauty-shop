@@ -3,7 +3,7 @@ import store from 'store'
 import { connect } from 'react-redux'
 import { getProduct } from 'actions/products.js'
 import { addToCart } from 'actions/cart.js'
-import { getCategories } from 'actions'
+import { getCategoriesByType } from 'actions'
 import { toggleModal } from 'actions/design.js'
 import ImageMultiPreview from 'components/images/multi_preview.js'
 import ImagePreview from 'components/images/preview.js'
@@ -16,15 +16,24 @@ import SalonInfo from 'components/blocks/salon_info.js'
 import MainList from 'components/lists/main.js'
 import Accordion from 'components/accordion'
 import { CommentForm } from 'components/forms'
+import { getServicesCategory } from 'actions/services'
+import { setCategory } from 'actions'
 
 class Product extends Component {
 	constructor(props) {
 		super(props)
+		this.count = 1
 		if (props.match.params.id) {
 			store.dispatch(getProduct(props.match.params.id))
 		}
-		this.count = 1
-		store.dispatch(getCategories('service'))
+		store.dispatch(getCategoriesByType('service')).then(res => {
+			if (res) {
+				store.dispatch(setCategory(res, 'service'))
+				res.forEach(item => {
+					store.dispatch(getServicesCategory({category: item.id, page_size: 2}))
+				})
+			}
+		})
 	}
 
 	getReviewList = () => {
@@ -130,7 +139,7 @@ class Product extends Component {
 	            					content: <SalonInfo {...salon} />
 	            				}, {
 	            					title: 'Produtos',
-	            					content: <MainList type="products" itemType="small" />
+	            					content: <MainList type="product" itemType="small" />
 	            				}, {
 	            					title: 'Serviços',
 	            					content: <Accordion list={servicesCategories} />

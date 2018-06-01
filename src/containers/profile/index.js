@@ -27,6 +27,7 @@ class Profile extends Component {
 	            				<Route path="/credits" exact component={Credits} />
 	            				<Route path="/schedules" exact component={Schedules} />
 	            				<Route path="/purchased" exact component={Purchased} />
+	            				<Route path="/purchased/:id" exact component={Purchased} />
 	            				<Route path="/notifications" exact component={Notifications} />
 	            				<Route path="/feedback" exact component={Feedback} />
 	            				<Route path="/support" exact component={Support} />

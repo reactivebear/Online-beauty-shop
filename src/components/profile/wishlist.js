@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import store from 'store'
-import { getWishlist } from 'actions/user.js'
+import { getWishlist } from 'actions/user'
 import BtnGroup from 'components/buttons/btn_group.js'
 
 class Wishlist extends Component {

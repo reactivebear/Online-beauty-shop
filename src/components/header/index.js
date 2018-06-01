@@ -112,8 +112,8 @@ class Header extends Component {
                                     <div onClick={this.toggleTooltip('login')} id="login" className="col-6 col-sm-4 px-sm-0 form-group pointer">
                                         {
                                             this.props.user.guest
-                                            ?   <span>Bem vindo<br /><strong id="login">Entre ou cadastre-se</strong></span>
-                                            :   <span>Olá, {this.props.user.data.first_name}<br /><strong id="login">Seja bem-vindo</strong></span>
+                                            ?   <span id="login">Bem vindo<br /><strong id="login">Entre ou cadastre-se</strong></span>
+                                            :   <span id="login">Olá, {this.props.user.data.first_name}<br /><strong id="login">Seja bem-vindo</strong></span>
                                         }
                                         {
                                             this.state.tooltip === 'login'

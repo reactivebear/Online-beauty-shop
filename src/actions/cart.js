@@ -1,30 +1,31 @@
 import api from 'api'
+import { get, post, remove } from 'api/request'
 import * as types from './types.js'
 
-export const addToCart = (id, type, param) => dispatch => {
-    return api.addToCart(id, type, param)
-    .then(json => {
-        if (json.object) {
-        	console.log(json.object)
-        }
-    })
-}
+export const getCart = () => dispatch => 
+    (
+        get('api/cart').then(json => {
+            if (json.object) {
+                dispatch(setCart(json.object))
+            }
+        })
+    )
 
-export const removeFromCart = id => dispatch => {
-	return api.removeFromCart(id)
-    .then(json => {
-    	dispatch(getCart())
-    })
-}
+export const addToCart = (id, type, param) => dispatch => 
+    (
+        post(`api/cart/add/${type}/${id}`, true, param).then(json => {
+            if (json.object) {
+                console.log(json.object)
+            }
+        })
+    )
 
-export const getCart = () => dispatch => {
-	return api.getCart()
-    .then(json => {
-        if (json.object) {
-        	dispatch(setCart(json.object))
-        }
-    })
-}
+export const removeFromCart = id => dispatch => 
+    (
+        remove(`api/cart/remove-item/${id}`, true).then(json => {
+            dispatch(getCart())
+        })
+    )
 
 export const getDelivery = id => dispatch => {
     return api.getDelivery(id)

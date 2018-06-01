@@ -32,7 +32,7 @@ class Pagination extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (nextProps.active != this.props.active) {
+		if (nextProps.active !== this.props.active) {
 			this.setState({active: nextProps.active})
 		}
 	}

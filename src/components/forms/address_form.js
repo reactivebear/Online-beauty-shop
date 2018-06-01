@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { history } from 'store'
+import store, { history } from 'store'
+import { saveAddress } from 'actions/user'
 import BtnMain from 'components/buttons/btn_main.js'
 import Input from 'components/inputs/input.js'
 
@@ -8,6 +9,25 @@ class AddressForm extends Component {
     constructor(props) {
         super(props)
         this.address = {}
+    }
+
+    save = () => {
+        const data = {
+            title: this.address.title.value,
+            email: '',
+            phone: this.address.phone.value,
+            longitude: '',
+            latitude: '',
+            street: this.address.street.value,
+            number: this.address.number.value,
+            zipcode: '',
+            complement: '',
+            district: this.address.district.value,
+            city: this.address.city.value,
+            state: this.address.state.value,
+            country: this.address.country.value
+        }
+        store.dispatch(saveAddress(data))
     }
 
     render() {
@@ -75,15 +95,15 @@ class AddressForm extends Component {
                         <Input 
                             required
                             label="País"
-                            value={address.pais}
-                            inputRef={ref => this.address.pais = ref} />
+                            value={address.country}
+                            inputRef={ref => this.address.country = ref} />
                     </div>
                     <div className="col-sm-6">
                         <Input 
                             required
                             label="Estado"
-                            value={address.country}
-                            inputRef={ref => this.address.country = ref} />
+                            value={address.state}
+                            inputRef={ref => this.address.state = ref} />
                     </div>
                     <div className="col-sm-6">
                         <Input 
@@ -96,8 +116,8 @@ class AddressForm extends Component {
                         <Input 
                             required
                             label="Bairro"
-                            value={address.neighborhood}
-                            inputRef={ref => this.address.neighborhood = ref} />
+                            value={address.district}
+                            inputRef={ref => this.address.district = ref} />
                     </div>
                 </div>
                 <div className="row">

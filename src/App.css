@@ -99,6 +99,10 @@ path.cls-8 {
 	width: 18px;
 }
 
+.small-icon {
+	width: 14px;
+}
+
 .footer-icon {
 	width: 44px;
 }
@@ -163,6 +167,13 @@ path.cls-8 {
 .cursor-default {
 	cursor: default;
 }
+
+@media (min-width: 576px) {
+	.text-sm-nowrap {
+	    white-space: nowrap;
+	}
+}
+	
 
 [aria-selected='true'] .accordion__arrow::before {
     transform: rotate(-45deg);

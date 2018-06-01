@@ -9,5 +9,6 @@ import Notifications from './notifications.js'
 import Feedback from './feedback.js'
 import Purchased from './purchased.js'
 import Schedules from './schedules.js'
+import PurchasePage from './purchase_page.js'
 
-export { Info, Edit, List, Wishlist, Support, Vouchers, Credits, Notifications, Feedback, Purchased, Schedules }
+export { Info, Edit, List, Wishlist, Support, Vouchers, Credits, Notifications, Feedback, Purchased, Schedules, PurchasePage }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Accordion from 'components/accordion/support.js'
 
 class Support extends Component {
 	render() {

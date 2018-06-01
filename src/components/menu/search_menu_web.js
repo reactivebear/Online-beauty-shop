@@ -4,6 +4,7 @@ import DropDown from 'components/buttons/dropdown.js'
 import CollapsedMenu from 'components/blocks/collapsed_menu.js'
 import Stars from 'components/stars'
 import SmallCheckBox from 'components/inputs/small_checkbox.js'
+import { DROP_LIST } from 'config'
 
 class SearchMenuWeb extends Component {
 	getCategories = () => 
@@ -27,13 +28,12 @@ class SearchMenuWeb extends Component {
     }
 
     render() {
-    	const dropList = ['Mais relevantes', 'Menor preço', 'Maior preço']
 
         return (
-        	<div className="rounded bg-white border py-4 px-2">
+        	<div>
 	            <h4>Organizar anúncios</h4>
 	            <div className="mb-3">
-        			<DropDown list={dropList} />
+        			<DropDown list={DROP_LIST} />
     			</div>
     			<CollapsedMenu title="Categoria" body={this.getCategories()} />
     			<CollapsedMenu title="Subcategoria" body={this.getCategories()} />

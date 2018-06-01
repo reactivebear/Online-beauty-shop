@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import store from 'store'
-import Stars from 'components/stars'
 import Input from 'components/inputs/input.js'
 import TextArea from 'components/inputs/textarea.js'
 import BtnMain from 'components/buttons/btn_main.js'

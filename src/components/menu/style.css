@@ -12,6 +12,24 @@
 	transition: left 0.5s;
 }
 
+.wrap-left-menu {
+	background-color: #F3F3F3;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 100%;
+	width: 100%;
+	z-index: 2;
+	overflow-y: auto;
+	overflow-x: hidden;
+	font-family: 'Avenir LT Std 45 Book';
+	transition: right 0.5s;
+}
+
+.wrap-left-menu.active {
+	right: 0%;
+}
+
 .wrap-side-menu.active {
 	left: 0%;
 }
@@ -28,12 +46,13 @@
     box-shadow: 8px 0px 20px 1px rgba(0,0,0,0.1);
 }
 
-.menu-web-item {
-	
-}
-
 .menu-web-item:hover,
 .menu-web-item.active {
 	background-color: #609D6D;
 	color: #fff;
+}
+
+.wrap-order-menu {
+    margin-left: -17px;
+    margin-right: -17px;
 }

@@ -6,6 +6,7 @@ import Price from 'components/price'
 import BtnMain from 'components/buttons/btn_main.js'
 import Counter from 'components/counter'
 import { SendCreditsForm } from 'components/forms'
+import CardCredit from 'components/cards/credit.js'
 
 class Credits extends Component {
 	componentWillMount() {
@@ -16,7 +17,12 @@ class Credits extends Component {
 		store.dispatch(toggleModal(true, SendCreditsForm, 'modal-md'))
 	}
 
+	printCreditsCard = (item, i) => {
+		return <div key={i} className="col-sm-4"><CardCredit /></div>
+	}
+
 	render() {
+		const creditsList = ['', '', '']
 		return (
 			<div>
 				<div className="row align-items-stretch">
@@ -89,6 +95,9 @@ class Credits extends Component {
 					</div>
 					<div className="col-12">
 						<h4>Pacotes de créditos</h4>
+						<div className="row">
+							{ creditsList.map((item, i) => this.printCreditsCard(item, i)) }
+						</div>
 					</div>
 				</div>
 			</div>

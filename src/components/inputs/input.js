@@ -11,12 +11,13 @@ class Input extends Component {
             onChange,
             inputRef,
             className = '',
+            label = this.props.label ? `${this.props.label}:` : <span>&nbsp;</span>,
             value 
         } = this.props
 
         return (
                 <div id="first" className="form-group">
-                    <label>{this.props.label}:</label>
+                    <label>{label}</label>
                     {
                         this.props.required
                         ?   <sup style={{color: '#70C49C'}}><small>&#9733;</small></sup>
@@ -30,7 +31,7 @@ class Input extends Component {
                         type={type}
                         disabled={disabled}
                         placeholder={placeholder}
-                        className={`form-control${ className}`}
+                        className={`form-control ${className}`}
                         ref={inputRef}
                         onChange={onChange}
                         defaultValue={value} />

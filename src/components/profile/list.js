@@ -1,21 +1,29 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { history } from 'store'
+import store, { history } from 'store'
 import BtnMain from 'components/buttons/btn_main.js'
 import AddressCard from 'components/cards/address.js'
+import CreditCardCard from 'components/cards/credit_card.js'
+import { getCreditCards } from 'actions/user'
 
 class AddressList extends Component {
     
     componentWillMount() {
         [, , this.type] = history.location.pathname.split('/')
+        switch (this.type) {
+            case 'cards':
+                store.dispatch(getCreditCards())
+                break
+            default: return
+        }
     }
 
-    printList = (item, i) =>
-        (
-            <div key={i} className="col-sm-6">
-                <AddressCard item={item} />
-            </div>
-        )
+    printList = (item, i) => {
+        const card = this.type === 'cards' ? <CreditCardCard item={item} /> : <AddressCard item={item} />
+        return  <div key={i} className="col-sm-6 mb-3">
+                    {card}
+                </div>
+    }
 
 	render() {
         let list = []
@@ -31,7 +39,6 @@ class AddressList extends Component {
                 break
             default: return
         }
-        
 		return (
 			<div className="row">
 			    <div className="col-12 col-sm-6">
@@ -52,7 +59,7 @@ const mapStateToProps = state =>
         user: {
         	data: {
         		addresses: state.user.data.addresses,
-                cards: state.user.data.billing_addresses
+                cards: state.user.cards
         	}
         }
     })

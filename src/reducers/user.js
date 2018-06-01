@@ -9,10 +9,13 @@ const initialState = {
         addresses: [],
         billing_addresses: []
     },
+    cards: [],
     wishlist: {
         products: [],
         services: []
-    }
+    },
+    appointments: [],
+    purchases: [],
 }
 
 export default function user(user = initialState, action = {}) {
@@ -23,6 +26,10 @@ export default function user(user = initialState, action = {}) {
                 token: action.value,
                 guest: action.guest
             });
+        case types.SET_USER_KEY:
+            return Object.assign({}, user, {
+                [action.key]: action.data
+            });
         case types.SET_USER:
             return Object.assign({}, user, {
                 data: action.data
@@ -31,6 +38,15 @@ export default function user(user = initialState, action = {}) {
             temp.address = action.data
             return Object.assign({}, user, {
                 data: temp
+            });
+        case types.ADD_ADDRESS:
+            temp.addresses = [...temp.addresses, action.data]
+            return Object.assign({}, user, {
+                data: temp
+            });
+        case types.ADD_CARD:
+            return Object.assign({}, user, {
+                cards: [...user.cards, action.data]
             });
         default:
             return user;

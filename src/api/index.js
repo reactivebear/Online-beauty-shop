@@ -1,34 +1,18 @@
 import * as config from 'config'
 import Cookies from 'js-cookie'
+import store from 'store'
+import { setAlert } from 'actions/design'
 
 const responseHandler = response => {
-    /*if (response.status == 401) {
-        store.dispatch(logout())
-        return
-    }*/
+    
     let promise = response.json()
-    //let ok = response.ok
-    /*promise.then(response => {
-        if (response.validate) {
-            for (let k in response.validate) {
-                for (let j in response.validate[k]) {
-                    store.dispatch(setAlert(response.validate[k][j], 'error'))
-                }
-            }
-        }
-
-        if (response.message && (! response.validate || response.validate == null)) {
-            store.dispatch(setAlert(response.message, ok ? 'success' : 'error'))
-        }
-
-        if (response.errors) {
-            for (let k in response.errors) {
-                for (let j in response.errors[k]) {
-                    store.dispatch(setAlert(response.errors[k][j], 'error'))
-                }
-            }
-        }
-    })*/
+    
+    if (withMessage) {
+        promise.then(response => {
+            store.dispatch(setAlert(response.message, 'success'))
+            withMessage = false
+        })
+    }
     return promise;
 }
 
@@ -39,20 +23,11 @@ const getHeader = () =>
         [config.APIKEY]: Cookies.get('token')
     })
 
+let withMessage = false
+
 export default {
-    loginAsGuest() {
-        return fetch(config.API_URL + '/guest', {
-            method: 'get',
-            credentials: 'same-origin',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        })
-        .then(responseHandler)
-    },
-    login(data) {
-        return fetch(config.API_URL + '/login', {
+    saveAddress(data) {
+        return fetch(`${config.API_URL}/api/user/address/add`, {
             method: 'post',
             credentials: 'same-origin',
             headers: getHeader(),
@@ -60,16 +35,8 @@ export default {
         })
         .then(responseHandler)
     },
-    keepToken() {
-        return fetch(config.API_URL + '/api/keeptoken', {
-            method: 'get',
-            credentials: 'same-origin',
-            headers: getHeader(),
-        })
-        .then(responseHandler)
-    },
-    registration(data) {
-        return fetch(config.API_URL + '/signup/client', {
+    saveCard(data) {
+        return fetch(`${config.API_URL}/api/user/creditcard/add`, {
             method: 'post',
             credentials: 'same-origin',
             headers: getHeader(),
@@ -77,12 +44,11 @@ export default {
         })
         .then(responseHandler)
     },
-    updateUser(data) {
-        return fetch(config.API_URL + '/api/user/edit', {
-            method: 'put',
+    toggleDefaultCard(id) {
+        return fetch(`${config.API_URL}/api/user/creditcard/default/${id}`, {
+            method: 'patch',
             credentials: 'same-origin',
             headers: getHeader(),
-            body: JSON.stringify(data)
         })
         .then(responseHandler)
     },
@@ -119,15 +85,6 @@ export default {
         })
         .then(responseHandler)
     },
-    getProducts(param) {
-        return fetch(config.API_URL + '/api/products', {
-            method: 'post',
-            credentials: 'same-origin',
-            headers: getHeader(),
-            body: JSON.stringify(param)
-        })
-        .then(responseHandler)
-    },
     getCategoryProducts(param) {
         return fetch(config.API_URL + '/api/categories/product', {
             method: 'get',
@@ -136,20 +93,11 @@ export default {
         })
         .then(responseHandler)
     },
-    getProduct(id) {
-        return fetch(config.API_URL + '/api/product/' + id, {
+    getCompany(id) {
+        return fetch(`${config.API_URL}/api/vendor/${id}`, {
             method: 'get',
             credentials: 'same-origin',
             headers: getHeader(),
-        })
-        .then(responseHandler)
-    },
-    getServices(param) {
-        return fetch(config.API_URL + '/api/services', {
-            method: 'post',
-            credentials: 'same-origin',
-            headers: getHeader(),
-             body: JSON.stringify(param)
         })
         .then(responseHandler)
     },
@@ -158,11 +106,12 @@ export default {
             method: 'post',
             credentials: 'same-origin',
             headers: getHeader(),
-             body: JSON.stringify(param)
+            body: JSON.stringify(param)
         })
         .then(responseHandler)
     },
     addToCart(id, type, param) {
+        withMessage = true
         return fetch(`${config.API_URL}/api/cart/add/${type}/${id}`, {
             method: 'post',
             credentials: 'same-origin',
@@ -221,6 +170,30 @@ export default {
     },
     getCredits() {
         return fetch(`${config.API_URL}/api/credits`, {
+            method: 'get',
+            credentials: 'same-origin',
+            headers: getHeader(),
+        })
+        .then(responseHandler)
+    },
+    getAppointments() {
+        return fetch(`${config.API_URL}/api/appointments`, {
+            method: 'get',
+            credentials: 'same-origin',
+            headers: getHeader(),
+        })
+        .then(responseHandler)
+    },
+    getPurchases() {
+        return fetch(`${config.API_URL}/api/user/purchases`, {
+            method: 'get',
+            credentials: 'same-origin',
+            headers: getHeader(),
+        })
+        .then(responseHandler)
+    },
+    getBlogs() {
+        return fetch(`${config.API_URL}/api/banners`, {
             method: 'get',
             credentials: 'same-origin',
             headers: getHeader(),
