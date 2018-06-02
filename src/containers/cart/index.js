@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import store from 'store'
-import { getUserAddresses } from 'actions/user.js'
+import { getUserAddress } from 'actions/user.js'
 import { setStep } from 'actions/cart.js'
 import StepsArrow from 'components/steps/steps_arrow.js'
 import { StepFirst, StepSecond, StepThird, StepFourth, StepFifth } from 'components/cart'
@@ -10,7 +10,7 @@ class Cart extends Component {
 	constructor(props) {
 		super(props)
 		this.steps = [{title: 'Meu carrinho'}, {title: 'Entrega'}, {title: 'Pagamento'}, {title: 'Confirmação'}]
-		store.dispatch(getUserAddresses())
+		store.dispatch(getUserAddress())
 	}
 
 	changeStep = step => e => {
@@ -40,13 +40,12 @@ class Cart extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
+const mapStateToProps = state =>
+    ({
         cart: {
         	step: state.cart.step
         }
-    }
-}
+    })
 
 export default connect(
     mapStateToProps

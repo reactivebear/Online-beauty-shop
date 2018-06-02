@@ -27,7 +27,9 @@ class Edit extends Component {
     }
 
     saveCard = () => {
-    	store.dispatch(saveCard(this.cardData))
+    	store.dispatch(saveCard(this.cardData)).then(res => {
+    		history.goBack()
+    	})
     }
 
 	componentWillMount() {

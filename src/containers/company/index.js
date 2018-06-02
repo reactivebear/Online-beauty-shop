@@ -5,7 +5,6 @@ import { getCompany } from 'actions'
 class Company extends Component {
 	componentWillMount() {
 		console.log(this.props.match.params.id)
-		store.dispatch(getCompany(this.props.match.params.id))
 	}
 
     render() {

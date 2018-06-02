@@ -22,6 +22,12 @@ class Category extends Component {
 		store.dispatch(setCategory({}, 'active_category'))
 	}
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.categories.active_category.id !== this.props.categories.active_category.id) {
+            this.getData(this.props.match.params.type, nextProps.categories.active_category.id, 1)
+        }
+    }
+
 	printList = (item, i) => {
 		const card = this.props.match.params.type === 'product' ? <CardProduct {...item} /> : <CardService {...item} />
 		return <div key={i} className="col-sm-6">{card}</div>

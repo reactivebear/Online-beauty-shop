@@ -1,6 +1,5 @@
-import api from 'api'
 import * as types from './types.js'
-import { get, post } from 'api/request'
+import { get, post } from 'api'
 
 export const getProducts = (type, param) => dispatch => 
     (
@@ -19,15 +18,6 @@ export const getProduct = id => dispatch =>
             }
         })
     )
-
-export const getCategoryProducts = (type, param) => dispatch => {
-    return api.getCategoryProducts(param)
-    .then(json => {
-        if (json.object) {
-            console.log(json.object)
-        }
-    })
-}
 
 export const setProducts = (data, key) => 
     ({

@@ -26,13 +26,12 @@ class CustomModal extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
+const mapStateToProps = state =>
+    ({
         design: {
             modal: state.design.modal
         }
-    }
-}
+    })
 
 export default connect(
     mapStateToProps

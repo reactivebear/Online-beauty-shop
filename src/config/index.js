@@ -41,3 +41,29 @@ export const LIST_MENU = [
         ]
 
 export const DROP_LIST = ['Mais relevantes', 'Menor preço', 'Maior preço']
+export const NOTIFICATION_TYPE = {
+        attention: {
+            title: 'Atenção',
+            icon: '/assets/icons/notify-attention.png'
+        },
+        reminder: {
+            title: 'Lembrete',
+            icon: '/assets/icons/notify-reminder.png'
+        },
+        review: {
+            title: 'Reveja',
+            icon: '/assets/icons/notify-review.png'
+        },
+        credits: {
+            title: 'Reveja',
+            icon: '/assets/icons/notify-credits.png'
+        },
+        products: {
+            title: 'Produto',
+            icon: '/assets/icons/notify-products.png'
+        },
+        gift: {
+            title: 'Lembrete',
+            icon: '/assets/icons/notify-gift.png'
+        }
+    }

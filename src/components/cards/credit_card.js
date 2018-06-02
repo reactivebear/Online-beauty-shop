@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import store, { history } from 'store'
-import { toggleDefaultCard } from 'actions/user'
+import { toggleDefaultCard, removeCreditCard } from 'actions/user'
 import BtnMain from 'components/buttons/btn_main.js'
 import CheckBox from 'components/inputs/checkbox.js'
 
@@ -12,6 +12,10 @@ class CreditCardCard extends Component {
     gotoAddress = (url, item) => e => {
         const state = item ? Object.assign({}, item, {defaultCard: item.defaultCard.checked}) : {}
         history.push(url, state)
+    }
+
+    removeCart = () => {
+        store.dispatch(removeCreditCard(this.props.item.id))
     }
 
     getCardNumber = num => `****.****.****.${num.slice(-4)}`
@@ -47,7 +51,7 @@ class CreditCardCard extends Component {
                     title="Editar" />
                 <BtnMain
                     className="font-weight-bold btn-block"
-                    onClick={this.gotoAddress('edit')}
+                    onClick={this.removeCart}
                     title="Excluir" />
             </div>
         )

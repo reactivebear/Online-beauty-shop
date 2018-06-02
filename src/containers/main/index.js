@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import store from 'store'
-import { getCategories, setActiveCategory } from 'actions'
+import { getCategories } from 'actions'
 import BtnGroup from 'components/buttons/btn_group.js'
 import { connect } from 'react-redux'
 import Carousel from 'components/carousel'
@@ -10,7 +10,8 @@ import BlogSection from 'components/sections/blog.js'
 class Main extends Component {
 	state = {
 		firstClass: 'order-1',
-		lastClass: 'order-6'
+		lastClass: 'order-6',
+		active: 'product'
 	}
 
 	toggleCat = item => e => {
@@ -18,46 +19,47 @@ class Main extends Component {
 			case 'service':
 				this.setState({
 					firstClass: 'order-6',
-					lastClass: 'order-1'
+					lastClass: 'order-1',
+					active: 'service'
 				})
 				break
 			case 'product':
 				this.setState({
 					firstClass: 'order-1',
-					lastClass: 'order-6'
+					lastClass: 'order-6',
+					active: 'product'
 				})
 				break
 			default: return
 		}
-		store.dispatch(setActiveCategory(item))
 	}
 
 	isEmptyCategories = categories => (! categories.service.length || ! categories.product.length)
 
 	componentDidMount() {
-		if (this.props.user.token && this.isEmptyCategories(this.props.categories)) {
+		if (this.isEmptyCategories(this.props.categories)) {
 			store.dispatch(getCategories())
 		}
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (nextProps.user.token && this.isEmptyCategories(nextProps.categories)) {
+		if (this.isEmptyCategories(nextProps.categories)) {
 			store.dispatch(getCategories())
 		}
 	}
 
     render() {
-    	const { product, service, active } = this.props.categories
+    	const { product, service } = this.props.categories
 
     	const catButtons = [
     		{
 				title: 'Produtos', 
 				onClick: this.toggleCat('product'),
-				active: active === 'product'
+				active: this.state.active === 'product'
 			}, {
 				title: 'Serviços', 
 				onClick: this.toggleCat('service'),
-				active: active === 'service'
+				active: this.state.active === 'service'
 			}
 		]
 
@@ -105,18 +107,13 @@ class Main extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        user: {
-            token: state.user.token
-        },
+const mapStateToProps = state =>
+    ({
         categories: {
         	product: state.categories.product,
         	service: state.categories.service,
-        	active: state.categories.active
         }
-    }
-}
+    })
 
 export default connect(
     mapStateToProps

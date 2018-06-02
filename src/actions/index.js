@@ -1,5 +1,4 @@
-import api from 'api'
-import { get } from 'api/request'
+import { get, post } from 'api'
 import * as types from './types.js'
 
 export const getCategories = () => dispatch => 
@@ -22,37 +21,32 @@ export const getCategoriesByType = type => dispatch =>
     )
 
 export const getCategoryList = (param, id) => dispatch => 
-    (api.getCategoryList(param)
-    .then(json => {
-        if (json.object) {
-            dispatch(setCategoryList(json.object, param, id))
-            return id
-        }
-    }))
+    (
+        get(`api/categories/${param}`).then(json => {
+            if (json.object) {
+                dispatch(setCategoryList(json.object, param, id))
+                return id
+            }
+        })
+    )
 
 export const addToWishList = (type, id) => dispatch => 
-    (api.addToWishList(type, id)
-    .then(json => {
-        if (json.object) {
-            console.log(json.object)
-        }
-    }))
-
-export const getCompany = id => dispatch => 
-    (api.getCompany(id)
-    .then(json => {
-        if (json.object) {
-            console.log(json.object)
-        }
-    }))
+    (
+        post(`api/wishlist/add/${type}/${id}`).then(json => {
+            if (json.object) {
+                console.log(json.object)
+            }
+        })
+    )
 
 export const getBlogs = () => dispatch => 
-    (api.getBlogs()
-    .then(json => {
-        if (json.object) {
-            console.log(json.object)
-        }
-    }))
+    (
+        get(`api/banners`).then(json => {
+            if (json.object) {
+                console.log(json.object)
+            }
+        })
+    )
 
 export const setCategoryList = (data, key, id) => 
     ({

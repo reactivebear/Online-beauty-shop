@@ -41,17 +41,23 @@ class App extends Component {
         const unactiveClass = this.props.design.sideMenu ? 'unactive' : ''
         return (
             <div className="App">
-                <div className={'main-wrap ' + unactiveClass}>
-                    <Header />
-                    <Switch>
-                        { routes.map((route, i) => this.printRoutes(route, i)) }
-                    </Switch>
-                    <Footer />
-                </div>
-                <SideMenu />
-                <LeftMenu />
-                <Modal />
-                <Alert />
+                {
+                    token
+                    ?   <div>
+                            <div className={'main-wrap ' + unactiveClass}>
+                                <Header />
+                                <Switch>
+                                    { routes.map((route, i) => this.printRoutes(route, i)) }
+                                </Switch>
+                                <Footer />
+                            </div>
+                            <SideMenu />
+                            <LeftMenu />
+                            <Modal />
+                            <Alert />
+                        </div>
+                    :   ''
+                }
             </div>
         )
     }

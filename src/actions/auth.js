@@ -1,4 +1,4 @@
-import { get, post } from 'api/request'
+import { get, post } from 'api'
 import Cookies from 'js-cookie'
 import * as types from './types.js'
 import { history } from 'store'

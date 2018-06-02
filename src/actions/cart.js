@@ -1,10 +1,9 @@
-import api from 'api'
-import { get, post, remove } from 'api/request'
+import { get, post, remove, patch } from 'api'
 import * as types from './types.js'
 
 export const getCart = () => dispatch => 
     (
-        get('api/cart').then(json => {
+        get(`api/cart`).then(json => {
             if (json.object) {
                 dispatch(setCart(json.object))
             }
@@ -24,33 +23,37 @@ export const removeFromCart = id => dispatch =>
     (
         remove(`api/cart/remove-item/${id}`, true).then(json => {
             dispatch(getCart())
+            dispatch(getCartTotal())
         })
     )
 
-export const getDelivery = id => dispatch => {
-    return api.getDelivery(id)
-    .then(json => {
-        if (json.object) {
-            console.log(json.object)
-        }
-    })
-}
+export const getDelivery = id => dispatch => 
+    (
+        get(`api/cart/delivery/${id}`).then(json => {
+            if (json.object) {
+                console.log(json.object)
+            }
+        })
+    )
 
-export const getCartTotal = () => dispatch => {
-    return api.getCartTotal()
-    .then(json => {
-        if (json.object) {
-            dispatch(setCartTotal(json.object))
-        }
-    })
-}
+export const getCartTotal = () => dispatch => 
+    (
+        get(`api/cart/value`).then(json => {
+            if (json.object) {
+                dispatch(setCartTotal(json.object))
+            }
+        })
+    )
 
-export const changeQuantity = (id, val) => dispatch => {
-    return api.changeQuantity(id, val)
-    .then(json => {
-        console.log(json)
-    })
-}
+export const changeQuantity = (id, val) => dispatch => 
+    (
+        patch(`api/cart/change-quantity/${id}/${val}`).then(json => {
+            if (json.object) {
+                dispatch(getCart())
+                dispatch(getCartTotal())
+            }
+        })
+    )
 
 export const setCart = data => 
     ({

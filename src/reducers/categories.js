@@ -30,7 +30,7 @@ export default function categories(categories = initialState, action = {}) {
             });
         case types.SET_ACTIVE_CATEGORY:
             return Object.assign({}, categories, {
-                active: action.cat
+                active_category: action.cat
             });
         case types.SET_SERVICE_CATEGORY:
             temp.service.find(item => item.id === action.catId).list = action.data

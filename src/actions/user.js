@@ -1,5 +1,4 @@
-import api from 'api'
-import { put, get } from 'api/request'
+import { put, get, post, patch, remove } from 'api'
 import * as types from './types.js'
 import { setUser } from './auth.js'
 
@@ -31,72 +30,76 @@ export const getWishlist = type => dispatch =>
         })
     )
 
-export const getUserAddresses = () => dispatch => {
-	return api.getUserAddresses()
-    .then(json => {
-        if (json.object) {
-        	dispatch(setUserAddresses(json.object))
-        }
-    })
-}
+export const getUserAddress = () => dispatch => 
+    (
+        get(`api/user/main-address`).then(json => {
+            if (json.object) {
+                dispatch(setUserAddresses(json.object))
+            }
+        })
+    )
 
-export const saveAddress = data => dispatch => {
-    return api.saveAddress(data)
-    .then(json => {
-        if (json.object) {
-            dispatch(addAddress(json.object))
-        }
-    })
-}
+export const saveAddress = data => dispatch => 
+    (
+        post(`api/user/address/add`, true, data).then(json => {
+            if (json.object) {
+                dispatch(addAddress(json.object))
+            }
+        })
+    )
 
-export const saveCard = data => dispatch => {
-    return api.saveCard(data)
-    .then(json => {
-        if (json.object) {
-            dispatch(addCard(json.object))
-        }
-    })
-}
+export const saveCard = data => dispatch => 
+    (
+        post(`api/user/creditcard/add`, true, data).then(json => {
+            if (json.object) {
+                dispatch(addCard(json.object))
+                return true
+            }
+        })
+    )
 
-export const toggleDefaultCard = id => dispatch => {
-    return api.toggleDefaultCard(id)
-    .then(json => {
-        if (json.object) {
+export const removeCreditCard = id => dispatch => 
+    (
+        remove(`api/user/creditcard/${id}`, true).then(json => {
             dispatch(getCreditCards())
-        }
-    })
-}
+        })
+    )
 
+export const toggleDefaultCard = id => dispatch => 
+    (
+        patch(`api/user/creditcard/default/${id}`).then(json => {
+            if (json.object) {
+                dispatch(getCreditCards())
+            }
+        })
+    )
 
+export const getCredits = () => dispatch => 
+    (
+        get(`api/credits`).then(json => {
+            if (json.object) {
+                console.log(json.object)
+            }
+        })
+    )
 
+export const getAppointments = () => dispatch => 
+    (
+        get(`api/appointments`).then(json => {
+            if (json.object) {
+                console.log(json.object)
+            }
+        })
+    )
 
-
-export const getCredits = () => dispatch => {
-    return api.getCredits()
-    .then(json => {
-        if (json.object) {
-            console.log(json.object)
-        }
-    })
-}
-
-export const getAppointments = () => dispatch => {
-    return api.getAppointments()
-    .then(json => {
-        if (json.object) {
-            console.log(json.object)
-        }
-    })
-}
-
-export const getPurchases = () => dispatch => {
-    return api.getPurchases()
-    .then(json => {
-        if (json.object) {
-            dispatch(setUserKey(json.object, 'purchases'))
-        }
-    })
-}
+export const getPurchases = () => dispatch => 
+    (
+        get(`api/user/purchases`).then(json => {
+            if (json.object) {
+                dispatch(setUserKey(json.object, 'purchases'))
+            }
+        })
+    )
 
 export const setUserAddresses = data => 
     ({
