@@ -26,6 +26,7 @@ class LoginForm extends Component {
     }
 
     render() {
+        console.log(this.props)
         return (
         	<div>
                 <h4 className="text-center">Identificação</h4>
@@ -53,14 +54,14 @@ class LoginForm extends Component {
                     <Link to="/recovery" className="color-grey">Esqueceu sua senha?</Link>
                 </div>
                 <div className="border-bottom mb-3"></div>
-                <div className="d-flex form-group">
-                    <div className="w-50 pr-1">
+                <div className="d-flex flex-sm-row flex-column form-group">
+                    <div className="pr-sm-1 mb-1">
                         <BtnMain
                             className="font-weight-bold btn-block btn-facebook"
                             onClick={this.login}
                             title="Entrar com o Facebook" />
                     </div>
-                    <div className="w-50 pl-1">
+                    <div className="pl-sm-1">
                         <BtnMain
                             className="font-weight-bold btn-block btn-google"
                             onClick={this.login}

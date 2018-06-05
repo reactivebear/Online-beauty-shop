@@ -4,38 +4,47 @@ export const LIST_MENU = [
             {
                 title: 'Minha Conta',
                 icon: 'user-icon-grey',
+                icon_white: 'user-icon.png',
                 url: 'profile'
             }, {
                 title: 'Lista de desejos',
                 icon: 'vaucher-icon-grey',
+                icon_white: 'list-icon.png',
                 url: 'wishlist'
             }, {
                 title: 'Vouchers',
                 icon: 'user-icon-grey',
+                icon_white: 'vaucher-icon.png',
                 url: 'vouchers'
             }, {
                 title: 'Créditos',
                 icon: 'credits-icon-grey',
+                icon_white: 'credits-icon.png',
                 url: 'credits'
             }, {
                 title: 'Agendamentos',
                 icon: 'book-icon-grey',
+                icon_white: 'book-icon.png',
                 url: 'schedules'
             }, {
                 title: 'Produtos comprados',
                 icon: 'product-icon-grey',
+                icon_white: 'product-icon.png',
                 url: 'purchased'
             }, {
                 title: 'Notificações',
                 icon: 'bell-icon-grey',
+                icon_white: 'bell-icon.png',
                 url: 'notifications'
             }, {
                 title: 'Refeição e feedback',
                 icon: 'doc-icon-grey',
+                icon_white: 'doc-icon.png',
                 url: 'feedback'
             }, {
                 title: 'Suporte',
                 icon: 'support-icon-grey',
+                icon_white: 'support-icon.png',
                 url: 'support'
             }
         ]

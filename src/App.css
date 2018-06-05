@@ -65,6 +65,10 @@ path.cls-8 {
 	width: 40%;
 }
 
+.w-sm-50 {
+	width: 50%;
+}
+
 .w-60 {
 	width: 60%;
 }
@@ -171,6 +175,9 @@ path.cls-8 {
 @media (min-width: 576px) {
 	.text-sm-nowrap {
 	    white-space: nowrap;
+	}
+	.w-sm-50 {
+		width: 100%;
 	}
 }
 	

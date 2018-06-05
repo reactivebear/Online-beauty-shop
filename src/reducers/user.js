@@ -4,6 +4,7 @@ import Cookies from 'js-cookie'
 const initialState = {
     token: Cookies.get('token'),
     guest: Cookies.get('guest') === 'true',
+    approve_token: false,
     data: {
         address: {},
         addresses: [],
@@ -24,7 +25,8 @@ export default function user(user = initialState, action = {}) {
         case types.SET_TOKEN:
             return Object.assign({}, user, {
                 token: action.value,
-                guest: action.guest
+                guest: action.guest,
+                approve_token: true
             });
         case types.SET_USER_KEY:
             return Object.assign({}, user, {

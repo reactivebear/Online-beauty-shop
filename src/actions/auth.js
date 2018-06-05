@@ -24,6 +24,13 @@ export const login = data => dispatch =>
         })
     )
 
+export const logout = () => dispatch => 
+    (
+        get('logout', true).then(json => {
+            dispatch(loginAsGuest())
+        })
+    )
+
 export const keepToken = () => dispatch => 
     (
         get('api/keeptoken').then(json => {
@@ -31,6 +38,9 @@ export const keepToken = () => dispatch =>
                 dispatch(setToken(json.apikey.key, json.user.guest))
                 dispatch(setUser(json.user))
             }
+        })
+        .catch(error => {
+            dispatch(loginAsGuest())
         })
     )
 

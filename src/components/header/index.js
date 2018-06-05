@@ -127,7 +127,7 @@ class Header extends Component {
                                             :   ''
                                         }
                                     </div>
-                                    <div onClick={this.toggleTooltip('login')} id="login" className="col-6 col-sm-4 px-sm-0 form-group pointer">
+                                    <div onClick={this.toggleTooltip('login')} id="login" className="col-6 col-sm-4 px-sm-0 form-group pointer d-none d-sm-block">
                                         {
                                             this.props.user.guest
                                             ?   <span id="login">Bem vindo<br /><strong id="login">Entre ou cadastre-se</strong></span>
