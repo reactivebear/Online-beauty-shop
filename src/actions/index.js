@@ -11,6 +11,15 @@ export const getCategories = () => dispatch =>
         })
     )
 
+export const getSubCategories = (type, catId) => dispatch => 
+    (
+        get(`api/categories/${type}/${catId}/subcategories`).then(json => {
+            if (json.object) {
+                dispatch(setSubCategories(json.object))
+            }
+        })
+    )
+
 export const getCategoriesByType = type => dispatch => 
     (
         get(`api/categories/${type}`).then(json => {
@@ -59,6 +68,12 @@ export const setCategoryList = (data, key, id) =>
 export const setCategories = data => 
     ({
         type: types.SET_CATEGORIES,
+        data
+    })
+
+export const setSubCategories = data => 
+    ({
+        type: types.SET_SUB_CATEGORIES,
         data
     })
 

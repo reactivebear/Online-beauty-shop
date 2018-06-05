@@ -5,6 +5,7 @@ import store from 'store'
 import { connect } from 'react-redux'
 import { getProducts } from 'actions/products.js'
 import { getServices } from 'actions/services.js'
+import { getSubCategories } from 'actions'
 import { getCategoryList, setCategory } from 'actions'
 import { toggleLeftMenu } from 'actions/design.js'
 import CardProduct from 'components/cards/product.js'
@@ -14,6 +15,7 @@ import Pagination from 'components/pagination'
 class Category extends Component {
 	componentWillMount() {
 		store.dispatch(getCategoryList(this.props.match.params.type, this.props.match.params.id)).then(res => {
+            store.dispatch(getSubCategories(this.props.match.params.type, this.props.match.params.id))
 			this.getData(this.props.match.params.type, this.props.match.params.id, 1)
 		})
 	}
@@ -34,6 +36,7 @@ class Category extends Component {
 	}
 
 	getData = (type, id, page) => {
+        store.dispatch(getSubCategories(type, id))
 		switch(type) {
             case 'product':
                 store.dispatch(getProducts('pagination', {category: id, new_pagination: true, page_size: 14, page: page}))
@@ -50,7 +53,7 @@ class Category extends Component {
 	}
 
     showMenu = body => e => {
-        const content = body === 'filter' ? <SearchMenuWeb type={this.props.match.params.type} /> : <OrderMenu />
+        const content = body === 'filter' ? <SearchMenuWeb type={this.props.match.params.type} catId={this.props.match.params.id} /> : <OrderMenu />
         store.dispatch(toggleLeftMenu(true, content))
     }
 
@@ -63,7 +66,7 @@ class Category extends Component {
         			<div className="row">
         				<div className="col-md-4 d-none d-sm-block">
                             <div className="rounded bg-white border py-4 px-2">
-	            			    <SearchMenuWeb type={this.props.match.params.type} />
+	            			    <SearchMenuWeb type={this.props.match.params.type} catId={this.props.match.params.id} />
                             </div>
 	            		</div>
 	            		<div className="col-md-8">

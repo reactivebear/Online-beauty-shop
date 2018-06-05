@@ -3,7 +3,8 @@ import Search from 'components/search'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import BtnMain from 'components/buttons/btn_main.js'
-import store from 'store'
+import store, { history } from 'store'
+import { getCategoriesByType, setCategory, setActiveCategory } from 'actions'
 import { toggleSideMenu } from 'actions/design.js'
 import Tooltip from 'components/tooltip'
 import CartHeader from 'components/cart/cart_header.js'
@@ -44,6 +45,25 @@ class Header extends Component {
         }
     }
 
+    printLink = (item, i) => {
+        if (i < 5) {
+            return <span key={i} onClick={this.changePage(item)} className="text-white pointer text-nowrap pl-1">{item.name}</span>
+        }
+    }
+
+    changePage = item => e => {
+        history.push(`/category/service/${item.id}`)
+        store.dispatch(setActiveCategory(item))
+    }
+
+    componentWillMount() {
+        if (!this.props.categories.service.length) {
+            store.dispatch(getCategoriesByType('service')).then(res => {
+                store.dispatch(setCategory(res, 'service'))
+            })
+        }
+    }
+
     render() {
         const contentTooltip = this.props.user.guest ? LoginForm : HeaderMenu
         return (
@@ -80,11 +100,9 @@ class Header extends Component {
                             <div className="col-sm-7">
                                 <div className="d-none d-sm-flex align-items-end justify-content-between mb-3">
                                     <Link to="/"><img src="/assets/images/logo.png" alt="" className="img-fluid" /></Link>
-                                    <Link to="/about" className="text-white">Hairtylist & Makeup</Link>
-                                    <Link to="/about" className="text-white">Barber</Link>
-                                    <Link to="/about" className="text-white">Depilation</Link>
-                                    <Link to="/about" className="text-white">Spa & Massage</Link>
-                                    <Link to="/about" className="text-white">Esthetic Clinics</Link>
+                                    {
+                                        this.props.categories.service.map((item, i) => this.printLink(item, i))
+                                    }
                                 </div>
                                 <div className="form-group">
                                     <Search />
@@ -149,8 +167,9 @@ const mapStateToProps = state =>
             guest: state.user.guest,
             data: {
                 first_name: state.user.data.first_name
-            }
-        }
+            },
+        },
+        categories: state.categories
     })
 
 export default connect(

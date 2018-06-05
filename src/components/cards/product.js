@@ -5,6 +5,8 @@ import Stars from 'components/stars'
 import Price from 'components/price'
 import BtnMain from 'components/buttons/btn_main.js'
 import { addToCart } from 'actions/cart.js'
+import { addToWishList } from 'actions'
+import Heart from 'components/heart'
 
 class CardProduct extends Component {
 	state = {
@@ -18,6 +20,12 @@ class CardProduct extends Component {
 	addToCart = e => {
 		e.stopPropagation()
 		store.dispatch(addToCart(this.props.id, 'product', {quantity: 1}))
+	}
+
+	toggleWish = val => {
+		if (val) {
+			store.dispatch(addToWishList('product', this.props.id))
+		}
 	}
 
 	getDescription = text => text.length > 25 ? `${text.slice(0, 25)}...` : text
@@ -51,7 +59,7 @@ class CardProduct extends Component {
 	            		Avaliação<br />
 	            		<Stars active={this.props.rating} />
             		</div>
-            		<i className="far fa-heart fs-22"></i>
+            		<Heart onChange={this.toggleWish} />
             	</div>
             	<div>
         			<BtnMain

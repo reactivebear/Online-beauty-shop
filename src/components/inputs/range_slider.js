@@ -9,18 +9,37 @@ class RangeSlider extends Component {
 		super(props);
 
 		this.state = {
-			value: { min: 2, max: 10 },
+			value: { min: 0, max: 10 },
 		};
+	}
+
+	componentWillMount() {
+		this.setState({
+			value: {
+				min: this.props.value.min,
+				max: this.props.value.max,
+			}
+		})
+	}
+
+	onChange = value => {
+		this.setState({ value })
+		this.props.onChange(value)
 	}
 
 	render() {
 		return (
-			<InputRange
-				maxValue={100}
-				minValue={0}
-				value={this.state.value}
-				formatLabel={value => `${value} kg`}
-				onChange={value => this.setState({ value })} />
+			<div className="d-flex align-items-center">
+				<span className="px-2 color-grey">Mín.</span>
+				<InputRange
+					maxValue={this.props.max}
+					minValue={this.props.min}
+					formatLabel={value => ''}
+					value={this.state.value}
+					onChangeComplete={this.props.onComplete}
+					onChange={this.onChange} />
+				<span className="px-2 color-grey">Máx.</span>
+			</div>
 		);
 	}
 }

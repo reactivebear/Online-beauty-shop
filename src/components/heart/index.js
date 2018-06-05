@@ -4,7 +4,8 @@ class Heart extends Component {
 	state = {
 		active: this.props.active
 	}
-	toggleWish = () => {
+	toggleWish = e => {
+		e.stopPropagation()
 		this.setState({active: !this.state.active})
 		this.props.onChange(!this.state.active)
 	}

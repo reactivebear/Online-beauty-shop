@@ -6,7 +6,8 @@ const initialState = {
     active: 'product',
     product_list: [],
     service_list: [],
-    active_category: {}
+    active_category: {},
+    subcategories: []
 
 }
 
@@ -17,6 +18,10 @@ export default function categories(categories = initialState, action = {}) {
             return Object.assign({}, categories, {
                 product: action.data.productCategories,
                 service: action.data.serviceCategories
+            });
+        case types.SET_SUB_CATEGORIES:
+            return Object.assign({}, categories, {
+                subcategories: action.data.subcategories,
             });
         case types.SET_CATEGORY:
             return Object.assign({}, categories, {

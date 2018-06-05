@@ -3,7 +3,7 @@ import store from 'store'
 import { connect } from 'react-redux'
 import { getProduct } from 'actions/products.js'
 import { addToCart } from 'actions/cart.js'
-import { getCategoriesByType } from 'actions'
+import { getCategoriesByType, setCategory } from 'actions'
 import { toggleModal } from 'actions/design.js'
 import ImageMultiPreview from 'components/images/multi_preview.js'
 import ImagePreview from 'components/images/preview.js'
@@ -17,7 +17,6 @@ import MainList from 'components/lists/main.js'
 import Accordion from 'components/accordion'
 import { CommentForm } from 'components/forms'
 import { getServicesCategory } from 'actions/services'
-import { setCategory } from 'actions'
 
 class Product extends Component {
 	constructor(props) {
