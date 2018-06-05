@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import store from 'store'
-import { getCompany } from 'actions'
 
 class Company extends Component {
 	componentWillMount() {

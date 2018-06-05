@@ -23,9 +23,9 @@ export const getCreditCards = () => dispatch =>
 
 export const getWishlist = type => dispatch => 
     (
-        get(`api/wishlist/${type}s`).then(json => {
+        get(`api/wishlist/${type}`).then(json => {
             if (json.object) {
-                dispatch(setUserKey(json.object, 'cards'))
+                dispatch(setUserKey({[type]: json.object}, 'wishlist'))
             }
         })
     )

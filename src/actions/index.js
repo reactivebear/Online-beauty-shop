@@ -41,7 +41,7 @@ export const getCategoryList = (param, id) => dispatch =>
 
 export const addToWishList = (type, id) => dispatch => 
     (
-        post(`api/wishlist/add/${type}/${id}`).then(json => {
+        post(`api/wishlist/add/${type}/${id}`, true).then(json => {
             if (json.object) {
                 console.log(json.object)
             }
