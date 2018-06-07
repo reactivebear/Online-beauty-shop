@@ -51,7 +51,7 @@ class ListMain extends Component {
                 default: return
             }
 
-            return <div key={i} className="col-sm-4">{component}</div>
+            return <div key={i} className="col-sm-4 mb-3">{component}</div>
         }   
     }
 

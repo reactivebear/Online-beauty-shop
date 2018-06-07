@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Search from 'components/search'
+import { WebSearch }  from 'components/search'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import BtnMain from 'components/buttons/btn_main.js'
@@ -46,8 +46,8 @@ class Header extends Component {
     }
 
     printLink = (item, i) => {
-        if (i < 5) {
-            return <span key={i} onClick={this.changePage(item)} className="text-white pointer text-nowrap pl-1">{item.name}</span>
+        if (i > 0) {
+            return <span key={i} onClick={this.changePage(item)} className="text-white pointer text-nowrap px-1 header-link">{item.name}</span>
         }
     }
 
@@ -97,27 +97,31 @@ class Header extends Component {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-sm-7">
-                                <div className="d-none d-sm-flex align-items-end justify-content-between mb-3">
+                            <div className="col-sm-12 col-lg-7">
+                                <div className="d-none d-sm-flex align-items-end justify-content-between mb-3 position-relative">
+                                    <div className="position-absolute app-button d-none d-md-block d-lg-none">
+                                        <BtnMain
+                                            title="Baixe grátis o app do Visual Total" />
+                                    </div>
                                     <Link to="/"><img src="/assets/images/logo.png" alt="" className="img-fluid" /></Link>
                                     {
                                         this.props.categories.service.map((item, i) => this.printLink(item, i))
                                     }
                                 </div>
                                 <div className="form-group">
-                                    <Search />
+                                    <WebSearch />
                                 </div>
                             </div>
                         
-                            <div className="col-sm-5">
+                            <div className="col-sm-12 col-lg-5">
                                 <div className="row align-items-end h-100">
-                                    <div className="d-none d-sm-block col-12 order-sm-first align-self-start text-right">
+                                    <div className="d-none d-lg-block col-12 order-sm-first align-self-start text-right">
                                         <BtnMain
                                             title="Baixe grátis o app do Visual Total" />
                                     </div>
                                     <div onClick={this.toggleTooltip('cart')} id="cart" className="col-6 col-sm-3 px-sm-0 form-group pointer">
                                         <img src="/assets/icons/cart-icon.png" id="cart" className="img-icon-header align-middle" alt="" />
-                                        <div className="align-middle d-inline-block px-3" id="cart">
+                                        <div className="align-middle d-inline-block pl-2" id="cart">
                                             Meu<br />
                                             <strong id="cart">Carrinho</strong>
                                         </div>
@@ -139,9 +143,9 @@ class Header extends Component {
                                             :   ''
                                         }
                                     </div>
-                                    <div onClick={this.toggleTooltip('zip')} id="zip" className="col-12 col-sm-5 px-sm-0 order-sm-first form-group pointer">
+                                    <div onClick={this.toggleTooltip('zip')} id="zip" className="col-12 col-sm-5 px-lg-0 order-sm-first form-group pointer">
                                         <img src="/assets/icons/pin-icon.png" id="zip" className="img-icon-header align-middle" alt="" />
-                                        <div className="align-middle d-inline-block px-3" id="zip">
+                                        <div className="align-middle d-inline-block pl-2" id="zip">
                                             Enviar para<br />
                                             <strong id="zip">Bela Vista 01329900</strong>
                                         </div>

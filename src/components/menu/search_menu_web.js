@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import store, { history } from 'store'
-import DropDown from 'components/buttons/dropdown.js'
 import CollapsedMenu from 'components/blocks/collapsed_menu.js'
 import Stars from 'components/stars'
 import SmallCheckBox from 'components/inputs/small_checkbox.js'
-import { DROP_LIST } from 'config'
 import { setActiveCategory } from 'actions'
 import RangeSlider from 'components/inputs/range_slider'
 import { getProducts } from 'actions/products.js'
@@ -91,16 +89,13 @@ class SearchMenuWeb extends Component {
         return (
         	<div>
 	            <h4>Organizar anúncios</h4>
-	            <div className="mb-3">
-        			<DropDown list={DROP_LIST} />
-    			</div>
+                <CollapsedMenu title="Faixa de preço" body={this.getRangeSlider()} />
     			<CollapsedMenu title="Categoria" body={this.getCategories()} />
                 <CollapsedMenu title="Subcategoria" body={this.getSubCategories()} />
     			<CollapsedMenu title="Marca" body={<span></span>} />
     			<CollapsedMenu title="Estado" body={<span></span>} />
     			<CollapsedMenu title="Provedor do serviço" body={<span></span>} />
                 <CollapsedMenu title="Promoção" body={<span></span>} />
-                <CollapsedMenu title="Faixa de preço" body={this.getRangeSlider()} />
                 <CollapsedMenu title="Avaliação do produto" body={this.getRatings()} />
     			<CollapsedMenu title="Avaliação do vendedor" body={this.getRatings()} />
 			</div>

@@ -1,21 +1,4 @@
-import React, { Component } from 'react'
-import BtnMain from 'components/buttons/btn_main.js'
-import './style.css'
+import MobileSearch from './mobile'
+import WebSearch from './web'
 
-class Search extends Component {
-
-    render() {
-        return (
-            <div className="input-group">
-				<input type="text" className="form-control" />
-				<div className="input-group-append">
-				    <BtnMain
-				    	className="btn-search"
-				    	title={<i className="fa fa-search" aria-hidden="true"></i>} />
-			  	</div>
-			</div>
-        )
-    }
-}
-
-export default Search
+export { MobileSearch, WebSearch }

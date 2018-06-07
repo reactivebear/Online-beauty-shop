@@ -1,6 +1,6 @@
 .tooltip-wrap {
 	z-index: 1;
-    min-width: 350px;
+    min-width: 300px;
     top: 70px;
     right: 0;
     box-shadow: 0 0 15px 1px rgba(0,0,0,0.2);

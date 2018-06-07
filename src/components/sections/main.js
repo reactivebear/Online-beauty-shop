@@ -27,7 +27,7 @@ class MainSection extends Component {
         return (
             <div>
                 <div className="form-group">
-                    <h2>Catálogo de <strong>{this.props.title}</strong></h2>
+                    <div className="fs-28">Catálogo de <strong>{this.props.title}</strong></div>
                 </div>
                 <div className="form-group">
                     <div className="row">
@@ -39,7 +39,7 @@ class MainSection extends Component {
                     </div>
                 </div>
                 <div className="form-group">
-                    <h2><span className="text-capitalize">{this.props.title}</span> em <strong>destaque</strong></h2>
+                    <div className="fs-28"><span className="text-capitalize">{this.props.title}</span> em <strong>destaque</strong></div>
                 </div>
                 <ListMain type={this.props.type} />
             </div>    

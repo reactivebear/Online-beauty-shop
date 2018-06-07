@@ -11,6 +11,8 @@ import { toggleLeftMenu } from 'actions/design.js'
 import CardProduct from 'components/cards/product.js'
 import CardService from 'components/cards/service.js'
 import Pagination from 'components/pagination'
+import DropDown from 'components/buttons/dropdown.js'
+import { DROP_LIST } from 'config'
 
 class Category extends Component {
 	componentWillMount() {
@@ -32,7 +34,7 @@ class Category extends Component {
 
 	printList = (item, i) => {
 		const card = this.props.match.params.type === 'product' ? <CardProduct {...item} /> : <CardService {...item} />
-		return <div key={i} className="col-sm-6">{card}</div>
+		return <div key={i} className="col-sm-6 mb-3">{card}</div>
 	}
 
 	getData = (type, id, page) => {
@@ -70,7 +72,11 @@ class Category extends Component {
                             </div>
 	            		</div>
 	            		<div className="col-md-8">
-	            			<h4><small>Pesquisa: </small>{category.name}</h4>
+                            <div className="d-flex justify-content-between align-items-center">
+    	            			<h4><small>Pesquisa: </small>{category.name}</h4>
+                                <div><DropDown list={DROP_LIST} /></div>
+                            </div>
+
                             <div className="mb-3 d-sm-none">
                                 <span className="color-green mr-2 pointer" onClick={this.showMenu('order')}>
                                     <img src="/assets/icons/order-icon.png" alt="" className="img-fluid small-icon" />
@@ -83,7 +89,7 @@ class Category extends Component {
                                     Filtrar
                                 </span>
                             </div>
-	            			<div className="row">
+	            			<div className="row align-items-stretch">
 	            				{ items.map((item, i) => this.printList(item, i)) }
             				</div>
             				<div>

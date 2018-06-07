@@ -34,7 +34,7 @@ class CardProduct extends Component {
 		const image = this.props.images.length ? this.props.images[0].image_url : ''
 		
 		return (
-			<div className="card product rounded p-4 pointer mb-3 d-flex flex-column justify-content-between" onClick={this.goToProduct}>
+			<div className="card product rounded p-4 pointer d-flex flex-column justify-content-between" onClick={this.goToProduct}>
 				<div className="d-flex">
 					<div className="w-30">
 		            	<div className="mb-3">

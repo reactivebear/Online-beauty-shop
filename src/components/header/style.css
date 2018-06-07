@@ -1,6 +1,7 @@
 .effect6 {
-    position:relative;       
+    position: relative;       
     box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    z-index: 2;
 }
 
 .effect6:before, .effect6:after {
@@ -34,4 +35,13 @@
 .download-app-big {
     background-color: #579964;
     letter-spacing: 1px;
+}
+
+.header-link {
+    font-size: 13px;
+}
+
+.app-button {
+    right: 0;
+    top: 0;
 }

@@ -11,13 +11,10 @@ class BtnGroup extends Component {
                     {item.title}
                 </button>
     }
-    render() {
-        return (
-            <div className="btn-group w-100" role="group">
-                { this.props.buttons.map((item, i) => this.printButtons(item, i)) }
-            </div> 
-        );
-    }
+    render = () =>
+        (<div className="btn-group w-100" role="group">
+            { this.props.buttons.map((item, i) => this.printButtons(item, i)) }
+        </div>)
 }
 
 export default BtnGroup

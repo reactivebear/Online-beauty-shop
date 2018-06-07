@@ -30,14 +30,14 @@ class DropDown extends Component {
     }
 
     printList = (item, i) => {
-        return <div className="px-4 py-3 drop-item color-grey pointer" onClick={this.setItem(item)} key={i}>{item}</div>
+        return <div className="px-4 py-3 drop-item color-grey pointer text-nowrap" onClick={this.setItem(item)} key={i}>{item}</div>
     }
 
     render() {
         const activeClass = this.state.open ? ' active' : ''
         return (
             <div id="dropdown">
-                <div className="position-relative">
+                <div className="position-relative z-index-1">
                     <div className="d-inline pointer" onClick={this.toggleMenu}>
                        <span className="color-grey">{this.state.active}</span>
                        &nbsp;
