@@ -25,7 +25,7 @@ class Tabs extends Component {
     render() {
         return (
         	<div>
-	            <ul className="nav nav-tabs d-none d-sm-flex pt-4">
+	            <ul className="nav nav-tabs d-none d-sm-flex pt-4 fs-16 font-weight-bold">
 	            	{ this.props.tabs.map((item, i) => this.printLink(item, i)) }
 				</ul>
 

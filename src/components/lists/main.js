@@ -43,7 +43,7 @@ class ListMain extends Component {
             let component
             switch (this.props.type) {
                 case 'product':
-                    component = this.props.itemType === 'small' ? <CardProductSmall {...item} /> : <CardProduct {...item} />
+                    component = <CardProduct {...item} />
                     break
                 case 'service':
                     component = this.props.itemType === 'small' ? <CardService {...item} /> : <CardService {...item} />
@@ -51,7 +51,7 @@ class ListMain extends Component {
                 default: return
             }
 
-            return <div key={i} className="col-sm-4 mb-3">{component}</div>
+            return <div key={i} className="col-md-6 col-lg-4 mb-3">{component}</div>
         }   
     }
 

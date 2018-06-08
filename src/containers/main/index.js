@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import Carousel from 'components/carousel'
 import MainSection from 'components/sections/main.js'
 import BlogSection from 'components/sections/blog.js'
+import TestimonialsSection from 'components/sections/testimonials.js'
 
 class Main extends Component {
 	state = {
@@ -71,8 +72,10 @@ class Main extends Component {
 		
         return (
         	<div className="bg-main">
-        		<div className="form-group">
+        		<div className="form-group position-relative z-index-1">
         			<Carousel items={carouselItems} />
+    			</div>
+    			<div className="effect5 mb-3 position-relative z-index-0">
     			</div>
         		<div className="container">
         			<div className="row">
@@ -97,8 +100,11 @@ class Main extends Component {
 			            		type="service"
 			            		categories={service} />
 	            		</div>
-	            		<div className="col-sm-12 order-12">
+	            		<div className="col-sm-12 order-11">
 	            			<BlogSection />
+	            		</div>
+	            		<div className="col-sm-12 order-12">
+	            			<TestimonialsSection />
 	            		</div>
 		            </div>
 	            </div>

@@ -39,9 +39,9 @@ class DropDown extends Component {
             <div id="dropdown">
                 <div className="position-relative z-index-1">
                     <div className="d-inline pointer" onClick={this.toggleMenu}>
-                       <span className="color-grey">{this.state.active}</span>
+                       <span className="color-green">{this.state.active}</span>
                        &nbsp;
-                       <i className="fas fa-chevron-down color-grey px-2"></i>
+                       <i className="fas fa-chevron-down color-green px-2"></i>
                    </div>
                    <div className={`position-absolute bg-white border-green wrap-drop-item rounded py-2${activeClass}`}>
                         {this.props.list.map((item, i) => this.printList(item, i))}

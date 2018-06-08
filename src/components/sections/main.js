@@ -4,7 +4,6 @@ import Carousel from 'components/carousel'
 import ListMain from 'components/lists/main.js'
 
 class MainSection extends Component {
-    printCategories = (item, i) => <div className="col"><CategoryItem key={i} {...item} /></div>
 
     printMobileCategories = () => this.props.categories.map((item, i) => <CategoryItem key={i} {...item} type={this.props.type} />)
     
@@ -19,6 +18,11 @@ class MainSection extends Component {
                 {
                     breakpoint: 768, 
                     settings: {
+                        slidesToShow: 4.5,
+                    }
+                }, {
+                    breakpoint: 576, 
+                    settings: {
                         slidesToShow: 2.5,
                     }
                 }
@@ -31,7 +35,7 @@ class MainSection extends Component {
                 </div>
                 <div className="form-group">
                     <div className="row">
-                        <div className="col-sm-8">
+                        <div className="col-xl-8 col-lg-9">
                             <div>
                                 <Carousel items={this.printMobileCategories()} settings={settings} />
                             </div>

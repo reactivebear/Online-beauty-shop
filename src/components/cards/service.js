@@ -88,13 +88,13 @@ class CardService extends Component {
 	            		</div>
 
 	            		<div className="mt-auto w-100">
-	            			<div className="d-flex justify-content-between mb-1">
-	            				<div className="w-50 pr-1">
+	            			<div className="row justify-content-between mb-1">
+	            				<div className="col-lg-6 pr-lg-1 mb-1 md-sm-0">
 			            			<BtnMain
 			            				className="btn-block btn-outline font-weight-bold"
 			            				title="Agendar agora" />
 	            				</div>
-	            				<div className="w-50 pl-1">
+	            				<div className="col-lg-6 pl-lg-1">
 			        				<BtnMain
 			        					className="btn-block btn-outline font-weight-bold px-1"
 			        					onClick={this.addToCart}
