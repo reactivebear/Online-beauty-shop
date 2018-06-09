@@ -2,4 +2,7 @@
 	.modal-md {
 	    max-width: 600px;
 	}
+	.modal-sm {
+	    max-width: 400px;
+	}
 }

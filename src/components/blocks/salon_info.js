@@ -3,7 +3,7 @@ import AddressMap from 'components/map'
 
 class SalonInfo extends Component {
 	printSocial = (item, i) => {
-		return 	<div key={i}>
+		return 	<div key={i} className="mb-2">
 					<h5 className="text-capitalize">{item.type}</h5>
     				<a target="_blank" href={`http://${item.url}`} className="color-grey">{item.url}</a>
 				</div>
@@ -13,12 +13,12 @@ class SalonInfo extends Component {
     	const { address, social_media } = this.props
         return (
         	<div className="row align-items-stretch">
-	            <div className="col-sm-4 mb-2">
+	            <div className="col-lg-4 mb-2">
 	            	<div className="rounded border p-3 h-100">
 	            		<h5>Horários</h5>
 	            	</div>
 	            </div>
-	            <div className="col-sm-4 mb-2">
+	            <div className="col-lg-4 col-sm-6 mb-2">
 	            	<div className="rounded border p-3 h-100">
 	            		<h5>Endereço</h5>
 	            		<span className="color-grey">{`${address.title}, ${address.number} ${address.street}`}</span>
@@ -29,10 +29,10 @@ class SalonInfo extends Component {
 	            		}
 	            	</div>
 	            </div>
-	            <div className="col-sm-4 mb-2">
+	            <div className="col-lg-4 col-sm-6 mb-2">
 	            	<div className="rounded border p-3 h-100">
 	            		<h5>Telefone</h5>
-            			<span className="color-grey">{address.phone}</span>
+            			<div className="color-grey mb-2">{address.phone}</div>
 	            		{ social_media.map((item, i) => this.printSocial(item, i)) }
 	            	</div>
 	            </div>

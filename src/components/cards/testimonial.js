@@ -3,7 +3,6 @@ import Stars from 'components/stars'
 
 class CardTestimonial extends Component {
 	render() {
-		console.log(this.props)
 		return (
 			<div className="text-center px-2">
 				<div className="mb-2 fs-18">{this.props.reviewer}</div>

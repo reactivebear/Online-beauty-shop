@@ -120,11 +120,11 @@ path.cls-8 {
 }
 
 .footer-icon {
-	width: 54px;
+	width: 52px;
 }
 
 .img-icon-header {
-	width: 26px;
+	width: 22px;
 }
 
 .fs-16 {
@@ -186,6 +186,10 @@ path.cls-8 {
 
 .rounded {
 	border-radius: 10px !important;
+}
+
+.rounded-bottom {
+	border-radius: 0px 0px 10px 10px !important;
 }
 
 .pointer {

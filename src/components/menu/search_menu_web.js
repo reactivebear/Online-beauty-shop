@@ -60,7 +60,6 @@ class SearchMenuWeb extends Component {
     }
 
     rangeComplete = () => {
-        console.log(this.props.catId)
         this.getData(this.props.type, this.props.catId, {min_price: this.state.price.min, max_price: this.state.price.max})
     }
 

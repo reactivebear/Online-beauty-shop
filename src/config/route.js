@@ -15,6 +15,9 @@ export default {
         {
             'path': '/',
             'component': 'Main'
+        },{
+            'path': '/search',
+            'component': 'Search'
         }, {
             'path': '/company/:id',
             'component': 'Company'

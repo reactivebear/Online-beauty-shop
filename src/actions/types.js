@@ -28,3 +28,5 @@ export const SET_LOCATION = 'SET_LOCATION'
 export const SET_CART = 'SET_CART'
 export const SET_CART_TOTAL = 'SET_CART_TOTAL'
 export const SET_STEP = 'SET_STEP'
+
+export const SET_SEARCH = 'SET_SEARCH'

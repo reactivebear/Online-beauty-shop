@@ -10,7 +10,7 @@ class Stars extends Component {
     setStars = val => e => {
     	if (this.props.editable) {
     		this.setState({active: val * 1})
-    		this.props.onChange(this.state.active)
+    		this.props.onChange(val * 1)
     	}
     }
 
@@ -23,13 +23,21 @@ class Stars extends Component {
     }
 
     render() {
+        const { onHover = () => {} } = this.props
+
         return (
         	<span className={this.props.wrapClass} style={{letterSpacing: 3}}>
             	{ 	
             		this.getArray().map((item, i) => {
             			const className = this.props.editable ? 'far fa-star pointer' : 'far fa-star'
             			return (
-            				<i key={i} style={{color: this.state.active > i ? '#609D6D' : 'inherit'}} className={`${className} ${this.props.className}`} onClick={this.setStars(i + 1)}></i>
+            				<i 
+                                key={i} 
+                                style={{color: this.state.active > i ? '#609D6D' : 'inherit'}} 
+                                onMouseEnter={onHover(i+1)} 
+                                onMouseLeave={onHover('')} 
+                                className={`${className} ${this.props.className}`} 
+                                onClick={this.setStars(i + 1)}></i>
         				)
         				
             		}) 

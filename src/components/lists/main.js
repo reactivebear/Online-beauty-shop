@@ -5,7 +5,6 @@ import { getProducts } from 'actions/products.js'
 import { getServices } from 'actions/services.js'
 import CardProduct from 'components/cards/product.js'
 import CardService from 'components/cards/service.js'
-import CardProductSmall from 'components/cards/product_small.js'
 
 class ListMain extends Component {
 

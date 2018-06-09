@@ -41,6 +41,16 @@
     font-size: 13px;
 }
 
+.header-link-icon {
+    font-size: 12px;
+}
+
+@media (max-width: 1200px) {
+    .header-link-icon {
+        font-size: 10px;
+    }
+}
+
 .app-button {
     right: 0;
     top: 0;

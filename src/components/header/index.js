@@ -97,7 +97,7 @@ class Header extends Component {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-sm-12 col-lg-7">
+                            <div className="col-sm-12 col-lg-8">
                                 <div className="d-none d-sm-flex align-items-end justify-content-between mb-3 position-relative">
                                     <div className="position-absolute app-button d-none d-md-block d-lg-none">
                                         <BtnMain
@@ -113,13 +113,13 @@ class Header extends Component {
                                 </div>
                             </div>
                         
-                            <div className="col-sm-12 col-lg-5">
+                            <div className="col-sm-12 col-lg-4">
                                 <div className="row align-items-end h-100">
                                     <div className="d-none d-lg-block col-12 order-sm-first align-self-start text-right">
                                         <BtnMain
                                             title="Baixe grátis o app do Visual Total" />
                                     </div>
-                                    <div onClick={this.toggleTooltip('cart')} id="cart" className="col-6 col-sm-3 px-sm-0 form-group pointer">
+                                    <div onClick={this.toggleTooltip('cart')} id="cart" className="header-link-icon col-6 col-sm-3 px-sm-0 form-group pointer"> {/*col-6 col-sm-3*/}
                                         <img src="/assets/icons/cart-icon.png" id="cart" className="img-icon-header align-middle" alt="" />
                                         <div className="align-middle d-inline-block pl-2" id="cart">
                                             Meu<br />
@@ -131,7 +131,7 @@ class Header extends Component {
                                             :   ''
                                         }
                                     </div>
-                                    <div onClick={this.toggleTooltip('login')} id="login" className="col-6 col-sm-4 px-sm-0 form-group pointer d-none d-sm-block">
+                                    <div onClick={this.toggleTooltip('login')} id="login" className="header-link-icon col px-sm-0 form-group pointer d-none d-sm-block"> {/*col-6 col-sm-4*/}
                                         {
                                             this.props.user.guest
                                             ?   <span id="login">Bem vindo<br /><strong id="login">Entre ou cadastre-se</strong></span>
@@ -143,7 +143,7 @@ class Header extends Component {
                                             :   ''
                                         }
                                     </div>
-                                    <div onClick={this.toggleTooltip('zip')} id="zip" className="col-12 col-sm-5 px-lg-0 order-sm-first form-group pointer">
+                                    <div onClick={this.toggleTooltip('zip')} id="zip" className="header-link-icon col-6 col-sm-5 px-lg-0 order-sm-first form-group pointer"> {/*col-12 col-sm-5*/}
                                         <img src="/assets/icons/pin-icon.png" id="zip" className="img-icon-header align-middle" alt="" />
                                         <div className="align-middle d-inline-block pl-2" id="zip">
                                             Enviar para<br />

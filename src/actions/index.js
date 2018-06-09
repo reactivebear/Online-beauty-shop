@@ -57,6 +57,15 @@ export const getBlogs = () => dispatch =>
         })
     )
 
+export const getSearch = (type, param) => dispatch => 
+    (
+        post(`api/search`, false, param).then(json => {
+            if (json.object) {
+                dispatch(setSearch(json.object))
+            }
+        })
+    )
+
 export const setCategoryList = (data, key, id) => 
     ({
         type: types.SET_CATEGORY_LIST,
@@ -88,4 +97,10 @@ export const setActiveCategory = cat =>
     ({
         type: types.SET_ACTIVE_CATEGORY,
         cat
+    })
+
+export const setSearch = data => 
+    ({
+        type: types.SET_SEARCH,
+        data
     })

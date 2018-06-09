@@ -31,8 +31,9 @@ class CardService extends Component {
 
 	getDistance = () => {
 		let range = false
+		const address = this.props.vendor.address || this.props.address
 		navigator.geolocation.getCurrentPosition(pos => {
-			range = Distance.get(pos.coords.latitude, pos.coords.longitude, this.props.vendor.address.latitude, this.props.vendor.address.longitude)
+			range = Distance.get(pos.coords.latitude, pos.coords.longitude, address.latitude, address.longitude)
 			if (range) {
 				this.setState({
 					range: range
@@ -53,8 +54,8 @@ class CardService extends Component {
 
     render() {
         return (
-	        	<div className="card rounded p-4 pointer h-100" onClick={this.toggleCard}>
-	        		<div className="d-flex align-items-end flex-column h-100">
+	        	<div className="card rounded pointer h-100 service-card position-relative" onClick={this.toggleCard}>
+	        		<div className="d-flex align-items-end flex-column h-100 p-4">
 		        		<div>
 			            	<div className="position-relative mb-3">
 			            		<img className="rounded img-fluid" src="/assets/images/default-image.png" alt="" />
@@ -74,20 +75,20 @@ class CardService extends Component {
 			            		<Heart onChange={this.toggleWish} />
 			            	</div>
 
-			            	<div>
+			            	<div className="mb-2">
 			            		<Price current={this.props.price} old={this.props.discount_price} />
 			            	</div>
-
-			            	<div className="mb-2">
+	            		</div>
+	            		
+            		</div>
+            		<div className="position-relative z-index-1 w-100 wrap-service-hidden-block">
+	            		<div className="service-hiiden-block position-absolute bg-white px-4 border-top-0 rounded-bottom">
+	            			<div className="mb-1">
 			            		<strong>{this.props.vendor.organization_name}</strong>
 		            		</div>
-
 		            		<div className="color-grey w-75 mb-3">
-		            			{this.getAddress(this.props.vendor.address)}
+		            			{this.getAddress(this.props.vendor.address || this.props.address)}
 		            		</div>
-	            		</div>
-
-	            		<div className="mt-auto w-100">
 	            			<div className="row justify-content-between mb-1">
 	            				<div className="col-lg-6 pr-lg-1 mb-1 md-sm-0">
 			            			<BtnMain

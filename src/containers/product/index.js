@@ -36,36 +36,103 @@ class Product extends Component {
 	}
 
 	getReviewList = () => {
-		return 	<div>
-					{
-						this.props.products.salon.reviews.map((item, i) => {
-							return 	<div key={i}>
-										<div className="d-flex">
-											<div className="w-15 px-2">
-												<img src="/assets/images/default-reviewer.png" className="img-fluid" alt="" />
-											</div>
-											<div className="w-85">
-												<div className="d-flex justify-content-between">
-													<h5>{ item.reviewer.username }</h5>
-													<div><Stars active={item.rating} /></div>
+		return 	<div className="row">
+					<div className="col-md-8">
+						{
+							this.props.products.salon.reviews.map((item, i) => {
+								return 	<div key={i}>
+											<div className="d-flex">
+												<div className="w-15 px-lg-3 px-sm-2 pr-2 pr-sm-0">
+													<img src="/assets/images/default-reviewer.png" className="img-fluid" alt="" />
 												</div>
-												<div>
-													<span className="color-grey">{ item.comment }</span>
+												<div className="w-85">
+													<div className="d-flex justify-content-between">
+														<h5>{ item.reviewer.username }</h5>
+														<div><Stars active={item.rating} /></div>
+													</div>
+													<div>
+														<span className="color-grey">{ item.comment }</span>
+													</div>
 												</div>
 											</div>
+											<div className="border-bottom col-12 pt-4 mb-4"></div>
 										</div>
-										<div className="border-bottom col-12 pt-4 mb-4"></div>
-									</div>
-						})
-					}
-					<div className="col-sm-6 offset-sm-3">
-						<BtnMain
-	        				className="font-weight-bold btn-block"
-	        				onClick={this.comment}
-	        				title="Fazer comentário" />
-    				</div>
+							})
+						}
+						<div className="d-flex justify-content-center">
+							<BtnMain
+		        				className="font-weight-bold w-80"
+		        				onClick={this.comment}
+		        				title="Fazer comentário" />
+	    				</div>
+					</div>
+					
 				</div>
 	}
+
+	getQuestionsList = () => {
+		const questionsList = [
+			{
+				question: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea',
+				answer: ''
+			}, {
+				question: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.',
+				answer: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna'
+			}, {
+				question: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna',
+				answer: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna'
+			}
+		]
+
+		return questionsList.map((item, i) =>
+			(
+				<div key={i}>
+					<div className="row mb-3">
+						<div className="col-lg-1 col-md-2 col-sm-2 col-3">
+							<img src="/assets/icons/question-icon.png" alt="" className="img-fluid w-80" />
+						</div>
+						<div className="col-lg-11 col-md-10 col-sm-10 col-9">
+							<div className="color-grey pl-sm-3">{item.question}</div>
+						</div>
+					</div>
+					{
+						item.answer
+						? 	<div className="row mb-3">
+								<div className="col-lg-1 col-md-2 col-sm-2 col-3">
+									<img src="/assets/icons/answer-icon.png" alt="" className="img-fluid w-80" />
+								</div>
+								<div className="col-lg-11 col-md-10 col-sm-10 col-9">
+									<div className="color-grey pl-sm-3">{item.answer}</div>
+								</div>
+							</div>
+						: 	''
+					}
+					<div className="border-bottom mb-3"></div>
+				</div>
+			)
+		)
+	}
+
+	getQuestionBlock = () =>
+		(
+			<div className="row">
+				<div className="col-md-8">
+					<div className="p-4 rounded border">
+						{this.getQuestionsList()}
+						<div className="row justify-content-center">
+							<div className="col-sm-8">
+								<BtnMain
+			        				className="font-weight-bold btn-outline btn-block"
+			        				title="Ver todas as perguntas" />
+		        				<BtnMain
+			        				className="font-weight-bold btn-block"
+			        				title="Perguntar" />
+	        				</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		)
 
 	buy = () => {
 		
@@ -76,7 +143,7 @@ class Product extends Component {
 	}
 
 	comment = () => {
-		store.dispatch(toggleModal(true, CommentForm))
+		store.dispatch(toggleModal(true, CommentForm, 'modal-sm'))
 	}
 
     render() {
@@ -92,7 +159,7 @@ class Product extends Component {
 		            	</div>
 		            	<div className="col-12 col-sm-8">
 		            		<h4>
-		            			<strong>{ product.name }</strong>
+		            			<span>{ product.name }</span>
 		            			<i className="far fa-heart fs-22 color-grey float-right"></i>
 		            		</h4>
 		            		<div>
@@ -141,12 +208,13 @@ class Product extends Component {
 	            					content: <MainList type="product" itemType="small" />
 	            				}, {
 	            					title: 'Serviços',
-	            					content: <Accordion list={servicesCategories} />
+	            					content: <div className="row"><div className="col-md-8"><Accordion list={servicesCategories} /></div></div>
 	            				}, {
 	            					title: 'Avaliações',
 	            					content: this.getReviewList()
 	            				}, {
-            						title: 'Perguntas'
+            						title: 'Perguntas',
+            						content: this.getQuestionBlock()
 	            				}]} />
 	            		</div>
 	            	</div>

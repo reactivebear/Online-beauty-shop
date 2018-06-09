@@ -61,7 +61,7 @@ class Footer extends Component {
                                 </div>
                                 <div className="col-sm col-xs-8 text-left">
                                     <p>Selecione um país/região</p>
-                                    <select className="form-control">
+                                    <select className="form-control h-75">
                                         <option value="br">Brazil - Português</option>
                                         <option value="en">EUA - English</option>
                                     </select>

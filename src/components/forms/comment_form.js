@@ -8,6 +8,11 @@ import { toggleModal } from 'actions/design.js'
 
 class CommentForm extends Component {
 
+    state = {
+        rating: '',
+        activeStar: ''
+    }
+
 	sendComment = () => {
         /*const data = {
             email: this.text.value,
@@ -20,34 +25,49 @@ class CommentForm extends Component {
 		store.dispatch(toggleModal(false, null))
 	}
 
+    onHover = val => e => {
+        this.setState({activeStar: val-1, rating: this.state.rating})
+    }
+
+    changeStars = val => {
+        this.setState({rating: val})
+    }
+
     render() {
+        const levels = ['Excelente', 'Good', 'Normal', 'Satisfactorily', 'Bad'].reverse()
+        const level = this.state.activeStar + 1 > 0 ? <span>{levels[this.state.activeStar]}</span> : <strong>{levels[this.state.rating - 1]}</strong>
         return (
         	<div>
-        		<div className="form-group text-center">
+        		<div className="form-group text-center color-grey fs-22">
 	            	<Stars 
-                        active={this.stars}
+                        active={this.state.rating}
                         editable
-                        onChange={val => this.stars = val} />
+                        spin={this.state.activeStar}
+                        onHover={this.onHover}
+                        onChange={this.changeStars} />
             	</div>
-            	<div className="form-group">
+                <div className="text-center">
+                    &nbsp;{ level }&nbsp;
+                </div>
+            	<div className="color-grey">
             		<Input 
                         required
                         label="E-mail"
                         inputRef={ref => this.text = ref} />
             	</div>
-            	<div className="form-group">
+            	<div className="color-grey">
             		<TextArea 
                         required
                         label="Mensagem"
                         inputRef={ref => this.message = ref} />
             	</div>
-            	<div className="form-group">
+            	<div className="pt-3">
             		<BtnMain
-        				className="font-weight-bold btn-outline ml-2"
+        				className="font-weight-bold btn-outline btn-block"
         				onClick={this.closeModal}
         				title="Cancelar" />
             		<BtnMain
-        				className="font-weight-bol ml-2"
+        				className="font-weight-bol btn-block"
         				onClick={this.sendComment}
         				title="Enviar" />
             	</div>

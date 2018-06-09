@@ -19,7 +19,7 @@ class Registration extends Component {
         		<div className="container">
 		            <div className="row">
 		            	<div className="col-sm-6">
-		            		<h4 className="mb-3">Cadastro</h4>
+		            		<h4 className="mb-1">Cadastro</h4>
 		            		<div className="color-grey mb-3">
 			        			Complete seus dados para se cadastrar
 			    			</div>

@@ -31,11 +31,11 @@ class CardProduct extends Component {
 	getDescription = text => text.length > 25 ? `${text.slice(0, 25)}...` : text
 
 	render() {
-		const image = this.props.images.length ? this.props.images[0].image_url : ''
+		const image = this.props.images ? (this.props.images.length ? this.props.images[0].image_url : '') : ''
 		
 		return (
 			<div className="card product rounded p-2 pointer d-flex flex-column justify-content-between" onClick={this.goToProduct}>
-				<div className="d-flex">
+				<div className="d-flex mb-2">
 					<div className="w-40">
 		            	<div>
 		            		<img className="rounded img-fluid" style={{display: this.state.display}} src='/assets/images/default-image-square.png' alt="" />
@@ -63,13 +63,13 @@ class CardProduct extends Component {
             	</div>
 
             	<div className="row justify-content-between">
-            		<div className="col-lg-6 pr-lg-1 mb-2 md-sm-0">
+            		<div className="col-xl-6 pr-xl-1 mb-2 md-sm-0">
             			<BtnMain
-	        				className="btn-block btn-outline font-weight-bold"
+	        				className="btn-block btn-outline font-weight-bold px-1"
 	        				onClick={this.addToCart}
 	        				title="Adicionar ao carrinho" />
             		</div>
-        			<div className="col-lg-6 pl-lg-1">
+        			<div className="col-xl-6 pl-xl-1">
 	    				<BtnMain
 	        				className="btn-block font-weight-bold"
 	        				title="Comprar agora" />

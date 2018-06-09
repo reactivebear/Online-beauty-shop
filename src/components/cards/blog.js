@@ -2,14 +2,6 @@ import React, { Component } from 'react'
 
 class CardBlog extends Component {
 	render() {
-		let padding
-		if (this.props.first) {
-			padding = 'pr-2 pl-1'
-		} else if (this.props.last) {
-			padding = 'pl-2 pr-1'
-		} else {
-			padding = 'px-2'
-		}
 
 		return (
 				<div className="px-2">

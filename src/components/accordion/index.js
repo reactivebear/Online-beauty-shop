@@ -14,7 +14,7 @@ class CustomAccordion extends Component {
         const last = length === i + 1
         return  <div key={i}>
                     <div className="row">
-                        <div className="col-sm-6">
+                        <div className="col-sm-6 mb-2">
                             <p><strong>{item.title}</strong></p>
                             <Price current={item.price} old={item.discount_price} />
                         </div>
