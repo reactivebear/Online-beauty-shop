@@ -26,6 +26,7 @@ class SideMenu extends Component {
 
     render() {
         const activeClass = this.props.design.sideMenu ? 'active' : ''
+        const { first_name, last_name } = this.props.user.data
         return (
             <div className={"text-white wrap-side-menu " + activeClass}>
                     {
@@ -47,7 +48,7 @@ class SideMenu extends Component {
                                         <img src="/assets/icons/close-icon.png" onClick={this.toggleSideMenu} className="img-icon" alt="" />
                                     </div>
                                     <div className="col-12">
-                                        <h2>Igor dos Anjos</h2>
+                                        <h2>{`${first_name} ${last_name}`}</h2>
                                     </div>
                                 </div>
                                 <div className="mb-5 pt-5">
@@ -72,6 +73,10 @@ const mapStateToProps = state =>
     ({
         user: {
             guest: state.user.guest,
+            data: {
+                first_name: state.user.data.first_name,
+                last_name: state.user.data.last_name,
+            }
         },
         design: {
             sideMenu: state.design.sideMenu

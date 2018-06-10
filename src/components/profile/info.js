@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { history } from 'store'
 import { connect } from 'react-redux'
 import BtnMain from 'components/buttons/btn_main.js'
+import Avatar from 'components/images/avatar'
 
 class Info extends Component {
 	goToEdit = () => {
@@ -17,7 +18,7 @@ class Info extends Component {
 	}
 
     render() {
-    	const { first_name, last_name, email, address } = this.props.user.data
+    	const { first_name, last_name, email, address, image_url } = this.props.user.data
         return (
         	<div className="row">
 	        	<div className="col-12 mb-3">
@@ -27,20 +28,21 @@ class Info extends Component {
 						<div className="row align-items-center mb-3">
 		    				<div className="color-grey col-sm-10 col-8">
 		    					<h4>{`${first_name} ${last_name}`}</h4>
-		    					<h4>{email}</h4>
+		    					<h4 className="mb-3">{email}</h4>
+		    					<div className="row">
+									<div className="col-12 col-sm-4">
+										<BtnMain
+					        				className="font-weight-bold btn-block"
+					        				onClick={this.goToEdit}
+					        				title="Editar" />
+									</div>
+								</div>
 		    				</div>
 		    				<div className="col-sm-2 col-4">
-								<img src="/assets/images/default-reviewer.png" alt="" className="img-fluid" />
+								<Avatar image={image_url} />
 							</div>
 						</div>
-						<div className="row">
-							<div className="col-12 col-sm-4">
-								<BtnMain
-			        				className="font-weight-bold btn-block"
-			        				onClick={this.goToEdit}
-			        				title="Editar" />
-							</div>
-						</div>
+						
 					</div>
 				</div>
 				<div className="col-sm-6 mb-3">
@@ -95,6 +97,7 @@ const mapStateToProps = state =>
         		last_name: state.user.data.last_name,
         		email: state.user.data.email,
         		address: state.user.data.address,
+        		image_url: state.user.data.image_url,
         	}
         }
     })

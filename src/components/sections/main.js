@@ -18,12 +18,12 @@ class MainSection extends Component {
                 {
                     breakpoint: 768, 
                     settings: {
-                        slidesToShow: 4.5,
+                        slidesToShow: 4,
                     }
                 }, {
                     breakpoint: 576, 
                     settings: {
-                        slidesToShow: 2.5,
+                        slidesToShow: 2,
                     }
                 }
             ]

@@ -37,7 +37,7 @@ export const LIST_MENU = [
                 icon_white: 'bell-icon.png',
                 url: 'notifications'
             }, {
-                title: 'Refeição e feedback',
+                title: 'Revisão e feedback',
                 icon: 'doc-icon-grey',
                 icon_white: 'doc-icon.png',
                 url: 'feedback'

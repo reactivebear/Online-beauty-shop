@@ -27,7 +27,9 @@ class AddressForm extends Component {
             state: this.address.state.value,
             country: this.address.country.value
         }
-        store.dispatch(saveAddress(data))
+        store.dispatch(saveAddress(data)).then(res => {
+            history.push('/profile/address/')
+        })
     }
 
     render() {

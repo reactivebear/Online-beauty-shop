@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { history } from 'store'
 import { LIST_MENU } from 'config'
 
@@ -16,6 +17,7 @@ class SideMenuWeb extends Component {
     }
 
     render() {
+        const { first_name, last_name } = this.props.user.data
         return (
         	<div className="bg-white rounded pb-4 border wrap-menu-web d-none d-sm-block">
         		<div className="row p-4">
@@ -25,11 +27,23 @@ class SideMenuWeb extends Component {
             			</div>
 	            	</div>
 	            </div>
-	            <h2 className="text-center mb-5"><strong>Igor dos Anjos</strong></h2>
+	            <h2 className="text-center mb-5"><strong>{`${first_name} ${last_name}`}</strong></h2>
                 { LIST_MENU.map((item, i) => this.printList(item, i)) }
 			</div>
         );
     }
 }
 
-export default SideMenuWeb
+const mapStateToProps = state =>
+    ({
+        user: {
+            data: {
+                first_name: state.user.data.first_name,
+                last_name: state.user.data.last_name,
+            }
+        }
+    })
+
+export default connect(
+    mapStateToProps
+)(SideMenuWeb)

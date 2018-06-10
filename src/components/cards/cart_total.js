@@ -23,7 +23,7 @@ class CartTotal extends Component {
 							<h5>Usar créditos</h5>
 							<div className="d-flex justify-content-between color-grey">
 								<div><Price className="d-inline-block" current={0} /> créditos</div>
-								<div><CheckBox /></div>
+								<div><CheckBox onChange={e => {this.credits = e.target.checked}} /></div>
 							</div>
 						</div>
 				}

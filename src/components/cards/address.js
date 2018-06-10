@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { history } from 'store'
+import store, { history } from 'store'
+import { removeAddress } from 'actions/user'
 import BtnMain from 'components/buttons/btn_main.js'
 import CheckBox from 'components/inputs/checkbox.js'
 
@@ -9,8 +10,6 @@ class AddressCard extends Component {
     }
 
     changeDefaultAddress = item => e => {
-        console.log(e.target.checked)
-        console.log(item.id)
         this.setState({
             active: e.target.checked
         })
@@ -19,6 +18,10 @@ class AddressCard extends Component {
     gotoAddress = (url, item) => e => {
         const state = item ? Object.assign({}, item, {defaultAddress: item.defaultAddress.checked}) : {}
         history.push(url, state)
+    }
+
+    removeAddress = () => {
+        store.dispatch(removeAddress(this.props.item.id))
     }
 
 	render() {
@@ -53,7 +56,7 @@ class AddressCard extends Component {
                     title="Editar" />
                 <BtnMain
                     className="font-weight-bold btn-block"
-                    onClick={this.gotoAddress('edit')}
+                    onClick={this.removeAddress}
                     title="Excluir" />
             </div>
         )

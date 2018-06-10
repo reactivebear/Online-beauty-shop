@@ -1,9 +1,11 @@
 export const SET_TOKEN = 'SET_TOKEN'
 export const SET_USER = 'SET_USER'
 export const SET_USER_KEY = 'SET_USER_KEY'
+export const SET_USER_ADDRESS = 'SET_USER_ADDRESS'
 export const SET_USER_ADDRESSES = 'SET_USER_ADDRESSES'
 export const ADD_ADDRESS = 'ADD_ADDRESS'
 export const ADD_CARD = 'ADD_CARD'
+export const SET_USER_AVATAR = 'SET_USER_AVATAR'
 
 export const SET_CATEGORIES = 'SET_CATEGORIES'
 export const SET_CATEGORY = 'SET_CATEGORY'

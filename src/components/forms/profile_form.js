@@ -68,7 +68,7 @@ class ProfileForm extends Component {
                         <BtnMain
                             className="btn-block font-weight-bold"
                             onClick={this.save}
-                            title="Salvaro" />
+                            title="Salvar" />
                     </div>
                 </div>
 			</div>

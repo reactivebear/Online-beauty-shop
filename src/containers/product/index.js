@@ -3,7 +3,7 @@ import store from 'store'
 import { connect } from 'react-redux'
 import { getProduct } from 'actions/products.js'
 import { addToCart } from 'actions/cart.js'
-import { getCategoriesByType, setCategory } from 'actions'
+import { getCategoriesByType, setCategory, addToWishList } from 'actions'
 import { toggleModal } from 'actions/design.js'
 import ImageMultiPreview from 'components/images/multi_preview.js'
 import ImagePreview from 'components/images/preview.js'
@@ -17,6 +17,7 @@ import MainList from 'components/lists/main.js'
 import Accordion from 'components/accordion'
 import { CommentForm } from 'components/forms'
 import { getServicesCategory } from 'actions/services'
+import Heart from 'components/heart'
 
 class Product extends Component {
 	constructor(props) {
@@ -138,6 +139,12 @@ class Product extends Component {
 		
 	}
 
+	toggleWish = val => {
+		if (val) {
+			store.dispatch(addToWishList('product', this.props.id))
+		}
+	}
+
 	addToCart = () => {
 		store.dispatch(addToCart(this.props.products.product.id, 'product', {quantity: this.count}))
 	}
@@ -160,7 +167,9 @@ class Product extends Component {
 		            	<div className="col-12 col-sm-8">
 		            		<h4>
 		            			<span>{ product.name }</span>
-		            			<i className="far fa-heart fs-22 color-grey float-right"></i>
+		            			<div className="float-right">
+		            				<Heart onChange={this.toggleWish} />
+		            			</div>
 		            		</h4>
 		            		<div>
 		            			<Price current={product.price} old={product.discount_price} />

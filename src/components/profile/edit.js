@@ -55,34 +55,41 @@ class Edit extends Component {
         		<div className="color-grey mb-3">
         			Se você está atualizando seus dados cadastrais, faça as alterações  nos campos abaixo e depois clique em "Salvar"
     			</div>
-	        	<div className="rounded p-4 bg-white border mb-3">
-					{ this.form }
-				</div>
-				{
-					this.props.match.params.formType === 'cards'
-					? 	<div>
-							<div className="rounded p-4 bg-white border mb-3">
+    			<div className="row">
+		        	<div className="rounded p-4 bg-white border mb-3 col-sm-8">
+						{ this.form }
+					</div>
+					{
+						this.props.match.params.formType === 'cards'
+						? 	<div className="rounded p-4 bg-white border mb-3 col-sm-8">
 								<div className="d-flex justify-content-between align-items-center color-grey">
 									<div>É o mesmo endereço de entrega?</div>
 									<div><CheckBox onChange={this.toggleAddressForm} /></div>
 								</div>
 								{this.state.showAddressForm ? <AddressForm /> : ''}
-							</div>
-							<div className="row">
-			                    <div className="col-sm-8 offset-sm-2">
-			                        <BtnMain
-			                            className="font-weight-bold btn-outline btn-block"
-			                            onClick={e => history.goBack()}
-			                            title="Cancelar" />
-			                        <BtnMain
-			                            className="font-weight-bold btn-block"
-			                            onClick={this.saveCard}
-			                            title="Salvar" />
-			                    </div>
-			                </div>
-		                </div>
-					: 	''
-				}
+							</div>		
+						: 	''
+					}
+					<div className="col-sm-8">
+						{
+							this.props.match.params.formType === 'cards'
+							? 	<div className="row">
+				                    <div className="col-sm-8 offset-sm-2">
+				                        <BtnMain
+				                            className="font-weight-bold btn-outline btn-block"
+				                            onClick={e => history.goBack()}
+				                            title="Cancelar" />
+				                        <BtnMain
+				                            className="font-weight-bold btn-block"
+				                            onClick={this.saveCard}
+				                            title="Salvar" />
+				                    </div>
+				                </div>
+							: 	''
+							
+						}
+					</div>
+				</div>
 			</div>
 		);
     }

@@ -19,7 +19,7 @@ const responseHandler = response => {
 
 const getHeader = () => 
     ({
-        'Content-Type': 'application/json',
+        //'Content-Type': 'application/json',
         'Accept': 'application/json',
         [config.APIKEY]: Cookies.get('token')
     })
@@ -73,6 +73,17 @@ export const patch = (...data) => {
         method: 'patch',
         headers: getHeader(),
         body: JSON.stringify(body)
+    })
+    .then(responseHandler)
+}
+
+export const image = (...data) => {
+    const [url, alert = false, body] = data
+    withMessage = alert
+    return fetch(`${config.API_URL}/${url}`, {
+        method: 'post',
+        headers: getHeader(),
+        body: body
     })
     .then(responseHandler)
 }

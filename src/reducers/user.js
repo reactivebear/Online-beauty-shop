@@ -36,8 +36,13 @@ export default function user(user = initialState, action = {}) {
             return Object.assign({}, user, {
                 data: action.data
             });
-        case types.SET_USER_ADDRESSES:
+        case types.SET_USER_ADDRESS:
             temp.address = action.data
+            return Object.assign({}, user, {
+                data: temp
+            });
+        case types.SET_USER_ADDRESSES:
+            temp.addresses = action.data
             return Object.assign({}, user, {
                 data: temp
             });
@@ -49,6 +54,11 @@ export default function user(user = initialState, action = {}) {
         case types.ADD_CARD:
             return Object.assign({}, user, {
                 cards: [...user.cards, action.data]
+            });
+        case types.SET_USER_AVATAR:
+            temp.image_url = action.image
+            return Object.assign({}, user, {
+                data: temp
             });
         default:
             return user;

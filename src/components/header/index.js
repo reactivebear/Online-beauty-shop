@@ -101,7 +101,8 @@ class Header extends Component {
                                 <div className="d-none d-sm-flex align-items-end justify-content-between mb-3 position-relative">
                                     <div className="position-absolute app-button d-none d-md-block d-lg-none">
                                         <BtnMain
-                                            title="Baixe grátis o app do Visual Total" />
+                                            className="pt-2"
+                                            title={<span><img src="/assets/icons/app-icon.png" alt="" className="img-fluid small-icon mr-2" />Baixe grátis o app do Visual Total</span>} />
                                     </div>
                                     <Link to="/"><img src="/assets/images/logo.png" alt="" className="img-fluid" /></Link>
                                     {
@@ -117,7 +118,8 @@ class Header extends Component {
                                 <div className="row align-items-end h-100">
                                     <div className="d-none d-lg-block col-12 order-sm-first align-self-start text-right">
                                         <BtnMain
-                                            title="Baixe grátis o app do Visual Total" />
+                                            className="pt-2"
+                                            title={<span><img src="/assets/icons/app-icon.png" alt="" className="img-fluid small-icon mr-2" />Baixe grátis o app do Visual Total</span>} />
                                     </div>
                                     <div onClick={this.toggleTooltip('cart')} id="cart" className="header-link-icon col-6 col-sm-3 px-sm-0 form-group pointer"> {/*col-6 col-sm-3*/}
                                         <img src="/assets/icons/cart-icon.png" id="cart" className="img-icon-header align-middle" alt="" />

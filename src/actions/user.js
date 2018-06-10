@@ -1,4 +1,4 @@
-import { put, get, post, patch, remove } from 'api'
+import { put, get, post, patch, remove, image } from 'api'
 import * as types from './types.js'
 import { setUser } from './auth.js'
 
@@ -8,6 +8,15 @@ export const updateUser = data => dispatch =>
             if (json.object) {
                 dispatch(setUser(json.object))
                 return true
+            }
+        })
+    )
+
+export const saveAvatar = data => dispatch => 
+    (
+        image('api/user/image', true, data).then(json => {
+            if (json.object) {
+                dispatch(setUserAvatar(`http://visualtotal.com.br/images/users/${json.object.image_name}`))
             }
         })
     )
@@ -34,6 +43,15 @@ export const getUserAddress = () => dispatch =>
     (
         get(`api/user/main-address`).then(json => {
             if (json.object) {
+                dispatch(setUserAddress(json.object))
+            }
+        })
+    )
+
+export const getUserAddresses = () => dispatch => 
+    (
+        get(`api/user/addresses`).then(json => {
+            if (json.object) {
                 dispatch(setUserAddresses(json.object))
             }
         })
@@ -44,7 +62,15 @@ export const saveAddress = data => dispatch =>
         post(`api/user/address/add`, true, data).then(json => {
             if (json.object) {
                 dispatch(addAddress(json.object))
+                return true
             }
+        })
+    )
+
+export const removeAddress = id => dispatch => 
+    (
+        remove(`api/user/address/${id}`, true).then(json => {
+            dispatch(getUserAddresses())
         })
     )
 
@@ -101,6 +127,12 @@ export const getPurchases = () => dispatch =>
         })
     )
 
+export const setUserAddress = data => 
+    ({
+        type: types.SET_USER_ADDRESS,
+        data
+    })
+
 export const setUserAddresses = data => 
     ({
         type: types.SET_USER_ADDRESSES,
@@ -124,4 +156,10 @@ export const setUserKey = (data, key) =>
         type: types.SET_USER_KEY,
         data,
         key
+    })
+
+export const setUserAvatar = image => 
+    ({
+        type: types.SET_USER_AVATAR,
+        image
     })

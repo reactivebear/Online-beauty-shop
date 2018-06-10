@@ -20,7 +20,11 @@ class StepFirst extends Component {
         	<div className="row pb-5">
         		<div className="col-sm-6">
                     <h4>Meu carrinho</h4>
-        			{ [...product, ...service].map((item, i) => this.printList(item, i)) }
+                    {
+                        [...product, ...service].length
+                        ?   [...product, ...service].map((item, i) => this.printList(item, i))
+                        :   <div className="rounded p-5 bg-white">O seu carrinho está vazio</div>
+                    }
         		</div>
         		<div className="col-sm-6">
         			<h4>Resumo do pedido</h4>

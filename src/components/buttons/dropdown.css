@@ -9,7 +9,7 @@
 	display: none;
 }
 
-.wrap-drop-item.active {
+.wrap-drop-item.up {
 	display: block;
 }
 

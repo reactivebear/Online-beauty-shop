@@ -13,7 +13,6 @@ import SideMenu from 'components/menu/side_menu.js'
 import LeftMenu from 'components/menu/left_menu.js'
 import Modal from 'components/modal'
 import Alert from 'components/alert'
-import WebSearch from 'components/search/web'
 
 class App extends Component {
     constructor(props) {
@@ -29,10 +28,7 @@ class App extends Component {
             if (this.props.design.sideMenu) {
                 store.dispatch(toggleSideMenu(false))
             }
-            window.scrollTo(0, 0)
-            const search = new WebSearch()
-            search.clearSearch()
-        })
+            window.scrollTo(0, 0)        })
     }
 
     printRoutes = (route, i) => <Route key={i} path={route.path} exact component={pages[route.component]} />
