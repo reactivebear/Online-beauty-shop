@@ -6,7 +6,7 @@ const initialState = {
         service: []
     },
     total: {},
-    step: 1
+    step: 1,
     
 }
 

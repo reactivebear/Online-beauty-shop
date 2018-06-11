@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import './input.css'
 
 class Input extends Component {
-    
     render() {
         const { 
             placeholder = '',
@@ -10,6 +9,7 @@ class Input extends Component {
             type = 'text',
             onChange,
             inputRef,
+            onKeyDown,
             className = '',
             label = this.props.label ? `${this.props.label}:` : <span>&nbsp;</span>,
             value 
@@ -34,6 +34,7 @@ class Input extends Component {
                         className={`form-control ${className}`}
                         ref={inputRef}
                         onChange={onChange}
+                        onKeyDown={onKeyDown}
                         defaultValue={value} />
                     <small className="color-grey">{this.props.bottomText}</small>
                 </div>

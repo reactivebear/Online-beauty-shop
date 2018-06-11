@@ -31,4 +31,7 @@ export const SET_CART = 'SET_CART'
 export const SET_CART_TOTAL = 'SET_CART_TOTAL'
 export const SET_STEP = 'SET_STEP'
 
+export const SET_SCHEDULE_CART = 'SET_SCHEDULE_CART'
+export const SET_SCHEDULE_STEP = 'SET_SCHEDULE_STEP'
+
 export const SET_SEARCH = 'SET_SEARCH'

@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
 import style from './style.css' 
 
-class PrevArrow extends Component {
-    
-    render() {
-        return (
-            <div className={`${style.prevArrow} ${style.wrap}`} onClick={this.props.onClick}>
-                <img style={{width: 30}} src="/assets/icons/icons8-chevron-left-48.png" alt="" />
-            </div>
-        );
-    }
-}
+const PrevArrow = props =>
+	(
+		<div className={`${style.prevArrow} ${style.wrap}`} onClick={props.onClick}>
+            <img style={{width: 30}} src="/assets/icons/icons8-chevron-left-48.png" alt="" />
+        </div>
+	)
 
-export default PrevArrow
+const PrevArrowRounded = props =>
+	(
+        <div className="prev-arrow-rounded border" onClick={props.onClick}>
+            <img src="/assets/icons/prev-arrow.png" alt="" className="img-fluid arrow-img" />
+        </div>
+    )
+
+export { PrevArrow, PrevArrowRounded }

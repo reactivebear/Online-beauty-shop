@@ -19,7 +19,7 @@ export default {
             'path': '/search',
             'component': 'Search'
         }, {
-            'path': '/company/:id',
+            'path': '/salon/:id',
             'component': 'Company'
         }, {
             'path': '/category/:type/:id',
@@ -27,6 +27,9 @@ export default {
         }, {
             'path': '/product/:id',
             'component': 'Product'
+        }, {
+            'path': '/schedule/:id',
+            'component': 'ScheduleCart'
         }, {
             'path': '/cart',
             'component': 'Cart'

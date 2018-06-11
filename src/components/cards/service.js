@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import store from 'store'
+import store, { history } from 'store'
 import { addToCart } from 'actions/cart.js'
 import { addToWishList } from 'actions'
 import Stars from 'components/stars'
@@ -40,6 +40,14 @@ class CardService extends Component {
 				})
 			}
 		})
+	}
+
+	addToScheduleCart = () => {
+		history.push(`/schedule/${this.props.id}`)
+	}
+
+	goToSalon = () => {
+		history.push(`/salon/${this.props.id}`)
 	}
 
 	toggleWish = val => {
@@ -90,12 +98,13 @@ class CardService extends Component {
 		            			{this.getAddress(this.props.vendor.address || this.props.address)}
 		            		</div>
 	            			<div className="row justify-content-between mb-1">
-	            				<div className="col-lg-6 pr-lg-1 mb-1 md-sm-0">
+	            				<div className="col-xl-6 pr-xl-1 mb-1 md-sm-0">
 			            			<BtnMain
 			            				className="btn-block btn-outline font-weight-bold"
+			            				onClick={this.addToScheduleCart}
 			            				title="Agendar agora" />
 	            				</div>
-	            				<div className="col-lg-6 pl-lg-1">
+	            				<div className="col-xl-6 pl-xl-1">
 			        				<BtnMain
 			        					className="btn-block btn-outline font-weight-bold px-1"
 			        					onClick={this.addToCart}
@@ -104,6 +113,7 @@ class CardService extends Component {
 	        				</div>
 	            			<BtnMain
 	            				className="btn-block font-weight-bold"
+	            				onClick={this.goToSalon}
 	            				title="Exibir servicos" />
 	            		</div>
             		</div>

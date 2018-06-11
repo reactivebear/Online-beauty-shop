@@ -3,6 +3,8 @@ import store, { history } from 'store'
 import { updateUser } from 'actions/user.js'
 import BtnMain from 'components/buttons/btn_main.js'
 import Input from 'components/inputs/input.js'
+import Select from 'components/inputs/select'
+import { format } from 'utils/mask'
 
 class ProfileForm extends Component {
 
@@ -23,6 +25,10 @@ class ProfileForm extends Component {
         })
     }
 
+    checkMask = (mask, field) => e => {
+        this.user[field].value = format(mask, e.target.value)
+    }
+
     render() {
         const { first_name, last_name, user_email } = this.props
         return (
@@ -31,33 +37,41 @@ class ProfileForm extends Component {
                     required
                     label="Name"
                     value={first_name}
+                    onChange={this.checkMask('alphabet', 'first_name')}
                     inputRef={ref => this.user.first_name = ref} />
                 <Input 
                     required
                     label="Sobrenome"
                     value={last_name}
+                    onChange={this.checkMask('alphabet', 'last_name')}
                     inputRef={ref => this.user.last_name = ref} />
                 <Input 
                     required
                     label="E-mail"
+                    type="email"
                     value={user_email}
+                    onChange={this.checkMask('email', 'email')}
                     inputRef={ref => this.user.email = ref} />
                 <Input 
                     required
+                    type="password"
                     label="Senha"
                     value={''}
                     inputRef={ref => this.user.password = ref} />
                 <Input 
                     required
+                    placeholder="DD/MM/YYYY"
                     label="Data de nascimento"
+                    onChange={this.checkMask('date', 'birth')}
                     inputRef={ref => this.user.birth = ref} />
-                <Input 
+                <Select 
                     required
                     label="Sexo"
-                    inputRef={ref => this.user.gender = ref} />
+                    options={[{value: 'Masculino'}, {value: 'Feminino'}]} />
                 <Input 
                     required
                     label="Número do CPF"
+                    onChange={this.checkMask('cpf', 'cpf')}
                     inputRef={ref => this.user.cpf = ref} />
                 <div className="row justify-content-center">
                     <div className="form-group col-sm-8">

@@ -6,7 +6,8 @@ const initialState = {
     	items: [],
     	page: 1,
     	total_pages: 1
-    }
+    },
+    salon: {}
 }
 
 export default function services(services = initialState, action = {}) {
@@ -15,7 +16,6 @@ export default function services(services = initialState, action = {}) {
             return Object.assign({}, services, {
                 [action.key]: action.data
             });
-        
         default:
             return services;
     }

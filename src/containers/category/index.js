@@ -60,6 +60,7 @@ class Category extends Component {
     }
 
     render() {
+        console.log(this.props[this.props.match.params.type].pagination)
     	const category = this.props.categories.active_category || {}
     	const { items } = this.props[this.props.match.params.type].pagination
         return (
