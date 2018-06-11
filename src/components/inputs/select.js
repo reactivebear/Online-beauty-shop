@@ -1,21 +1,13 @@
 import React, { Component } from 'react'
 
-
 class Select extends Component {
-
-    handleChange = e => {
-		if (this.props.onChange) {
-			this.props.onChange(e);
-		}
-	}
 	
-	printOptions(item, i) {
-		return (
+	printOptions = (item, i) =>
+		(
 			<option key={i} value={item.key ? item.key : i}>
 				{item.value ? item.value : item}
 			</option>
 		)
-	}
     
     render() {
         const { disabled, onChange, className, options, selected, label } = this.props;
@@ -35,7 +27,7 @@ class Select extends Component {
 					disabled={disabled}
 					className={`form-control ${className}`}
 					defaultValue={selected}
-					onChange={e => { this.handleChange(e) }} >
+					onChange={onChange} >
 	                	{ options.map((item, i) => this.printOptions(item, i)) }
 	            </select>
             </div>

@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import store from 'store'
 import { connect } from 'react-redux'
-import { getProduct } from 'actions/products.js'
-import { addToCart } from 'actions/cart.js'
+import { getProduct } from 'actions/products'
+import { addToCart } from 'actions/cart'
+import { toggleModal } from 'actions/design'
+import { getServicesCategory } from 'actions/services'
 import { getCategoriesByType, setCategory, addToWishList } from 'actions'
-import { toggleModal } from 'actions/design.js'
 import ImageMultiPreview from 'components/images/multi_preview.js'
 import ImagePreview from 'components/images/preview.js'
 import Price from 'components/price'
@@ -16,7 +17,7 @@ import SalonInfo from 'components/blocks/salon_info.js'
 import MainList from 'components/lists/main.js'
 import Accordion from 'components/accordion'
 import { CommentForm } from 'components/forms'
-import { getServicesCategory } from 'actions/services'
+
 import Heart from 'components/heart'
 
 class Product extends Component {
@@ -207,23 +208,23 @@ class Product extends Component {
 	            			<h5>Descrição</h5>
 	            			<span className="color-grey">{ product.description }</span>
 	            		</div>
-	            		<div className="rounded pb-4 bg-white">
+	            		<div className="rounded py-4 bg-white">
 	            			<Tabs tabs={[
 	            				{
 	            					title: 'Sobre',
-	            					content: <SalonInfo {...salon} />
+	            					content: <div className="p-3"><SalonInfo {...salon} /></div>
 	            				}, {
 	            					title: 'Produtos',
-	            					content: <MainList type="product" itemType="small" />
+	            					content: <div className="p-3"><MainList type="product" itemType="small" /></div>
 	            				}, {
 	            					title: 'Serviços',
-	            					content: <div className="row"><div className="col-md-8"><Accordion list={servicesCategories} /></div></div>
+	            					content: <div className="p-3"><div className="row"><div className="col-md-8"><Accordion list={servicesCategories} /></div></div></div>
 	            				}, {
 	            					title: 'Avaliações',
-	            					content: this.getReviewList()
+	            					content: <div className="p-3">{this.getReviewList()}</div>
 	            				}, {
             						title: 'Perguntas',
-            						content: this.getQuestionBlock()
+            						content: <div className="p-3">{this.getQuestionBlock()}</div>
 	            				}]} />
 	            		</div>
 	            	</div>

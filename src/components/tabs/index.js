@@ -25,17 +25,17 @@ class Tabs extends Component {
     render() {
         return (
         	<div>
-	            <ul className="nav nav-tabs d-none d-sm-flex pt-4 fs-16 font-weight-bold">
+	            <ul style={this.props.styleHeader} className={`nav nav-tabs d-none d-sm-flex fs-16 font-weight-bold ${this.props.classNameHeader}`}>
 	            	{ this.props.tabs.map((item, i) => this.printLink(item, i)) }
 				</ul>
 
-				<div className="bg-main pb-4 d-sm-none">
+				<div className={`bg-main pb-4 d-sm-none ${this.props.classNameContent}`}>
 					<nav className="nav nav-pills flex-column d-sm-none text-center border-green rounded bg-main">
 						{ this.props.tabs.map((item, i) => this.printLink(item, i)) }
 					</nav>
 				</div>
 
-				<div className="tab-content p-3 rounded">
+				<div className={`tab-content rounded ${this.props.classNameContent}`}>
 					{ this.props.tabs.map((item, i) => this.printContent(item, i)) }
 				</div>
 			</div>
