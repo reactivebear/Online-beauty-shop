@@ -13,6 +13,7 @@ import SideMenu from 'components/menu/side_menu.js'
 import LeftMenu from 'components/menu/left_menu.js'
 import Modal from 'components/modal'
 import Alert from 'components/alert'
+import Viewer from 'components/images/viewer'
 
 class App extends Component {
     constructor(props) {
@@ -54,6 +55,7 @@ class App extends Component {
                             <LeftMenu />
                             <Modal />
                             <Alert />
+                            <Viewer />
                         </div>
                     :   ''
                 }

@@ -27,6 +27,8 @@ class Category extends Component {
 	}
 
     componentWillReceiveProps(nextProps) {
+        console.log(nextProps.categories.active_category)
+        console.log(this.props.categories.active_category)
         if (nextProps.categories.active_category.id !== this.props.categories.active_category.id) {
             this.getData(this.props.match.params.type, nextProps.categories.active_category.id, 1)
         }
@@ -60,7 +62,6 @@ class Category extends Component {
     }
 
     render() {
-        console.log(this.props[this.props.match.params.type].pagination)
     	const category = this.props.categories.active_category || {}
     	const { items } = this.props[this.props.match.params.type].pagination
         return (

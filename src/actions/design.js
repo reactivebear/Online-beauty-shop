@@ -1,4 +1,5 @@
 import * as types from './types.js'
+import { DEFAULT_IMG } from 'config'
 
 export const toggleSideMenu = state => 
     ({
@@ -37,4 +38,10 @@ export const setAlert = (text, level) =>
 export const removeAlert = () =>
     ({
         type: types.REMOVE_ALERT
+    })
+
+export const toggleLightBox = (open, img, current) =>
+    ({
+        type: types.TOGGLE_LIGHT_BOX,
+        data: {img: img.length ? img : [DEFAULT_IMG], open, current},
     })

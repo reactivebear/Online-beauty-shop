@@ -16,7 +16,7 @@ class SideMenu extends Component {
     printMenu = (item, i) => {
         return  <div key={i} className="px-5 py-3">
                     <img src={`/assets/icons/${item.icon_white}`} alt="" className="img-icon" />
-                    <Link className="pl-5" to={item.url}>{item.title}</Link>
+                    <Link className="pl-5" to={`/${item.url}`}>{item.title}</Link>
                 </div>
     }
 

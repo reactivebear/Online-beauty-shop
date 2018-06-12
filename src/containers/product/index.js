@@ -3,7 +3,7 @@ import store from 'store'
 import { connect } from 'react-redux'
 import { getProduct } from 'actions/products'
 import { addToCart } from 'actions/cart'
-import { toggleModal } from 'actions/design'
+import { toggleModal, toggleLightBox } from 'actions/design'
 import { getServicesCategory } from 'actions/services'
 import { getCategoriesByType, setCategory, addToWishList } from 'actions'
 import ImageMultiPreview from 'components/images/multi_preview.js'
@@ -17,13 +17,17 @@ import SalonInfo from 'components/blocks/salon_info.js'
 import MainList from 'components/lists/main.js'
 import Accordion from 'components/accordion'
 import { CommentForm } from 'components/forms'
-
+import { NextArrowRounded } from 'components/carousel/next_arrow'
 import Heart from 'components/heart'
 
 class Product extends Component {
 	constructor(props) {
 		super(props)
 		this.count = 1
+		this.state = {
+			lightboxIsOpen: false,
+			activeImg: 0
+		}
 		if (props.match.params.id) {
 			store.dispatch(getProduct(props.match.params.id))
 		}
@@ -154,6 +158,14 @@ class Product extends Component {
 		store.dispatch(toggleModal(true, CommentForm, 'modal-sm'))
 	}
 
+	openLightBox = () => {
+		store.dispatch(toggleLightBox(true, [
+			{src: '/assets/images/default-image-square-big.png'},
+			{src: '/assets/images/default-image-square-big.png'},
+			{src: '/assets/images/default-image-square-big.png'},
+		], 0))
+	}
+
     render() {
     	const { product, salon } = this.props.products
     	const servicesCategories = this.props.categories.service
@@ -162,7 +174,7 @@ class Product extends Component {
         		<div className="container">
 		            <div className="row">
 		            	<div className="col-12 col-sm-4">
-		            		<ImageMultiPreview className="d-none d-sm-flex" images={product.images} />
+		            		<ImageMultiPreview onClick={this.openLightBox} className="d-none d-sm-flex" images={product.images} />
 		            		<ImagePreview className="d-block d-sm-none" images={product.images} />
 		            	</div>
 		            	<div className="col-12 col-sm-8">

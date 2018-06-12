@@ -1,4 +1,5 @@
 import * as types from 'actions/types.js'
+import { DEFAULT_IMG } from 'config'
 
 const initialState = {
     sideMenu: false,
@@ -14,7 +15,12 @@ const initialState = {
     	content: null,
         className: ''
     },
-    location: '/'
+    location: '/',
+    lightbox: {
+        current: 0,
+        img: [DEFAULT_IMG],
+        open: false,
+    }
 }
 
 export default function design(design = initialState, action = {}) {
@@ -52,6 +58,10 @@ export default function design(design = initialState, action = {}) {
                 alerts: {
                     messages: []
                 }
+            });
+        case types.TOGGLE_LIGHT_BOX:
+            return Object.assign({}, design, {
+                lightbox: {...action.data}
             });
         default:
             return design;

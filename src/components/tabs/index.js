@@ -12,7 +12,8 @@ class Tabs extends Component {
 
 	printLink = (item, i) => {
 		const className =  i + 1 === this.state.active ? 'nav-link active' : 'nav-link'
-		return 	<li key={i} className="nav-item">
+		item.onClick = item.onClick ? item.onClick : () => {}
+		return 	<li key={i} className="nav-item" onClick={item.onClick()}>
 					<span className={`${className} pointer`} id="home-tab" onClick={this.toggleTab(i)}>{item.title}</span>
 				</li>
 	}
@@ -25,7 +26,7 @@ class Tabs extends Component {
     render() {
         return (
         	<div>
-	            <ul style={this.props.styleHeader} className={`nav nav-tabs d-none d-sm-flex fs-16 font-weight-bold ${this.props.classNameHeader}`}>
+	            <ul style={this.props.styleHeader} className={`nav nav-tabs d-none d-sm-flex fs-16 font-weight-bold flex-nowrap ${this.props.classNameHeader}`}>
 	            	{ this.props.tabs.map((item, i) => this.printLink(item, i)) }
 				</ul>
 

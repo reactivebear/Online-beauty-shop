@@ -7,7 +7,12 @@ const initialState = {
     	page: 1,
     	total_pages: 1
     },
-    salon: {}
+    salon: {
+        address: {},
+        social_media: [],
+        reviews: [],
+        professionals: []
+    }
 }
 
 export default function services(services = initialState, action = {}) {

@@ -12,7 +12,7 @@ import Price from 'components/price'
 class CustomAccordion extends Component {
     printBody = (item, i, length) => {
         const last = length === i + 1
-        return  <div key={i}>
+        return  <div key={i} className="bg-white">
                     <div className="row">
                         <div className="col-sm-6 mb-2">
                             <p><strong>{item.title}</strong></p>
@@ -37,11 +37,11 @@ class CustomAccordion extends Component {
         return  <AccordionItem key={i} className="accordion-item mb-2 border rounded-top rounded-bottom">
                     <AccordionItemTitle style={{outline: 'unset'}} className="accordion__title bg-white rounded-top rounded-bottom">
                         <div className="u-position-relative">
-                            <h5>{ item.name }</h5>
+                            <div className="fs-18">{ item.name }</div>
                             <div className="accordion__arrow" role="presentation"></div>
                         </div>
                     </AccordionItemTitle>
-                    <AccordionItemBody>
+                    <AccordionItemBody className="accordion__body bg-white rounded-bottom">
                         { list.map((item, i) => this.printBody(item, i, list.length)) }
                     </AccordionItemBody>
                 </AccordionItem>

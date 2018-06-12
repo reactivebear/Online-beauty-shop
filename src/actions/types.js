@@ -24,6 +24,7 @@ export const TOGGLE_LEFT_MENU = 'TOGGLE_LEFT_MENU'
 export const TOGGLE_MODAL = 'TOGGLE_MODAL'
 export const SHOW_ALERT = 'SHOW_ALERT'
 export const REMOVE_ALERT = 'REMOVE_ALERT'
+export const TOGGLE_LIGHT_BOX = 'TOGGLE_LIGHT_BOX'
 
 export const SET_LOCATION = 'SET_LOCATION'
 

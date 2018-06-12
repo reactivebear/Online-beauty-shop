@@ -76,3 +76,25 @@ export const NOTIFICATION_TYPE = {
             icon: '/assets/icons/notify-gift.png'
         }
     }
+
+export const WEEK = ['Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado', 'Domingo']
+
+export const LIGHTBOX_THEME = {
+                            container: {
+                                    backgroundColor: 'rgba(0,0,0,0.4)',
+                                    background: 'rgba(0,0,0,0.4)'
+                            },
+                            arrow: {
+                                fill: '#579a64',
+                                borderRadius: '100%',
+                                backgroundColor: '#fff',
+                                maxHeight: '46px',
+                                maxWidth: '46px',
+                                minWidth: '46px',
+                                transform: 'translateY(37px)',
+                                padding: '4px 9px 4px 10px',
+                                marginRight: '30px'
+                            }
+                        }
+
+export const DEFAULT_IMG = {src: '/assets/images/default-image-square-big.png'}

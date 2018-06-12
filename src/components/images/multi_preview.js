@@ -24,11 +24,11 @@ class ImageMultiPreview extends Component {
         other = other.length ? other : [{image_url: ''}, {image_url: ''}, {image_url: ''}]
         
         return (
-        	<div className={this.props.className}>
+        	<div className={this.props.className} onClick={this.props.onClick}>
                 <div className="w-15">
                     { other.map((item, i) => this.printSmallPreview(item, i)) }
                 </div>
-                <div className="w-85 px-2">
+                <div className="w-85 px-2 pointer">
     	            <img className="img-fluid" style={{display: this.state.display}} src='/assets/images/default-image-square-big.png' alt="" />
             		<img onLoad={this.handleOnLoad} className="rounded img-fluid" src={first.image_url} alt="" />
                 </div>
