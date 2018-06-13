@@ -98,13 +98,33 @@ path.cls-8 {
 }
 
 .main-wrap {
-	position: relative;
-	left: 0px;
-	transition: left 0.5s;
+	background: #f6f6f6;
+	z-index: 5;
+    display: inline;
+    position: absolute;
+    overflow-x: hidden;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    -webkit-transform: scale(1) translate(0%, 0px);
+    -moz-transform: scale(1) translate(0%, 0px);
+    -ms-transform: scale(1) translate(0%, 0px);
+    -o-transform: scale(1) translate(0%, 0px);
+    transform: scale(1) translate(0%, 0px);
+    -webkit-transition: transform 1s ease-out;
+    -o-transition: transform 1s ease-out;
+    transition: transform 1s ease-out;
 }
 
 .main-wrap.unactive {
-	left: -100px;
+    -webkit-box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.69);
+    -moz-box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.69);
+    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.69);
+    -webkit-transform: scale(0.85) translate(-90%, 0px);
+    -moz-transform: scale(0.85) translate(-90%, 0px);
+    -ms-transform: scale(0.85) translate(-90%, 0px);
+    -o-transform: scale(0.85) translate(-90%, 0px);
+    transform: scale(0.85) translate(-90%, 0px);
 }
 
 .font-avenir {

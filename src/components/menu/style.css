@@ -9,7 +9,7 @@
 	overflow-y: auto;
 	overflow-x: hidden;
 	font-family: 'Avenir LT Std 45 Book';
-	transition: left 0.5s;
+	transition: left 1s ease-out;
 }
 
 .wrap-left-menu {

@@ -93,7 +93,7 @@ class Header extends Component {
                                 <Link to="/"><img src="/assets/images/logo.png" alt="" className="img-fluid logo" /></Link>
                             </div>
                             <div className="col-6 align-self-end text-right px-5">
-                                <i className="fa fa-bars fa-2x" onClick={this.toggleSideMenu(true)} aria-hidden="true"></i>
+                                <i className="fa fa-bars fa-2x" onClick={this.toggleSideMenu(!this.props.design.sideMenu)} aria-hidden="true"></i>
                             </div>
                         </div>
                         <div className="row">
@@ -175,7 +175,10 @@ const mapStateToProps = state =>
                 first_name: state.user.data.first_name
             },
         },
-        categories: state.categories
+        categories: state.categories,
+        design: {
+            sideMenu: state.design.sideMenu
+        }
     })
 
 export default connect(

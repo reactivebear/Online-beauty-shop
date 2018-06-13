@@ -15,7 +15,7 @@ class SideMenu extends Component {
     }
 
     printMenu = (item, i) => {
-        return  <div key={i} className="px-5 py-3">
+        return  <div key={i} className="pl-5 py-3">
                     <img src={`/assets/icons/${item.icon_white}`} alt="" className="img-icon" />
                     <Link className="pl-5" to={`/${item.url}`}>{item.title}</Link>
                 </div>
@@ -29,7 +29,7 @@ class SideMenu extends Component {
         const activeClass = this.props.design.sideMenu ? 'active' : ''
         const { first_name, last_name, image_url } = this.props.user.data
         return (
-            <div className={"text-white wrap-side-menu " + activeClass}>
+            <div className={"text-white wrap-side-menu pl-5 " + activeClass}>
                     {
                         this.props.user.guest
                         ?   <div className="pt-55 px-5 mb-5">

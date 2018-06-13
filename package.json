@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "cross-env": "^5.1.6",
+    "cross-env": "^5.2.0",
     "history": "^4.7.2",
     "js-cookie": "^2.2.0",
     "npm": "^5.10.0",
