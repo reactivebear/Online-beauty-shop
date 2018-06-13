@@ -14,7 +14,7 @@ class Tabs extends Component {
 		const className =  i + 1 === this.state.active ? 'nav-link active' : 'nav-link'
 		item.onClick = item.onClick ? item.onClick : () => {}
 		return 	<li key={i} className="nav-item" onClick={item.onClick()}>
-					<span className={`${className} pointer`} id="home-tab" onClick={this.toggleTab(i)}>{item.title}</span>
+					<span className={`${className} pointer pb-3`} id="home-tab" onClick={this.toggleTab(i)}>{item.title}</span>
 				</li>
 	}
 

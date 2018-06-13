@@ -34,7 +34,7 @@ class CommentForm extends Component {
     }
 
     render() {
-        const levels = ['Excelente', 'Good', 'Normal', 'Satisfactorily', 'Bad'].reverse()
+        const levels = ['Excelente', 'Bom', 'Normal', 'Satisfatório', 'Ruim'].reverse()
         const level = this.state.activeStar + 1 > 0 ? <span>{levels[this.state.activeStar]}</span> : <strong>{levels[this.state.rating - 1]}</strong>
         return (
         	<div>

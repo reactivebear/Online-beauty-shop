@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import store, { history } from 'store'
 import { addToCart } from 'actions/cart.js'
-import { addToWishList } from 'actions'
+import { addToWishList, removeFromWishList } from 'actions'
 import Stars from 'components/stars'
 import Price from 'components/price'
 import BtnMain from 'components/buttons/btn_main.js'
@@ -51,9 +51,7 @@ class CardService extends Component {
 	}
 
 	toggleWish = val => {
-		if (val) {
-			store.dispatch(addToWishList('service', this.props.id))
-		}
+		val ? store.dispatch(addToWishList('service', this.props.id)) : store.dispatch(removeFromWishList('service', this.props.id))
 	}
 
 	componentWillMount() {
@@ -80,7 +78,7 @@ class CardService extends Component {
 				            		Avaliação<br />
 				            		<Stars active={this.props.rating} />
 			            		</div>
-			            		<Heart onChange={this.toggleWish} />
+			            		<Heart onChange={this.toggleWish} active={this.props.in_wishlist} />
 			            	</div>
 
 			            	<div className="mb-2">

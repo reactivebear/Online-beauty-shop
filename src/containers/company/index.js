@@ -3,6 +3,7 @@ import store from 'store'
 import { connect } from 'react-redux'
 import { getService, getServicesCategory } from 'actions/services'
 import { getCategoriesByType, setCategory } from 'actions'
+import { getProducts } from 'actions/products'
 import Carousel from 'components/carousel'
 import Tabs from 'components/tabs'
 import Accordion from 'components/accordion'
@@ -10,8 +11,10 @@ import BtnMain from 'components/buttons/btn_main'
 import { WEEK } from 'config'
 import AddressMap from 'components/map'
 import Stars from 'components/stars'
-import { toggleModal } from 'actions/design'
+import { toggleModal, toggleLightBox } from 'actions/design'
 import { CommentForm } from 'components/forms'
+import Pagination from 'components/pagination'
+import CardProduct from 'components/cards/product.js'
 
 class Company extends Component {
     state = {
@@ -19,8 +22,21 @@ class Company extends Component {
         orderClassLast: 'order-3'
     }
 
+    constructor(props) {
+        super(props)
+        this.carouselItems = [
+            {src: '/assets/images/default-image-square-big.png'},
+            {src: '/assets/images/default-image-square-big.png'},
+            {src: '/assets/images/default-image-square-big.png'},
+            {src: '/assets/images/default-image-square-big.png'},
+        ]
+    }
+
 	componentWillMount() {
 		store.dispatch(getService(this.props.match.params.id))
+
+        store.dispatch(getProducts('pagination', {new_pagination: true, page_size: 8, page: 1}))
+
         store.dispatch(getCategoriesByType('service')).then(res => {
             if (res) {
                 store.dispatch(setCategory(res, 'service'))
@@ -49,6 +65,16 @@ class Company extends Component {
         store.dispatch(toggleModal(true, CommentForm, 'modal-sm'))
     }
 
+    toggleLightBox = i => {
+        store.dispatch(toggleLightBox(true, this.carouselItems, i))
+    }
+
+    printProducts = (item, i) => <div key={i} className="col-lg-6 mb-3"><CardProduct {...item} /></div>
+
+    changePage = page => {
+        store.dispatch(getProducts('pagination', {new_pagination: true, page_size: 8, page: page}))
+    }
+
     printSocial = (item, i) =>
         (
             <div key={i} className="mb-2">
@@ -57,12 +83,13 @@ class Company extends Component {
             </div>
         )
 
-    printProfessionals = (item, i) => {
-        return  <div key={i} className="d-flex justify-content-start align-items-center">
-                    <div className="px-3 w-20"><img src="/assets/images/default-professional.png" alt="" className="img-fluid" /></div>
-                    <div>{item.user.first_name} {item.user.last_name}</div>
-                </div>
-    }
+    printProfessionals = (item, i) =>
+        (    
+            <div key={i} className="d-flex justify-content-start align-items-center">
+                <div className="px-3 w-20"><img src="/assets/images/default-professional.png" alt="" className="img-fluid" /></div>
+                <div>{item.user.first_name} {item.user.last_name}</div>
+            </div>
+        )
 
     getReviewList = () => {
         return  <div>
@@ -99,18 +126,25 @@ class Company extends Component {
     render() {
     	const { salon } = this.props.services
         const servicesCategories = this.props.categories.service
-    	//console.log(salon)
+    	const products = this.props.product.pagination.items
     	const settings = {
             slidesToShow: 3,
             swipeToSlide: true,
             infinite: false,
+            responsive: [
+                {
+                    breakpoint: 768, 
+                    settings: {
+                        slidesToShow: 2,
+                        arrows: false
+                    }
+                }
+            ]
         }
-    	const carouselItems = [
-    		<img style={{width: '100%', maxHeight: 350}} src="/assets/images/default-image-square-big.png" alt="" />, 
-    		<img style={{width: '100%', maxHeight: 350}} src="/assets/images/default-image-square-big.png" alt="" />, 
-    		<img style={{width: '100%', maxHeight: 350}} src="/assets/images/default-image-square-big.png" alt="" />,
-    		<img style={{width: '100%', maxHeight: 350}} src="/assets/images/default-image-square-big.png" alt="" />,
-		]
+
+        const carouselItems = this.carouselItems.map((item, i) => {
+            return <img key={i} className="pointer" style={{width: '100%', maxHeight: 350}} src={item.src} alt="" />
+        })
 
         return (
         	<div className="bg-main font-avenir py-5">
@@ -121,7 +155,7 @@ class Company extends Component {
     	            		<span className="fs-22 px-3">{salon.name}</span>
                 		</div>
                 		<div>
-                			<Carousel items={carouselItems} settings={settings} rounded />
+                			<Carousel items={carouselItems} settings={settings} rounded onClickItem={this.toggleLightBox} />
                 		</div>
                 	</div>
                 </div>
@@ -131,7 +165,7 @@ class Company extends Component {
                             <Tabs
                                 classNameHeader="bg-white"
                                 classNameContent="pt-4"
-                                styleHeader={{marginTop: -66}}
+                                styleHeader={{marginTop: -73}}
                                 tabs={[
                                     {
                                         title: 'Serviços',
@@ -148,7 +182,15 @@ class Company extends Component {
                                     }, {
                                         title: 'Produtos',
                                         onClick: this.hideComment,
-                                        content: <div></div>
+                                        content:    <div>
+                                                        <div className="row align-items-stretch">
+                                                            { products.map((item, i) => this.printProducts(item, i)) }
+                                                        </div>
+                                                        <Pagination 
+                                                            onChange={this.changePage} 
+                                                            total={this.props.product.pagination.total_pages} 
+                                                            active={this.props.product.pagination.page} />
+                                                    </div>
                                     }]} />
                             <div className="d-none d-md-block">
                                 {
@@ -217,6 +259,9 @@ const mapStateToProps = state =>
     ({
         services: {
         	salon: state.services.salon
+        },
+        product: {
+            pagination: state.products.pagination
         },
         categories: {
             service: state.categories.service

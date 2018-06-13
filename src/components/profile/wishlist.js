@@ -16,7 +16,7 @@ class Wishlist extends Component {
 	}
 
 	printList = (item, i) =>
-		(<div key={i} className="col-sm-6">
+		(<div key={i} className="col-lg-6 mb-3">
 			{ this.state.active === 'products' ? <CardProduct {...item.product} /> : <CardService {...item.service} /> }
 		</div>)
 
@@ -54,23 +54,18 @@ class Wishlist extends Component {
 		const list = this.props.user.wishlist[this.state.active] || []
         return (
         	<div>
-        		<div className="row">
-    				<div className="col-sm-4 offset-sm-4">
+	    		<div className="row">
+					<div className="col-lg-4 col-md-8 offset-md-2 offset-lg-4">
 	        			<div className="text-center form-group">
 				            <BtnGroup
 				            	buttons={catButtons} />
 		            	</div>
 	            	</div>
-            	</div>
-            	<div className="row">
-            		{
-            			list.map((item, i) => this.printList(item, i))
-            		}
-	            	<div className={'col-sm-12 ' + this.state.firstClass}>
-		            	
-            		</div>
+	        	</div>
+	        	<div className="row">
+	        		{ list.map((item, i) => this.printList(item, i)) }
 	            </div>
-        	</div>
+	        </div>
     	)
     }
 }

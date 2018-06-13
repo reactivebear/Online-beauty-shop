@@ -7,6 +7,7 @@ import { logout } from 'actions/auth'
 import { LoginForm } from 'components/forms'
 import { LIST_MENU } from 'config'
 import './style.css'
+import Avatar from 'components/images/avatar'
 
 class SideMenu extends Component {
     toggleSideMenu = () => {
@@ -26,7 +27,7 @@ class SideMenu extends Component {
 
     render() {
         const activeClass = this.props.design.sideMenu ? 'active' : ''
-        const { first_name, last_name } = this.props.user.data
+        const { first_name, last_name, image_url } = this.props.user.data
         return (
             <div className={"text-white wrap-side-menu " + activeClass}>
                     {
@@ -41,7 +42,7 @@ class SideMenu extends Component {
                                 <div className="row pt-55 px-5 mb-5">
                                     <div className="col">
                                         <div className="form-group">
-                                            <img src="/assets/images/default-avatar.png" className="img-fluid" style={{height: 85}} alt="" />
+                                            <Avatar image={image_url} defaultImg="/assets/images/default-avatar.png" edit={false} />
                                         </div>
                                     </div>
                                     <div className="col text-right align-self-center">
@@ -76,6 +77,7 @@ const mapStateToProps = state =>
             data: {
                 first_name: state.user.data.first_name,
                 last_name: state.user.data.last_name,
+                image_url: state.user.data.image_url,
             }
         },
         design: {

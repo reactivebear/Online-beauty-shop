@@ -43,5 +43,5 @@ export const removeAlert = () =>
 export const toggleLightBox = (open, img, current) =>
     ({
         type: types.TOGGLE_LIGHT_BOX,
-        data: {img: img.length ? img : [DEFAULT_IMG], open, current},
+        data: {img: img.length ? img : [DEFAULT_IMG, DEFAULT_IMG, DEFAULT_IMG, DEFAULT_IMG], open, current},
     })

@@ -5,7 +5,7 @@ import Stars from 'components/stars'
 import Price from 'components/price'
 import BtnMain from 'components/buttons/btn_main.js'
 import { addToCart } from 'actions/cart.js'
-import { addToWishList } from 'actions'
+import { addToWishList, removeFromWishList } from 'actions'
 import Heart from 'components/heart'
 
 class CardProduct extends Component {
@@ -23,16 +23,14 @@ class CardProduct extends Component {
 	}
 
 	toggleWish = val => {
-		if (val) {
-			store.dispatch(addToWishList('product', this.props.id))
-		}
+		val ? store.dispatch(addToWishList('product', this.props.id)) : store.dispatch(removeFromWishList('product', this.props.id))
 	}
 
 	getDescription = text => text.length > 25 ? `${text.slice(0, 25)}...` : text
 
 	render() {
 		const image = this.props.images ? (this.props.images.length ? this.props.images[0].image_url : '') : ''
-		
+
 		return (
 			<div className="card product rounded p-2 pointer d-flex flex-column justify-content-between" onClick={this.goToProduct}>
 				<div className="d-flex mb-2">
@@ -54,7 +52,7 @@ class CardProduct extends Component {
 			            		Avaliação<br />
 			            		<Stars active={this.props.rating} />
 		            		</div>
-		            		<Heart onChange={this.toggleWish} />
+		            		<Heart onChange={this.toggleWish} active={this.props.in_wishlist} />
 		            	</div>
 		            	<div>
 		            		<Price current={this.props.price} old={this.props.discount_price} />

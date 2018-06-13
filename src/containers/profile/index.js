@@ -10,10 +10,10 @@ class Profile extends Component {
         	<div className="bg-main font-avenir py-4">
         		<div className="container">
         			<div className="row">
-        				<div className="col-md-3">
+        				<div className="col-lg-3 col-md-4 col-sm-5">
 	            			<SideMenuWeb />
 	            		</div>
-	            		<div className="col-md-9">
+	            		<div className="col-lg-9 col-md-8 col-sm-7">
 	            			<Switch>
 	            				<Route path="/profile" exact component={Info} />
 	            				<Route path="/profile/edit" exact component={Edit} />

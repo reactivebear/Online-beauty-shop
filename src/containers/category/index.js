@@ -27,8 +27,6 @@ class Category extends Component {
 	}
 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps.categories.active_category)
-        console.log(this.props.categories.active_category)
         if (nextProps.categories.active_category.id !== this.props.categories.active_category.id) {
             this.getData(this.props.match.params.type, nextProps.categories.active_category.id, 1)
         }

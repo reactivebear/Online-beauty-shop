@@ -48,11 +48,20 @@ export const addToWishList = (type, id) => dispatch =>
         })
     )
 
-export const getBlogs = () => dispatch => 
+export const removeFromWishList = (type, id) => dispatch => 
     (
-        get(`api/banners`).then(json => {
+        post(`api/wishlist/remove-item/${id}`, true).then(json => {
             if (json.object) {
                 console.log(json.object)
+            }
+        })
+    )
+
+export const getBlogs = () => dispatch => 
+    (
+        get(`api/blog/posts`).then(json => {
+            if (json.object) {
+                dispatch(setBlogs(json.object))
             }
         })
     )
@@ -102,5 +111,11 @@ export const setActiveCategory = cat =>
 export const setSearch = data => 
     ({
         type: types.SET_SEARCH,
+        data
+    })
+
+export const setBlogs = data => 
+    ({
+        type: types.SET_BLOGS,
         data
     })

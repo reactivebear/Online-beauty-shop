@@ -12,7 +12,7 @@ class Purchased extends Component {
 	}
 
 	printList = (item, i) => {
-		return <div key={i} className="col-sm-6 mb-3"><CardPurchase {...item} /></div>
+		return <div key={i} className="col-lg-6 mb-3"><CardPurchase {...item} /></div>
 	}
 
 	getPurchasesList = () => {

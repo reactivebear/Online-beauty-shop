@@ -20,7 +20,7 @@ class AddressList extends Component {
 
     printList = (item, i) => {
         const card = this.type === 'cards' ? <CreditCardCard item={item} /> : <AddressCard item={item} />
-        return  <div key={i} className="col-sm-6 mb-3">
+        return  <div key={i} className="col-md-6 mb-3">
                     {card}
                 </div>
     }
@@ -41,7 +41,7 @@ class AddressList extends Component {
         }
 		return (
 			<div className="row">
-			    <div className="col-12 col-sm-6">
+			    <div className="col-12 col-md-6">
                     <BtnMain
                         className="font-weight-bold btn-outline btn-block"
                         onClick={() => history.push('add')}

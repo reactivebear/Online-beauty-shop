@@ -18,13 +18,12 @@ class StepThird extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
+const mapStateToProps = state =>
+    ({
         cart: {
             total: state.cart.total
         }
-    }
-}
+    })
 
 export default connect(
     mapStateToProps

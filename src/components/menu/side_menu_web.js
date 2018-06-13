@@ -2,8 +2,13 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { history } from 'store'
 import { LIST_MENU } from 'config'
+import Avatar from 'components/images/avatar'
 
 class SideMenuWeb extends Component {
+    state = {
+        display: 'block'
+    }
+
     printList = (item, i) => {
         const [, first] = history.location.pathname.split('/')
         let className = 'pl-3 py-3 d-flex align-items-center pointer menu-web-item color-grey'
@@ -17,13 +22,13 @@ class SideMenuWeb extends Component {
     }
 
     render() {
-        const { first_name, last_name } = this.props.user.data
+        const { first_name, last_name, image_url } = this.props.user.data
         return (
         	<div className="bg-white rounded pb-4 border wrap-menu-web d-none d-sm-block">
         		<div className="row p-4">
         			<div className="col-8 offset-2">
         				<div className="form-group">
-	            			<img src="/assets/images/default-avatar.png" className="img-fluid" alt="" />
+                            <Avatar image={image_url} defaultImg="/assets/images/default-avatar.png" edit={false} />
             			</div>
 	            	</div>
 	            </div>
@@ -40,6 +45,7 @@ const mapStateToProps = state =>
             data: {
                 first_name: state.user.data.first_name,
                 last_name: state.user.data.last_name,
+                image_url: state.user.data.image_url,
             }
         }
     })

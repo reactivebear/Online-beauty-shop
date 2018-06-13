@@ -5,11 +5,19 @@ import { getSearch } from 'actions'
 import './style.css'
 
 class WebSearch extends Component {
+	constructor(props) {
+		super(props)
+		history.listen((location, action) => {
+            this.query.value = ''
+        })
+	}
+
 	openDropDown = () => {
 
 	}
 
-	search = () => {
+	search = e => {
+		e.preventDefault()
 		const params = {search_text: this.query.value}
 		store.dispatch(getSearch('pagination', {page_size: 6, ...params}))
 		history.push('/search')
@@ -17,7 +25,7 @@ class WebSearch extends Component {
 
     render() {
         return (
-            <div className="input-group">
+            <form className="input-group" onSubmit={this.search}>
             	<div className="input-group-prepend">
 				    <button type="button" onClick={this.openDropDown} className="btn btn-drop-search pl-3">
 				    	Todos
@@ -28,10 +36,10 @@ class WebSearch extends Component {
 				<div className="input-group-append">
 				    <BtnMain
 				    	className="btn-search px-4 pt-2"
-				    	onClick={this.search}
+				    	type="submit"
 				    	title={<i className="fa fa-search" aria-hidden="true"></i>} />
 			  	</div>
-			</div>
+			</form>
         )
     }
 }

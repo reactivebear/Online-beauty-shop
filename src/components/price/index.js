@@ -2,7 +2,24 @@ import React, { Component } from 'react'
 
 class Price extends Component {
 
-    format = num => num.length > 3 ? `${num.slice(0, 1)}.${num.slice(1)}` : num
+    format = num => {
+        if (num.length >= 7) {
+            return `${num.slice(0, 3)}.${num.slice(3, 6)}.${num.slice(6)}`
+        }
+
+        if (num.length >= 6) {
+            return `${num.slice(0, 3)}.${num.slice(3)}`
+        }
+
+        if (num.length >= 5) {
+            return `${num.slice(0, 2)}.${num.slice(2)}`
+        }
+
+        if (num.length > 3) {
+            return `${num.slice(0, 1)}.${num.slice(1)}`
+        }
+        return num
+    }
 
     render() {
         const current = this.props.current ? this.props.current.toString().split('.') : '0'

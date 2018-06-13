@@ -30,7 +30,7 @@ class CardForm extends Component {
                     value={card.card_number}
                     inputRef={ref => this.card.card_number = ref} />
                 <div className="row">
-                    <div className="col-sm-6">
+                    <div className="col-md-6">
                         <div className="d-flex align-items-center">
                             <Input 
                                 required
@@ -46,7 +46,7 @@ class CardForm extends Component {
                                 inputRef={ref => this.card.validity_year = ref} />
                         </div>
                     </div>
-                    <div className="col-sm-6">
+                    <div className="col-md-6">
                         <Input 
                             required
                             label="Código de segurança"

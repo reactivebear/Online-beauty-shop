@@ -19,6 +19,15 @@ export const getProduct = id => dispatch =>
         })
     )
 
+export const getProductsVendor = id => dispatch => 
+    (
+        get(`api/products/vendor/${id}`, false).then(json => {
+            if (json.object) {
+                console.log(json.object)
+            }
+        })
+    )
+
 export const setProducts = (data, key) => 
     ({
         type: types.SET_PRODUCTS,

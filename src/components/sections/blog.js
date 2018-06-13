@@ -1,39 +1,14 @@
 import React, { Component } from 'react'
+import store from 'store'
+import { connect } from 'react-redux'
 import Carousel from 'components/carousel'
 import CardBlog from 'components/cards/blog'
+import { getBlogs } from 'actions'
 
 class BlogSection extends Component {
 
-	printList = () => {
-		const list = [
-			{
-				img: '/assets/images/blog.png',
-				tags: 'Insights Hair style Yr retro brunch',
-				text: 'Pickled single-origin coffee blue  bottle venmo messenger bag  hammock',
-				desc: 'Por Evelyn Rodrigues',
-				date: '16/04/2018 - 08h00'
-			}, {
-				img: '/assets/images/blog.png',
-				tags: 'Insights Hair style Yr retro brunch',
-				text: 'Pickled single-origin coffee blue  bottle venmo messenger bag  hammock',
-				desc: 'Por Evelyn Rodrigues',
-				date: '16/04/2018 - 08h00'
-			}, {
-				img: '/assets/images/blog.png',
-				tags: 'Insights Hair style Yr retro brunch',
-				text: 'Pickled single-origin coffee blue  bottle venmo messenger bag  hammock',
-				desc: 'Por Evelyn Rodrigues',
-				date: '16/04/2018 - 08h00'
-			}, {	
-				img: '/assets/images/blog.png',
-				tags: 'Insights Hair style Yr retro brunch',
-				text: 'Pickled single-origin coffee blue  bottle venmo messenger bag  hammock',
-				desc: 'Por Evelyn Rodrigues',
-				date: '16/04/2018 - 08h00'
-			}
-		]
-
-		return list.map((item, i) => <CardBlog first={i===0} last={i===list.length-1} key={i} {...item} />)
+	componentWillMount() {
+		store.dispatch(getBlogs())
 	}
 
     render() {
@@ -66,11 +41,20 @@ class BlogSection extends Component {
             <div>
 				<div className="form-group">
                     <h2>Blog</h2>
-                    <Carousel items={this.printList()} settings={settings} />
+                    <Carousel items={this.props.design.blogs.map((item, i) => <CardBlog key={i} {...item} />)} settings={settings} />
                 </div>
 			</div>
         )
     }
 }
 
-export default BlogSection
+const mapStateToProps = state =>
+    ({ 
+        design: {
+            blogs: state.design.blogs
+        }
+    })
+
+export default connect(
+    mapStateToProps
+)(BlogSection)

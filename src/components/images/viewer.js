@@ -29,6 +29,9 @@ class Viewer extends Component {
 		        currentImage={current}
 		        backdropClosesModal={true}
 		        theme={LIGHTBOX_THEME}
+		        preloadNextImage={false}
+		        preventScroll={false}
+		        enableKeyboardInput={false}
 		        onClose={this.closeLightbox} />
 		)
 	}

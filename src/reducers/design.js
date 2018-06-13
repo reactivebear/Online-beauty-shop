@@ -18,9 +18,10 @@ const initialState = {
     location: '/',
     lightbox: {
         current: 0,
-        img: [DEFAULT_IMG],
+        img: [DEFAULT_IMG, DEFAULT_IMG, DEFAULT_IMG, DEFAULT_IMG],
         open: false,
-    }
+    },
+    blogs: []
 }
 
 export default function design(design = initialState, action = {}) {
@@ -62,6 +63,10 @@ export default function design(design = initialState, action = {}) {
         case types.TOGGLE_LIGHT_BOX:
             return Object.assign({}, design, {
                 lightbox: {...action.data}
+            });
+        case types.SET_BLOGS:
+            return Object.assign({}, design, {
+                blogs: action.data
             });
         default:
             return design;

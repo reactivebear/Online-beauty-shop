@@ -26,11 +26,11 @@ class Info extends Component {
 						<h4 className="mb-3">Meus Dados</h4>
 						<div className="border-bottom mb-4"></div>
 						<div className="row align-items-center mb-3">
-		    				<div className="color-grey col-sm-10 col-8">
+		    				<div className="color-grey col-lg-10 col-8">
 		    					<h4>{`${first_name} ${last_name}`}</h4>
 		    					<h4 className="mb-3">{email}</h4>
 		    					<div className="row">
-									<div className="col-12 col-sm-4">
+									<div className="col-12 col-lg-4 col-md-8">
 										<BtnMain
 					        				className="font-weight-bold btn-block"
 					        				onClick={this.goToEdit}
@@ -38,14 +38,14 @@ class Info extends Component {
 									</div>
 								</div>
 		    				</div>
-		    				<div className="col-sm-2 col-4">
-								<Avatar image={image_url} />
+		    				<div className="col-lg-2 col-4">
+								<Avatar image={image_url} edit={true} />
 							</div>
 						</div>
 						
 					</div>
 				</div>
-				<div className="col-sm-6 mb-3">
+				<div className="col-lg-6 col-md-8 mb-3">
 					<div className="rounded p-4 bg-white border">
 						<h4 className="mb-3">Endereço de entrega</h4>
 						<div className="border-bottom mb-4"></div>
@@ -68,7 +68,7 @@ class Info extends Component {
 
 				<div className="col-12"></div>
 
-				<div className="col-sm-6">
+				<div className="col-lg-6 col-md-8">
 					<div className="rounded p-4 bg-white border">
 						<h4 className="mb-3">Meu cartão</h4>
 						<div className="border-bottom mb-4"></div>

@@ -22,3 +22,10 @@
 .wrap-avatar:hover .avatar-hover {
 	bottom: 0px;
 }
+
+.img-block {
+	background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 0;
+}

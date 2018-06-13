@@ -7,8 +7,14 @@ import "slick-carousel/slick/slick-theme.css"
 
 
 class Carousel extends Component {
-    printItems = (item, i) =>  <div key={i}>{item}</div>
+    printItems = (item, i) =>  <div key={i} onClick={this.onClickItem(i)}>{item}</div>
     
+    onClickItem = i => e => {
+        if (this.props.onClickItem) {
+            this.props.onClickItem(i)
+        }
+    }
+
     render() {
         const nextArrow = this.props.rounded ? <NextArrowRounded /> : <NextArrow />
         const prevArrow = this.props.rounded ? <PrevArrowRounded /> : <PrevArrow />

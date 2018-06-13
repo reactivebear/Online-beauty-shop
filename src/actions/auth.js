@@ -15,7 +15,7 @@ export const loginAsGuest = () => dispatch =>
 
 export const login = data => dispatch => 
     (
-        post('login', true, data).then(json => {
+        post('login', false, data).then(json => {
             if (json.apikey) {
                 dispatch(setToken(json.apikey.key, json.user.guest))
                 dispatch(setUser(json.user))

@@ -18,7 +18,7 @@ class Credits extends Component {
 	}
 
 	printCreditsCard = (item, i) => {
-		return <div key={i} className="col-sm-4"><CardCredit /></div>
+		return <div key={i} className="col-xl-4 col-lg-6 mb-3"><CardCredit /></div>
 	}
 
 	render() {
@@ -26,7 +26,7 @@ class Credits extends Component {
 		return (
 			<div>
 				<div className="row align-items-stretch">
-					<div className="col-sm-7">
+					<div className="col-lg-7">
 						<h4>Comprar créditos</h4>
 						<div className="rounded border p-3 bg-white mb-3">
 							<div className="row">
@@ -43,7 +43,7 @@ class Credits extends Component {
 							</div>
 						</div>
 					</div>
-					<div className="col-sm-5 mb-3">
+					<div className="col-lg-5 mb-3">
 						<h4>Resumo do pedido</h4>
 						<div className="rounded border p-3 bg-white">
 							<div className="d-flex justify-content-between">
@@ -63,18 +63,18 @@ class Credits extends Component {
 		        				title="Comprar agora" />
 						</div>
 					</div>
-					<div className="col-sm-7 mb-3">
+					<div className="col-lg-7 mb-3">
 						<h4>Enviar créditos</h4>
 						<div className="rounded border p-3 bg-white">
 							<div className="row mb-3">
 								<div className="col-4">
-									<img src="/assets/images/mobile-hand.png" className="img-fluid pl-sm-2 pr-sm-5" alt="" />
+									<img src="/assets/images/mobile-hand.png" className="img-fluid pl-md-2 pr-md-5" alt="" />
 								</div>
 								<div className="col-8">
 
 									<div className="row mb-3">
 										<div className="fs-18 col-12 col-sm-6 pr-0">Créditos na loja:</div>
-										<div className="col-sm-6 col-12 text-sm-right">
+										<div className="col-sm-6 col-12 text-sm-right pl-sm-0">
 											<Price current={72} />
 										</div>
 									</div>

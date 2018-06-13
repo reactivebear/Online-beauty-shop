@@ -29,7 +29,8 @@ class App extends Component {
             if (this.props.design.sideMenu) {
                 store.dispatch(toggleSideMenu(false))
             }
-            window.scrollTo(0, 0)        })
+            window.scrollTo(0, 0)
+        })
     }
 
     printRoutes = (route, i) => <Route key={i} path={route.path} exact component={pages[route.component]} />

@@ -220,7 +220,7 @@ class Product extends Component {
 	            			<h5>Descrição</h5>
 	            			<span className="color-grey">{ product.description }</span>
 	            		</div>
-	            		<div className="rounded py-4 bg-white">
+	            		<div className="rounded py-3 bg-white">
 	            			<Tabs tabs={[
 	            				{
 	            					title: 'Sobre',

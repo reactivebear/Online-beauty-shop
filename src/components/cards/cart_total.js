@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import store from 'store'
 import { setStep } from 'actions/cart.js'
 import BtnMain from 'components/buttons/btn_main.js'
@@ -22,7 +23,7 @@ class CartTotal extends Component {
 					: 	<div>
 							<h5>Usar créditos</h5>
 							<div className="d-flex justify-content-between color-grey">
-								<div><Price className="d-inline-block" current={0} /> créditos</div>
+								<div><Price className="d-inline-block" current={this.props.user.data.credit_amount} /> créditos</div>
 								<div><CheckBox onChange={e => {this.credits = e.target.checked}} /></div>
 							</div>
 						</div>
@@ -87,4 +88,15 @@ class CartTotal extends Component {
 	}
 }
 
-export default CartTotal
+const mapStateToProps = state =>
+    ({
+        user: {
+            data: {
+            	credit_amount: state.user.data.credit_amount
+            }
+        }
+    })
+
+export default connect(
+    mapStateToProps
+)(CartTotal)

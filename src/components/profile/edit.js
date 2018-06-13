@@ -56,12 +56,12 @@ class Edit extends Component {
         			Se você está atualizando seus dados cadastrais, faça as alterações  nos campos abaixo e depois clique em "Salvar"
     			</div>
     			<div className="row">
-		        	<div className="rounded p-4 bg-white border mb-3 col-sm-8">
+		        	<div className="rounded p-4 bg-white border mb-3 col-lg-8">
 						{ this.form }
 					</div>
 					{
 						this.props.match.params.formType === 'cards'
-						? 	<div className="rounded p-4 bg-white border mb-3 col-sm-8">
+						? 	<div className="rounded p-4 bg-white border mb-3 col-lg-8">
 								<div className="d-flex justify-content-between align-items-center color-grey">
 									<div>É o mesmo endereço de entrega?</div>
 									<div><CheckBox onChange={this.toggleAddressForm} /></div>
@@ -70,11 +70,11 @@ class Edit extends Component {
 							</div>		
 						: 	''
 					}
-					<div className="col-sm-8">
+					<div className="col-lg-8">
 						{
 							this.props.match.params.formType === 'cards'
 							? 	<div className="row">
-				                    <div className="col-sm-8 offset-sm-2">
+				                    <div className="col-lg-8 offset-lg-2">
 				                        <BtnMain
 				                            className="font-weight-bold btn-outline btn-block"
 				                            onClick={e => history.goBack()}
