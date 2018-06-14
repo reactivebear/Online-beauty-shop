@@ -51,7 +51,7 @@ class CartHeader extends Component {
         	<div>
 	            { 	[...product, ...service].length 
 	            	? 	[...product, ...service].map((item, i) => this.printList(item, i))
-	            	: 	<div className="text-center mb-3">O seu carrinho está vazio</div> 
+	            	: 	<div className="text-center mb-3">Carrinho Vazio</div> 
             	}
             	{
             		[...product, ...service].length

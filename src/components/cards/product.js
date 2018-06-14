@@ -10,7 +10,7 @@ import Heart from 'components/heart'
 
 class CardProduct extends Component {
 	state = {
-		display: 'block'
+		display: 'block',
 	}
 
 	handleOnLoad = e => { this.setState({display: 'none'}) }
@@ -26,11 +26,16 @@ class CardProduct extends Component {
 		val ? store.dispatch(addToWishList('product', this.props.id)) : store.dispatch(removeFromWishList('product', this.props.id))
 	}
 
+	removeFromWishList = e => {
+		e.stopPropagation()
+		store.dispatch(removeFromWishList('product', this.props.id))
+	}
+
 	getDescription = text => text.length > 25 ? `${text.slice(0, 25)}...` : text
 
 	render() {
 		const image = this.props.images ? (this.props.images.length ? this.props.images[0].image_url : '') : ''
-
+		
 		return (
 			<div className="card product rounded p-2 pointer d-flex flex-column justify-content-between" onClick={this.goToProduct}>
 				<div className="d-flex mb-2">
@@ -52,7 +57,11 @@ class CardProduct extends Component {
 			            		Avaliação<br />
 			            		<Stars active={this.props.rating} />
 		            		</div>
-		            		<Heart onChange={this.toggleWish} active={this.props.in_wishlist} />
+		            		{
+		            			this.props.wishlist
+		            			? 	<i className={`fas fa-heart fs-22 pointer color-green`} onClick={this.removeFromWishList}></i>
+		            			: 	<Heart onChange={this.toggleWish} active={this.props.in_wishlist} />
+		            		}
 		            	</div>
 		            	<div>
 		            		<Price current={this.props.price} old={this.props.discount_price} />

@@ -98,11 +98,12 @@ path.cls-8 {
 }
 
 .main-wrap {
-	background: #f6f6f6;
+	-webkit-overflow-scrolling: touch;
 	z-index: 5;
     display: inline;
     position: absolute;
     overflow-x: hidden;
+    overflow-y: auto;
     top: 0px;
     height: 100%;
     width: 100%;
@@ -111,9 +112,9 @@ path.cls-8 {
     -ms-transform: scale(1) translate(0%, 0px);
     -o-transform: scale(1) translate(0%, 0px);
     transform: scale(1) translate(0%, 0px);
-    -webkit-transition: transform 1s ease-out;
-    -o-transition: transform 1s ease-out;
-    transition: transform 1s ease-out;
+    -webkit-transition: transform 0.6s ease-out;
+    -o-transition: transform 0.6s ease-out;
+    transition: transform 0.6s ease-out;
 }
 
 .main-wrap.unactive {

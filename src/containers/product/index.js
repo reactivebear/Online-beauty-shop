@@ -5,7 +5,7 @@ import { getProduct } from 'actions/products'
 import { addToCart } from 'actions/cart'
 import { toggleModal, toggleLightBox } from 'actions/design'
 import { getServicesCategory } from 'actions/services'
-import { getCategoriesByType, setCategory, addToWishList } from 'actions'
+import { getCategoriesByType, setCategory, addToWishList, removeFromWishList } from 'actions'
 import ImageMultiPreview from 'components/images/multi_preview.js'
 import ImagePreview from 'components/images/preview.js'
 import Price from 'components/price'
@@ -145,9 +145,7 @@ class Product extends Component {
 	}
 
 	toggleWish = val => {
-		if (val) {
-			store.dispatch(addToWishList('product', this.props.id))
-		}
+		val ? store.dispatch(addToWishList('product', this.props.products.product.id)) : store.dispatch(removeFromWishList('product', this.props.products.product.id))
 	}
 
 	addToCart = () => {
@@ -181,7 +179,7 @@ class Product extends Component {
 		            		<h4>
 		            			<span>{ product.name }</span>
 		            			<div className="float-right">
-		            				<Heart onChange={this.toggleWish} />
+		            				<Heart onChange={this.toggleWish} main="test" active={product.in_wishlist} />
 		            			</div>
 		            		</h4>
 		            		<div>

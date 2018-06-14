@@ -1,5 +1,6 @@
-import { get, post } from 'api'
+import { get, post, remove } from 'api'
 import * as types from './types.js'
+import { getWishlist } from 'actions/user'
 
 export const getCategories = () => dispatch => 
     (
@@ -50,10 +51,8 @@ export const addToWishList = (type, id) => dispatch =>
 
 export const removeFromWishList = (type, id) => dispatch => 
     (
-        post(`api/wishlist/remove-item/${id}`, true).then(json => {
-            if (json.object) {
-                console.log(json.object)
-            }
+        remove(`api/wishlist/remove-item/${type}/${id}`, true).then(json => {
+            dispatch(getWishlist(`${type}s`))
         })
     )
 

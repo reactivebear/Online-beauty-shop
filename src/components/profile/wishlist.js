@@ -17,7 +17,7 @@ class Wishlist extends Component {
 
 	printList = (item, i) =>
 		(<div key={i} className="col-lg-6 mb-3">
-			{ this.state.active === 'products' ? <CardProduct {...item.product} /> : <CardService {...item.service} /> }
+			{ this.state.active === 'products' ? <CardProduct {...item.product} wishlist={true} /> : <CardService {...item.service} wishlist={true} /> }
 		</div>)
 
 	toggleCat = item => e => {

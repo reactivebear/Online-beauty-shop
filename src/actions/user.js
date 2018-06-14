@@ -34,7 +34,12 @@ export const getWishlist = type => dispatch =>
     (
         get(`api/wishlist/${type}`).then(json => {
             if (json.object) {
-                dispatch(setUserKey({[type]: json.object}, 'wishlist'))
+                const obj = type === 'products' ? 'product' : 'service'
+                const temp = json.object.map(item => {
+                    item[obj].in_wishlist = true
+                    return item
+                })
+                dispatch(setUserKey({[type]: temp}, 'wishlist'))
             }
         })
     )
