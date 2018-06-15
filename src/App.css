@@ -16,6 +16,12 @@
 	font-weight: normal;
 	src: local('Avenir LT Std 65 Medium'), url('/assets/fonts/AvenirLTStd-Medium.woff') format('woff');
 }
+@font-face {
+	font-family: 'Avenir LT Std 65 Light';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Avenir LT Std 65 Light'), url('/assets/fonts/AvenirLTStd-Light.woff') format('woff');
+}
 
 body {
 	font-size: 14px;
@@ -43,6 +49,10 @@ path.cls-8 {
 
 .pt-55 {
 	padding-top: 55px;
+}
+
+.w-10 {
+	width: 10%;
 }
 
 .w-15 {
@@ -98,15 +108,14 @@ path.cls-8 {
 }
 
 .main-wrap {
-	-webkit-overflow-scrolling: touch;
 	z-index: 5;
     display: inline;
     position: absolute;
     overflow-x: hidden;
-    overflow-y: auto;
     top: 0px;
     height: 100%;
     width: 100%;
+    -webkit-overflow-scrolling: touch;
     -webkit-transform: scale(1) translate(0%, 0px);
     -moz-transform: scale(1) translate(0%, 0px);
     -ms-transform: scale(1) translate(0%, 0px);
@@ -118,9 +127,9 @@ path.cls-8 {
 }
 
 .main-wrap.unactive {
-    -webkit-box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.69);
-    -moz-box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.69);
-    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.69);
+    -webkit-box-shadow: 0px 0px 40px 1px rgba(255,255,255,0.5);
+    -moz-box-shadow: 0px 0px 40px 1px rgba(255,255,255,0.5);
+    box-shadow: 0px 0px 40px 1px rgba(255,255,255,0.5);
     -webkit-transform: scale(0.85) translate(-90%, 0px);
     -moz-transform: scale(0.85) translate(-90%, 0px);
     -ms-transform: scale(0.85) translate(-90%, 0px);
@@ -130,6 +139,10 @@ path.cls-8 {
 
 .font-avenir {
 	font-family: 'Avenir LT Std 45 Book';
+}
+
+.font-avenir-light {
+	font-family: 'Avenir LT Std 65 Light';
 }
 
 .img-icon {
@@ -166,6 +179,10 @@ path.cls-8 {
 
 .fs-30 {
 	font-size: 30px;
+}
+
+.fs-38 {
+	font-size: 38px;
 }
 
 .mh-1 {
@@ -250,7 +267,12 @@ path.cls-8 {
 		width: 100%;
 	}
 }
-	
+
+@media (max-width: 370px) {
+	.support-title {
+		font-size: 14px;
+	}
+}
 
 [aria-selected='true'] .accordion__arrow::before {
     transform: rotate(-45deg);
@@ -271,4 +293,28 @@ path.cls-8 {
     border-radius: 98%;
     height: 41px;
     z-index: -1;
+}
+
+.accordion-right-arrow {
+    display: inline-block;
+    position: relative;
+    width: 36px;
+    height: 6px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -6px;
+    color: #444;
+}
+
+.accordion-right-arrow::before {
+	content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #444;
+    border-right: 2px solid #444;
+    transform: rotate(45deg);
 }

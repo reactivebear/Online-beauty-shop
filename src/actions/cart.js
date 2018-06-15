@@ -21,7 +21,7 @@ export const addToCart = (id, type, param) => dispatch =>
 
 export const removeFromCart = id => dispatch => 
     (
-        remove(`api/cart/remove-item/${id}`, false).then(json => {
+        remove(`api/cart/remove-item/${id}`, true).then(json => {
             dispatch(getCart())
             dispatch(getCartTotal())
         })

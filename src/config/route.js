@@ -15,7 +15,10 @@ export default {
         {
             'path': '/',
             'component': 'Main'
-        },{
+        }, {
+            'path': '/about',
+            'component': 'About'
+        }, {
             'path': '/search',
             'component': 'Search'
         }, {

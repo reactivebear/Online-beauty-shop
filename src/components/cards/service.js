@@ -54,6 +54,11 @@ class CardService extends Component {
 		val ? store.dispatch(addToWishList('service', this.props.id)) : store.dispatch(removeFromWishList('service', this.props.id))
 	}
 
+	removeFromWishList = e => {
+		e.stopPropagation()
+		store.dispatch(removeFromWishList('service', this.props.id))
+	}
+
 	componentWillMount() {
 		this.getDistance()
 	}
@@ -78,7 +83,11 @@ class CardService extends Component {
 				            		Avaliação<br />
 				            		<Stars active={this.props.rating} />
 			            		</div>
-			            		<Heart onChange={this.toggleWish} active={this.props.in_wishlist} />
+			            		{
+				            		this.props.wishlist
+			            			? 	<i className={`fas fa-heart fs-22 pointer color-green`} onClick={this.removeFromWishList}></i>
+			            			: 	<Heart onChange={this.toggleWish} active={this.props.in_wishlist} />
+			            		}
 			            	</div>
 
 			            	<div className="mb-2">

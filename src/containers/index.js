@@ -8,5 +8,6 @@ import Registration from './registration'
 import Category from './category'
 import Company from './company'
 import Search from './search'
+import About from './about'
 
-export { NotFound, Main, Product, Cart, Profile, Registration, Category, Company, Search, ScheduleCart }
+export { NotFound, Main, Product, Cart, Profile, Registration, Category, Company, Search, ScheduleCart, About }

@@ -7,6 +7,7 @@ export const loginAsGuest = () => dispatch =>
     (
         get('guest').then(json => {
             if (json.apikey) {
+                json.user.guest = true
                 dispatch(setToken(json.apikey.key, json.user.guest))
                 dispatch(setUser(json.user))
             }

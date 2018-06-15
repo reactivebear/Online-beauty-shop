@@ -18,7 +18,7 @@ class Info extends Component {
 	}
 
     render() {
-    	const { first_name, last_name, email, address, image_url } = this.props.user.data
+    	const { first_name, last_name, email, main_address, image_url } = this.props.user.data
         return (
         	<div className="row">
 	        	<div className="col-12 mb-3">
@@ -50,8 +50,8 @@ class Info extends Component {
 						<h4 className="mb-3">Endereço de entrega</h4>
 						<div className="border-bottom mb-4"></div>
 						<div className="color-grey mb-3 fs-18">
-							{address.title}<br />
-							{address.street}
+							{main_address.title}<br />
+							{main_address.street}
 						</div>
 						<div>
 							<BtnMain
@@ -96,7 +96,7 @@ const mapStateToProps = state =>
         		first_name: state.user.data.first_name,
         		last_name: state.user.data.last_name,
         		email: state.user.data.email,
-        		address: state.user.data.address,
+        		main_address: state.user.data.main_address,
         		image_url: state.user.data.image_url,
         	}
         }

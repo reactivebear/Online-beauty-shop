@@ -10,14 +10,19 @@ import 'react-accessible-accordion/dist/fancy-example.css'
 class SupportAccordion extends Component {
 	printAccordion = (item, i) =>
 		(
-    		<AccordionItem key={i} className="accordion-item mb-2 border rounded-top rounded-bottom">
+    		<AccordionItem key={i} className="accordion-item mb-2 border rounded-top rounded-bottom bg-white">
                 <AccordionItemTitle style={{outline: 'unset'}} className="accordion__title bg-white rounded-top rounded-bottom">
                     <div className="u-position-relative">
-                        <h5>{ item.title }</h5>
+                        {
+                            item.img
+                            ?   <div className="d-inline-block footer-icon d-sm-none d-md-inline-block"><img src={item.img} className="img-fluid" alt="" /></div>
+                            :   ''
+                        }
+                        <div className="fs-18 support-title d-inline-block pl-3 pl-sm-0 pl-md-3">{ item.title }</div>
                         <div className="accordion__arrow" role="presentation"></div>
                     </div>
                 </AccordionItemTitle>
-                <AccordionItemBody>
+                <AccordionItemBody className="accordion__body pt-0">
                     { item.body }
                 </AccordionItemBody>
             </AccordionItem>

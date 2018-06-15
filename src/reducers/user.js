@@ -6,7 +6,7 @@ const initialState = {
     guest: Cookies.get('guest') === 'true',
     approve_token: false,
     data: {
-        address: {},
+        main_address: {},
         addresses: [],
         billing_addresses: []
     },
