@@ -155,7 +155,7 @@ class Company extends Component {
     	            		<span className="fs-22 px-3">{salon.name}</span>
                 		</div>
                 		<div>
-                			<Carousel items={carouselItems} settings={settings} rounded onClickItem={this.toggleLightBox} />
+                			<Carousel items={carouselItems} settings={settings} arrowType="rounded" onClickItem={this.toggleLightBox} />
                 		</div>
                 	</div>
                 </div>

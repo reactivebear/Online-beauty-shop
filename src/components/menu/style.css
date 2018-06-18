@@ -56,3 +56,18 @@
     margin-left: -17px;
     margin-right: -17px;
 }
+
+.wrap-drop-search {
+	margin-left: -16px;
+    margin-right: -16px;
+}
+
+.wrap-drop-search:hover {
+	background-color: #609D6D;
+	
+}
+
+.wrap-drop-search:hover .drop-search-item {
+	background-color: #fff;
+	color: #609D6D !important;
+}

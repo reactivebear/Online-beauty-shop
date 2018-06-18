@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import store from 'store'
+import store, { history } from 'store'
 import { getUserAddress } from 'actions/user'
 import { getService } from 'actions/services'
 import { setScheduleStep } from 'actions/schedule_cart'
@@ -10,8 +10,12 @@ import { StepFirst, StepSecond, StepThird } from 'components/schedule_cart'
 class ScheduleCart extends Component {
 	constructor(props) {
 		super(props)
-		store.dispatch(getService(this.props.match.params.id))
-		this.steps = [{title: 'Agendamento'}, {title: 'Pagamento'}, {title: 'Confirmação'}]
+		if (props.location.state) {
+			store.dispatch(getService(props.match.params.id))
+			this.steps = [{title: 'Agendamento'}, {title: 'Pagamento'}, {title: 'Confirmação'}]
+		} else {
+			history.push('/')
+		}
 	}
 
 	changeStep = step => e => {
@@ -20,7 +24,7 @@ class ScheduleCart extends Component {
 
 	getStep = () => {
 		switch(this.props.schedule_cart.step) {
-			case 1: return <StepFirst step={this.props.schedule_cart.step} />
+			case 1: return <StepFirst step={this.props.schedule_cart.step} service={this.props.location.state} />
 			case 2: return <StepSecond step={this.props.schedule_cart.step} />
 			case 3: return <StepThird step={this.props.schedule_cart.step} />
 			default: return

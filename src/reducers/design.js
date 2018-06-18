@@ -13,7 +13,8 @@ const initialState = {
     modal: {
     	open: false,
     	content: null,
-        className: ''
+        className: '',
+        title: ''
     },
     location: '/',
     lightbox: {
@@ -39,7 +40,7 @@ export default function design(design = initialState, action = {}) {
             });
         case types.TOGGLE_MODAL:
             return Object.assign({}, design, {
-               modal: {open: action.open, content: action.content, className: action.className}
+               modal: {open: action.open, content: action.content, className: action.className, title: action.title}
             });
         case types.SET_LOCATION:
             return Object.assign({}, design, {

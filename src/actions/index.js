@@ -118,3 +118,9 @@ export const setBlogs = data =>
         type: types.SET_BLOGS,
         data
     })
+
+export const setFilters = data => 
+    ({
+        type: types.SET_FILTERS,
+        data
+    })

@@ -38,3 +38,4 @@ export const SET_SCHEDULE_CART = 'SET_SCHEDULE_CART'
 export const SET_SCHEDULE_STEP = 'SET_SCHEDULE_STEP'
 
 export const SET_SEARCH = 'SET_SEARCH'
+export const SET_FILTERS = 'SET_FILTERS'

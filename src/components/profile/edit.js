@@ -35,7 +35,7 @@ class Edit extends Component {
 	componentWillMount() {
 		switch(this.props.match.params.formType) {
 			case 'address':
-				this.form = <AddressForm />
+				this.form = <AddressForm onCancel={e => history.goBack()} />
 				this.title = 'Adicionar endereço'
 				break
 			case 'cards':

@@ -13,15 +13,14 @@ class CustomModal extends Component {
 	}
 
     render() {
-        const { open, content, className } = this.props.design.modal
-        const component = !content ? emptyElement : React.createElement(content)
+        const { open, content, className, title } = this.props.design.modal
+        const component = !content ? emptyElement : React.createElement(content, {onCancel: this.onCloseModal, inModal: true})
     	
         return (
-        	<div>
-		        <Modal open={open} onClose={this.onCloseModal} center showCloseIcon={false} classNames={{modal: `rounded modal-body ${className}`}}>
-		          	<div>{component}</div>
-		        </Modal>
-	      	</div>
+	        <Modal open={open} onClose={this.onCloseModal} center showCloseIcon={false} classNames={{modal: `rounded modal-body ${className}`, overlay: 'align-items-start'}}>
+                { title ? <h4>{title}</h4> : ''}
+	          	<div>{component}</div>
+	        </Modal>
         );
     }
 }

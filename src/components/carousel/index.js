@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Slider from 'react-slick'
-import { PrevArrow, PrevArrowRounded } from './prev_arrow.js'
-import { NextArrow, NextArrowRounded } from './next_arrow.js'
+import { PrevArrow, PrevArrowRounded, PrevArrowCalendar } from './prev_arrow.js'
+import { NextArrow, NextArrowRounded, NextArrowCalendar } from './next_arrow.js'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
@@ -16,8 +16,20 @@ class Carousel extends Component {
     }
 
     render() {
-        const nextArrow = this.props.rounded ? <NextArrowRounded /> : <NextArrow />
-        const prevArrow = this.props.rounded ? <PrevArrowRounded /> : <PrevArrow />
+        let nextArrow, prevArrow
+        switch (this.props.arrowType) {
+            case 'rounded': 
+                nextArrow = <NextArrowRounded />
+                prevArrow = <PrevArrowRounded />
+                break
+            case 'calendar':
+                nextArrow = <NextArrowCalendar />
+                prevArrow = <PrevArrowCalendar />
+                break
+            default:
+                nextArrow = <NextArrow />
+                prevArrow = <PrevArrow />
+        }
 
         const settings = {
             slidesToShow: 1,

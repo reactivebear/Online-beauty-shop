@@ -98,3 +98,4 @@ export const LIGHTBOX_THEME = {
                         }
 
 export const DEFAULT_IMG = {src: '/assets/images/default-image-square-big.png'}
+export const MONTH = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']

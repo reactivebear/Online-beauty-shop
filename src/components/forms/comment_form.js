@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-import store from 'store'
 import Stars from 'components/stars'
 import Input from 'components/inputs/input.js'
 import TextArea from 'components/inputs/textarea.js'
 import BtnMain from 'components/buttons/btn_main.js'
-import { toggleModal } from 'actions/design.js'
 
 class CommentForm extends Component {
 
@@ -19,10 +17,6 @@ class CommentForm extends Component {
             message: this.message.value,
             rating: this.stars
         }*/
-	}
-
-	closeModal = () => {
-		store.dispatch(toggleModal(false, null))
 	}
 
     onHover = val => e => {
@@ -64,7 +58,7 @@ class CommentForm extends Component {
             	<div className="pt-3">
             		<BtnMain
         				className="font-weight-bold btn-outline btn-block"
-        				onClick={this.closeModal}
+        				onClick={this.props.onCancel}
         				title="Cancelar" />
             		<BtnMain
         				className="font-weight-bol btn-block"

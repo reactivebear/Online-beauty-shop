@@ -41,10 +41,10 @@ class Category extends Component {
         store.dispatch(getSubCategories(type, id))
 		switch(type) {
             case 'product':
-                store.dispatch(getProducts('pagination', {category: id, new_pagination: true, page_size: 14, page: page}))
+                store.dispatch(getProducts('pagination', {category: id, new_pagination: true, page_size: 14, page: page, ...this.props.search.filters}))
                 break
             case 'service':
-                store.dispatch(getServices('pagination', {category: id, new_pagination: true, page_size: 14, page: page}))
+                store.dispatch(getServices('pagination', {category: id, new_pagination: true, page_size: 14, page: page, ...this.props.search.filters}))
                 break
             default: return
         }
@@ -78,7 +78,7 @@ class Category extends Component {
                             </div>
 
                             <div className="mb-3 d-sm-none">
-                                <span className="color-green mr-2 pointer" onClick={this.showMenu('order')}>
+                                <span className="color-green mr-4 pointer" onClick={this.showMenu('order')}>
                                     <img src="/assets/icons/order-icon.png" alt="" className="img-fluid small-icon" />
                                     &nbsp;
                                     Ordenar
@@ -114,6 +114,9 @@ const mapStateToProps = state =>
         },
         service: {
         	pagination: state.services.pagination
+        },
+        search: {
+            filters: state.search.filters
         }
     })
 

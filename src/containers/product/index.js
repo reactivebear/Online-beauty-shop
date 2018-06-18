@@ -190,6 +190,7 @@ class Product extends Component {
 			            		<Stars active={product.rating} />
 		            		</div>
 		            		<div className="form-group">
+		            			<i className="fas fa-truck mr-2"></i>
 		            			<span>Envio para todos o país</span><br />
 		            			<span className="color-grey">Saiba os prazos de entrega e as formas de envio.</span>
 		            		</div>

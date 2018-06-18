@@ -131,7 +131,7 @@ class Header extends Component {
                                         </div>
                                         {
                                             this.state.tooltip === 'cart'
-                                            ?   <Tooltip title="Adicionado ao seu carrinho" content={CartHeader} close={() => this.setState({tooltip: false})} />
+                                            ?   <Tooltip title="Adicionado ao seu carrinho" type="cart" content={CartHeader} close={() => this.setState({tooltip: false})} />
                                             :   ''
                                         }
                                     </div>
@@ -143,7 +143,7 @@ class Header extends Component {
                                         }
                                         {
                                             this.state.tooltip === 'login'
-                                            ?   <Tooltip content={contentTooltip} close={() => this.setState({tooltip: false})} />
+                                            ?   <Tooltip content={contentTooltip} type="login" close={() => this.setState({tooltip: false})} />
                                             :   ''
                                         }
                                     </div>
@@ -155,7 +155,7 @@ class Header extends Component {
                                         </div>
                                         {
                                             this.state.tooltip === 'zip'
-                                            ?   <Tooltip title="Adicionar CEP" content={ZipForm} close={() => this.setState({tooltip: false})} />
+                                            ?   <Tooltip title="Adicionar CEP" type="zip" content={ZipForm} close={() => this.setState({tooltip: false})} />
                                             :   ''
                                         }
                                     </div>

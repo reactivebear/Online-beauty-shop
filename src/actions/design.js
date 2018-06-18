@@ -1,11 +1,20 @@
 import * as types from './types.js'
 import { DEFAULT_IMG } from 'config'
 
-export const toggleSideMenu = state => 
-    ({
+export const toggleSideMenu = state => {
+    const el = document.getElementById('main-wrap')
+    if (!state) {
+        setTimeout(() => {
+            el.style.position = 'relative'
+        }, 600)
+    } else {
+        el.style.position = 'absolute'
+    }
+    return {
         type: types.TOGGLE_SIDE_MENU,
         state
-    })
+    }
+}
 
 export const toggleLeftMenu = (state, body) => 
     ({
@@ -20,12 +29,13 @@ export const setLocation = location =>
         location
     })
 
-export const toggleModal = (open, content, className) => 
+export const toggleModal = (open, content, className, title) => 
     ({
         type: types.TOGGLE_MODAL,
         open,
         content,
-        className
+        className,
+        title
     })
 
 export const setAlert = (text, level) =>

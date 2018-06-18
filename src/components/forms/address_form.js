@@ -4,6 +4,7 @@ import { saveAddress } from 'actions/user'
 import BtnMain from 'components/buttons/btn_main.js'
 import Input from 'components/inputs/input.js'
 import { format } from 'utils/mask'
+import CheckBox from 'components/inputs/checkbox'
 
 class AddressForm extends Component {
 
@@ -39,6 +40,7 @@ class AddressForm extends Component {
 
     render() {
         const address = history.location.state || {}
+        console.log(this.props)
         return (
         	<div>
                 <Input 
@@ -136,18 +138,39 @@ class AddressForm extends Component {
                             inputRef={ref => this.address.district = ref} />
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col-sm-8 offset-sm-2">
-                        <BtnMain
-                            className="font-weight-bold btn-outline btn-block"
-                            onClick={e => history.goBack()}
-                            title="Cancelar" />
-                        <BtnMain
-                            className="font-weight-bold btn-block"
-                            onClick={this.save}
-                            title="Salvar" />
-                    </div>
-                </div>
+                {
+                    this.props.inModal
+                    ?   <div className="row pt-3">
+                            <div className="col-12">
+                                <div className="d-flex justify-content-between mb-3">
+                                    <div>
+                                        Salvar endereço para as proximas as proximas compras
+                                    </div>
+                                    <CheckBox onChange={e => {console.log(e.target.checked)}} />
+                                </div>
+                                <div className="border-bottom mb-3"></div>
+                            </div>
+
+                            <div className="col-sm-8 offset-sm-2">
+                                <BtnMain
+                                    className="font-weight-bold btn-outline btn-block"
+                                    onClick={this.saveAsGuest}
+                                    title="Continuar" />
+                            </div>
+                        </div>
+                    :   <div className="row">
+                            <div className="col-sm-8 offset-sm-2">
+                                <BtnMain
+                                    className="font-weight-bold btn-outline btn-block"
+                                    onClick={this.props.onCancel}
+                                    title="Cancelar" />
+                                <BtnMain
+                                    className="font-weight-bold btn-block"
+                                    onClick={this.save}
+                                    title="Salvar" />
+                            </div>
+                        </div>
+                }
 			</div>
         );
     }

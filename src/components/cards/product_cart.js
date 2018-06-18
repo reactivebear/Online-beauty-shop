@@ -27,8 +27,15 @@ class ProductCart extends Component {
 	            <div className="w-80 pl-2 position-relative">
 	            	{ this.props[this.props.type].name || this.props[this.props.type].title }
 	            	<div className="form-group">
-	            		<span className="color-grey">Vendido e entregue por </span>
-	            		<Link to={`company/${vendor_id}`}>{this.props[this.props.type].brand_id || this.props[this.props.type].vendor.organization_name}</Link>
+	            		{
+	            			this.props.type === 'service'
+	            			? 	<div>
+	            					<span className="color-grey">Vendido e entregue por </span>
+	            					<Link to={`salon/${vendor_id}`}>{this.props[this.props.type].brand_id || this.props[this.props.type].vendor.organization_name}</Link>
+	            					
+	            				</div>
+	            			: 	''
+	            		}
 	            		<i className="far fa-trash-alt fa-12x color-green pointer float-right d-block d-sm-none" onClick={this.removeFromCart}></i>
 	            	</div>
 	            	<div className="row align-items-stretch">

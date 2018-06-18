@@ -50,3 +50,23 @@
 .arrow-img {
 	width: 12px;
 }
+
+.next-arrow-calendar {
+	position: absolute;
+	width: 30px;
+	top: 50%;
+	transform: translateY(-50%);
+	right: -35px;
+	cursor: pointer;
+	z-index: 1;
+}
+
+.prev-arrow-calendar {
+	position: absolute;
+	width: 30px;
+	top: 50%;
+	transform: translateY(-50%);
+	left: -35px;
+	cursor: pointer;
+	z-index: 1;
+}

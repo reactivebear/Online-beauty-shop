@@ -7,8 +7,7 @@ export const loginAsGuest = () => dispatch =>
     (
         get('guest').then(json => {
             if (json.apikey) {
-                json.user.guest = true
-                dispatch(setToken(json.apikey.key, json.user.guest))
+                dispatch(setToken(json.apikey.key, true))
                 dispatch(setUser(json.user))
             }
         })
@@ -18,7 +17,7 @@ export const login = data => dispatch =>
     (
         post('login', false, data).then(json => {
             if (json.apikey) {
-                dispatch(setToken(json.apikey.key, json.user.guest))
+                dispatch(setToken(json.apikey.key, false))
                 dispatch(setUser(json.user))
                 return true
             }
@@ -36,7 +35,7 @@ export const keepToken = () => dispatch =>
     (
         get('api/keeptoken').then(json => {
             if (json.apikey) {
-                dispatch(setToken(json.apikey.key, json.user.guest))
+                dispatch(setToken(json.apikey.key, json.user.first_name === 'Guest'))
                 dispatch(setUser(json.user))
             }
         })

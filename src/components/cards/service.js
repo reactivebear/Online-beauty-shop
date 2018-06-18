@@ -43,7 +43,7 @@ class CardService extends Component {
 	}
 
 	addToScheduleCart = () => {
-		history.push(`/schedule/${this.props.id}`)
+		history.push(`/schedule/${this.props.id}`, this.props)
 	}
 
 	goToSalon = () => {

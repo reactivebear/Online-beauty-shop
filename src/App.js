@@ -45,11 +45,12 @@ class App extends Component {
                 {
                     approve_token
                     ?   <div>
-                            <div id="main-wrap" className={'main-wrap ' + unactiveClass}>
+                            <div id="main-wrap" className={`main-wrap ${unactiveClass}`}>
                                 <Header />
                                 <Switch>
                                     { routes.map((route, i) => this.printRoutes(route, i)) }
                                 </Switch>
+
                                 <Footer />
                             </div>
                             <SideMenu />

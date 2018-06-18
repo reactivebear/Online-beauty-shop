@@ -4,7 +4,7 @@ import store, { history } from 'store'
 import CollapsedMenu from 'components/blocks/collapsed_menu.js'
 import Stars from 'components/stars'
 import SmallCheckBox from 'components/inputs/small_checkbox.js'
-import { setActiveCategory } from 'actions'
+import { setActiveCategory, setFilters } from 'actions'
 import RangeSlider from 'components/inputs/range_slider'
 import { getProducts } from 'actions/products.js'
 import { getServices } from 'actions/services.js'
@@ -61,6 +61,7 @@ class SearchMenuWeb extends Component {
 
     rangeComplete = () => {
         this.getData(this.props.type, this.props.catId, {min_price: this.state.price.min, max_price: this.state.price.max})
+        store.dispatch(setFilters({min_price: this.state.price.min, max_price: this.state.price.max}))
     }
 
     getData = (type, id, param) => {
@@ -108,6 +109,9 @@ const mapStateToProps = state =>
             product_list: state.categories.product_list,
             service_list: state.categories.service_list,
             subcategories: state.categories.subcategories
+        },
+        search: {
+            filters: state.search.filters
         }
     })
 
