@@ -266,6 +266,10 @@ path.cls-8 {
 	overflow-x: hidden;
 }
 
+.overflow-hidden {
+	overflow: hidden;
+}
+
 .side-line:after {
     content: '';
 	position: absolute;
@@ -281,6 +285,11 @@ path.cls-8 {
 	.text-sm-nowrap {
 	    white-space: nowrap;
 	}
+
+	.text-xs-left {
+		text-align: left!important;
+	}
+
 	.w-sm-50 {
 		width: 100%;
 	}

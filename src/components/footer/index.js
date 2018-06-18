@@ -6,14 +6,19 @@ class Footer extends Component {
         return (
             <footer className="bg-dark text-white pt-5 font-avenir">
                 <div className="container">
-                    <div className="row mb-5 text-center justify-content-center">
+                    <div className="row text-center justify-content-center">
                         <div className="col-sm-4">
                             <div className="mb-3">
                                 <img src="/assets/images/LogoVisualTotal.png" className="img-fluid" alt="" />
                             </div>
                             <div className="mb-3">
-                                <BtnMain
-                                    title="Baixe grátis o app do Visual Total" />
+                                <div className="row justify-content-center">
+                                    <div className="col-10">
+                                        <BtnMain
+                                            className="btn-block"
+                                            title="Baixe grátis o app do Visual Total" />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -55,11 +60,11 @@ class Footer extends Component {
                     <div className="row border-bottom border-white pb-3 mb-4 align-items-end">
                         <div className="col-sm-6 text-right">
                             <div className="row align-items-end mb-5 mb-sm-0">
-                                <div className="col-sm col-xs-4">
-                                    <img src="/assets/icons/facebook-icon.png" alt="" className="footer-icon px-2" />
-                                    <img src="/assets/icons/instagram-icon.png" alt="" className="footer-icon px-2" />
+                                <div className="col-sm col-5 text-xs-left">
+                                    <img src="/assets/icons/facebook-icon.png" alt="" className="footer-icon px-sm-2 px-1" />
+                                    <img src="/assets/icons/instagram-icon.png" alt="" className="footer-icon px-sm-2 px-1" />
                                 </div>
-                                <div className="col-sm col-xs-8 text-left">
+                                <div className="col-sm col-7 text-left">
                                     <p>Selecione um país/região</p>
                                     <select className="form-control h-75">
                                         <option value="br">Brazil - Português</option>
@@ -68,11 +73,11 @@ class Footer extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-sm-6 order-sm-first">
+                        <div className="col-sm-6 order-sm-first color-grey">
                             <span>Uma empresa WeMind Group - www.wemindgroup.com</span>
                         </div>
                     </div>
-                    <div className="pb-2">© WeMind 2018 - TODOS OS DIREITOS RESERVADOS.</div>
+                    <div className="pb-2 color-grey">© WeMind 2018 - TODOS OS DIREITOS RESERVADOS.</div>
                 </div>
             </footer>
         )

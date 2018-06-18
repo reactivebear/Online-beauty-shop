@@ -2,3 +2,12 @@
 	background-color: #609D6D;
 	color: #fff;
 }
+
+.wrap-calendar-times {
+	overflow-y: auto;
+	height: 152px;
+}
+
+.wrap-calendar-times::-webkit-scrollbar {
+ display: none;
+}
