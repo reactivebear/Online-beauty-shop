@@ -14,7 +14,8 @@ const initialState = {
     	open: false,
     	content: null,
         className: '',
-        title: ''
+        title: '',
+        updater: ''
     },
     location: '/',
     lightbox: {
@@ -41,6 +42,13 @@ export default function design(design = initialState, action = {}) {
         case types.TOGGLE_MODAL:
             return Object.assign({}, design, {
                modal: {open: action.open, content: action.content, className: action.className, title: action.title}
+            });
+        case types.UPDATE_MODAL:
+            let tempModal = Object.assign({}, design.modal)
+            tempModal.updater = action.updater
+
+            return Object.assign({}, design, {
+               modal: tempModal
             });
         case types.SET_LOCATION:
             return Object.assign({}, design, {

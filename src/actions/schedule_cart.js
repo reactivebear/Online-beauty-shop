@@ -11,3 +11,9 @@ export const setScheduleStep = step =>
         type: types.SET_SCHEDULE_STEP,
         step
     })
+
+export const setGuestCard = data =>
+	({
+        type: types.SET_GUEST_CARD,
+        data
+    })

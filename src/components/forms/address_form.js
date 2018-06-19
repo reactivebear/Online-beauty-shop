@@ -40,7 +40,6 @@ class AddressForm extends Component {
 
     render() {
         const address = history.location.state || {}
-        console.log(this.props)
         return (
         	<div>
                 <Input 

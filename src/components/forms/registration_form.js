@@ -57,7 +57,7 @@ class RegistrationForm extends Component {
                                 required
                                 label="CNPJ"
                                 value={''}
-                                inputRef={ref => this.auth.first_name = ref} />
+                                inputRef={ref => this.auth.cnpj = ref} />
                             <Input 
                                 required
                                 label="Razão social"

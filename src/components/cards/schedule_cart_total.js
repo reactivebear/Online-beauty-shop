@@ -14,7 +14,7 @@ class ScheduleCartTotal extends Component {
 		return (
 			<div className="rounded bg-white p-4">
 				{
-					this.props.step !== 3
+					this.props.step !== 2
 					? 	<div className="d-flex justify-content-between color-grey">
 							<div><h5>Subtotal:</h5></div>
 							<div><Price current={this.props.value.products} /></div>
@@ -22,22 +22,13 @@ class ScheduleCartTotal extends Component {
 					: 	<div>
 							<h5>Usar créditos</h5>
 							<div className="d-flex justify-content-between color-grey">
-								<div><Price className="d-inline-block" current={this.props.user.data.credit_amount} /> créditos</div>
+								<div><Price className="d-inline-block" current={0} /> créditos</div>
 								<div><CheckBox onChange={e => {this.credits = e.target.checked}} /></div>
 							</div>
 						</div>
 				}
-
 				{
-					this.props.step === 2 || this.props.step === 4 || this.props.step === 5
-					? 	<div className="d-flex justify-content-between color-grey">
-							<div><h5>Frete:</h5></div>
-							<div><Price current={this.props.value.delivery} /></div>
-						</div>
-					: 	''
-				}
-				{
-					this.props.step === 4 || this.props.step === 5
+					this.props.step === 3 || this.props.step === 5
 					? 	<div className="d-flex justify-content-between color-grey">
 							<div><h5>Créditos:</h5></div>
 							<div><Price current={0} /></div>
@@ -55,7 +46,7 @@ class ScheduleCartTotal extends Component {
 				}
 				<div className="col-sm-10 offset-sm-1">
 					{
-						this.props.step === 4
+						this.props.step === 3
 						? 	<BtnMain
 			                    className="btn-block btn-outline font-weight-bold"
 			                    onClick={this.changeStep}

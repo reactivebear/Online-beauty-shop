@@ -4,7 +4,7 @@ import CardVoucher from 'components/cards/voucher'
 class Vouchers extends Component {
 	printList = (item, i) => {
 		return 	<div key={i} className="col-lg-6 mb-3">
-					<CardVoucher />
+					<CardVoucher buttons />
 				</div>
 	}
 

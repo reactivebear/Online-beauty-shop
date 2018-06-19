@@ -45,19 +45,23 @@ class CardVoucher extends Component {
 						<div>Rua Diogo jacome, 447 Villa Nova Conceição</div>
 					</div>
 				</div>
-				<div className="row justify-content-center">
-					<div className="col-lg-10">
-						<BtnMain
-							title="Enviar para..."
-							className="btn-block btn-outline" />
-						<BtnMain
-							title="Compartilhar"
-							className="btn-block btn-outline" />
-						<BtnMain
-							title="Agendar"
-							className="btn-block" />
-					</div>
-				</div>
+				{ 	
+					this.props.buttons
+					? 	<div className="row justify-content-center">
+							<div className="col-lg-10">
+								<BtnMain
+									title="Enviar para..."
+									className="btn-block btn-outline" />
+								<BtnMain
+									title="Compartilhar"
+									className="btn-block btn-outline" />
+								<BtnMain
+									title="Agendar"
+									className="btn-block" />
+							</div>
+						</div>
+					: 	''
+				}
 			</div>
 		)
 	}

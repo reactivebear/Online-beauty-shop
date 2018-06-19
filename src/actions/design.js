@@ -38,6 +38,12 @@ export const toggleModal = (open, content, className, title) =>
         title
     })
 
+export const updateModal = updater => 
+    ({
+        type: types.UPDATE_MODAL,
+        updater,
+    })
+
 export const setAlert = (text, level) =>
     ({
         type: types.SHOW_ALERT,

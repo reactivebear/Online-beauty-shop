@@ -18,7 +18,7 @@ class RadioSwitch extends Component {
 
     render() {
         return (
-        	<div>
+        	<div style={this.props.style}>
         		{
         			this.state.value === this.props.checked
         			?	<span className="radio-switch check" onClick={this.onClick}><i className="fas fa-check"></i></span>

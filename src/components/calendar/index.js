@@ -54,7 +54,7 @@ class Calendar extends Component {
         return (
         	<div className="bg-white rounded overflow-hidden">
         		<div className="row justify-content-center">
-        			<div className="col-10 col-lg-10 col-md-8 col-sm-8">
+        			<div className="col-9 col-lg-10 col-md-8 col-sm-8">
 		        		<Carousel 
 		        			items={getDaysInMonth(this.props.month, this.props.year).map((item, i) => this.printDates(item, i))}
 		        			arrowType="calendar"

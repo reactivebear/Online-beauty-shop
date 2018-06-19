@@ -28,7 +28,6 @@ class StepSecond extends Component {
 
     render() {
         const { first_name, last_name, main_address } = this.props.user.data
-        console.log(main_address)
         return (
         	<div className="row pb-5">
         		<div className="col-sm-6">

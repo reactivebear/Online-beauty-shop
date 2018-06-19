@@ -71,12 +71,12 @@
 	z-index: 1;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
 	.prev-arrow-calendar {
-		left: -15px;
+		left: -35px;
 	}
 
 	.next-arrow-calendar {
-		right: -15px;
+		right: -35px;
 	}
 }
