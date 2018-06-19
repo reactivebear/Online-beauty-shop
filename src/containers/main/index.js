@@ -37,16 +37,8 @@ class Main extends Component {
 
 	isEmptyCategories = categories => (! categories.service.length || ! categories.product.length)
 
-	componentDidMount() {
-		if (this.isEmptyCategories(this.props.categories)) {
-			store.dispatch(getCategories())
-		}
-	}
-
-	componentWillReceiveProps(nextProps) {
-		if (this.isEmptyCategories(nextProps.categories)) {
-			store.dispatch(getCategories())
-		}
+	componentWillMount() {
+		store.dispatch(getCategories())
 	}
 
     render() {

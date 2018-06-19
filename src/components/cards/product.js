@@ -35,7 +35,8 @@ class CardProduct extends Component {
 
 	render() {
 		const image = this.props.images ? (this.props.images.length ? this.props.images[0].image_url : '') : ''
-		
+		const hiddenClass = history.location.pathname.indexOf('category') + 1 ? ' d-flex d-sm-flex d-md-none d-lg-flex' : ''
+		const visibleCLass = history.location.pathname.indexOf('category') + 1 ? ' d-none d-sm-none d-md-flex d-lg-none' : ' d-none'
 		return (
 			<div className="card product rounded p-2 pointer d-flex flex-column justify-content-between" onClick={this.goToProduct}>
 				<div className="d-flex mb-2">
@@ -52,7 +53,7 @@ class CardProduct extends Component {
 		            	<div className="mb-1">
 		            		<strong>{this.getDescription(this.props.description)}</strong>
 		            	</div>
-		            	<div className="color-grey d-flex justify-content-between align-items-center mb-1">
+		            	<div className={`color-grey d-flex justify-content-between align-items-center mb-1${hiddenClass}`}>
 		            		<div>
 			            		Avaliação<br />
 			            		<Stars active={this.props.rating} />
@@ -63,12 +64,20 @@ class CardProduct extends Component {
 		            			: 	<Heart onChange={this.toggleWish} active={this.props.in_wishlist} />
 		            		}
 		            	</div>
-		            	<div>
-		            		<Price current={this.props.price} old={this.props.discount_price} />
-		            	</div>
+	            		<Price current={this.props.price} old={this.props.discount_price} />
 	            	</div>
             	</div>
-
+            	<div className={`color-grey justify-content-between align-items-center mb-3${visibleCLass}`}>
+            		<div>
+	            		Avaliação<br />
+	            		<Stars active={this.props.rating} />
+            		</div>
+            		{
+            			this.props.wishlist
+            			? 	<i className={`fas fa-heart fs-22 pointer color-green`} onClick={this.removeFromWishList}></i>
+            			: 	<Heart onChange={this.toggleWish} active={this.props.in_wishlist} />
+            		}
+            	</div>
             	<div className="row justify-content-between">
             		<div className="col-xl-6 pr-xl-1 mb-2 md-sm-0">
             			<BtnMain

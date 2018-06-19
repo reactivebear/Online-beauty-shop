@@ -79,6 +79,13 @@ export const removeAddress = id => dispatch =>
         })
     )
 
+export const toggleDefaultAddress = (id, state) => dispatch => 
+    (
+        put(`api/user/address/${id}`, true, {default: state}).then(json => {
+            dispatch(getUserAddresses())
+        })
+    )
+
 export const saveCard = data => dispatch => 
     (
         post(`api/user/creditcard/add`, true, data).then(json => {

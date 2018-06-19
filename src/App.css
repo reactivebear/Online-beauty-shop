@@ -123,6 +123,10 @@ path.cls-8 {
 	z-index: 2;
 }
 
+.z-index-3 {
+	z-index: 3;
+}
+
 .main-wrap {
 	z-index: 5;
 	position: relative;

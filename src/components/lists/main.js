@@ -22,19 +22,8 @@ class ListMain extends Component {
         }
     }
 
-    componentDidMount() {
-        const isEmptyData = this.isEmptyData(this.props[this.props.type].list)
-        if (this.props.user.token && isEmptyData) {
-            this.getData(this.props.type)
-            
-        }
-    }
-
-    componentWillReceiveProps(nextProps) {
-        const isEmptyData = this.isEmptyData(nextProps[nextProps.type].list)
-        if (nextProps.user.token && isEmptyData) {
-            this.getData(nextProps.type)
-        }
+    componentWillMount() {
+        this.getData(this.props.type)
     }
 
     printList = (item, i) => {

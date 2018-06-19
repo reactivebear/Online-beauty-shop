@@ -1,5 +1,5 @@
 .tooltip-wrap {
-	z-index: 1;
+	z-index: 3;
     min-width: 300px;
     top: 70px;
     right: 0;
@@ -15,6 +15,15 @@
     border-left: 12px solid transparent;
     border-right: 12px solid transparent;
     border-bottom: 12px solid #fff;
+}
+
+.tooltip-background {
+    position: absolute;
+    top: -2500px;
+    left: -2500px;
+    background-color: rgba(0,0,0,0.3);
+    height: 10000px;
+    width: 10000px;
 }
 
 .tooltip-wrap.login:before {

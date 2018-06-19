@@ -1,18 +1,15 @@
 import React, { Component } from 'react'
 import store, { history } from 'store'
-import { removeAddress } from 'actions/user'
+import { removeAddress, toggleDefaultAddress } from 'actions/user'
 import BtnMain from 'components/buttons/btn_main.js'
 import CheckBox from 'components/inputs/checkbox.js'
 
 class AddressCard extends Component {
-	state = {
-        active: false
-    }
-
+	
     changeDefaultAddress = item => e => {
-        this.setState({
-            active: e.target.checked
-        })
+        if (e.target.checked) {
+            store.dispatch(toggleDefaultAddress(item.id, e.target.checked))
+        }
     }
 
     gotoAddress = (url, item) => e => {
@@ -36,9 +33,9 @@ class AddressCard extends Component {
                         <div className="d-flex justify-content-center">
                             <div>
                             <CheckBox
-                                title={this.state.active ? 'Principal' : 'Tornar Principal'}
+                                title={item.default ? 'Principal' : 'Tornar Principal'}
                                 vertical
-                                value={item.principal}
+                                value={item.default}
                                 onChange={this.changeDefaultAddress(item)}
                                 inputRef={ref => item.defaultAddress = ref} />
                             </div>

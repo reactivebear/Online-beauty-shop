@@ -44,7 +44,7 @@ class App extends Component {
             <div className="App">
                 {
                     approve_token
-                    ?   <div>
+                    ?   <div className="overflow-hidden">
                             <div id="main-wrap" className={`main-wrap ${unactiveClass}`}>
                                 <Header />
                                 <Switch>

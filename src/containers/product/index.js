@@ -203,7 +203,7 @@ class Product extends Component {
 		            		<div className="d-flex form-group">
 			            		<BtnMain
 			        				className="font-weight-bold px-4"
-			        				onClick={this.buy}
+			        				onClick={this.addToCart}
 			        				title="Comprar agora" />
 		        				<BtnMain
 			        				className="font-weight-bold btn-outline ml-2"

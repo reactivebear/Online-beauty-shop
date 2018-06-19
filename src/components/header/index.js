@@ -86,6 +86,7 @@ class Header extends Component {
                         </div>
                     :   ''
                 }
+                {/* this.state.tooltip ? <div className="tooltip-background z-index-3"></div> : '' */}
                 <div className="bg-dark effect6">
                     <div className="container text-white pt-4">
                         <div className="row pb-5 d-sm-none">
@@ -129,13 +130,15 @@ class Header extends Component {
                                             Meu<br />
                                             <strong id="cart">Carrinho</strong>
                                         </div>
+                                        { this.state.tooltip === 'cart' ? <div className="tooltip-background z-index-3"></div> : '' }
                                         {
                                             this.state.tooltip === 'cart'
                                             ?   <Tooltip title="Adicionado ao seu carrinho" type="cart" content={CartHeader} close={() => this.setState({tooltip: false})} />
                                             :   ''
                                         }
                                     </div>
-                                    <div onClick={this.toggleTooltip('login')} id="login" className="header-link-icon col px-sm-0 form-group pointer d-none d-sm-block"> {/*col-6 col-sm-4*/}
+                                    <div onClick={this.toggleTooltip('login')} id="login" className="header-link-icon col px-sm-0 form-group pointer d-none d-sm-block">
+                                        { this.state.tooltip === 'login' ? <div className="tooltip-background z-index-3"></div> : '' }
                                         {
                                             this.props.user.guest
                                             ?   <span id="login">Bem vindo<br /><strong id="login">Entre ou cadastre-se</strong></span>
@@ -153,6 +156,7 @@ class Header extends Component {
                                             Enviar para<br />
                                             <strong id="zip">Bela Vista 01329900</strong>
                                         </div>
+                                        { this.state.tooltip === 'zip' ? <div className="tooltip-background z-index-3"></div> : '' }
                                         {
                                             this.state.tooltip === 'zip'
                                             ?   <Tooltip title="Adicionar CEP" type="zip" content={ZipForm} close={() => this.setState({tooltip: false})} />
