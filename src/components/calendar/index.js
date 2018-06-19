@@ -13,7 +13,7 @@ class Calendar extends Component {
 	}
 
 	printDates = (item, i) => {
-		return 	<div key={i} className="text-center px-4 py-3 pointer month-item">
+		return 	<div key={i} className="text-center px-0 py-3 pointer month-item">
 					<div className="mb-3">{item.day}</div>
 					<div>{item.date}</div>
 				</div>
@@ -21,7 +21,7 @@ class Calendar extends Component {
 
 	printTimes = (item, i, length) => {
 		const lastClass = i+1 === length ? '' : 'border-bottom'
-		return 	<div key={i} className={`${lastClass} py-2 pl-4 pr-5 color-grey pointer d-flex justify-content-between`} onClick={this.setActiveTime(i+1)}>
+		return 	<div key={i} className={`${lastClass} py-2 pl-4 pr-5 color-grey pointer d-flex justify-content-between text-center`} onClick={this.setActiveTime(i+1)}>
 					<div>{item}</div>
 					{
 						i+1 === this.state.activeTime
@@ -36,12 +36,25 @@ class Calendar extends Component {
             slidesToShow: 5,
             swipeToSlide: true,
             infinite: false,
+            responsive: [
+            	{
+            		breakpoint: 991, 
+                    settings: {
+                        slidesToShow: 4
+                    }
+            	}, {
+            		breakpoint: 767, 
+                    settings: {
+                        slidesToShow: 3
+                    }
+            	}
+            ]
         }
         const times = ['9:00', '10:15', '12:30', '14:00', '15:30', '16:15', '17:45']
         return (
         	<div className="bg-white rounded overflow-hidden">
         		<div className="row justify-content-center">
-        			<div className="col-10">
+        			<div className="col-10 col-lg-10 col-md-8 col-sm-8">
 		        		<Carousel 
 		        			items={getDaysInMonth(this.props.month, this.props.year).map((item, i) => this.printDates(item, i))}
 		        			arrowType="calendar"

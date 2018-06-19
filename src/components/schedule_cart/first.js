@@ -24,7 +24,7 @@ class StepFirst extends Component {
                     <Calendar year={year} month={month} />
         		</div>
         		<div className="col-sm-6">
-        			
+                    <h4>Resumo do pedido</h4>
                     <ScheduleCartTotal value={this.props.cart.total} step={this.props.step} />
         		</div>
         	</div>

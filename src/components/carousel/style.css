@@ -70,3 +70,13 @@
 	cursor: pointer;
 	z-index: 1;
 }
+
+@media (max-width: 576px) {
+	.prev-arrow-calendar {
+		left: -15px;
+	}
+
+	.next-arrow-calendar {
+		right: -15px;
+	}
+}

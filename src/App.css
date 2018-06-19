@@ -172,7 +172,7 @@ path.cls-8 {
 }
 
 .footer-icon {
-	width: 52px;
+	width: 50px;
 }
 
 .img-icon-header {
@@ -286,12 +286,14 @@ path.cls-8 {
 	    white-space: nowrap;
 	}
 
-	.text-xs-left {
-		text-align: left!important;
-	}
-
 	.w-sm-50 {
 		width: 100%;
+	}
+}
+
+@media (max-width: 576px) {
+	.text-xs-left {
+		text-align: left!important;
 	}
 }
 

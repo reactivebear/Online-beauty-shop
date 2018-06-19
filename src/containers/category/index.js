@@ -71,9 +71,9 @@ class Category extends Component {
 	            			    <SearchMenuWeb type={this.props.match.params.type} catId={this.props.match.params.id} />
                             </div>
 	            		</div>
-	            		<div className="col-md-8">
+	            		<div className="col-md-8 px-md-0">
                             <div className="d-flex justify-content-between align-items-center">
-    	            			<h4><small>Pesquisa: </small>{category.name}</h4>
+    	            			<h5><small>Pesquisa: </small>{category.name}</h5>
                                 <div><DropDown list={DROP_LIST} /></div>
                             </div>
 

@@ -26,3 +26,13 @@
     transform: rotate(-135deg);
     -webkit-transform: rotate(-135deg);
 }
+
+@media (max-width: 576px) {
+    .wrap-drop-item {
+        right: -5px;
+    }
+
+    .wrap-drop-item:before {
+        right: 14px;
+    }
+}

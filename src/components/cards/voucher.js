@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import Stars from 'components/stars'
 import ImagePreview from 'components/images/preview'
 import Price from 'components/price'
+import BtnMain from 'components/buttons/btn_main'
 
-class CardReview extends Component {
+class CardVoucher extends Component {
 	render() {
 		return (
 			<div className="bg-white rounded p-3">
@@ -19,30 +19,43 @@ class CardReview extends Component {
 						<Price current={72} />
 					</div>
 				</div>
-				<div className="row">
+				<div className="row mb-3">
 					<div className="col-6">
 						<div className="color-grey">
-							Número do Pedido
+							Profissional
 						</div>
-						<div>334930950</div>
+						<div>Margarette Reis</div>
 					</div>
 					<div className="col-6">
 						<div className="color-grey">
-							Avaliação
+							Validade
 						</div>
-						<Stars active={5} />
+						<div>09/03/2018 (30 dias)</div>
 					</div>
 					<div className="col-6">
 						<div className="color-grey">
-							Data de compra
+							Contato
 						</div>
-						<div>23/04/2018</div>
+						<div>(11) 96162-1832</div>
 					</div>
-					<div className="col-6">
+					<div className="col-12">
 						<div className="color-grey">
-							Data da avaliação
+							Local
 						</div>
-						<div>23/04/2018</div>
+						<div>Rua Diogo jacome, 447 Villa Nova Conceição</div>
+					</div>
+				</div>
+				<div className="row justify-content-center">
+					<div className="col-lg-10">
+						<BtnMain
+							title="Enviar para..."
+							className="btn-block btn-outline" />
+						<BtnMain
+							title="Compartilhar"
+							className="btn-block btn-outline" />
+						<BtnMain
+							title="Agendar"
+							className="btn-block" />
 					</div>
 				</div>
 			</div>
@@ -50,4 +63,4 @@ class CardReview extends Component {
 	}
 }
 
-export default CardReview
+export default CardVoucher
