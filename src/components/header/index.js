@@ -86,7 +86,6 @@ class Header extends Component {
                         </div>
                     :   ''
                 }
-                {/* this.state.tooltip ? <div className="tooltip-background z-index-3"></div> : '' */}
                 <div className="bg-dark effect6 pb-lg-3">
                     <div className="container text-white pt-4">
                         <div className="row pb-5 d-sm-none">

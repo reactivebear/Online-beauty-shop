@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import store, { history } from 'store'
+import store from 'store'
 import { setGuestCard } from 'actions/schedule_cart'
 import Input from 'components/inputs/input'
 import BtnMain from 'components/buttons/btn_main'

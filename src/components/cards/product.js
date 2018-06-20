@@ -31,8 +31,6 @@ class CardProduct extends Component {
 		store.dispatch(removeFromWishList('product', this.props.id))
 	}
 
-	getDescription = text => text.length > 25 ? `${text.slice(0, 25)}...` : text
-
 	render() {
 		const image = this.props.images ? (this.props.images.length ? this.props.images[0].image_url : '') : ''
 		const hiddenClass = history.location.pathname.indexOf('category') + 1 ? ' d-flex d-sm-flex d-md-none d-lg-flex' : ''
@@ -47,11 +45,11 @@ class CardProduct extends Component {
 		            	</div>
 	            	</div>
 	            	<div className="px-2 w-60">
-		            	<div className="mb-1">
+		            	<div className="mb-1 text-truncate fs-16">
 		            		<strong>{this.props.name}</strong>
 		            	</div>
-		            	<div className="mb-1">
-		            		<strong>{this.getDescription(this.props.description)}</strong>
+		            	<div className="mb-1 text-truncate fs-16">
+		            		<strong>{this.props.description}</strong>
 		            	</div>
 		            	<div className={`color-grey d-flex justify-content-between align-items-center mb-1${hiddenClass}`}>
 		            		<div>
@@ -81,14 +79,14 @@ class CardProduct extends Component {
             	<div className="row justify-content-between">
             		<div className="col-xl-6 pr-xl-1 mb-2 md-sm-0">
             			<BtnMain
-	        				className="btn-block btn-outline font-weight-bold px-1"
-	        				onClick={this.addToCart}
-	        				title="Adicionar ao carrinho" />
+	        				className="btn-block font-weight-bold"
+	        				title="Comprar agora" />
             		</div>
         			<div className="col-xl-6 pl-xl-1">
 	    				<BtnMain
-	        				className="btn-block font-weight-bold"
-	        				title="Comprar agora" />
+	        				className="btn-block btn-outline font-weight-bold px-1"
+	        				onClick={this.addToCart}
+	        				title="Adicionar ao carrinho" />
     				</div>
         		</div>
 			</div>

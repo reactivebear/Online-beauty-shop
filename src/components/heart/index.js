@@ -13,7 +13,7 @@ class Heart extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (nextProps.active != undefined && nextProps.active !== this.props.active) {
+		if (nextProps.active !== undefined && nextProps.active !== this.props.active) {
 			this.setState({active: nextProps.active})
 		}
 	}

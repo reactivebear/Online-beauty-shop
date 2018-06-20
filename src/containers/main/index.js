@@ -57,9 +57,39 @@ class Main extends Component {
 		]
 
     	const carouselItems = [
-    		<img style={{width: '100%', maxHeight: 350}} src="/assets/images/banner.png" alt="" />, 
-    		<img style={{width: '100%', maxHeight: 350}} src="/assets/images/banner.png" alt="" />, 
-    		<img style={{width: '100%', maxHeight: 350}} src="/assets/images/banner.png" alt="" />
+    		<div style={
+    			{
+    				maxHeight: 350,
+    				backgroundImage: 'url(/assets/images/banner.jpg)',
+    				backgroundRepeat: 'no-repeat',
+    				backgroundPosition: 'center',
+    				backgroundSize: 'cover'
+    			}
+    		}>
+    			<img style={{width: '100%', opacity: 0}} src="/assets/images/banner.jpg" alt="" />
+			</div>,
+			<div style={
+    			{
+    				maxHeight: 350,
+    				backgroundImage: 'url(/assets/images/banner.jpg)',
+    				backgroundRepeat: 'no-repeat',
+    				backgroundPosition: 'center',
+    				backgroundSize: 'cover'
+    			}
+    		}>
+    			<img style={{width: '100%', opacity: 0}} src="/assets/images/banner.jpg" alt="" />
+			</div>,
+			<div style={
+    			{
+    				maxHeight: 350,
+    				backgroundImage: 'url(/assets/images/banner.jpg)',
+    				backgroundRepeat: 'no-repeat',
+    				backgroundPosition: 'center',
+    				backgroundSize: 'cover'
+    			}
+    		}>
+    			<img style={{width: '100%', opacity: 0}} src="/assets/images/banner.jpg" alt="" />
+			</div>
 		]
 		
         return (

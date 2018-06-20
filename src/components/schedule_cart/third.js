@@ -1,14 +1,10 @@
 import React, { Component } from 'react'
-import store from 'store'
 import { connect } from 'react-redux'
-import { getCart, getCartTotal } from 'actions/cart.js'
 import ScheduleCartTotal from 'components/cards/schedule_cart_total'
 import CardVoucher from 'components/cards/voucher'
 
 class StepThird extends Component {
     render() {
-		const { product, service } = this.props.cart.list
-        
         return (
         	<div className="row pb-5">
         		<div className="col-sm-5">
@@ -29,7 +25,6 @@ class StepThird extends Component {
 const mapStateToProps = state =>
     ({
         cart: {
-            list: state.cart.list,
             total: state.cart.total
         }
     })

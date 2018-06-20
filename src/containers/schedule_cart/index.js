@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import store, { history } from 'store'
-import { getUserAddress } from 'actions/user'
 import { getService } from 'actions/services'
 import { setScheduleStep } from 'actions/schedule_cart'
 import StepsArrow from 'components/steps/steps_arrow.js'

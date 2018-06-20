@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import store from 'store'
 import { connect } from 'react-redux'
-import { getCart, getCartTotal } from 'actions/cart'
 import { toggleModal } from 'actions/design'
 import ScheduleCartTotal from 'components/cards/schedule_cart_total'
 import BtnMain from 'components/buttons/btn_main'
@@ -24,8 +23,6 @@ class StepSecond extends Component {
     }
 
     render() {
-		const { product, service } = this.props.cart.list
-        
         return (
         	<div className="row pb-5">
                 <div className="col-sm-6">
@@ -56,7 +53,6 @@ class StepSecond extends Component {
 const mapStateToProps = state =>
     ({
         cart: {
-            list: state.cart.list,
             total: state.cart.total
         },
         schedule_cart: {

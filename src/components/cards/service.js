@@ -114,14 +114,14 @@ class CardService extends Component {
 	            				<div className="col-xl-6 pl-xl-1">
 			        				<BtnMain
 			        					className="btn-block btn-outline font-weight-bold px-1"
-			        					onClick={this.addToCart}
-			            				title="Adicionar ao carrinho" />
+			        					onClick={this.goToSalon}
+			        					title="Exibir servicos" />
 	            				</div>
 	        				</div>
 	            			<BtnMain
 	            				className="btn-block font-weight-bold"
-	            				onClick={this.goToSalon}
-	            				title="Exibir servicos" />
+	            				onClick={this.addToCart}
+	            				title="Adicionar ao carrinho" />
 	            		</div>
             		</div>
 				</div>

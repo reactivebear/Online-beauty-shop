@@ -356,9 +356,15 @@ path.cls-8 {
 	
 }
 
-@media(max-width: 374px) {
+@media(max-width: 375px) {
+	.footer-copyright {
+		font-size: 13px;
+		white-space: nowrap;
+	}
+}
+
+@media(max-width: 350px) {
 	.footer-copyright {
 		font-size: 11px;
-		white-space: nowrap;
 	}
 }

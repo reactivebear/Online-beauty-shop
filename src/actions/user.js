@@ -139,6 +139,16 @@ export const getPurchases = () => dispatch =>
         })
     )
 
+export const sendSupport = data => dispatch => 
+    (
+        post(`support/requests`, true, data).then(json => {
+            console.log(json)
+            if (json.object) {
+                
+            }
+        })
+    )
+
 export const setUserAddress = data => 
     ({
         type: types.SET_USER_ADDRESS,

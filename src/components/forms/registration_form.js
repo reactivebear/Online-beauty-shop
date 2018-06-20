@@ -21,9 +21,7 @@ class RegistrationForm extends Component {
     }
 
     registration = pos => {
-        const data = {
-            first_name: this.auth.first_name.value,
-            last_name: this.auth.last_name.value,
+        let data = {
             email: this.auth.email.value,
             password: this.auth.password.value,
             address: {
@@ -32,6 +30,15 @@ class RegistrationForm extends Component {
                 latitude:  pos.longitude || '',
             }
         }
+        
+        if (this.props.type === 'personal') {
+            data.first_name = this.auth.first_name.value
+            data.last_name = this.auth.last_name.value
+        } else {
+            data.cnpj = this.auth.cnpj.value
+            data.company_name = this.auth.company_name.value
+        }
+            
         store.dispatch(registration(data))
     }
 
@@ -62,7 +69,7 @@ class RegistrationForm extends Component {
                                 required
                                 label="Razão social"
                                 value={''}
-                                inputRef={ref => this.auth.last_name = ref} />
+                                inputRef={ref => this.auth.company_name = ref} />
                         </div>
                 }
                     

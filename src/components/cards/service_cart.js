@@ -1,12 +1,9 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import store from 'store'
 import { toggleModal, updateModal } from 'actions/design'
-import ImagePreview from 'components/images/preview'
 import Price from 'components/price'
 import moment from 'moment'
 import RadioSwitch from 'components/inputs/radio_switch'
-import CustomModal from 'components/modal'
 import BtnMain from 'components/buttons/btn_main'
 
 class ServiceCart extends Component {

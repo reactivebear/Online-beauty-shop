@@ -4,7 +4,7 @@ import BtnMain from 'components/buttons/btn_main.js'
 class Footer extends Component {
     render() {
         return (
-            <footer className="bg-dark text-white pt-5 font-avenir">
+            <footer className="bg-dark text-white pt-3 font-avenir">
                 <div className="container">
                     <div className="row text-center justify-content-center">
                         <div className="col-lg-5 col-md-6 col-sm-8">
@@ -25,34 +25,32 @@ class Footer extends Component {
 
                     <div className="row mb-3 mb-sm-4 color-grey">
                         <div className="col-sm col-12">
-                            <div className="mb-3"><strong>Quem somos</strong></div>
-                            <div className="font-italic mb-1">Sobre o App</div>
-                            <div className="font-italic mb-1">Sobre o Blog</div>
-                            <div className="border-bottom border-white w-100 d-sm-none mb-3"></div>
-                        </div>
-                        
-                        <div className="col-sm col-12">
-                            <div className="mb-3"><strong>Vantagens para clientes</strong></div>
-                            <div className="font-italic mb-1">Ofereça seus serviços</div>
-                            <div className="font-italic mb-1">Anuncie seus produtos</div>
-                            <div className="border-bottom border-white w-100 d-sm-none mb-3"></div>
+                            <div className="mb-sm-3">Quem somos</div>
+                            <div className="mb-1">Sobre o App</div>
+                            <div className="mb-1">Sobre o Blog</div>
                         </div>
                         <div className="col-sm col-12">
-                            <div className="mb-3"><strong>Localização</strong></div>
-                            <div className="font-italic mb-2">Rua Girassol, 1158 - Vila Madalena, São Paulo - SP</div>
-                            <div className="font-italic mb-1">Rua Girassol, 1158 - Vila Madalena, São Paulo - SP</div>
-                            <div className="border-bottom border-white w-100 d-sm-none mb-3"></div>
+                            <div className="mb-sm-3">Vantagens para clientes</div>
+                            <div className="mb-1">Ofereça seus serviços</div>
+                            <div className="mb-1">Anuncie seus produtos</div>
+                            <div className="border-bottom w-100 d-sm-none mb-3"></div>
                         </div>
                         <div className="col-sm col-12">
-                            <div className="mb-3"><strong>Conecte-se conosco</strong></div>
+                            <div className="mb-3">Localização</div>
+                            <div className="mb-2">Rua Girassol, 1158 - Vila Madalena, São Paulo - SP</div>
+                            <div className="mb-1">Rua Girassol, 1158 - Vila Madalena, São Paulo - SP</div>
+                            <div className="border-bottom w-100 d-sm-none mb-3"></div>
+                        </div>
+                        <div className="col-sm col-12">
+                            <div className="font-italic mb-3">Conecte-se conosco</div>
                             <div className="font-italic mb-1">(55) +11 3003-0230</div>
                             <div className="font-italic mb-1">visualtotal@contato.com.br</div>
-                            <div className="border-bottom border-white w-100 d-sm-none mb-3"></div>
+                            <div className="border-bottom w-100 d-sm-none mb-3"></div>
                         </div>
                         <div className="col-sm col-12">
                             <div className="mb-3"><strong>Sobre a WeMind Group</strong></div>
-                            <div className="font-italic mb-1">Carreiras</div>
-                            <div className="font-italic mb-1">Conheça a WeMind</div>
+                            <div className="mb-1">Carreiras</div>
+                            <div className="mb-1">Conheça a WeMind</div>
                         </div>
                     </div>
 

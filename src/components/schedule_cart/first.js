@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import store from 'store'
 import { connect } from 'react-redux'
-import { getCart, getCartTotal } from 'actions/cart.js'
 import ScheduleCartTotal from 'components/cards/schedule_cart_total'
 import ServiceCart from 'components/cards/service_cart'
 import { MONTH } from 'config' 
@@ -9,7 +7,6 @@ import Calendar from 'components/calendar'
 
 class StepFirst extends Component {
     render() {
-		const { product, service } = this.props.cart.list
         const { salon } = this.props.services
         const month = new Date().getMonth()
         const year = new Date().getFullYear()
@@ -35,7 +32,6 @@ class StepFirst extends Component {
 const mapStateToProps = state =>
     ({
         cart: {
-            list: state.cart.list,
             total: state.cart.total
         },
         services: {

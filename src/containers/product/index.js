@@ -17,7 +17,6 @@ import SalonInfo from 'components/blocks/salon_info.js'
 import MainList from 'components/lists/main.js'
 import Accordion from 'components/accordion'
 import { CommentForm } from 'components/forms'
-import { NextArrowRounded } from 'components/carousel/next_arrow'
 import Heart from 'components/heart'
 
 class Product extends Component {
@@ -168,78 +167,80 @@ class Product extends Component {
     	const { product, salon } = this.props.products
     	const servicesCategories = this.props.categories.service
         return (
-        	<div className="font-avenir pt-4">
-        		<div className="container">
-		            <div className="row">
-		            	<div className="col-12 col-sm-4">
-		            		<ImageMultiPreview onClick={this.openLightBox} className="d-none d-sm-flex" images={product.images} />
-		            		<ImagePreview className="d-block d-sm-none" images={product.images} />
-		            	</div>
-		            	<div className="col-12 col-sm-8">
-		            		<h4>
-		            			<span>{ product.name }</span>
-		            			<div className="float-right">
-		            				<Heart onChange={this.toggleWish} main="test" active={product.in_wishlist} />
-		            			</div>
-		            		</h4>
-		            		<div>
-		            			<Price current={product.price} old={product.discount_price} />
+        	<div className="bg-main pt-4">
+	        	<div className="font-avenir pt-2 bg-white">
+	        		<div className="container">
+			            <div className="row">
+			            	<div className="col-12 col-sm-4">
+			            		<ImageMultiPreview onClick={this.openLightBox} className="d-none d-sm-flex" images={product.images} />
+			            		<ImagePreview className="d-block d-sm-none" images={product.images} />
+			            	</div>
+			            	<div className="col-12 col-sm-8">
+			            		<h4>
+			            			<span>{ product.name }</span>
+			            			<div className="float-right">
+			            				<Heart onChange={this.toggleWish} main="test" active={product.in_wishlist} />
+			            			</div>
+			            		</h4>
+			            		<div>
+			            			<Price current={product.price} old={product.discount_price} />
+			            		</div>
+			            		<div className="color-grey form-group">
+				            		Avaliação<br />
+				            		<Stars active={product.rating} />
+			            		</div>
+			            		<div className="form-group">
+			            			<i className="fas fa-truck mr-2"></i>
+			            			<span>Envio para todos o país</span><br />
+			            			<span className="color-grey">Saiba os prazos de entrega e as formas de envio.</span>
+			            		</div>
+			            		<div className="row form-group">
+			            			<div className="col-6 col-sm-3">
+				            			<span className="color-green">Calcular frete</span><br />
+				            			<Counter onChange={val => this.count = val} value={this.count} />
+			            			</div>
+			            		</div>
+			            		<div className="d-flex form-group">
+				            		<BtnMain
+				        				className="font-weight-bold px-4"
+				        				onClick={this.addToCart}
+				        				title="Comprar agora" />
+			        				<BtnMain
+				        				className="font-weight-bold btn-outline ml-2"
+				        				onClick={this.addToCart}
+				        				title="Adicionar ao carrinho" />
+		        				</div>
+			            	</div>
+			            </div>
+		            </div>
+		            <div className="bg-main pb-4">
+		            	<div className="container pt-4">
+		            		<div className="rounded py-4 px-3 bg-white mb-4">
+		            			<h5>Descrição</h5>
+		            			<span className="color-grey">{ product.description }</span>
 		            		</div>
-		            		<div className="color-grey form-group">
-			            		Avaliação<br />
-			            		<Stars active={product.rating} />
+		            		<div className="rounded py-3 bg-white">
+		            			<Tabs tabs={[
+		            				{
+		            					title: 'Sobre',
+		            					content: <div className="p-3"><SalonInfo {...salon} /></div>
+		            				}, {
+		            					title: 'Produtos',
+		            					content: <div className="p-3"><MainList type="product" itemType="small" /></div>
+		            				}, {
+		            					title: 'Serviços',
+		            					content: <div className="p-3"><div className="row"><div className="col-md-8"><Accordion list={servicesCategories} /></div></div></div>
+		            				}, {
+		            					title: 'Avaliações',
+		            					content: <div className="p-3">{this.getReviewList()}</div>
+		            				}, {
+	            						title: 'Perguntas',
+	            						content: <div className="p-3">{this.getQuestionBlock()}</div>
+		            				}]} />
 		            		</div>
-		            		<div className="form-group">
-		            			<i className="fas fa-truck mr-2"></i>
-		            			<span>Envio para todos o país</span><br />
-		            			<span className="color-grey">Saiba os prazos de entrega e as formas de envio.</span>
-		            		</div>
-		            		<div className="row form-group">
-		            			<div className="col-6 col-sm-3">
-			            			<span className="color-green">Calcular frete</span><br />
-			            			<Counter onChange={val => this.count = val} value={this.count} />
-		            			</div>
-		            		</div>
-		            		<div className="d-flex form-group">
-			            		<BtnMain
-			        				className="font-weight-bold px-4"
-			        				onClick={this.addToCart}
-			        				title="Comprar agora" />
-		        				<BtnMain
-			        				className="font-weight-bold btn-outline ml-2"
-			        				onClick={this.addToCart}
-			        				title="Adicionar ao carrinho" />
-	        				</div>
 		            	</div>
 		            </div>
-	            </div>
-	            <div className="bg-main pb-4">
-	            	<div className="container pt-4">
-	            		<div className="rounded py-4 px-3 bg-white mb-4">
-	            			<h5>Descrição</h5>
-	            			<span className="color-grey">{ product.description }</span>
-	            		</div>
-	            		<div className="rounded py-3 bg-white">
-	            			<Tabs tabs={[
-	            				{
-	            					title: 'Sobre',
-	            					content: <div className="p-3"><SalonInfo {...salon} /></div>
-	            				}, {
-	            					title: 'Produtos',
-	            					content: <div className="p-3"><MainList type="product" itemType="small" /></div>
-	            				}, {
-	            					title: 'Serviços',
-	            					content: <div className="p-3"><div className="row"><div className="col-md-8"><Accordion list={servicesCategories} /></div></div></div>
-	            				}, {
-	            					title: 'Avaliações',
-	            					content: <div className="p-3">{this.getReviewList()}</div>
-	            				}, {
-            						title: 'Perguntas',
-            						content: <div className="p-3">{this.getQuestionBlock()}</div>
-	            				}]} />
-	            		</div>
-	            	</div>
-	            </div>
+				</div>
 			</div>
         );
     }

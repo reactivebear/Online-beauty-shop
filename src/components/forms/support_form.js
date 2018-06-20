@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import store from 'store'
 import BtnMain from 'components/buttons/btn_main'
 import { format } from 'utils/mask'
 import Input from 'components/inputs/input'
 import TextArea from 'components/inputs/textarea'
+import { sendSupport } from 'actions/user'
 
 class SupportForm extends Component {
     constructor(props) {
@@ -14,6 +16,17 @@ class SupportForm extends Component {
         this.support[field].value = format(mask, e.target.value)
     }
 
+    sendSupport = () => {
+        const data = {
+            name: this.support.name.value,
+            message: this.support.message.value,
+            email: this.support.email.value,
+            phone: this.support.phone.value,
+            cellphone: this.support.cellphone.value,
+        }
+        store.dispatch(sendSupport(data))
+    }
+
     render() {
         return (
             <div>
@@ -23,8 +36,8 @@ class SupportForm extends Component {
                             required
                             label="Nome"
                             value={''}
-                            onChange={this.checkMask('alphabet', 'first_name')}
-                            inputRef={ref => this.support.first_name = ref} />
+                            onChange={this.checkMask('alphabet', 'name')}
+                            inputRef={ref => this.support.name = ref} />
                         <Input 
                             required
                             label="E-mail"
@@ -46,8 +59,8 @@ class SupportForm extends Component {
                                     required
                                     label="Celular"
                                     value={''}
-                                    onChange={this.checkMask('phone', 'celular')}
-                                    inputRef={ref => this.support.celular = ref} />
+                                    onChange={this.checkMask('phone', 'cellphone')}
+                                    inputRef={ref => this.support.cellphone = ref} />
                             </div>
                         </div>
                         <TextArea 
@@ -59,6 +72,7 @@ class SupportForm extends Component {
                     <div className="col-sm-8 offset-sm-2">
                 		<BtnMain
             				className="font-weight-bold btn-block pt-2"
+                            onClick={this.sendSupport}
             				title="Enviar mensagem" />
                     </div>
     			</div>
