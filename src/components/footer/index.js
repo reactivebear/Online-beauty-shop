@@ -53,19 +53,18 @@ class Footer extends Component {
                             <div className="mb-3"><strong>Sobre a WeMind Group</strong></div>
                             <div className="font-italic mb-1">Carreiras</div>
                             <div className="font-italic mb-1">Conheça a WeMind</div>
-                            <div className="border-bottom border-white w-100 d-sm-none mb-3"></div>
                         </div>
                     </div>
 
-                    <div className="row border-bottom border-white pb-3 mb-4 align-items-end">
+                    <div className="row pb-3 align-items-end">
                         <div className="col-sm-6 text-right">
-                            <div className="row align-items-end mb-5 mb-sm-0">
-                                <div className="col-sm col-5 text-xs-left">
-                                    <img src="/assets/icons/facebook-icon.png" alt="" className="footer-icon px-sm-2 px-1" />
-                                    <img src="/assets/icons/instagram-icon.png" alt="" className="footer-icon px-sm-2 px-1" />
+                            <div className="row align-items-end mb-3 mb-sm-0">
+                                <div className="col-sm col-4 pr-0 text-xs-left">
+                                    <img src="/assets/icons/facebook-icon.png" alt="" className="footer-icon mr-2" />
+                                    <img src="/assets/icons/instagram-icon.png" alt="" className="footer-icon" />
                                 </div>
-                                <div className="col-sm col-7 text-left">
-                                    <p>Selecione um país/região</p>
+                                <div className="col-sm col-8 text-left">
+                                    <p className="color-grey">Selecione um país/região</p>
                                     <select className="form-control h-75">
                                         <option value="br">Brazil - Português</option>
                                         <option value="en">EUA - English</option>
@@ -74,10 +73,11 @@ class Footer extends Component {
                             </div>
                         </div>
                         <div className="col-sm-6 order-sm-first color-grey">
-                            <span>Uma empresa WeMind Group - www.wemindgroup.com</span>
+                            <span className="footer-copyright">Uma empresa WeMind Group - www.wemindgroup.com</span>
                         </div>
                     </div>
-                    <div className="pb-2 color-grey">© WeMind 2018 - TODOS OS DIREITOS RESERVADOS.</div>
+                    <div className="border-bottom mb-2 d-sm-none"></div>
+                    <div className="pb-2 color-grey footer-copyright">© WeMind 2018 - TODOS OS DIREITOS RESERVADOS.</div>
                 </div>
             </footer>
         )

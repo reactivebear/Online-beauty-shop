@@ -176,7 +176,7 @@ path.cls-8 {
 }
 
 .footer-icon {
-	width: 50px;
+	width: 36px;
 }
 
 .img-icon-header {
@@ -350,4 +350,15 @@ path.cls-8 {
     border-top: 2px solid #444;
     border-right: 2px solid #444;
     transform: rotate(45deg);
+}
+
+.footer-copyright {
+	
+}
+
+@media(max-width: 374px) {
+	.footer-copyright {
+		font-size: 11px;
+		white-space: nowrap;
+	}
 }

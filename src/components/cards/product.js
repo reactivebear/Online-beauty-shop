@@ -38,7 +38,7 @@ class CardProduct extends Component {
 		const hiddenClass = history.location.pathname.indexOf('category') + 1 ? ' d-flex d-sm-flex d-md-none d-lg-flex' : ''
 		const visibleCLass = history.location.pathname.indexOf('category') + 1 ? ' d-none d-sm-none d-md-flex d-lg-none' : ' d-none'
 		return (
-			<div className="card product rounded p-2 pointer d-flex flex-column justify-content-between" onClick={this.goToProduct}>
+			<div className="card h-100 product rounded p-2 pointer d-flex flex-column justify-content-between" onClick={this.goToProduct}>
 				<div className="d-flex mb-2">
 					<div className="w-40">
 		            	<div>

@@ -70,11 +70,11 @@ class Header extends Component {
             <div className="wrap-header">
                 {  
                     ! this.state.dismissDownload 
-                    ?   <div className="download-app-big p-5 d-sm-none">
-                            <div className="d-block text-center text-white">
-                                <div className="form-group">
+                    ?   <div className="download-app-big d-sm-none">
+                            <div className="d-block text-center text-white p-5">
+                                <div className="form-group position-relative">
                                     <strong>Use grátis o app do Visual Total</strong>
-                                    <img src="/assets/icons/close-icon.png" onClick={this.handleDismissClick} className="img-icon pb-2 px-1 float-right" alt="" />
+                                    <img src="/assets/icons/close-icon.png" onClick={this.handleDismissClick} className="img-icon" alt="" />
                                 </div>
                                 <div className="form-group">
                                     <span>Descubra a melhor experiência na hora de comprar pela internet</span>
@@ -87,7 +87,7 @@ class Header extends Component {
                     :   ''
                 }
                 {/* this.state.tooltip ? <div className="tooltip-background z-index-3"></div> : '' */}
-                <div className="bg-dark effect6">
+                <div className="bg-dark effect6 pb-lg-3">
                     <div className="container text-white pt-4">
                         <div className="row pb-5 d-sm-none">
                             <div className="col-6 align-self-end">

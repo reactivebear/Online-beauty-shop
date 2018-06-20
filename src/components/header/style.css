@@ -45,6 +45,13 @@
     font-size: 12px;
 }
 
+.download-app-big .img-icon {
+    position: absolute;
+    right: -15px;
+    width: 12px;
+    top: 5px;
+}
+
 @media (max-width: 1200px) {
     .header-link-icon {
         font-size: 10px;
