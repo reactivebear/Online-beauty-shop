@@ -39,6 +39,10 @@ path.cls-8 {
 	background-color: #F3F3F3;
 }
 
+.bg-grey {
+	background-color: #C1C1C1;
+}
+
 .bg-green {
 	background-color: #609D6D;
 }
@@ -236,7 +240,7 @@ path.cls-8 {
 
 .tag {
 	border-radius: 5px;
-	padding: 1px 10px 3px 10px;
+	padding: 3px 10px 3px 10px;
 	margin: 0 3px;
 }
 

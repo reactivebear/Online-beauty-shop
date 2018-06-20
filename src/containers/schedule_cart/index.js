@@ -4,7 +4,7 @@ import store, { history } from 'store'
 import { getService } from 'actions/services'
 import { setScheduleStep } from 'actions/schedule_cart'
 import StepsArrow from 'components/steps/steps_arrow.js'
-import { StepFirst, StepSecond, StepThird } from 'components/schedule_cart'
+import { StepFirst, StepSecond, StepThird, StepFourth } from 'components/schedule_cart'
 
 class ScheduleCart extends Component {
 	constructor(props) {
@@ -26,6 +26,7 @@ class ScheduleCart extends Component {
 			case 1: return <StepFirst step={this.props.schedule_cart.step} service={this.props.location.state} />
 			case 2: return <StepSecond step={this.props.schedule_cart.step} />
 			case 3: return <StepThird step={this.props.schedule_cart.step} />
+			case 4: return <StepFourth step={this.props.schedule_cart.step} />
 			default: return
 		}
 	}

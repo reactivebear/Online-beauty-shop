@@ -28,7 +28,7 @@ class ScheduleCartTotal extends Component {
 						</div>
 				}
 				{
-					this.props.step === 3 || this.props.step === 5
+					this.props.step === 3 || this.props.step === 4
 					? 	<div className="d-flex justify-content-between color-grey">
 							<div><h5>Créditos:</h5></div>
 							<div><Price current={0} /></div>
@@ -54,24 +54,28 @@ class ScheduleCartTotal extends Component {
 						: 	''
 					}
 					{
-						this.props.step === 5
+						this.props.step === 4
 						?	<div>
-								<BtnMain
-				                    className="btn-block btn-outline font-weight-bold"
-				                    onClick={this.changeStep}
-				                    title="Agendar serviços" />
 			                    <BtnMain
 				                    className="btn-block btn-outline font-weight-bold mb-2"
 				                    onClick={this.changeStep}
-				                    title="Acompanhar produtos" />
+				                    title="Continuar comprando" />
+			                    <BtnMain
+				                    className="btn-block font-weight-bold"
+				                    onClick={this.changeStep}
+				                    title="Agendar serviços" />
 		                    </div>
 						: 	''
 					}
-					
-					<BtnMain
-	                    className="btn-block font-weight-bold"
-	                    onClick={this.changeStep}
-	                    title="Continuar" />
+
+					{
+						this.props.step < 4
+						? 	<BtnMain
+			                    className="btn-block font-weight-bold"
+			                    onClick={this.changeStep}
+			                    title="Continuar" />
+						: 	''
+					}
                 </div>
 			</div>
 		)

@@ -11,6 +11,7 @@ const initialState = {
         billing_addresses: []
     },
     cards: [],
+    default_card: {},
     wishlist: {
         products: [],
         services: []

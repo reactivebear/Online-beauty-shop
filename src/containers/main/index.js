@@ -56,38 +56,22 @@ class Main extends Component {
 			}
 		]
 
+		const style = {
+			maxHeight: 350,
+			backgroundImage: 'url(/assets/images/banner.jpg)',
+			backgroundRepeat: 'no-repeat',
+			backgroundPosition: 'center',
+			backgroundSize: 'cover'
+		}
+
     	const carouselItems = [
-    		<div style={
-    			{
-    				maxHeight: 350,
-    				backgroundImage: 'url(/assets/images/banner.jpg)',
-    				backgroundRepeat: 'no-repeat',
-    				backgroundPosition: 'center',
-    				backgroundSize: 'cover'
-    			}
-    		}>
+    		<div style={style}>
     			<img style={{width: '100%', opacity: 0}} src="/assets/images/banner.jpg" alt="" />
 			</div>,
-			<div style={
-    			{
-    				maxHeight: 350,
-    				backgroundImage: 'url(/assets/images/banner.jpg)',
-    				backgroundRepeat: 'no-repeat',
-    				backgroundPosition: 'center',
-    				backgroundSize: 'cover'
-    			}
-    		}>
+			<div style={style}>
     			<img style={{width: '100%', opacity: 0}} src="/assets/images/banner.jpg" alt="" />
 			</div>,
-			<div style={
-    			{
-    				maxHeight: 350,
-    				backgroundImage: 'url(/assets/images/banner.jpg)',
-    				backgroundRepeat: 'no-repeat',
-    				backgroundPosition: 'center',
-    				backgroundSize: 'cover'
-    			}
-    		}>
+			<div style={style}>
     			<img style={{width: '100%', opacity: 0}} src="/assets/images/banner.jpg" alt="" />
 			</div>
 		]

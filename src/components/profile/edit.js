@@ -16,13 +16,14 @@ class Edit extends Component {
     }
 
     getCardData = fields => e => {
+    	const [m, y] = fields.validity_month.value.split('/')
     	this.cardData = {
     		card_name: fields.card_name.value,
     		name_on_card: fields.name_on_card.value,
-    		card_number: fields.card_number.value,
+    		card_number: fields.card_number.value.replace('.', ''),
     		cvv: fields.cvv.value,
-    		validity_month: fields.validity_month.value,
-    		validity_year: fields.validity_year.value,
+    		validity_month: m,
+    		validity_year: y,
     	}
     }
 

@@ -1,12 +1,17 @@
 import React, { Component } from 'react'
 import { history } from 'store'
-import Input from 'components/inputs/input.js'
+import Input from 'components/inputs/input'
+import { format } from 'utils/mask'
 
 class CardForm extends Component {
 
     constructor(props) {
         super(props)
         this.card = {}
+    }
+
+    checkMask = (mask, field) => e => {
+        this.card[field].value = format(mask, e.target.value)
     }
 
     render() {
@@ -18,39 +23,36 @@ class CardForm extends Component {
                     label="Nome para o cartão"
                     description="ex: meu cartão1, meu cartão2"
                     value={card.card_name}
+                    onChange={this.checkMask('alphabet', 'card_name')}
                     inputRef={ref => this.card.card_name = ref} />
                 <Input 
                     required
                     label="Nome impresso no cartão"
                     value={card.name_on_card}
+                    onChange={this.checkMask('alphabet', 'name_on_card')}
                     inputRef={ref => this.card.name_on_card = ref} />
                 <Input 
                     required
                     label="Número do cartão"
                     value={card.card_number}
+                    onChange={this.checkMask('card', 'card_number')}
                     inputRef={ref => this.card.card_number = ref} />
                 <div className="row">
                     <div className="col-md-6">
-                        <div className="d-flex align-items-center">
-                            <Input 
-                                required
-                                label="Validate"
-                                placeholder="Month"
-
-                                value={card.validity_month}
-                                inputRef={ref => this.card.validity_month = ref} />
-                            <Input 
-                                value={card.validity_year}
-                                placeholder="Year"
-                                className="ml-2"
-                                inputRef={ref => this.card.validity_year = ref} />
-                        </div>
+                        <Input 
+                            required
+                            label="Validate"
+                            placeholder="DD/MM"
+                            value={''}
+                            onChange={this.checkMask('dd/mm', 'validity_month')}
+                            inputRef={ref => this.card.validity_month = ref} />
                     </div>
                     <div className="col-md-6">
                         <Input 
                             required
                             label="Código de segurança"
-                            value={card.cvv}
+                            value={''}
+                            onChange={this.checkMask('cvv', 'cvv')}
                             inputRef={ref => this.card.cvv = ref} />
                     </div>
                 </div>

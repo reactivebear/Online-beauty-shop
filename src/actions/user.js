@@ -26,6 +26,8 @@ export const getCreditCards = () => dispatch =>
         get('api/user/creditcards').then(json => {
             if (json.object) {
                 dispatch(setUserKey(json.object, 'cards'))
+                const default_card = json.object.find(item => item.default_card) || {}
+                dispatch(setUserKey(default_card, 'default_card'))
             }
         })
     )

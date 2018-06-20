@@ -7,6 +7,7 @@ import Price from 'components/price'
 import BtnMain from 'components/buttons/btn_main.js'
 import Distance from 'utils/distance.js'
 import Heart from 'components/heart'
+import Tag from 'components/tags'
 import './service.css'
 
 class CardService extends Component {
@@ -103,6 +104,11 @@ class CardService extends Component {
 		            		</div>
 		            		<div className="color-grey w-75 mb-3">
 		            			{this.getAddress(this.props.vendor.address || this.props.address)}
+		            		</div>
+		            		<div className="mb-2">
+		            			<Tag title="Hair" />
+		            			<Tag title="Wedding" />
+		            			<Tag title="Salão" />
 		            		</div>
 	            			<div className="row justify-content-between mb-1">
 	            				<div className="col-xl-6 pr-xl-1 mb-1 md-sm-0">
