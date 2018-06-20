@@ -8,7 +8,9 @@ import CheckBox from 'components/inputs/checkbox.js'
 
 class CartTotal extends Component {
 	changeStep = () => {
-		store.dispatch(setStep(this.props.step+1))
+		if (this.props.step < 5) {
+			store.dispatch(setStep(this.props.step+1))
+		}
 	}
 
 	render() {
@@ -68,11 +70,9 @@ class CartTotal extends Component {
 						?	<div>
 								<BtnMain
 				                    className="btn-block btn-outline font-weight-bold"
-				                    onClick={this.changeStep}
 				                    title="Agendar serviços" />
 			                    <BtnMain
 				                    className="btn-block btn-outline font-weight-bold mb-2"
-				                    onClick={this.changeStep}
 				                    title="Acompanhar produtos" />
 		                    </div>
 						: 	''

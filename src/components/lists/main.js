@@ -26,6 +26,12 @@ class ListMain extends Component {
         this.getData(this.props.type)
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.user.guest !== this.props.user.guest) {
+            this.getData(this.props.type)
+        }
+    }
+
     printList = (item, i) => {
         if (i < 6) {
             let component
@@ -56,7 +62,7 @@ class ListMain extends Component {
 const mapStateToProps = state =>
     ({
         user: {
-            token: state.user.token
+            guest: state.user.guest
         },
         product: {
             list: state.products.list

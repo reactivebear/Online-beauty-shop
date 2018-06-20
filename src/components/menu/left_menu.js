@@ -26,13 +26,12 @@ class LeftMenu extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
+const mapStateToProps = state =>
+    ({
         design: {
             leftMenu: state.design.leftMenu
         }
-    }
-}
+    })
 
 export default connect(
     mapStateToProps

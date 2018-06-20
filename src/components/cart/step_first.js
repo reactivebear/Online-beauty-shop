@@ -18,7 +18,7 @@ class StepFirst extends Component {
         
         return (
         	<div className="row pb-5">
-        		<div className="col-sm-6">
+        		<div className="col-md-6">
                     <h4>Meu carrinho</h4>
                     {
                         [...product, ...service].length
@@ -26,7 +26,7 @@ class StepFirst extends Component {
                         :   <div className="rounded p-5 bg-white">O seu carrinho está vazio</div>
                     }
         		</div>
-        		<div className="col-sm-6">
+        		<div className="col-md-6">
         			<h4>Resumo do pedido</h4>
                     <CartTotal value={this.props.cart.total} step={this.props.step} />
         		</div>

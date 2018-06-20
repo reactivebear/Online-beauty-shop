@@ -36,7 +36,7 @@ class App extends Component {
     printRoutes = (route, i) => <Route key={i} path={route.path} exact component={pages[route.component]} />
 
     render() {
-        const { token, approve_token } = this.props.user
+        const { token, approve_token, guest } = this.props.user
         const key = token ? 'private' : 'public'
         const routes = routing[key]
         const unactiveClass = this.props.design.sideMenu ? 'unactive' : ''
@@ -47,10 +47,7 @@ class App extends Component {
                     ?   <div className="overflow-hidden">
                             <div id="main-wrap" className={`main-wrap ${unactiveClass}`}>
                                 <Header />
-                                <Switch>
-                                    { routes.map((route, i) => this.printRoutes(route, i)) }
-                                </Switch>
-
+                                <Switch>{ routes.map((route, i) => this.printRoutes(route, i)) }</Switch>
                                 <Footer />
                             </div>
                             <SideMenu />

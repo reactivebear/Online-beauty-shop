@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import store, { history } from 'store'
-import CollapsedMenu from 'components/blocks/collapsed_menu.js'
+import CollapsedMenu from 'components/blocks/collapsed_menu'
 import Stars from 'components/stars'
-import SmallCheckBox from 'components/inputs/small_checkbox.js'
+import SmallCheckBox from 'components/inputs/small_checkbox'
 import { setActiveCategory, setFilters } from 'actions'
 import RangeSlider from 'components/inputs/range_slider'
-import { getProducts } from 'actions/products.js'
-import { getServices } from 'actions/services.js'
+import { getProducts } from 'actions/products'
+import { getServices } from 'actions/services'
 
 class SearchMenuWeb extends Component {
     state = {

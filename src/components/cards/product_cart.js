@@ -20,47 +20,34 @@ class ProductCart extends Component {
     	const vendor_id = this.props[this.props.type].brand_id || this.props[this.props.type].vendor.id
 
         return (
-        	<div className="d-flex rounded bg-white p-2 mb-3">
-	            <div className="w-20">
-	            	<ImagePreview images={this.props[this.props.type].images} />
-	            </div>
-	            <div className="w-80 pl-2 position-relative">
-	            	{ this.props[this.props.type].name || this.props[this.props.type].title }
-	            	<div className="form-group">
+        	<div className="rounded bg-white p-2 mb-3 position-relative">
+        		
+        		<div className="row">
+		            <div className="col-4 pr-1">
+		            	<ImagePreview images={this.props[this.props.type].images} />
+		            </div>
+		            <div className="col-8 pl-1 position-relative">
+		            	<div className="mb-2">{ this.props[this.props.type].name || this.props[this.props.type].title }</div>
 	            		{
 	            			this.props.type === 'service'
-	            			? 	<div>
+	            			? 	<div className="mb-2">
 	            					<span className="color-grey">Vendido e entregue por </span>
 	            					<Link to={`salon/${vendor_id}`}>{this.props[this.props.type].brand_id || this.props[this.props.type].vendor.organization_name}</Link>
 	            					
 	            				</div>
 	            			: 	''
 	            		}
-	            		<i className="far fa-trash-alt fa-12x color-green pointer float-right d-block d-sm-none" onClick={this.removeFromCart}></i>
-	            	</div>
-	            	<div className="row align-items-stretch">
-		            	{
-		            		this.props.type === 'product'
-		            		? 	
-		            				<div className="col-sm-4 col-6">
-		            					<Counter onChange={val => this.changeQuantity(val)} value={this.props.quantity} />
-	            					</div>
-	            				
-		            		: 	''
-		            	}
-		            	<div className={`${col} align-self-end`}>
-		            		<div className="row">
-		            			<div className="col-sm-8">
-		            				<Price current={this.props.total} />
-	            				</div>
-	            				<div className="col-4 align-self-end text-right d-none d-sm-block">
-	            					<i className="far fa-trash-alt fa-12x color-green pointer" onClick={this.removeFromCart}></i>
-	            				</div>
-	            			</div>
+		            	<div className="row justify-content-between">
+	        				<div className="col-lg-6 col-sm-8 mb-2">
+	        					<Counter onChange={val => this.changeQuantity(val)} value={this.props.quantity} />
+	    					</div>
+			            	<div className="col-lg-6 col-12 align-self-center text-lg-center">
+	            				<Price current={this.props.total} />
+			            	</div>
 		            	</div>
-	            	</div>
-	            	
+		            </div>
 	            </div>
+	            <i className="far fa-trash-alt fa-12x color-green pointer position-absolute right-15 top-15" onClick={this.removeFromCart}></i>
 			</div>
         );
     }

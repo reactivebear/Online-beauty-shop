@@ -55,12 +55,22 @@ export const format = (mask, value) => {
                 digitsValue = `${digitsValue.slice(0,3)}.${digitsValue.slice(3)}`
             }
             return digitsValue
-        case 'phone':
+        case 'cellphone':
             if (digitsValue.length > 10) {
                 digitsValue = digitsValue.slice(0, 10)
             }
             if (digitsValue.length >= 7) {
                 digitsValue = `(${digitsValue.slice(0,2)})${digitsValue.slice(2,6)}-${digitsValue.slice(6)}`
+            } else if (digitsValue.length >= 3) {
+                digitsValue = `(${digitsValue.slice(0,2)})${digitsValue.slice(2)}`
+            }
+            return digitsValue
+        case 'phone':
+            if (digitsValue.length > 11) {
+                digitsValue = digitsValue.slice(0, 11)
+            }
+            if (digitsValue.length >= 8) {
+                digitsValue = `(${digitsValue.slice(0,2)})${digitsValue.slice(2,7)}-${digitsValue.slice(7)}`
             } else if (digitsValue.length >= 3) {
                 digitsValue = `(${digitsValue.slice(0,2)})${digitsValue.slice(2)}`
             }

@@ -75,7 +75,7 @@ class AddressForm extends Component {
                             required
                             label="Celular"
                             value={address.celular}
-                            onChange={this.checkMask('phone', 'celular')}
+                            onChange={this.checkMask('cellphone', 'celular')}
                             inputRef={ref => this.address.celular = ref} />
                     </div>
                 </div>

@@ -13,9 +13,9 @@ class CollapsedMenu extends Component {
     render() {
         const activeClass = this.state.active ? ' active' : ''
         return (
-            <div>
-                <div className="d-flex align-items-center">
-                    <div className="color-grey pt-1">
+            <div className="mb-2">
+                <div className="d-flex align-items-start">
+                    <div className="color-grey" style={{paddingTop: 2}}>
                     {
                         this.state.active
                         ?   <i onClick={this.toggleBody(false)} className="fas fa-minus-circle pointer"></i>
@@ -23,7 +23,7 @@ class CollapsedMenu extends Component {
                     }
                     </div>
                     <div className="px-2">
-                        <span className="fs-22">{this.props.title}</span>
+                        <span className="fs-22" style={{lineHeight: 1}}>{this.props.title}</span>
                     </div>
                 </div>
                 <div className={`wrap-collapsed-body${activeClass}`}>

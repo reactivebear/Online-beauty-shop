@@ -209,10 +209,8 @@ class Company extends Component {
                                     Um novo conceito em salão de beleza na Chácara Santo Antônio com foco na excelência no atendimento e prestação de serviços
                                 </div>
                                 <div className="d-flex justify-content-between align-items-center mb-3">
-                                    <div className="fs-18">Holarios</div>
-                                    <BtnMain
-                                        className="btn-outline" 
-                                        title="Aberto" />
+                                    <div className="fs-18">Horários</div>
+                                    <div className="d-inline-block bg-green text-white px-2 py-1 rounded">Aberto</div>
                                 </div>
                                 <div className="mb-3">
                                     {

@@ -131,6 +131,18 @@ path.cls-8 {
 	z-index: 3;
 }
 
+.right-0 {
+	right: 0;
+}
+
+.right-15 {
+	right: 15px;
+}
+
+.top-15 {
+	top: 15px;
+}
+
 .main-wrap {
 	z-index: 5;
 	position: relative;

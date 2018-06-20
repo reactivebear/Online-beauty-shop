@@ -34,7 +34,7 @@ class StepSecond extends Component {
                 {
                     !this.props.user.guest
                     ?   <div>
-                            <h4>Dados do cartão</h4>
+                            <h4>Dados do endereço</h4>
                             <div className="rounded bg-white p-4 mb-3">
                                 <div className="fs-18 mb-3">{`${first_name} ${last_name}`}</div>
                                 <div className="color-grey">{main_address.title}</div>

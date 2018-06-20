@@ -6,15 +6,18 @@ import { setAlert } from 'actions/design'
 let withMessage = false
 
 const responseHandler = response => {
-    const promise = response.json()
-    const ok = response.ok
-    if (withMessage) {
-        promise.then(response => {
-            store.dispatch(setAlert(response.message, ok ? 'success' : 'error'))
-            withMessage = false
-        })
+    const contentType = response.headers.get('content-type')
+    if (contentType && contentType.indexOf('application/json') !== -1) {
+        const promise = response.json()
+        const ok = response.ok
+        if (withMessage) {
+            promise.then(response => {
+                store.dispatch(setAlert(response.message, ok ? 'success' : 'error'))
+                withMessage = false
+            })
+        }
+        return promise;
     }
-    return promise;
 }
 
 const getHeader = () => 
