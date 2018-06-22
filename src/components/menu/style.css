@@ -46,11 +46,7 @@
     box-shadow: 8px 0px 20px 1px rgba(0,0,0,0.1);
 }
 
-.menu-web-item:hover,
-.menu-web-item.active {
-	background-color: #609D6D;
-	color: #fff;
-}
+
 
 .wrap-order-menu {
     margin-left: -17px;
@@ -70,4 +66,29 @@
 .wrap-drop-search:hover .drop-search-item {
 	background-color: #fff;
 	color: #609D6D !important;
+}
+
+.menu-web-item:hover,
+.menu-web-item.active {
+	background-color: #609D6D;
+	color: #fff;
+}
+
+.svg-icon,
+.svg-icon-hover {
+	position: absolute;
+}
+
+.svg-icon-hover {
+	opacity: 0;
+}
+
+.menu-web-item:hover .svg-icon,
+.menu-web-item.active .svg-icon {
+	opacity: 0;
+}
+
+.menu-web-item:hover .svg-icon-hover,
+.menu-web-item.active .svg-icon-hover {
+	opacity: 1;
 }

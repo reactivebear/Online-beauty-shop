@@ -29,13 +29,14 @@ export const setLocation = location =>
         location
     })
 
-export const toggleModal = (open, content, className, title) => 
+export const toggleModal = (open, content, className, title, data) => 
     ({
         type: types.TOGGLE_MODAL,
         open,
         content,
         className,
-        title
+        title,
+        data
     })
 
 export const updateModal = updater => 

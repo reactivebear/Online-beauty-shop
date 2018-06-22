@@ -5,46 +5,64 @@ export const LIST_MENU = [
                 title: 'Minha Conta',
                 icon: 'user-icon-grey',
                 icon_white: 'user-icon.png',
+                svg_icon: 'Minha-conta-black.svg',
+                svg_icon_hover: 'Minha-conta-white.svg',
                 url: 'profile'
             }, {
                 title: 'Lista de desejos',
                 icon: 'vaucher-icon-grey',
                 icon_white: 'list-icon.png',
+                svg_icon: 'Lista-de-desejos-black.svg',
+                svg_icon_hover: 'Lista-de-desejos-white.svg',
                 url: 'wishlist'
             }, {
                 title: 'Vouchers',
                 icon: 'user-icon-grey',
                 icon_white: 'vaucher-icon.png',
+                svg_icon: 'Voucher-black.svg',
+                svg_icon_hover: 'Voucher-white.svg',
                 url: 'vouchers'
             }, {
                 title: 'Créditos',
                 icon: 'credits-icon-grey',
                 icon_white: 'credits-icon.png',
+                svg_icon: 'Créditos-black.svg',
+                svg_icon_hover: 'Créditos-white.svg',
                 url: 'credits'
             }, {
                 title: 'Agendamentos',
                 icon: 'book-icon-grey',
                 icon_white: 'book-icon.png',
+                svg_icon: 'Agendamentos-black.svg',
+                svg_icon_hover: 'Agendamentos-white.svg',
                 url: 'schedules'
             }, {
                 title: 'Produtos comprados',
                 icon: 'product-icon-grey',
                 icon_white: 'product-icon.png',
+                svg_icon: 'Produtos-comprados-black.svg',
+                svg_icon_hover: 'Produtos-comprados-white.svg',
                 url: 'purchased'
             }, {
                 title: 'Notificações',
                 icon: 'bell-icon-grey',
                 icon_white: 'bell-icon.png',
+                svg_icon: 'Notificações-black.svg',
+                svg_icon_hover: 'Notificações-white.svg',
                 url: 'notifications'
             }, {
                 title: 'Revisão e feedback',
                 icon: 'doc-icon-grey',
                 icon_white: 'doc-icon.png',
+                svg_icon: 'Revisão-e-feedback-black.svg',
+                svg_icon_hover: 'Revisão-e-feedback-white.svg',
                 url: 'feedback'
             }, {
                 title: 'Suporte',
                 icon: 'support-icon-grey',
                 icon_white: 'support-icon.png',
+                svg_icon: 'Suporte-black.svg',
+                svg_icon_hover: 'Suporte-white.svg',
                 url: 'support'
             }
         ]

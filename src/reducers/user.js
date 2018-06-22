@@ -38,7 +38,7 @@ export default function user(user = initialState, action = {}) {
                 data: action.data
             });
         case types.SET_USER_ADDRESS:
-            temp.address = action.data
+            temp.main_address = action.data
             return Object.assign({}, user, {
                 data: temp
             });

@@ -16,7 +16,9 @@ class SideMenuWeb extends Component {
             className += ' active'
         }
         return  <div key={i} className={className} onClick={e => history.push(`/${item.url}`)}>
-                    <img src={`/assets/icons/${item.icon}.png`} alt="" className="img-fluid w-15 h-100 pr-2" />
+                    <div className="img-fluid w-15 h-100 pr-2"></div>
+                    <object data={`/assets/svg/${item.svg_icon}`} width="15%" className="svg-icon" type="image/svg+xml"></object>
+                    <object data={`/assets/svg/${item.svg_icon_hover}`} width="15%" className="svg-icon-hover" type="image/svg+xml"></object>
                     <span className="w-85 fs-18 pl-4">{item.title}</span>
                 </div>
     }
@@ -30,7 +32,7 @@ class SideMenuWeb extends Component {
                         <Avatar image={image_url} defaultImg="/assets/images/default-avatar.png" edit={false} />
         			</div>
 	            </div>
-	            <h2 className="text-center mb-5"><strong>{`${first_name} ${last_name}`}</strong></h2>
+	            <h4 className="text-center mb-5"><strong>{`${first_name} ${last_name}`}</strong></h4>
                 { LIST_MENU.map((item, i) => this.printList(item, i)) }
 			</div>
         );

@@ -3,12 +3,15 @@ import Cookies from 'js-cookie'
 import * as types from './types.js'
 import { history } from 'store'
 
-export const loginAsGuest = () => dispatch => 
+export const loginAsGuest = redirect => dispatch => 
     (
         get('guest').then(json => {
             if (json.apikey) {
                 dispatch(setToken(json.apikey.key, true))
                 dispatch(setUser(json.user))
+                if (redirect) {
+                    history.push('/')
+                }
             }
         })
     )
@@ -27,7 +30,7 @@ export const login = data => dispatch =>
 export const logout = () => dispatch => 
     (
         get('logout', true).then(json => {
-            dispatch(loginAsGuest())
+            dispatch(loginAsGuest(true))
         })
     )
 

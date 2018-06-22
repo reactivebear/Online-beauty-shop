@@ -7,7 +7,8 @@ const initialState = {
     },
     total: {},
     step: 1,
-    
+    guestAddress: {},
+    guestCard: {}
 }
 
 export default function cart(cart = initialState, action = {}) {
@@ -27,6 +28,10 @@ export default function cart(cart = initialState, action = {}) {
             return Object.assign({}, cart, {
                 step: action.step
             });
+        case types.SET_GUEST_INFO:
+            return Object.assign({}, cart, {
+                [action.key]: action.data
+            })
         default:
             return cart;
     }

@@ -15,6 +15,7 @@ const initialState = {
     	content: null,
         className: '',
         title: '',
+        data: {},
         updater: ''
     },
     location: '/',
@@ -27,6 +28,7 @@ const initialState = {
 }
 
 export default function design(design = initialState, action = {}) {
+    let tempModal = Object.assign({}, design.modal)
     switch (action.type) {
         case types.TOGGLE_SIDE_MENU:
             return Object.assign({}, design, {
@@ -41,12 +43,10 @@ export default function design(design = initialState, action = {}) {
             });
         case types.TOGGLE_MODAL:
             return Object.assign({}, design, {
-               modal: {open: action.open, content: action.content, className: action.className, title: action.title}
+               modal: {open: action.open, content: action.content, className: action.className, title: action.title, data: action.data}
             });
         case types.UPDATE_MODAL:
-            let tempModal = Object.assign({}, design.modal)
             tempModal.updater = action.updater
-
             return Object.assign({}, design, {
                modal: tempModal
             });

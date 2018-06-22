@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import store from 'store'
+import { sendProductComment } from 'actions/products'
 import Stars from 'components/stars'
 import Input from 'components/inputs/input.js'
 import TextArea from 'components/inputs/textarea.js'
@@ -12,11 +14,12 @@ class CommentForm extends Component {
     }
 
 	sendComment = () => {
-        /*const data = {
+        const data = {
             email: this.text.value,
-            message: this.message.value,
-            rating: this.stars
-        }*/
+            comment: this.message.value,
+            rating: this.state.rating
+        }
+        store.dispatch(sendProductComment(data, this.props.data.id))
 	}
 
     onHover = val => e => {
@@ -36,7 +39,6 @@ class CommentForm extends Component {
 	            	<Stars 
                         active={this.state.rating}
                         editable
-                        spin={this.state.activeStar}
                         onHover={this.onHover}
                         onChange={this.changeStars} />
             	</div>

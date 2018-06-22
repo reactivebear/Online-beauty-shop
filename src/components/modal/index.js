@@ -13,8 +13,8 @@ class CustomModal extends Component {
 	}
 
     render() {
-        const { open, content, className, title } = this.props.design.modal
-        const component = !content ? emptyElement : React.createElement(content, {onCancel: this.onCloseModal, inModal: true})
+        const { open, content, className, title, data } = this.props.design.modal
+        const component = !content ? emptyElement : React.createElement(content, {onCancel: this.onCloseModal, inModal: true, data})
         return (
 	        <Modal open={open} onClose={this.onCloseModal} center showCloseIcon={false} classNames={{modal: `rounded modal-body ${className}`, overlay: 'align-items-start'}}>
                 { title ? <h4>{title}</h4> : ''}

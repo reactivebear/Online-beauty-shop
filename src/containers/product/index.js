@@ -152,7 +152,7 @@ class Product extends Component {
 	}
 
 	comment = () => {
-		store.dispatch(toggleModal(true, CommentForm, 'modal-sm'))
+		store.dispatch(toggleModal(true, CommentForm, 'modal-sm', '', {id: this.props.products.product.id}))
 	}
 
 	openLightBox = () => {

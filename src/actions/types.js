@@ -34,6 +34,7 @@ export const SET_LOCATION = 'SET_LOCATION'
 export const SET_CART = 'SET_CART'
 export const SET_CART_TOTAL = 'SET_CART_TOTAL'
 export const SET_STEP = 'SET_STEP'
+export const SET_GUEST_INFO = 'SET_GUEST_INFO'
 
 export const SET_SCHEDULE_CART = 'SET_SCHEDULE_CART'
 export const SET_SCHEDULE_STEP = 'SET_SCHEDULE_STEP'
@@ -41,3 +42,4 @@ export const SET_GUEST_CARD = 'SET_GUEST_CARD'
 
 export const SET_SEARCH = 'SET_SEARCH'
 export const SET_FILTERS = 'SET_FILTERS'
+export const SET_SEARCH_TYPE = 'SET_SEARCH_TYPE'

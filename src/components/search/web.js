@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import store, { history } from 'store'
-import BtnMain from 'components/buttons/btn_main.js'
+import BtnMain from 'components/buttons/btn_main'
 import { getSearch } from 'actions'
 import './style.css'
 import DropDownMenu from 'components/menu/drop_down_menu'
@@ -19,6 +20,7 @@ class WebSearch extends Component {
 	}
 
 	closeDropDown = e => {
+		console.log(e.target.closest('#main-dropdown'))
 		if (! e.target.closest('#main-dropdown')) {
 			this.setState({active: false})
 			document.body.removeEventListener('click', this.closeDropDown)
@@ -39,16 +41,26 @@ class WebSearch extends Component {
 	search = e => {
 		e.preventDefault()
 		const params = {search_text: this.query.value}
-		store.dispatch(getSearch('pagination', {page_size: 6, ...params}))
+		store.dispatch(getSearch('pagination', {new_pagination: true, page_size: 6, ...params}))
 		history.push('/search')
+	}
+
+	getSearchType = () => {
+		switch(this.props.search.type) {
+			case 'products': return 'Produto'
+			case 'services': return 'Serviço'
+			case 'salon': return 'Salão'
+			case 'vendor': return 'Vendedor'
+			default: return 'Todos'
+		}
 	}
 
     render() {
         return (
             <form className="input-group" onSubmit={this.search}>
-            	<div className="input-group-prepend">
-				    <button id="main-dropdown" type="button" onClick={this.toggleDropDown} className="btn btn-drop-search pl-3">
-				    	Todos
+            	<div className="input-group-prepend" id="main-dropdown">
+				    <button type="button" onClick={this.toggleDropDown} className="btn btn-drop-search pl-3">
+				    	{ this.getSearchType() }
 				    	<i className="fas fa-chevron-down px-3"></i>
 			    	</button>
 			    	{
@@ -69,4 +81,13 @@ class WebSearch extends Component {
     }
 }
 
-export default WebSearch
+const mapStateToProps = state =>
+    ({ 
+        search: {
+            type: state.search.type
+        }
+    })
+
+export default connect(
+    mapStateToProps
+)(WebSearch)

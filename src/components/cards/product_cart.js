@@ -16,9 +16,6 @@ class ProductCart extends Component {
 	}
 
     render() {
-    	const col = this.props.type === 'product' ? 'col-sm-8 col-6' : 'col-12'
-    	const vendor_id = this.props[this.props.type].brand_id || this.props[this.props.type].vendor.id
-
         return (
         	<div className="rounded bg-white p-2 mb-3 position-relative">
         		
@@ -32,7 +29,7 @@ class ProductCart extends Component {
 	            			this.props.type === 'service'
 	            			? 	<div className="mb-2">
 	            					<span className="color-grey">Vendido e entregue por </span>
-	            					<Link to={`salon/${vendor_id}`}>{this.props[this.props.type].brand_id || this.props[this.props.type].vendor.organization_name}</Link>
+	            					<Link to={`salon/${this.props[this.props.type].id}`}>{this.props[this.props.type].vendor.organization_name}</Link>
 	            					
 	            				</div>
 	            			: 	''

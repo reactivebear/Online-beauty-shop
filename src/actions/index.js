@@ -124,3 +124,9 @@ export const setFilters = data =>
         type: types.SET_FILTERS,
         data
     })
+
+export const setSearchType = value => 
+    ({
+        type: types.SET_SEARCH_TYPE,
+        value
+    })

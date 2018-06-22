@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import store, { history } from 'store'
 import { saveAddress } from 'actions/user'
-import BtnMain from 'components/buttons/btn_main.js'
-import Input from 'components/inputs/input.js'
+import { setGuestInfo } from 'actions/cart'
+import BtnMain from 'components/buttons/btn_main'
+import Input from 'components/inputs/input'
 import { format } from 'utils/mask'
 import CheckBox from 'components/inputs/checkbox'
 
@@ -11,27 +13,58 @@ class AddressForm extends Component {
     constructor(props) {
         super(props)
         this.address = {}
+        this.state = {
+            activeSave: true
+        }
     }
 
     save = () => {
+        if (this.state.activeSave) {
+            const data = {
+                title: this.address.title.value,
+                email: '',
+                phone: this.address.phone.value,
+                longitude: '',
+                latitude: '',
+                street: this.address.street.value,
+                number: this.address.number.value,
+                zipcode: this.address.cep.value.replace('-', ''),
+                cep: this.address.cep.value.replace('-', ''),
+                complement: '',
+                district: this.address.district.value,
+                city: this.address.city.value,
+                state: this.address.state.value,
+                country: this.address.country.value
+            }
+            this.setState({activeSave: false})
+
+            store.dispatch(saveAddress(data)).then(res => {
+                history.push('/profile/address/')
+            })
+        } 
+    }
+
+    saveAsGuest = () => {
         const data = {
-            title: this.address.title.value,
-            email: '',
-            phone: this.address.phone.value,
-            longitude: '',
-            latitude: '',
-            street: this.address.street.value,
-            number: this.address.number.value,
-            zipcode: '',
-            complement: '',
-            district: this.address.district.value,
-            city: this.address.city.value,
-            state: this.address.state.value,
-            country: this.address.country.value
-        }
-        store.dispatch(saveAddress(data)).then(res => {
-            history.push('/profile/address/')
-        })
+                title: this.address.title.value,
+                first_name: this.address.first_name.value,
+                last_name: this.address.last_name.value,
+                email: '',
+                phone: this.address.phone.value,
+                longitude: '',
+                latitude: '',
+                street: this.address.street.value,
+                number: this.address.number.value,
+                zipcode: this.address.cep.value.replace('-', ''),
+                cep: this.address.cep.value.replace('-', ''),
+                complement: '',
+                district: this.address.district.value,
+                city: this.address.city.value,
+                state: this.address.state.value,
+                country: this.address.country.value
+            }
+        store.dispatch(setGuestInfo(data, 'guestAddress'))
+        this.props.onCancel()
     }
 
     checkMask = (mask, field) => e => {
@@ -39,7 +72,7 @@ class AddressForm extends Component {
     }
 
     render() {
-        const address = history.location.state || {}
+        const address = history.location.state || this.props.cart.guestAddress
         return (
         	<div>
                 <Input 
@@ -67,7 +100,7 @@ class AddressForm extends Component {
                             required
                             label="Telefone"
                             value={address.phone}
-                            onChange={this.checkMask('phone', 'phone')}
+                            onChange={this.checkMask('cellphone', 'phone')}
                             inputRef={ref => this.address.phone = ref} />
                     </div>
                     <div className="col-sm-6">
@@ -75,7 +108,7 @@ class AddressForm extends Component {
                             required
                             label="Celular"
                             value={address.celular}
-                            onChange={this.checkMask('cellphone', 'celular')}
+                            onChange={this.checkMask('phone', 'celular')}
                             inputRef={ref => this.address.celular = ref} />
                     </div>
                 </div>
@@ -175,4 +208,13 @@ class AddressForm extends Component {
     }
 }
 
-export default AddressForm
+const mapStateToProps = state =>
+    ({
+        cart: {
+            guestAddress: state.cart.guestAddress
+        }
+    })
+
+export default connect(
+    mapStateToProps
+)(AddressForm)

@@ -72,3 +72,10 @@ export const setStep = step =>
         type: types.SET_STEP,
         step
     })
+
+export const setGuestInfo = (data, key) => 
+    ({
+        type: types.SET_GUEST_INFO,
+        data,
+        key
+    })

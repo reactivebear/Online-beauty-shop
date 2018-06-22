@@ -85,6 +85,7 @@ export const toggleDefaultAddress = (id, state) => dispatch =>
     (
         put(`api/user/address/${id}`, true, {default: state}).then(json => {
             dispatch(getUserAddresses())
+            dispatch(getUserAddress())
         })
     )
 

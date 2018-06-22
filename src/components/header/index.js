@@ -97,7 +97,7 @@ class Header extends Component {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-sm-12 col-lg-8">
+                            <div className="col-sm-12 col-lg-7">
                                 <div className="d-none d-sm-flex align-items-end justify-content-between mb-3 position-relative">
                                     <div className="position-absolute app-button d-none d-md-block d-lg-none">
                                         <BtnMain
@@ -106,16 +106,14 @@ class Header extends Component {
                                             title={<span><img src="/assets/icons/app-icon.png" alt="" className="img-fluid small-icon mr-2" />Baixe grátis o app do Visual Total</span>} />
                                     </div>
                                     <Link to="/"><img src="/assets/images/logo.png" alt="" className="img-fluid" /></Link>
-                                    {
-                                        this.props.categories.service.map((item, i) => this.printLink(item, i))
-                                    }
+                                    { this.props.categories.service.map((item, i) => this.printLink(item, i)) }
                                 </div>
                                 <div className="form-group">
                                     <WebSearch />
                                 </div>
                             </div>
                         
-                            <div className="col-sm-12 col-lg-4">
+                            <div className="col-sm-12 col-lg-5">
                                 <div className="row align-items-end h-100">
                                     <div className="d-none d-lg-block col-12 order-sm-first align-self-start text-right">
                                         <BtnMain
@@ -153,7 +151,7 @@ class Header extends Component {
                                         <img src="/assets/icons/pin-icon.png" id="zip" className="img-icon-header align-middle" alt="" />
                                         <div className="align-middle d-inline-block pl-2" id="zip">
                                             Enviar para<br />
-                                            <strong id="zip">Bela Vista 01329900</strong>
+                                            <strong id="zip">{this.props.user.data.main_address.title} {this.props.user.data.main_address.zipcode}</strong>
                                         </div>
                                         { this.state.tooltip === 'zip' ? <div className="tooltip-background z-index-3"></div> : '' }
                                         {
@@ -177,7 +175,8 @@ const mapStateToProps = state =>
         user: {
             guest: state.user.guest,
             data: {
-                first_name: state.user.data.first_name
+                first_name: state.user.data.first_name,
+                main_address: state.user.data.main_address
             },
         },
         categories: state.categories,

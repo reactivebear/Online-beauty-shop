@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import store from 'store'
-import { setGuestCard } from 'actions/schedule_cart'
+import { setGuestInfo } from 'actions/cart'
 import Input from 'components/inputs/input'
 import BtnMain from 'components/buttons/btn_main'
 import CheckBox from 'components/inputs/checkbox'
@@ -25,30 +26,31 @@ class CardForm extends Component {
             validity_month: this.card.validity_month.value,
             cvv: this.card.cvv.value,
         }
-        store.dispatch(setGuestCard(data))
+        store.dispatch(setGuestInfo(data, 'guestCard'))
         this.props.onCancel()
     }
 
     render() {
+        const card = this.props.cart.guestCard
         return (
         	<form>
                 <Input 
                     required
                     label="Nome para o cartão"
                     description="ex: meu cartão1, meu cartão2"
-                    value={''}
+                    value={card.card_name}
                     onChange={this.checkMask('alphabet', 'card_name')}
                     inputRef={ref => this.card.card_name = ref} />
                 <Input 
                     required
                     label="Nome impresso no cartão"
-                    value={''}
+                    value={card.name_on_card}
                     onChange={this.checkMask('alphabet', 'name_on_card')}
                     inputRef={ref => this.card.name_on_card = ref} />
                 <Input 
                     required
                     label="Número do cartão"
-                    value={''}
+                    value={card.card_number}
                     onChange={this.checkMask('card', 'card_number')}
                     inputRef={ref => this.card.card_number = ref} />
                 <div className="row">
@@ -57,7 +59,7 @@ class CardForm extends Component {
                             required
                             label="Validate"
                             placeholder="DD/MM"
-                            value={''}
+                            value={card.validity_month}
                             onChange={this.checkMask('dd/mm', 'validity_month')}
                             inputRef={ref => this.card.validity_month = ref} />
                     </div>
@@ -65,7 +67,7 @@ class CardForm extends Component {
                         <Input 
                             required
                             label="Código de segurança"
-                            value={''}
+                            value={card.cvv}
                             onChange={this.checkMask('cvv', 'cvv')}
                             inputRef={ref => this.card.cvv = ref} />
                     </div>
@@ -100,4 +102,13 @@ class CardForm extends Component {
     }
 }
 
-export default CardForm
+const mapStateToProps = state =>
+    ({
+        cart: {
+            guestCard: state.cart.guestCard
+        }
+    })
+
+export default connect(
+    mapStateToProps
+)(CardForm)
