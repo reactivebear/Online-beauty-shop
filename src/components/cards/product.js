@@ -46,10 +46,10 @@ class CardProduct extends Component {
 	            	</div>
 	            	<div className="px-2 w-60">
 		            	<div className="mb-1 text-truncate fs-16">
-		            		<strong>{this.props.name}</strong>
+		            		<span>{this.props.name}</span>
 		            	</div>
 		            	<div className="mb-1 text-truncate fs-16">
-		            		<strong>{this.props.description}</strong>
+		            		<span>{this.props.description}</span>
 		            	</div>
 		            	<div className={`color-grey d-flex justify-content-between align-items-center mb-1${hiddenClass}`}>
 		            		<div>

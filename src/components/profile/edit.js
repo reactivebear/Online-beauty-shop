@@ -20,7 +20,7 @@ class Edit extends Component {
     	this.cardData = {
     		card_name: fields.card_name.value,
     		name_on_card: fields.name_on_card.value,
-    		card_number: fields.card_number.value.replace('.', ''),
+    		card_number: fields.card_number.value.replaceAll('\\.', ''),
     		cvv: fields.cvv.value,
     		validity_month: m,
     		validity_year: y,

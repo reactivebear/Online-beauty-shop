@@ -24,7 +24,7 @@ class ProductCart extends Component {
 		            	<ImagePreview images={this.props[this.props.type].images} />
 		            </div>
 		            <div className="col-8 pl-1 position-relative">
-		            	<div className="mb-2">{ this.props[this.props.type].name || this.props[this.props.type].title }</div>
+		            	<div className="mb-2 pr-4">{ this.props[this.props.type].name || this.props[this.props.type].title }</div>
 	            		{
 	            			this.props.type === 'service'
 	            			? 	<div className="mb-2">

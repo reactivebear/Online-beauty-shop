@@ -18,7 +18,7 @@ class DropDownMenu extends Component {
            			<div className="w-85"></div>
 	           	</div>
 	           	<div className="py-2 d-flex pointer wrap-drop-search" onClick={this.setSearch('services')}>
-	           		<div className="ml-3 text-white text-uppercase bg-green px-3 pt-0 pb-0 btn w-15 drop-search-item">Serviço</div>
+	           		<div className="ml-3 text-white text-uppercase bg-blue px-3 pt-0 pb-0 btn w-15 drop-search-item">Serviço</div>
 	           		<div className="w-85"></div>
 	           	</div>
 	           	<div className="py-2 d-flex pointer wrap-drop-search" onClick={this.setSearch('salon')}>

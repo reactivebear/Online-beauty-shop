@@ -20,7 +20,6 @@ class WebSearch extends Component {
 	}
 
 	closeDropDown = e => {
-		console.log(e.target.closest('#main-dropdown'))
 		if (! e.target.closest('#main-dropdown')) {
 			this.setState({active: false})
 			document.body.removeEventListener('click', this.closeDropDown)
@@ -69,7 +68,11 @@ class WebSearch extends Component {
 			    		: 	''
 			    	}
 			  	</div>
-				<input type="text" className="form-control with-shadow border-0" ref={ref => this.query = ref} placeholder="Buscar por produtos e serviços" />
+				<input 
+					type="text" 
+					className="form-control with-shadow border-0" 
+					ref={ref => this.query = ref} 
+					placeholder="           Buscar por produtos e serviços" />
 				<div className="input-group-append">
 				    <BtnMain
 				    	className="btn-search px-4 pt-2"

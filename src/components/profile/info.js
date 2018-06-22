@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { history } from 'store'
+import store, { history } from 'store'
 import { connect } from 'react-redux'
 import BtnMain from 'components/buttons/btn_main.js'
 import Avatar from 'components/images/avatar'
+import { getCreditCards } from 'actions/user'
 
 class Info extends Component {
 	goToEdit = () => {
@@ -17,8 +18,15 @@ class Info extends Component {
 		history.push('profile/cards' + url)
 	}
 
+	componentWillMount() {
+		store.dispatch(getCreditCards())
+	}
+
+	getCardNumber = num => `****.****.****.${num.slice(-4)}`
+
     render() {
     	const { first_name, last_name, email, main_address, image_url } = this.props.user.data
+    	const { default_card } = this.props.user
         return (
         	<div className="row">
 	        	<div className="col-12 mb-3">
@@ -71,7 +79,16 @@ class Info extends Component {
 				<div className="col-lg-6 col-md-8">
 					<div className="rounded p-4 bg-white border">
 						<h4 className="mb-3">Meu cartão</h4>
-						<div className="border-bottom mb-4"></div>
+						<div className="border-bottom mb-3"></div>
+						{
+							Object.keys(default_card).length
+							? 	<div className="fs-18">
+									<div className="color-grey">{this.getCardNumber(default_card.card_number)}</div>
+                        			<div className="color-grey mb-3">Visa</div>
+                    			</div>
+							: 	''
+						}
+						
 						<div>
 							<BtnMain
 		        				className="font-weight-bold btn-outline btn-block"
@@ -98,7 +115,8 @@ const mapStateToProps = state =>
         		email: state.user.data.email,
         		main_address: state.user.data.main_address,
         		image_url: state.user.data.image_url,
-        	}
+        	},
+        	default_card: state.user.default_card
         }
     })
 

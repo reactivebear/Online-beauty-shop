@@ -41,7 +41,9 @@ class BlogSection extends Component {
             <div>
 				<div className="form-group">
                     <h2>Blog</h2>
-                    <Carousel items={this.props.design.blogs.map((item, i) => <CardBlog key={i} {...item} />)} settings={settings} />
+                    <div style={{marginLeft: -7, marginRight: -7}}>
+                        <Carousel items={this.props.design.blogs.map((item, i) => <CardBlog key={i} {...item} />)} settings={settings} />
+                    </div>
                 </div>
 			</div>
         )

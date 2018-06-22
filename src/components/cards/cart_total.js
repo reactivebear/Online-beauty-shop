@@ -61,7 +61,7 @@ class CartTotal extends Component {
 						this.props.step === 4
 						? 	<BtnMain
 			                    className="btn-block btn-outline font-weight-bold"
-			                    onClick={this.changeStep}
+			                    onClick={() => store.dispatch(setStep(this.props.step-1))}
 			                    title="Alterar meio de pagamento" />
 						: 	''
 					}

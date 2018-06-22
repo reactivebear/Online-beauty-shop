@@ -49,7 +49,7 @@ class ScheduleCartTotal extends Component {
 						this.props.step === 3
 						? 	<BtnMain
 			                    className="btn-block btn-outline font-weight-bold"
-			                    onClick={this.changeStep}
+			                    onClick={() => store.dispatch(setScheduleStep(this.props.step-1))}
 			                    title="Alterar meio de pagamento" />
 						: 	''
 					}
@@ -58,11 +58,9 @@ class ScheduleCartTotal extends Component {
 						?	<div>
 			                    <BtnMain
 				                    className="btn-block btn-outline font-weight-bold mb-2"
-				                    onClick={this.changeStep}
 				                    title="Continuar comprando" />
 			                    <BtnMain
 				                    className="btn-block font-weight-bold"
-				                    onClick={this.changeStep}
 				                    title="Agendar serviços" />
 		                    </div>
 						: 	''

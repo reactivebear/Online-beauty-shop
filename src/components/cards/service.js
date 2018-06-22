@@ -67,7 +67,7 @@ class CardService extends Component {
     render() {
         return (
 	        	<div className="card rounded pointer h-100 service-card position-relative" onClick={this.toggleCard}>
-	        		<div className="d-flex align-items-end flex-column h-100 p-4">
+	        		<div className="d-flex align-items-end flex-column h-100 py-2 px-2">
 		        		<div>
 			            	<div className="position-relative mb-3">
 			            		<img className="rounded img-fluid" src="/assets/images/default-image.png" alt="" />
@@ -76,7 +76,7 @@ class CardService extends Component {
 			            		</div>
 			            	</div>
 			            	<div className="mb-2">
-			            		<strong>{this.props.title}</strong>
+			            		<span>{this.props.title}</span>
 			            	</div>
 
 			            	<div className="color-grey d-flex justify-content-between align-items-center mb-2">
@@ -98,7 +98,7 @@ class CardService extends Component {
 	            		
             		</div>
             		<div className="position-relative z-index-1 w-100 wrap-service-hidden-block">
-	            		<div className="service-hiiden-block position-absolute bg-white px-4 border-top-0 rounded-bottom">
+	            		<div className="service-hiiden-block position-absolute bg-white px-2 border-top-0 rounded-bottom">
 	            			<div className="mb-1">
 			            		<strong>{this.props.vendor.organization_name}</strong>
 		            		</div>
@@ -107,7 +107,7 @@ class CardService extends Component {
 		            		</div>
 		            		<div className="mb-2">
 		            			<Tag title="Hair" />
-		            			<Tag title="Wedding" />
+		            			<Tag title="Dove" />
 		            			<Tag title="Salão" />
 		            		</div>
 	            			<div className="row justify-content-between mb-1">

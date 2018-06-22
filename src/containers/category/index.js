@@ -74,7 +74,7 @@ class Category extends Component {
 	            		<div className="col-md-8 px-md-0">
                             <div className="d-flex justify-content-between align-items-center">
     	            			<h5><small>Pesquisa: </small>{category.name}</h5>
-                                <div><DropDown list={DROP_LIST} /></div>
+                                <div className="d-none d-sm-block"><DropDown list={DROP_LIST} /></div>
                             </div>
 
                             <div className="mb-3 d-sm-none">

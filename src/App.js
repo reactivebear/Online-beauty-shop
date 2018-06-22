@@ -31,6 +31,10 @@ class App extends Component {
             }
             window.scrollTo(0, 0)
         })
+
+        String.prototype.replaceAll = function(search, replacement) {
+            return this.replace(new RegExp(search, 'g'), replacement)
+        };
     }
 
     printRoutes = (route, i) => <Route key={i} path={route.path} exact component={pages[route.component]} />
