@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import store, { history } from 'store'
 import BtnMain from 'components/buttons/btn_main'
-import { getSearch } from 'actions'
+import { getSearch, getAutocomplete, setSearchQuery } from 'actions'
 import './style.css'
 import DropDownMenu from 'components/menu/drop_down_menu'
 import Tooltip from 'components/tooltip'
@@ -17,6 +17,14 @@ class WebSearch extends Component {
         this.state = {
         	active: false
         }
+	}
+
+	setAutocomplete = e => {
+		if (!this.state.active) {
+			this.setState({active: true})
+		}
+		store.dispatch(setSearchQuery(e.target.value))
+		store.dispatch(getAutocomplete(e.target.value))
 	}
 
 	closeDropDown = e => {
@@ -69,7 +77,8 @@ class WebSearch extends Component {
 			    	}
 			  	</div>
 				<input 
-					type="text" 
+					type="text"
+					onChange={this.setAutocomplete}
 					className="form-control with-shadow border-0" 
 					ref={ref => this.query = ref} 
 					placeholder="           Buscar por produtos e serviços" />
@@ -87,7 +96,7 @@ class WebSearch extends Component {
 const mapStateToProps = state =>
     ({ 
         search: {
-            type: state.search.type
+            type: state.search.type,
         }
     })
 

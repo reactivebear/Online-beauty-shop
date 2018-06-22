@@ -74,6 +74,15 @@ export const getSearch = (type, param) => dispatch =>
         })
     )
 
+export const getAutocomplete = search_text => dispatch => 
+    (
+        post(`api/search`, false, {search_text}).then(json => {
+            if (json.object) {
+                dispatch(setAutocomplete(json.object))
+            }
+        })
+    )
+
 export const setCategoryList = (data, key, id) => 
     ({
         type: types.SET_CATEGORY_LIST,
@@ -113,6 +122,12 @@ export const setSearch = data =>
         data
     })
 
+export const setAutocomplete = data => 
+    ({
+        type: types.SET_AUTOCOMPLETE,
+        data
+    })
+
 export const setBlogs = data => 
     ({
         type: types.SET_BLOGS,
@@ -128,5 +143,11 @@ export const setFilters = data =>
 export const setSearchType = value => 
     ({
         type: types.SET_SEARCH_TYPE,
+        value
+    })
+
+export const setSearchQuery = value => 
+    ({
+        type: types.SET_SEARCH_QUERY,
         value
     })

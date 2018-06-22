@@ -7,7 +7,12 @@ const initialState = {
         min_price: 0,
         max_price: 1000
     },
-    type: 'all'
+    type: 'all',
+    query: '',
+    autocomplete: {
+        product: [],
+        service: []
+    }
 }
 
 export default function search(search = initialState, action = {}) {
@@ -21,8 +26,18 @@ export default function search(search = initialState, action = {}) {
             return  Object.assign({}, search, { 
                 filters: action.data
             })
+        case types.SET_SEARCH_QUERY:
+            return Object.assign({}, search, { 
+                query: action.value
+            })
+        case types.SET_AUTOCOMPLETE:
+            return  Object.assign({}, search, { 
+                autocomplete: {
+                    product: action.data.filter(item => item.product).map(item => item.product.name),
+                    service: action.data.filter(item => item.service).map(item => item.service.title),
+                }
+            })
         case types.SET_SEARCH_TYPE:
-            console.log(action.value)
             return  Object.assign({}, search, { 
                 type: action.value
             })
