@@ -12,6 +12,13 @@ export const updateUser = data => dispatch =>
         })
     )
 
+export const changePassword = data => dispatch => 
+    (
+        post('api/user/password', false, data).then(json => {
+            console.log(json)
+        })
+    )
+
 export const saveAvatar = data => dispatch => 
     (
         image('api/user/image', true, data).then(json => {

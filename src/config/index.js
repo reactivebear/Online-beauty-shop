@@ -10,14 +10,14 @@ export const LIST_MENU = [
                 url: 'profile'
             }, {
                 title: 'Lista de desejos',
-                icon: 'vaucher-icon-grey',
+                icon: 'list-icon-grey',
                 icon_white: 'list-icon.png',
                 svg_icon: 'Lista-de-desejos-black.svg',
                 svg_icon_hover: 'Lista-de-desejos-white.svg',
                 url: 'wishlist'
             }, {
                 title: 'Vouchers',
-                icon: 'user-icon-grey',
+                icon: 'vaucher-icon-grey',
                 icon_white: 'vaucher-icon.png',
                 svg_icon: 'Voucher-black.svg',
                 svg_icon_hover: 'Voucher-white.svg',

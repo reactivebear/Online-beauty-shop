@@ -156,7 +156,11 @@ class Header extends Component {
                                         { this.state.tooltip === 'zip' ? <div className="tooltip-background z-index-3"></div> : '' }
                                         {
                                             this.state.tooltip === 'zip'
-                                            ?   <Tooltip title="Adicionar CEP" type="zip" content={ZipForm} close={() => this.setState({tooltip: false})} />
+                                            ?   <Tooltip 
+                                                    title="Adicionar CEP" 
+                                                    type="zip" content={ZipForm}
+                                                    openAnother={type => this.setState({tooltip: type})} 
+                                                    close={() => this.setState({tooltip: false})} />
                                             :   ''
                                         }
                                     </div>

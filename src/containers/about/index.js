@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import store from 'store'
+import { toggleModal } from 'actions/design'
 import BtnMain from 'components/buttons/btn_main'
 import { format } from 'utils/mask'
 
@@ -7,10 +9,24 @@ class About extends Component {
         this.phone.value = format(mask, e.target.value)
     }
 
+    confirmApp = props => {
+        return  <div className="text-center">
+                    <div className="mb-3">Enviaremos um link para download, verifique o seu dispositivo</div>
+                    <BtnMain
+                        className="btn-block font-weight-bold"
+                        onClick={() => props.onCancel()}
+                        title="Finalizar" />
+                </div>
+    }
+
+    sendApp = () => {
+    	store.dispatch(toggleModal(true, this.confirmApp, 'modal-sm text-center', 'Enviado com successo', {position: 'center'}))
+    }
+
     render() {
         return (
-        	<div className="bg-main font-avenir pt-5 h-75">
-        		<div className="container">
+        	<div className="bg-main font-avenir about-wrap">
+        		<div className="container inner-about d-flex align-items-center pt-2" style={{minHeight: 400}}>
         			<div className="row justify-content-center">
 	        			<div className="col-xl-6 col-md-7 col-sm-10 col-12">
 	        				<div className="row">
@@ -29,21 +45,22 @@ class About extends Component {
 		        			</div>
 		        			
 							<div className="d-flex mb-2">
-								<div class="input-group pr-2">
-									<div class="input-group-prepend">
+								<div className="input-group pr-2">
+									<div className="input-group-prepend">
 										<span className="input-group-text bg-white">
 											<img src="/assets/images/brasil.png" alt="" className="img-fluid img-icon-header" />
 											&nbsp; [+55]
 										</span>
 									</div>
 								  	<input 
-								  		type="text" class="form-control" 
+								  		type="text" className="form-control" 
 								  		onChange={this.checkMask('phone', 'phone')}
 								  		placeholder="(11)96132-1852"
 			                            ref={ref => this.phone = ref} />
 								</div>
 								<BtnMain
 									className="btn-outline px-4"
+									onClick={this.sendApp}
 									title="Enviar" />
 							</div>
 							<div className="text-center px-5">

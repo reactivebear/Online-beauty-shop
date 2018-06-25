@@ -9,5 +9,6 @@ import Category from './category'
 import Company from './company'
 import Search from './search'
 import About from './about'
+import Recovery from './recovery'
 
-export { NotFound, Main, Product, Cart, Profile, Registration, Category, Company, Search, ScheduleCart, About }
+export { NotFound, Main, Product, Cart, Profile, Registration, Category, Company, Search, ScheduleCart, About, Recovery }

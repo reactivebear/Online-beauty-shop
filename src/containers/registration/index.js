@@ -40,7 +40,6 @@ class Registration extends Component {
                                 </div>
                                 <RegistrationForm type={this.state.form} />
 			    			</div>
-			    			
 		            	</div>
 		            </div>
 	            </div>

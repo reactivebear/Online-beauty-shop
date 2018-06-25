@@ -25,12 +25,12 @@ class CartHeader extends Component {
 	}
 
 	goToCart = () => {
-		this.props[0]()
+		this.props.close()
 		history.push('/cart')
 	}
 
 	printList = (item, i) => {
-		if (i < 3 && !this.state.active || this.state.active) {
+		if ((i < 3 && !this.state.active) || this.state.active) {
 			return 	<div key={i}>
 						<div className="d-flex mb-1">
 							<div className="w-15">

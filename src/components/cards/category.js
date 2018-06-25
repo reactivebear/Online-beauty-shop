@@ -11,9 +11,9 @@ class CategoryItem extends Component {
 		return (
 			<div className="wrap-category-item pointer" onClick={this.goToCategory}>
 				<div className="inner-category-item">
-					<div>
-						<img src={this.props.image_url} alt="" className="img-fluid mb-3" />
-						<strong>{this.props.name}</strong>
+					<div className="d-flex flex-column" style={{height: 100}}>
+						<img src={this.props.image_url} alt="" className="img-fluid w-65" />
+						<div className="mt-auto"><strong>{this.props.name}</strong></div>
 					</div>
 					<img className="category-arrow" src="assets/icons/icons8-right-50.png" alt="" />
 				</div>

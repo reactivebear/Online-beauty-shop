@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import store, { history } from 'store'
 import BtnMain from 'components/buttons/btn_main.js'
 import CheckBox from 'components/inputs/checkbox.js'
-import { ProfileForm, AddressForm, CardForm } from 'components/forms'
+import { ProfileForm, AddressForm, CardForm, PasswordForm } from 'components/forms'
 import { saveCard } from 'actions/user'
 
 class Edit extends Component {
@@ -42,6 +42,10 @@ class Edit extends Component {
 			case 'cards':
 				this.form = <CardForm onChange={this.getCardData} />
 				this.title = 'Adicionar cartão'
+				break
+			case 'password':
+				this.form = <PasswordForm onCancel={e => history.goBack()} />
+				this.title = 'Alterar senha'
 				break
 			default:
 				this.form = <ProfileForm {...this.props.user.data} />

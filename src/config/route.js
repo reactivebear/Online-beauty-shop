@@ -4,8 +4,32 @@ export default {
             'path': '/',
             'component': 'Main'
         }, {
+            'path': '/about',
+            'component': 'About'
+        }, {
+            'path': '/search',
+            'component': 'Search'
+        }, {
+            'path': '/salon/:id',
+            'component': 'Company'
+        }, {
+            'path': '/category/:type/:id',
+            'component': 'Category'
+        }, {
             'path': '/product/:id',
             'component': 'Product'
+        }, {
+            'path': '/schedule/:id',
+            'component': 'ScheduleCart'
+        }, {
+            'path': '/cart',
+            'component': 'Cart'
+        }, {
+            'path': '/registration',
+            'component': 'Registration'
+        }, {
+            'path': '/recovery',
+            'component': 'Recovery'
         }, {
             'path': '*',
             'component': 'NotFound'
@@ -37,9 +61,6 @@ export default {
             'path': '/cart',
             'component': 'Cart'
         }, {
-            'path': '/registration',
-            'component': 'Registration'
-        },  {
             'path': '/profile',
             'component': 'Profile'
         }, {

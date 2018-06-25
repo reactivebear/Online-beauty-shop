@@ -6,8 +6,8 @@ import Avatar from 'components/images/avatar'
 import { getCreditCards } from 'actions/user'
 
 class Info extends Component {
-	goToEdit = () => {
-		history.push('profile/edit')
+	goToEdit = type => e => {
+		history.push(`profile${type}/edit`)
 	}
 
 	gotoAddress = url => e => {
@@ -30,7 +30,7 @@ class Info extends Component {
         return (
         	<div className="row">
 	        	<div className="col-12 mb-3">
-	        		<div className="rounded p-4 bg-white border">
+	        		<div className="rounded px-4 pt-4 pb-2 bg-white border">
 						<h4 className="mb-3">Meus Dados</h4>
 						<div className="border-bottom mb-4"></div>
 						<div className="row align-items-center mb-3">
@@ -38,11 +38,17 @@ class Info extends Component {
 		    					<h4>{`${first_name} ${last_name}`}</h4>
 		    					<h4 className="mb-3">{email}</h4>
 		    					<div className="row">
-									<div className="col-12 col-lg-4 col-md-8">
+									<div className="col-12 col-lg-4 col-md-8 mb-2">
 										<BtnMain
 					        				className="font-weight-bold btn-block"
-					        				onClick={this.goToEdit}
+					        				onClick={this.goToEdit('')}
 					        				title="Editar" />
+			        				</div>
+			        				<div className="col-12 col-lg-4 col-md-8">
+				        				<BtnMain
+					        				className="font-weight-bold btn-block"
+					        				onClick={this.goToEdit('/password')}
+					        				title="Alterar senha" />
 									</div>
 								</div>
 		    				</div>

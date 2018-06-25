@@ -30,9 +30,8 @@ export const getProductsVendor = id => dispatch =>
 
 export const sendProductComment = (data, id) => dispatch =>
     (
-        post(`api/product/${id}/review`, true, data).then(json => {
-            console.log(json)
-        })
+        post(`api/product/${id}/review`, true, data)
+        .then(json => json.status === 200)
     )
 
 export const setProducts = (data, key) => 

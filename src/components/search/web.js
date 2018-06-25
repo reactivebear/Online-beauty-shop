@@ -22,6 +22,7 @@ class WebSearch extends Component {
 	setAutocomplete = e => {
 		if (!this.state.active) {
 			this.setState({active: true})
+			document.body.addEventListener('click', this.closeDropDown)
 		}
 		store.dispatch(setSearchQuery(e.target.value))
 		store.dispatch(getAutocomplete(e.target.value))

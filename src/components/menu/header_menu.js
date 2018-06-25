@@ -20,7 +20,7 @@ class HeaderMenu extends Component {
     }
 
     goToUrl = url => e => {
-    	this.props[0]()
+    	this.props.close()
     	history.push(`/${url}`)
     }
 

@@ -107,6 +107,10 @@ path.cls-8 {
 	width: 60%;
 }
 
+.w-65 {
+	width: 65%;
+}
+
 .w-70 {
 	width: 70%;
 }
@@ -265,7 +269,7 @@ path.cls-8 {
 }
 
 .rounded {
-	border-radius: 10px !important;
+	border-radius: 8px !important;
 }
 
 .rounded-bottom {
@@ -372,8 +376,32 @@ path.cls-8 {
     transform: rotate(45deg);
 }
 
-.footer-copyright {
-	
+.about-wrap {
+	background-image: url('/assets/images/about.png');
+	background-repeat: no-repeat;
+	height: calc(100vh - 190px);
+	background-position: -5px -5px;
+	background-size: 63%;
+}
+
+.inner-about {
+	height: calc(100% - 190px);
+}
+
+.not-found-wrap {
+	height: calc(100vh - 190px);
+}
+
+@media(max-width: 1640px) {
+	.about-wrap {
+		background-size: 68%;
+	}
+}
+
+@media(max-width: 1440px) {
+	.about-wrap {
+		background-size: 67%;
+	}
 }
 
 @media(max-width: 375px) {

@@ -8,19 +8,18 @@ class DropDownMenu extends Component {
 	setSearch = type => e => {
 		e.stopPropagation()
 		store.dispatch(setSearchType(type))
-		this.props[0]()
+		this.props.close()
 	}
 
 	setResult = type => {
-		
 		if (this.props.search.autocomplete[type].length && this.props.search.query.length) {
 			const start = this.props.search.autocomplete[type][0].toLowerCase().indexOf(this.props.search.query.toLowerCase())
 			const finish = start + this.props.search.query.length
-			return 	<span className="pl-3">
+			return 	<div className="px-3 text-truncate">
 						<span>{this.props.search.autocomplete[type][0].slice(0, start)}</span>
 						<strong>{this.props.search.autocomplete[type][0].slice(start, finish)}</strong>
 						<span>{this.props.search.autocomplete[type][0].slice(finish)}</span>
-					</span>
+					</div>
 		}
 	}
 

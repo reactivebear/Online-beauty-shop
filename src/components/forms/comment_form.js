@@ -20,7 +20,11 @@ class CommentForm extends Component {
             rating: this.state.rating
         }
         store.dispatch(sendProductComment(data, this.props.data.id))
-        this.props.onCancel()
+        .then(res => {
+            if (res) {
+                this.props.onCancel()
+            }
+        })
 	}
 
     onHover = val => e => {

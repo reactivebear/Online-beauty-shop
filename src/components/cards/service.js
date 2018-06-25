@@ -106,9 +106,7 @@ class CardService extends Component {
 		            			{this.getAddress(this.props.vendor.address || this.props.address)}
 		            		</div>
 		            		<div className="mb-2">
-		            			<Tag title="Hair" />
-		            			<Tag title="Dove" />
-		            			<Tag title="Salão" />
+		            			<Tag title={this.props.category.name} />
 		            		</div>
 	            			<div className="row justify-content-between mb-1">
 	            				<div className="col-xl-6 pr-xl-1 mb-1 md-sm-0">

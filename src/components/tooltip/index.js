@@ -11,7 +11,7 @@ class Tooltip extends Component {
             		? 	<h6 className="mb-3"><strong>{this.props.title}</strong></h6>
             		: 	''
             	}
-            	<div>{React.createElement(this.props.content, [this.props.close])}</div>
+            	<div>{React.createElement(this.props.content, {close: this.props.close, openAnother: this.props.openAnother})}</div>
             </div>
         );
     }

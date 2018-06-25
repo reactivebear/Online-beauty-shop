@@ -40,8 +40,8 @@ class App extends Component {
     printRoutes = (route, i) => <Route key={i} path={route.path} exact component={pages[route.component]} />
 
     render() {
-        const { token, approve_token } = this.props.user
-        const key = token ? 'private' : 'public'
+        const { approve_token, guest } = this.props.user
+        const key = !guest ? 'private' : 'public'
         const routes = routing[key]
         const unactiveClass = this.props.design.sideMenu ? 'unactive' : ''
         return (
@@ -72,6 +72,7 @@ const mapStateToProps = state =>
         user: {
             token: state.user.token,
             approve_token: state.user.approve_token,
+            guest: state.user.guest
         },
         design: {
             sideMenu: state.design.sideMenu

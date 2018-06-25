@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import CategoryItem from 'components/cards/category.js'
+import CategoryItem from 'components/cards/category'
 import Carousel from 'components/carousel'
-import ListMain from 'components/lists/main.js'
+import ListMain from 'components/lists/main'
 
 class MainSection extends Component {
 
@@ -22,6 +22,11 @@ class MainSection extends Component {
                     }
                 }, {
                     breakpoint: 576, 
+                    settings: {
+                        slidesToShow: 3,
+                    }
+                }, {
+                    breakpoint: 375, 
                     settings: {
                         slidesToShow: 2,
                     }

@@ -80,6 +80,7 @@ class CardProduct extends Component {
             		<div className="col-xl-6 pr-xl-1 mb-2 md-sm-0">
             			<BtnMain
 	        				className="btn-block font-weight-bold"
+	        				onClick={this.addToCart}
 	        				title="Comprar agora" />
             		</div>
         			<div className="col-xl-6 pl-xl-1">

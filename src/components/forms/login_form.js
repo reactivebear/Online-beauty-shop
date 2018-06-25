@@ -16,7 +16,7 @@ class LoginForm extends Component {
 
         store.dispatch(login(data)).then(res => {
             if (res) {
-               this.props[0]()
+               this.props.close()
                history.push('/')
                //document.location.reload(false)
             }
@@ -24,7 +24,7 @@ class LoginForm extends Component {
     }
 
     goToRegistration = () => {
-        this.props[0]()
+        this.props.close()
         history.push('/registration')
     }
 
