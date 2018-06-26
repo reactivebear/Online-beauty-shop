@@ -178,11 +178,11 @@ class Company extends Component {
                                     }, {
                                         title: 'Avaliações',
                                         onClick: this.showComment,
-                                        content: <div></div>
+                                        content: <div className="bg-white rounded p-3 mb-3">{this.getReviewList()}</div>
                                     }, {
                                         title: 'Produtos',
                                         onClick: this.hideComment,
-                                        content:    <div>
+                                        content:    <div className="mb-3">
                                                         <div className="row align-items-stretch">
                                                             { products.map((item, i) => this.printProducts(item, i)) }
                                                         </div>
@@ -192,16 +192,6 @@ class Company extends Component {
                                                             active={this.props.product.pagination.page} />
                                                     </div>
                                     }]} />
-                            <div className="d-none d-md-block">
-                                {
-                                    this.state.orderClassLast === 'order-3'
-                                    ?   <div className="fs-22">Avaliações</div>
-                                    :   ''
-                                }
-                                <div className="bg-white rounded p-3">
-                                    {this.getReviewList()}
-                                </div>
-                            </div>
                         </div>
                         <div className={`col-lg-4 col-md-5 mb-3 ${this.state.orderClassFirst}`}>
                             <div className="bg-white rounded p-3">
@@ -236,16 +226,7 @@ class Company extends Component {
                                 { salon.social_media.map((item, i) => this.printSocial(item, i)) }
                             </div>
                         </div>
-                        <div className={`col-lg-8 col-md-7 mb-3 d-block d-md-none ${this.state.orderClassLast}`}>
-                            {
-                                this.state.orderClassLast === 'order-3'
-                                ?   <div className="fs-22">Avaliações</div>
-                                :   ''
-                            }
-                            <div className="bg-white rounded p-3">
-                                {this.getReviewList()}
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
 			</div>
