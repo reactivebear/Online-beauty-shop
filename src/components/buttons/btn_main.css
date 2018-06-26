@@ -73,6 +73,12 @@
 	outline: unset;
 }
 
+.btn-primary.disabled, .btn-primary:disabled {
+    color: #A7A7A8;
+    background-color: transparent;
+    border-color: #A7A7A8 !important;
+}
+
 @media (max-width: 360px) {
 	.btn-primary {
 		font-size: 10px;

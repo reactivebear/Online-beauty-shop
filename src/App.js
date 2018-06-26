@@ -53,6 +53,7 @@ class App extends Component {
                                 <Header />
                                 <Switch>{ routes.map((route, i) => this.printRoutes(route, i)) }</Switch>
                                 <Footer />
+                                <div className="back-main-wrap"></div>
                             </div>
                             <SideMenu />
                             <LeftMenu />

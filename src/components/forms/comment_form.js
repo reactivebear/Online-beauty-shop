@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import store from 'store'
 import { sendProductComment } from 'actions/products'
+import { setAlert } from 'actions/design'
 import Stars from 'components/stars'
 import Input from 'components/inputs/input.js'
 import TextArea from 'components/inputs/textarea.js'
@@ -14,17 +15,21 @@ class CommentForm extends Component {
     }
 
 	sendComment = () => {
-        const data = {
-            email: this.text.value,
-            comment: this.message.value,
-            rating: this.state.rating
-        }
-        store.dispatch(sendProductComment(data, this.props.data.id))
-        .then(res => {
-            if (res) {
-                this.props.onCancel()
+        if (/\S+@\S+\.\S+/.test(this.email.value)) {
+            const data = {
+                email: this.email.value,
+                comment: this.message.value,
+                rating: this.state.rating
             }
-        })
+            store.dispatch(sendProductComment(data, this.props.data.id))
+            .then(res => {
+                if (res) {
+                    this.props.onCancel()
+                }
+            })
+        } else {
+            store.dispatch(setAlert('Email is incorrect', 'error'))
+        }
 	}
 
     onHover = val => e => {
@@ -54,7 +59,7 @@ class CommentForm extends Component {
             		<Input 
                         required
                         label="E-mail"
-                        inputRef={ref => this.text = ref} />
+                        inputRef={ref => this.email = ref} />
             	</div>
             	<div className="color-grey">
             		<TextArea 

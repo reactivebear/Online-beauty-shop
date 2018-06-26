@@ -67,9 +67,9 @@ export const getBlogs = () => dispatch =>
 
 export const getSearch = (type, param) => dispatch => 
     (
-        post(`api/search`, false, param).then(json => {
+        post(`api/${type}`, false, param).then(json => {
             if (json.object) {
-                dispatch(setSearch(json.object))
+                dispatch(setSearch(json.object, type))
             }
         })
     )
@@ -116,10 +116,14 @@ export const setActiveCategory = cat =>
         cat
     })
 
-export const setSearch = data => 
+export const setSearch = (data, key) => 
     ({
         type: types.SET_SEARCH,
-        data
+        data: {
+            list: data.items,
+            all: data.total_items,
+        },
+        key
     })
 
 export const setAutocomplete = data => 

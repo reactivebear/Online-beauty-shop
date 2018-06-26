@@ -68,6 +68,25 @@ export const LIST_MENU = [
         ]
 
 export const DROP_LIST = ['Mais relevantes', 'Menor preço', 'Maior preço']
+export const DROP_MENU_LIST = [
+    {
+        title: 'Produto',
+        background: 'bg-green',
+        type: 'product'
+    }, {
+        title: 'Serviço',
+        background: 'bg-blue',
+        type: 'service'
+    }, {
+        title: 'Salão',
+        background: 'bg-orange',
+        type: ''
+    }, {
+        title: 'Vendedor',
+        background: 'bg-brown',
+        type: ''
+    }
+]
 export const NOTIFICATION_TYPE = {
         attention: {
             title: 'Atenção',

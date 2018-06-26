@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import store, { history } from 'store'
-import { saveAddress } from 'actions/user'
+import { saveAddress, updateAddress } from 'actions/user'
 import { setGuestInfo } from 'actions/cart'
 import BtnMain from 'components/buttons/btn_main'
 import Input from 'components/inputs/input'
@@ -21,9 +21,10 @@ class AddressForm extends Component {
     save = () => {
         if (this.state.activeSave) {
             const data = {
+                id: history.location.state ? history.location.state.id : '',
                 title: this.address.title.value,
                 email: '',
-                phone: this.address.phone.value,
+                phone: this.address.phone.value.replace('(', '').replace(')', '').replace(' ', '').replace('-', ''),
                 longitude: '',
                 latitude: '',
                 street: this.address.street.value,
@@ -37,10 +38,16 @@ class AddressForm extends Component {
                 country: this.address.country.value
             }
             this.setState({activeSave: false})
-
-            store.dispatch(saveAddress(data)).then(res => {
-                history.push('/profile/address/')
-            })
+            if (data.id) {
+                store.dispatch(updateAddress(data)).then(res => {
+                    history.push('/profile/address/')
+                })
+            } else {
+                store.dispatch(saveAddress(data)).then(res => {
+                    history.push('/profile/address/')
+                })
+            }
+            
         } 
     }
 
@@ -73,6 +80,7 @@ class AddressForm extends Component {
 
     render() {
         const address = history.location.state || this.props.cart.guestAddress
+
         return (
         	<div>
                 <Input 

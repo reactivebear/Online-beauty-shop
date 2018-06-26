@@ -54,12 +54,6 @@ class ProfileForm extends Component {
                     inputRef={ref => this.user.email = ref} />
                 <Input 
                     required
-                    type="password"
-                    label="Senha"
-                    value={''}
-                    inputRef={ref => this.user.password = ref} />
-                <Input 
-                    required
                     placeholder="DD/MM/YYYY"
                     label="Data de nascimento"
                     onChange={this.checkMask('date', 'birth')}

@@ -81,6 +81,16 @@ export const saveAddress = data => dispatch =>
         })
     )
 
+export const updateAddress = data => dispatch => 
+    (
+        post(`api/user/address/${data.id}`, true, data).then(json => {
+            if (json.object) {
+                console.log(json.object)
+                return true
+            }
+        })
+    )
+
 export const removeAddress = id => dispatch => 
     (
         remove(`api/user/address/${id}`, true).then(json => {

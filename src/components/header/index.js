@@ -66,6 +66,7 @@ class Header extends Component {
 
     render() {
         const contentTooltip = this.props.user.guest ? LoginForm : HeaderMenu
+        const address = this.props.user.data.main_address ? this.props.user.data.main_address : this.props.user.data.address
         return (
             <div className="wrap-header">
                 {  
@@ -150,8 +151,8 @@ class Header extends Component {
                                     <div onClick={this.toggleTooltip('zip')} id="zip" className="header-link-icon col-6 col-sm-5 px-lg-0 order-sm-first form-group pointer"> {/*col-12 col-sm-5*/}
                                         <img src="/assets/icons/pin-icon.png" id="zip" className="img-icon-header align-middle" alt="" />
                                         <div className="align-middle d-inline-block pl-2" id="zip">
-                                            Enviar para<br />
-                                            <strong id="zip">{this.props.user.data.main_address.title} {this.props.user.data.main_address.zipcode}</strong>
+                                            Encontre serviços<br />
+                                            <strong id="zip">{this.props.user.guest ? 'Selecionar endereço' : `${address.title} ${address.zipcode}`}</strong>
                                         </div>
                                         { this.state.tooltip === 'zip' ? <div className="tooltip-background z-index-3"></div> : '' }
                                         {
@@ -180,6 +181,7 @@ const mapStateToProps = state =>
             guest: state.user.guest,
             data: {
                 first_name: state.user.data.first_name,
+                address: state.user.data.address,
                 main_address: state.user.data.main_address
             },
         },

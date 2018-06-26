@@ -37,8 +37,8 @@ class Footer extends Component {
                         </div>
                         <div className="col-sm col-12">
                             <div className="mb-3">Localização</div>
-                            <div className="mb-2">Rua Girassol, 1158 - Vila Madalena, São Paulo - SP</div>
-                            <div className="mb-1">Rua Girassol, 1158 - Vila Madalena, São Paulo - SP</div>
+                            <div className="mb-2">Rua Girassol, 1158 - Vila Madalena,<br className="d-sm-none" /> São Paulo - SP</div>
+                            <div className="mb-1">Rua Girassol, 1158 - Vila Madalena,<br className="d-sm-none" /> São Paulo - SP</div>
                             <div className="border-bottom w-100 d-sm-none mb-3"></div>
                         </div>
                         <div className="col-sm col-12">
@@ -64,7 +64,7 @@ class Footer extends Component {
                                 <div className="col-sm col-8 text-left">
                                     <p className="color-grey">Selecione um país/região</p>
                                     <select className="form-control h-75">
-                                        <option value="br">Brazil - Português</option>
+                                        <option value="br">Brasil - Português</option>
                                         <option value="en">EUA - English</option>
                                     </select>
                                 </div>

@@ -5,8 +5,13 @@ import BtnMain from 'components/buttons/btn_main'
 import { format } from 'utils/mask'
 
 class About extends Component {
+	state = {
+		disabled: true
+	}
+
 	checkMask = (mask, field) => e => {
         this.phone.value = format(mask, e.target.value)
+        this.setState({disabled: this.phone ? this.phone.value.length < 14 : true})
     }
 
     confirmApp = props => {
@@ -55,11 +60,12 @@ class About extends Component {
 								  	<input 
 								  		type="text" className="form-control" 
 								  		onChange={this.checkMask('phone', 'phone')}
-								  		placeholder="(11)96132-1852"
+								  		placeholder="Seu número"
 			                            ref={ref => this.phone = ref} />
 								</div>
 								<BtnMain
 									className="btn-outline px-4"
+									disabled={this.state.disabled}
 									onClick={this.sendApp}
 									title="Enviar" />
 							</div>

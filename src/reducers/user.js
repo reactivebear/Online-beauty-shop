@@ -7,6 +7,7 @@ const initialState = {
     approve_token: false,
     data: {
         main_address: {},
+        address: {},
         addresses: [],
         billing_addresses: []
     },

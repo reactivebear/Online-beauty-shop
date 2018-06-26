@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import store from 'store'
 import { setSearchType } from 'actions'
+import { DROP_MENU_LIST } from 'config'
 import './style.css'
 
 class DropDownMenu extends Component {
@@ -12,7 +13,7 @@ class DropDownMenu extends Component {
 	}
 
 	setResult = type => {
-		if (this.props.search.autocomplete[type].length && this.props.search.query.length) {
+		if (this.props.search.autocomplete[type] && this.props.search.autocomplete[type].length && this.props.search.query.length) {
 			const start = this.props.search.autocomplete[type][0].toLowerCase().indexOf(this.props.search.query.toLowerCase())
 			const finish = start + this.props.search.query.length
 			return 	<div className="px-3 text-truncate">
@@ -23,25 +24,16 @@ class DropDownMenu extends Component {
 		}
 	}
 
+	printList = (item, i) =>
+		(<div key={i} className="py-2 d-flex pointer wrap-drop-search" onClick={this.setSearch(`${item.type}s`)}>
+   			<div className={`ml-3 text-white text-uppercase px-3 pt-0 pb-0 btn w-15 drop-search-item ${item.background}`} style={{minWidth: 95}}>{item.title}</div>
+   			<div className="w-85">{this.setResult(item.type)}</div>
+       	</div>)
+
     render() {
         return (
         	<div className="font-avenir-light">
-	           	<div className="py-2 d-flex pointer wrap-drop-search" onClick={this.setSearch('products')}>
-           			<div className="ml-3 text-white text-uppercase bg-green px-3 pt-0 pb-0 btn w-15 drop-search-item">Produto</div>
-           			<div className="w-85">{this.setResult('product')}</div>
-	           	</div>
-	           	<div className="py-2 d-flex pointer wrap-drop-search" onClick={this.setSearch('services')}>
-	           		<div className="ml-3 text-white text-uppercase bg-blue px-3 pt-0 pb-0 btn w-15 drop-search-item">Serviço</div>
-	           		<div className="w-85">{this.setResult('service')}</div>
-	           	</div>
-	           	<div className="py-2 d-flex pointer wrap-drop-search" onClick={this.setSearch('salon')}>
-	           		<div className="ml-3 text-white text-uppercase bg-orange px-3 pt-0 pb-0 btn w-15 drop-search-item">Salão</div>
-	           		<div className="w-85"></div>
-	           	</div>
-	           	<div className="py-2 d-flex pointer wrap-drop-search" onClick={this.setSearch('vendor')}>
-	           		<div className="ml-3 text-white text-uppercase bg-brown px-1 pt-0 pb-0 btn w-15 drop-search-item">Vendedor</div>
-	           		<div className="w-85"></div>
-	           	</div>
+        		{ DROP_MENU_LIST.map((item, i) => this.printList(item, i)) }
 			</div>
         );
     }

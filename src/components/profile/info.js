@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import store, { history } from 'store'
 import { connect } from 'react-redux'
-import BtnMain from 'components/buttons/btn_main.js'
+import BtnMain from 'components/buttons/btn_main'
 import Avatar from 'components/images/avatar'
 import { getCreditCards } from 'actions/user'
 
@@ -25,7 +25,8 @@ class Info extends Component {
 	getCardNumber = num => `****.****.****.${num.slice(-4)}`
 
     render() {
-    	const { first_name, last_name, email, main_address, image_url } = this.props.user.data
+    	const { first_name, last_name, email, image_url } = this.props.user.data
+    	const address = this.props.user.data.main_address ? this.props.user.data.main_address : this.props.user.data.address
     	const { default_card } = this.props.user
         return (
         	<div className="row">
@@ -64,8 +65,8 @@ class Info extends Component {
 						<h4 className="mb-3">Endereço de entrega</h4>
 						<div className="border-bottom mb-4"></div>
 						<div className="color-grey mb-3 fs-18">
-							{main_address.title}<br />
-							{main_address.street}
+							{address.title}<br />
+							{address.street}
 						</div>
 						<div>
 							<BtnMain
@@ -120,6 +121,7 @@ const mapStateToProps = state =>
         		last_name: state.user.data.last_name,
         		email: state.user.data.email,
         		main_address: state.user.data.main_address,
+        		address: state.user.data.address,
         		image_url: state.user.data.image_url,
         	},
         	default_card: state.user.default_card

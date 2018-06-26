@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
-import store, { history } from 'store'
-import { getSearch } from 'actions'
+import { history } from 'store'
 
 class Tag extends Component {
 
 	search = e => {
 		e.preventDefault()
-		const params = {search_text: this.props.title}
-		store.dispatch(getSearch('pagination', {new_pagination: true, page_size: 6, ...params}))
-		history.push('/search')
+		history.push(`/search#type=services&category=${this.props.catId}`)
 	}
 
     render() {

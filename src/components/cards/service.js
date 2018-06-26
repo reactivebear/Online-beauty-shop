@@ -60,7 +60,7 @@ class CardService extends Component {
 		store.dispatch(removeFromWishList('service', this.props.id))
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		this.getDistance()
 	}
 
@@ -106,7 +106,7 @@ class CardService extends Component {
 		            			{this.getAddress(this.props.vendor.address || this.props.address)}
 		            		</div>
 		            		<div className="mb-2">
-		            			<Tag title={this.props.category.name} />
+		            			<Tag title={this.props.category.name} catId={this.props.category.id} />
 		            		</div>
 	            			<div className="row justify-content-between mb-1">
 	            				<div className="col-xl-6 pr-xl-1 mb-1 md-sm-0">
