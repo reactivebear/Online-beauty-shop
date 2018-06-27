@@ -18,9 +18,9 @@
 }
 
 .tooltip-background {
-    position: absolute;
-    top: -2500px;
-    left: -2500px;
+    position: fixed;
+    top: 0;
+    left: 0;
     background-color: rgba(0,0,0,0.3);
     height: 10000px;
     width: 10000px;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import store from 'store'
+import store, { history } from 'store'
 import { getCategories } from 'actions'
 import BtnGroup from 'components/buttons/btn_group.js'
 import { connect } from 'react-redux'
@@ -39,9 +39,18 @@ class Main extends Component {
 
 	componentWillMount() {
 		store.dispatch(getCategories())
+		if (this.props.location.state && this.props.location.state.active) {
+			this.setState({
+					firstClass: 'order-6',
+					lastClass: 'order-1',
+					active: this.props.location.state.active
+				})
+			history.push('/', {})
+		}
 	}
 
     render() {
+    	console.log(this.props.location.state)
     	const { product, service } = this.props.categories
 
     	const catButtons = [

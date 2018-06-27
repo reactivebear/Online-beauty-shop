@@ -16,7 +16,13 @@ class Purchased extends Component {
 	}
 
 	getPurchasesList = () => {
-		return <div className="row align-items-strech">{ this.props.user.purchases.map((item, i) => this.printList(item, i)) }</div>
+		return 	<div>
+					{ 
+						this.props.user.purchases.length
+						? 	<div className="row align-items-strech">{ this.props.user.purchases.map((item, i) => this.printList(item, i)) }</div>
+						: 	<div className="text-center fs-18">Você ainda não possui nenhum produto</div>
+					}
+				</div>
 	}
 
 	getPurchase = () => {

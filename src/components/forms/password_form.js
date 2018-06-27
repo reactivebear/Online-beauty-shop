@@ -13,7 +13,11 @@ class PasswordForm extends Component {
         }
 
         store.dispatch(changePassword(data))
-        store.dispatch(toggleModal(true, this.confirmPassword, 'modal-sm text-center', 'Alterar senha', {position: 'center'}))
+        .then(res => {
+            if (res) {
+                store.dispatch(toggleModal(true, this.confirmPassword, 'modal-sm text-center', 'Alterar senha', {position: 'center'}))
+            }
+        })
     }
 
     confirmPassword = props => {

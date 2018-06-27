@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import store from 'store'
+import store, { history } from 'store'
 import { connect } from 'react-redux'
 import { getAppointments } from 'actions/user.js'
 import BtnMain from 'components/buttons/btn_main.js'
@@ -7,6 +7,10 @@ import BtnMain from 'components/buttons/btn_main.js'
 class Schedules extends Component {
 	componentWillMount() {
 		store.dispatch(getAppointments())
+	}
+
+	goToMain = () => {
+		history.push('/', {active: 'service'})
 	}
 
 	render() {
@@ -30,6 +34,7 @@ class Schedules extends Component {
 								<div className="col-sm-6">
 									<BtnMain
 				        				className="btn-block btn-outline font-weight-bold"
+				        				onClick={this.goToMain}
 				        				title="Vamos lá" />
 		        				</div>
 		    				</div>

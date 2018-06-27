@@ -60,10 +60,20 @@ class CartTotal extends Component {
 				<div className="col-sm-10 offset-sm-1">
 					{
 						this.props.step === lastStep - 1
-						? 	<BtnMain
-			                    className="btn-block btn-outline font-weight-bold"
-			                    onClick={() => store.dispatch(setStep(this.props.step-1))}
-			                    title="Alterar meio de pagamento" />
+						? 	<div>
+								<BtnMain
+				                    className="btn-block btn-outline font-weight-bold mb-2"
+				                    onClick={() => store.dispatch(setStep(this.props.step-1))}
+				                    title="Alterar meio de pagamento" />
+				                    {
+				                    	lastStep === 5
+				                    	? 	<BtnMain
+							                    className="btn-block btn-outline font-weight-bold mb-2"
+							                    onClick={() => store.dispatch(setStep(this.props.step-2))}
+							                    title="Alterar endereço" />
+				                    	: 	''
+				                    }
+		                    </div>
 						: 	''
 					}
 					{
