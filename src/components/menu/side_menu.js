@@ -36,7 +36,7 @@ class SideMenu extends Component {
                                 <div className="col text-right align-self-center">
                                     <img src="/assets/icons/close-icon.png" onClick={this.toggleSideMenu} className="img-icon" alt="" />
                                 </div>
-                                <LoginForm {...[this.toggleSideMenu]} />
+                                <LoginForm close={this.toggleSideMenu} />
                             </div>
                         :   <div>
                                 <div className="row pt-55 px-5 mb-5">

@@ -64,7 +64,7 @@ class About extends Component {
 			                            ref={ref => this.phone = ref} />
 								</div>
 								<BtnMain
-									className="btn-outline px-4"
+									className="btn-outline px-4 btn-white"
 									disabled={this.state.disabled}
 									onClick={this.sendApp}
 									title="Enviar" />

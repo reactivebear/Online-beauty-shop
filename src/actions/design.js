@@ -5,10 +5,10 @@ export const toggleSideMenu = state => {
     const el = document.getElementById('main-wrap')
     if (!state) {
         setTimeout(() => {
-            el.style.position = 'relative'
+            el.style.overflowX = 'unset'
         }, 600)
     } else {
-        el.style.position = 'absolute'
+        el.style.overflowX = 'hidden'
     }
     return {
         type: types.TOGGLE_SIDE_MENU,

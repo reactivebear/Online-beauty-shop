@@ -30,7 +30,7 @@ class Footer extends Component {
                             <div className="mb-1">Sobre o Blog</div>
                         </div>
                         <div className="col-sm col-12">
-                            <div className="mb-sm-3">Vantagens para clientes</div>
+                            <div className="mb-sm-3 mb-1">Vantagens para clientes</div>
                             <div className="mb-1">Ofereça seus serviços</div>
                             <div className="mb-1">Anuncie seus produtos</div>
                             <div className="border-bottom w-100 d-sm-none mb-3"></div>

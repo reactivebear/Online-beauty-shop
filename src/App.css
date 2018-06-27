@@ -152,45 +152,64 @@ path.cls-8 {
 }
 
 .main-wrap {
+	position: absolute;
 	z-index: 5;
-	position: relative;
     display: inline;
-    position: relative;
-    overflow-x: hidden;
     top: 0px;
     height: 100%;
     width: 100%;
-    -webkit-overflow-scrolling: touch;
+    /*-webkit-overflow-scrolling: touch;
     -webkit-transform: scale(1) translate(0%, 0px);
     -moz-transform: scale(1) translate(0%, 0px);
     -ms-transform: scale(1) translate(0%, 0px);
     -o-transform: scale(1) translate(0%, 0px);
-    transform: scale(1) translate(0%, 0px);
+    transform: scale(1) translate(0%, 0px);*/
     -webkit-transition: transform 0.6s ease-out;
     -o-transition: transform 0.6s ease-out;
     transition: transform 0.6s ease-out;
 }
 
-/*.main-wrap::after {
-	content: '';
+.back-main-wrap {
 	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+    top: 20px;
+    bottom: 20px;
+    left: 0;
+    right: 80%;
+    background-color: #fff;
+    opacity: 0.8;
+    z-index: 3;
+    transition: transform 0.6s ease-out, right 0.6s linear;
+}
 
-}*/
-
-.main-wrap.unactive {
+.second-back-main-wrap {
 	position: absolute;
-    -webkit-box-shadow: 0px 0px 40px 1px rgba(255,255,255,0.5);
-    -moz-box-shadow: 0px 0px 40px 1px rgba(255,255,255,0.5);
-    box-shadow: 0px 0px 40px 1px rgba(255,255,255,0.5);
-    -webkit-transform: scale(0.85) translate(-90%, 0px);
-    -moz-transform: scale(0.85) translate(-90%, 0px);
-    -ms-transform: scale(0.85) translate(-90%, 0px);
-    -o-transform: scale(0.85) translate(-90%, 0px);
-    transform: scale(0.85) translate(-90%, 0px);
+    top: 30px;
+    bottom: 30px;
+    left: 0;
+    right: 80%;
+    background-color: #fff;
+    opacity: 0.5;
+    z-index: 3;
+    transition: transform 0.6s ease-out, right 0.6s linear;
+}
+
+.back-main-wrap.unactive {
+	right: -25%;
+}
+
+.second-back-main-wrap.unactive {
+	right: -50%;
+}
+
+.main-wrap.unactive,
+.back-main-wrap.unactive,
+.second-back-main-wrap.unactive {
+	border: 1px solid #fff;
+    -webkit-transform: scale(0.80) translate(-95%, 0px);
+    -moz-transform: scale(0.80) translate(-95%, 0px);
+    -ms-transform: scale(0.80) translate(-95%, 0px);
+    -o-transform: scale(0.80) translate(-95%, 0px);
+    transform: scale(0.80) translate(-95%, 0px);
 }
 
 .font-avenir {
@@ -400,15 +419,6 @@ path.cls-8 {
 
 .not-found-wrap {
 	height: calc(100vh - 190px);
-}
-
-.back-main-wrap {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background-color: #fff;
 }
 
 .line-clamp {

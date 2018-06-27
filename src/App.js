@@ -49,12 +49,14 @@ class App extends Component {
                 {
                     approve_token
                     ?   <div className="overflow-hidden">
+                            <div className={`back-main-wrap ${unactiveClass}`}></div>
+                            <div className={`second-back-main-wrap ${unactiveClass}`}></div>
                             <div id="main-wrap" className={`main-wrap ${unactiveClass}`}>
                                 <Header />
                                 <Switch>{ routes.map((route, i) => this.printRoutes(route, i)) }</Switch>
                                 <Footer />
-                                <div className="back-main-wrap"></div>
                             </div>
+                            
                             <SideMenu />
                             <LeftMenu />
                             <Modal />

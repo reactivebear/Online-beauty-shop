@@ -79,6 +79,22 @@
     border-color: #A7A7A8 !important;
 }
 
+.btn-white.btn-outline,
+.btn-white.btn-outline:active {
+	background-color: #fff !important;
+	color: #A7A7A8 !important;
+	border-color: #fff !important;
+}
+
+.btn-white.btn-outline:disabled {
+	background-color: transparent !important;
+	border-color: #A7A7A8 !important;
+}
+
+.btn-white.btn-outline:hover {
+	box-shadow: 0 4px 14px 0px rgba(255,255,255,0.5);
+}
+
 @media (max-width: 360px) {
 	.btn-primary {
 		font-size: 10px;
