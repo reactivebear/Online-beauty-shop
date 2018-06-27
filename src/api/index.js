@@ -12,7 +12,9 @@ const responseHandler = response => {
         const ok = response.ok
         if (withMessage) {
             promise.then(response => {
-                store.dispatch(setAlert(response.message, ok ? 'success' : 'error'))
+                if (response.message) {
+                    store.dispatch(setAlert(response.message, ok ? 'success' : 'error'))
+                }
                 withMessage = false
             })
         }

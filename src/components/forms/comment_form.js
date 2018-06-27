@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import store from 'store'
-import { sendProductComment } from 'actions/products'
+import { sendProductComment, getProductComments } from 'actions/products'
+import { sendSalonComment } from 'actions/services'
 import { setAlert } from 'actions/design'
 import Stars from 'components/stars'
 import Input from 'components/inputs/input.js'
@@ -21,12 +22,28 @@ class CommentForm extends Component {
                 comment: this.message.value,
                 rating: this.state.rating
             }
-            store.dispatch(sendProductComment(data, this.props.data.id))
-            .then(res => {
-                if (res) {
-                    this.props.onCancel()
-                }
-            })
+
+            switch (this.props.data.type) {
+                case 'salon':
+                    store.dispatch(sendSalonComment(data, this.props.data.id))
+                    .then(res => {
+                        if (res) {
+                            this.props.onCancel()
+                        }
+                    })
+                    break
+                case 'product':
+                    store.dispatch(sendProductComment(data, this.props.data.id))
+                    .then(res => {
+                        if (res) {
+                            store.dispatch(getProductComments(this.props.data.id))
+                            this.props.onCancel()
+                        }
+                    })
+                    break
+                default: return
+            }
+            
         } else {
             store.dispatch(setAlert('Email is incorrect', 'error'))
         }

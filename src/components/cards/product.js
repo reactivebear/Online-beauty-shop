@@ -3,8 +3,8 @@ import store, { history } from 'store'
 import './product.css'
 import Stars from 'components/stars'
 import Price from 'components/price'
-import BtnMain from 'components/buttons/btn_main.js'
-import { addToCart } from 'actions/cart.js'
+import BtnMain from 'components/buttons/btn_main'
+import { addToCart } from 'actions/cart'
 import { addToWishList, removeFromWishList } from 'actions'
 import Heart from 'components/heart'
 
@@ -17,9 +17,14 @@ class CardProduct extends Component {
 
 	goToProduct = e => history.push(`/product/${this.props.id}`)
 
-	addToCart = e => {
+	addToCart = now => e => {
 		e.stopPropagation()
 		store.dispatch(addToCart(this.props.id, 'product', {quantity: 1}))
+		.then(res => {
+			if (res && now) {
+				history.push(`/cart`)
+			}
+		})
 	}
 
 	toggleWish = val => {
@@ -78,13 +83,13 @@ class CardProduct extends Component {
             		<div className="col-xl-6 pr-xl-1 mb-2 md-sm-0">
             			<BtnMain
 	        				className="btn-block font-weight-bold"
-	        				onClick={this.addToCart}
+	        				onClick={this.addToCart(true)}
 	        				title="Comprar agora" />
             		</div>
         			<div className="col-xl-6 pl-xl-1">
 	    				<BtnMain
 	        				className="btn-block btn-outline font-weight-bold px-1"
-	        				onClick={this.addToCart}
+	        				onClick={this.addToCart(false)}
 	        				title="Adicionar ao carrinho" />
     				</div>
         		</div>

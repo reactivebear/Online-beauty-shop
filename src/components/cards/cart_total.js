@@ -7,13 +7,14 @@ import Price from 'components/price'
 import CheckBox from 'components/inputs/checkbox.js'
 
 class CartTotal extends Component {
-	changeStep = () => {
-		if (this.props.step < 5) {
+	changeStep = last => e => {
+		if (this.props.step < last) {
 			store.dispatch(setStep(this.props.step+1))
 		}
 	}
 
 	render() {
+		const lastStep = this.props.cart.list.service.length ? 4 : 5
 		return (
 			<div className="rounded bg-white p-4">
 				{
@@ -58,7 +59,7 @@ class CartTotal extends Component {
 				}
 				<div className="col-sm-10 offset-sm-1">
 					{
-						this.props.step === 4
+						this.props.step === lastStep - 1
 						? 	<BtnMain
 			                    className="btn-block btn-outline font-weight-bold"
 			                    onClick={() => store.dispatch(setStep(this.props.step-1))}
@@ -66,7 +67,7 @@ class CartTotal extends Component {
 						: 	''
 					}
 					{
-						this.props.step === 5
+						this.props.step === lastStep
 						?	<div>
 								<BtnMain
 				                    className="btn-block btn-outline font-weight-bold"
@@ -80,7 +81,7 @@ class CartTotal extends Component {
 					
 					<BtnMain
 	                    className="btn-block font-weight-bold"
-	                    onClick={this.changeStep}
+	                    onClick={this.changeStep(lastStep)}
 	                    title="Continuar" />
                 </div>
 			</div>
@@ -94,6 +95,9 @@ const mapStateToProps = state =>
             data: {
             	credit_amount: state.user.data.credit_amount
             }
+        },
+        cart: {
+        	list: state.cart.list,
         }
     })
 

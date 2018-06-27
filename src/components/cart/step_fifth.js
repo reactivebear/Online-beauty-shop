@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import CartTotal from 'components/cards/cart_total.js'
+import CartTotal from 'components/cards/cart_total'
 
 class StepFifth extends Component {
 
@@ -27,13 +27,12 @@ class StepFifth extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
+const mapStateToProps = state =>
+    ({
         cart: {
             total: state.cart.total
         }
-    }
-}
+    })
 
 export default connect(
     mapStateToProps

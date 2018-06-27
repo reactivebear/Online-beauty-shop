@@ -12,11 +12,8 @@ export const getCart = () => dispatch =>
 
 export const addToCart = (id, type, param) => dispatch => 
     (
-        post(`api/cart/add/${type}/${id}`, true, param).then(json => {
-            if (json.object) {
-                console.log(json.object)
-            }
-        })
+        post(`api/cart/add/${type}/${id}`, true, param)
+        .then(json => json.status === 200)
     )
 
 export const removeFromCart = id => dispatch => 

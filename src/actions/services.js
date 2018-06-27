@@ -28,6 +28,12 @@ export const getServicesCategory = param => dispatch =>
         })
     )
 
+export const sendSalonComment = (data, id) => dispatch =>
+    (
+        post(`api/vendor/${id}/review`, true, data)
+        .then(json => json.status === 200)
+    )
+
 export const setServices = (data, key) => 
     ({
         type: types.SET_SERVICES,

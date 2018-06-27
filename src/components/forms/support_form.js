@@ -51,7 +51,7 @@ class SupportForm extends Component {
                                     required
                                     label="Telefone"
                                     value={''}
-                                    onChange={this.checkMask('phone', 'phone')}
+                                    onChange={this.checkMask('cellphone', 'phone')}
                                     inputRef={ref => this.support.phone = ref} />
                             </div>
                             <div className="col-md-6">
@@ -59,7 +59,7 @@ class SupportForm extends Component {
                                     required
                                     label="Celular"
                                     value={''}
-                                    onChange={this.checkMask('cellphone', 'cellphone')}
+                                    onChange={this.checkMask('phone', 'cellphone')}
                                     inputRef={ref => this.support.cellphone = ref} />
                             </div>
                         </div>

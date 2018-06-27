@@ -62,7 +62,7 @@ class Company extends Component {
     }
 
     comment = () => {
-        store.dispatch(toggleModal(true, CommentForm, 'modal-sm'))
+        store.dispatch(toggleModal(true, CommentForm, 'modal-sm', '', {id: this.props.services.salon.id, type: 'salon'}))
     }
 
     toggleLightBox = i => {

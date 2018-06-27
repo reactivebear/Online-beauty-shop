@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import store from 'store'
+import store, { history } from 'store'
 import { connect } from 'react-redux'
-import { getProduct } from 'actions/products'
+import { getProduct, getProductComments } from 'actions/products'
 import { addToCart } from 'actions/cart'
 import { toggleModal, toggleLightBox } from 'actions/design'
 import { getServicesCategory } from 'actions/services'
@@ -11,13 +11,14 @@ import ImagePreview from 'components/images/preview.js'
 import Price from 'components/price'
 import Stars from 'components/stars'
 import Counter from 'components/counter'
-import BtnMain from 'components/buttons/btn_main.js'
+import BtnMain from 'components/buttons/btn_main'
 import Tabs from 'components/tabs'
-import SalonInfo from 'components/blocks/salon_info.js'
-import MainList from 'components/lists/main.js'
+import SalonInfo from 'components/blocks/salon_info'
+import MainList from 'components/lists/main'
 import Accordion from 'components/accordion'
 import { CommentForm } from 'components/forms'
 import Heart from 'components/heart'
+
 
 class Product extends Component {
 	constructor(props) {
@@ -29,6 +30,7 @@ class Product extends Component {
 		}
 		if (props.match.params.id) {
 			store.dispatch(getProduct(props.match.params.id))
+			store.dispatch(getProductComments(props.match.params.id))
 		}
 		store.dispatch(getCategoriesByType('service')).then(res => {
 			if (res) {
@@ -44,7 +46,7 @@ class Product extends Component {
 		return 	<div className="row">
 					<div className="col-md-8">
 						{
-							this.props.products.salon.reviews.map((item, i) => {
+							this.props.products.reviews.map((item, i) => {
 								return 	<div key={i}>
 											<div className="d-flex">
 												<div className="w-15 px-lg-3 px-sm-2 pr-2 pr-sm-0">
@@ -147,12 +149,17 @@ class Product extends Component {
 		val ? store.dispatch(addToWishList('product', this.props.products.product.id)) : store.dispatch(removeFromWishList('product', this.props.products.product.id))
 	}
 
-	addToCart = () => {
+	addToCart = now => e => {
 		store.dispatch(addToCart(this.props.products.product.id, 'product', {quantity: this.count}))
+		.then(res => {
+			if (res && now) {
+				history.push(`/cart`)
+			}
+		})
 	}
 
 	comment = () => {
-		store.dispatch(toggleModal(true, CommentForm, 'modal-sm', '', {id: this.props.products.product.id}))
+		store.dispatch(toggleModal(true, CommentForm, 'modal-sm', '', {id: this.props.products.product.id, type: 'product'}))
 	}
 
 	openLightBox = () => {
@@ -203,11 +210,11 @@ class Product extends Component {
 			            		<div className="d-flex form-group">
 				            		<BtnMain
 				        				className="font-weight-bold px-4"
-				        				onClick={this.addToCart}
+				        				onClick={this.addToCart(true)}
 				        				title="Comprar agora" />
 			        				<BtnMain
 				        				className="font-weight-bold btn-outline ml-2"
-				        				onClick={this.addToCart}
+				        				onClick={this.addToCart(false)}
 				        				title="Adicionar ao carrinho" />
 		        				</div>
 			            	</div>
@@ -250,6 +257,7 @@ const mapStateToProps = state =>
 	({
         products: {
         	product: state.products.product,
+        	reviews: state.products.reviews,
         	salon: state.products.salon
         },
         categories: {

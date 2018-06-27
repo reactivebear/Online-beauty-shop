@@ -51,7 +51,7 @@ class App extends Component {
                     ?   <div className="overflow-hidden">
                             <div className={`back-main-wrap ${unactiveClass}`}></div>
                             <div className={`second-back-main-wrap ${unactiveClass}`}></div>
-                            <div id="main-wrap" className={`main-wrap ${unactiveClass}`}>
+                            <div id="main-wrap" className={`main-wrap ${unactiveClass}`} style={{overflowX: 'unset'}}>
                                 <Header />
                                 <Switch>{ routes.map((route, i) => this.printRoutes(route, i)) }</Switch>
                                 <Footer />

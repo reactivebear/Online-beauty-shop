@@ -77,7 +77,7 @@ class Main extends Component {
 		]
 		
         return (
-        	<div className="bg-main">
+        	<div className="bg-main overflow-x">
         		<div className="form-group position-relative z-index-1">
         			<Carousel items={carouselItems} />
     			</div>

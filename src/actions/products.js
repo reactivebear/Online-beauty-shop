@@ -28,6 +28,15 @@ export const getProductsVendor = id => dispatch =>
         })
     )
 
+export const getProductComments = id => dispatch => 
+    (
+        get(`api/product/${id}/reviews`, false).then(json => {
+            if (json.object) {
+                dispatch(setProductComments(json.object))
+            }
+        })
+    )
+
 export const sendProductComment = (data, id) => dispatch =>
     (
         post(`api/product/${id}/review`, true, data)
@@ -47,3 +56,8 @@ export const setProduct = data =>
         data
     })
     
+export const setProductComments = data => 
+    ({
+        type: types.SET_PRODUCT_COMMENTS,
+        data
+    })

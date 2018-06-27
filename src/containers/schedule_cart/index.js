@@ -10,6 +10,7 @@ class ScheduleCart extends Component {
 	constructor(props) {
 		super(props)
 		if (props.location.state) {
+			store.dispatch(setScheduleStep(1))
 			store.dispatch(getService(props.match.params.id))
 			this.steps = [{title: 'Agendamento'}, {title: 'Pagamento'}, {title: 'Confirmação'}]
 		} else {
