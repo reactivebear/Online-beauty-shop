@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import store from 'store'
 import { sendProductComment, getProductComments } from 'actions/products'
-import { sendSalonComment } from 'actions/services'
+import { sendSalonComment, getService } from 'actions/services'
 import { setAlert } from 'actions/design'
 import Stars from 'components/stars'
 import Input from 'components/inputs/input.js'
@@ -28,6 +28,7 @@ class CommentForm extends Component {
                     store.dispatch(sendSalonComment(data, this.props.data.id))
                     .then(res => {
                         if (res) {
+                            store.dispatch(getService(this.props.data.serviceId))
                             this.props.onCancel()
                         }
                     })
