@@ -101,8 +101,8 @@ class Company extends Component {
                                                 <img src="/assets/images/default-reviewer.png" className="img-fluid" alt="" />
                                             </div>
                                             <div className="w-85">
-                                                <div className="d-flex justify-content-between">
-                                                    <h5>{ item.reviewer.username }</h5>
+                                                <div className="d-flex justify-content-between flex-wrap">
+                                                    <h6>{ item.reviewer.username }</h6>
                                                     <div><Stars active={item.rating} /></div>
                                                 </div>
                                                 <div>
