@@ -57,6 +57,12 @@ export const removeAlert = () =>
         type: types.REMOVE_ALERT
     })
 
+export const toggleLinkList = value =>
+    ({
+        type: types.TOGGLE_LINK_LIST,
+        value
+    })
+
 export const toggleLightBox = (open, img, current) =>
     ({
         type: types.TOGGLE_LIGHT_BOX,

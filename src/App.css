@@ -254,6 +254,10 @@ path.cls-8 {
 	width: 22px;
 }
 
+.fs-13 {
+	font-size: 13px;
+}
+
 .fs-16 {
 	font-size: 16px;
 }
@@ -288,6 +292,10 @@ path.cls-8 {
 
 .color-green {
 	color: #609D6D;
+}
+
+.color-red {
+	color: #cc3333;
 }
 
 .price-old {

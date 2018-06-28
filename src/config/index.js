@@ -80,11 +80,11 @@ export const DROP_MENU_LIST = [
     }, {
         title: 'Salão',
         background: 'bg-orange',
-        type: ''
+        type: 'salon'
     }, {
         title: 'Vendedor',
         background: 'bg-brown',
-        type: ''
+        type: 'vendor'
     }
 ]
 export const NOTIFICATION_TYPE = {

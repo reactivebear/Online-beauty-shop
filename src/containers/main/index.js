@@ -1,66 +1,41 @@
 import React, { Component } from 'react'
 import store, { history } from 'store'
 import { getCategories } from 'actions'
-import BtnGroup from 'components/buttons/btn_group.js'
+import BtnGroup from 'components/buttons/btn_group'
 import { connect } from 'react-redux'
 import Carousel from 'components/carousel'
-import MainSection from 'components/sections/main.js'
-import BlogSection from 'components/sections/blog.js'
-import TestimonialsSection from 'components/sections/testimonials.js'
+import MainSection from 'components/sections/main'
+import BlogSection from 'components/sections/blog'
+import TestimonialsSection from 'components/sections/testimonials'
+import { toggleLinkList } from 'actions/design'
 
 class Main extends Component {
-	state = {
-		firstClass: 'order-1',
-		lastClass: 'order-6',
-		active: 'product'
-	}
 
 	toggleCat = item => e => {
-		switch (item) {
-			case 'service':
-				this.setState({
-					firstClass: 'order-6',
-					lastClass: 'order-1',
-					active: 'service'
-				})
-				break
-			case 'product':
-				this.setState({
-					firstClass: 'order-1',
-					lastClass: 'order-6',
-					active: 'product'
-				})
-				break
-			default: return
-		}
+		store.dispatch(toggleLinkList(item))
 	}
-
-	isEmptyCategories = categories => (! categories.service.length || ! categories.product.length)
 
 	componentWillMount() {
 		store.dispatch(getCategories())
 		if (this.props.location.state && this.props.location.state.active) {
-			this.setState({
-					firstClass: 'order-6',
-					lastClass: 'order-1',
-					active: this.props.location.state.active
-				})
+			store.dispatch(toggleLinkList(this.props.location.state.active))
 			history.push('/', {})
 		}
 	}
 
     render() {
     	const { product, service } = this.props.categories
+    	const { linkList } = this.props.design
 
     	const catButtons = [
     		{
 				title: 'Produtos', 
 				onClick: this.toggleCat('product'),
-				active: this.state.active === 'product'
+				active: linkList === 'product'
 			}, {
 				title: 'Serviços', 
 				onClick: this.toggleCat('service'),
-				active: this.state.active === 'service'
+				active: linkList === 'service'
 			}
 		]
 
@@ -102,13 +77,13 @@ class Main extends Component {
 	            	</div>
 
 		            <div className="row">
-		            	<div className={'col-sm-12 ' + this.state.firstClass}>
+		            	<div className={'col-sm-12 ' + (linkList === 'product' ? 'order-1' : 'order-6')}>
 			            	<MainSection
 			            		title="produtos"
 			            		type="product"
 			            		categories={product} />
 	            		</div>
-	            		<div className={'col-sm-12 ' + this.state.lastClass}>
+	            		<div className={'col-sm-12 ' + (linkList === 'service' ? 'order-1' : 'order-6')}>
 		            		<MainSection
 			            		title="serviços"
 			            		type="service"
@@ -132,6 +107,9 @@ const mapStateToProps = state =>
         categories: {
         	product: state.categories.product,
         	service: state.categories.service,
+        },
+        design: {
+        	linkList: state.design.linkList,
         }
     })
 

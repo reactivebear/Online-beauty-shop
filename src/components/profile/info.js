@@ -25,7 +25,8 @@ class Info extends Component {
 	getCardNumber = num => `****.****.****.${num.slice(-4)}`
 
     render() {
-    	const { first_name, last_name, email, image_url } = this.props.user.data
+    	const { first_name, last_name, email } = this.props.user.data
+    	const image_url = this.props.user.data.user_image.image_url
     	const address = this.props.user.data.main_address ? this.props.user.data.main_address : this.props.user.data.address
     	const { default_card } = this.props.user
         return (
@@ -122,7 +123,9 @@ const mapStateToProps = state =>
         		email: state.user.data.email,
         		main_address: state.user.data.main_address,
         		address: state.user.data.address,
-        		image_url: state.user.data.image_url,
+        		user_image: {
+        			image_url: state.user.data.user_image.image_url,
+        		}
         	},
         	default_card: state.user.default_card
         }

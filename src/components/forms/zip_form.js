@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import BtnMain from 'components/buttons/btn_main.js'
+import BtnMain from 'components/buttons/btn_main'
 
 class ZipForm extends Component {
     openLogin = e => {
@@ -35,13 +35,13 @@ class ZipForm extends Component {
             	<div className="d-flex align-items-center">
                     <input 
                         type="text"
-                        placeholder="04850"
+                        placeholder="0000"
                         className="form-control mr-2 w-35"
                         ref={ref => this.zip = ref}
                         defaultValue={''} />
                     <input 
                         type="text"
-                        placeholder="150"
+                        placeholder="000"
                         className="form-control mr-2 w-25"
                         ref={ref => this.cep = ref}
                         defaultValue={''} />

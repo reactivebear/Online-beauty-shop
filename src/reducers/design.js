@@ -18,6 +18,7 @@ const initialState = {
         data: {},
         updater: ''
     },
+    linkList: 'product',
     location: '/',
     lightbox: {
         current: 0,
@@ -72,6 +73,10 @@ export default function design(design = initialState, action = {}) {
         case types.TOGGLE_LIGHT_BOX:
             return Object.assign({}, design, {
                 lightbox: {...action.data}
+            });
+        case types.TOGGLE_LINK_LIST:
+            return Object.assign({}, design, {
+                linkList: action.value
             });
         case types.SET_BLOGS:
             return Object.assign({}, design, {

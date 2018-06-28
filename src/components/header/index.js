@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { WebSearch }  from 'components/search'
+import WebSearch  from 'components/search'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import BtnMain from 'components/buttons/btn_main'
 import store, { history } from 'store'
-import { getCategoriesByType, setCategory, setActiveCategory } from 'actions'
+import { setActiveCategory, getCategories } from 'actions'
 import { toggleSideMenu } from 'actions/design'
 import Tooltip from 'components/tooltip'
 import CartHeader from 'components/cart/cart_header'
@@ -57,16 +57,13 @@ class Header extends Component {
     }
 
     componentWillMount() {
-        if (!this.props.categories.service.length) {
-            store.dispatch(getCategoriesByType('service')).then(res => {
-                store.dispatch(setCategory(res, 'service'))
-            })
-        }
+        store.dispatch(getCategories())
     }
 
     render() {
         const contentTooltip = this.props.user.guest ? LoginForm : HeaderMenu
         const address = this.props.user.data.main_address ? this.props.user.data.main_address : this.props.user.data.address
+        const { linkList } = this.props.design
         return (
             <div className="wrap-header">
                 {  
@@ -107,7 +104,7 @@ class Header extends Component {
                                             title={<span><img src="/assets/icons/app-icon.png" alt="" className="img-fluid small-icon mr-2" />Baixe grátis o app do Visual Total</span>} />
                                     </div>
                                     <Link to="/"><img src="/assets/images/logo.png" alt="" className="img-fluid" /></Link>
-                                    { this.props.categories.service.map((item, i) => this.printLink(item, i)) }
+                                    { this.props.categories[linkList].map((item, i) => this.printLink(item, i)) }
                                 </div>
                                 <div className="form-group">
                                     <WebSearch />
@@ -187,7 +184,8 @@ const mapStateToProps = state =>
         },
         categories: state.categories,
         design: {
-            sideMenu: state.design.sideMenu
+            sideMenu: state.design.sideMenu,
+            linkList: state.design.linkList,
         }
     })
 

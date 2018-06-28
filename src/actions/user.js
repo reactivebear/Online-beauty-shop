@@ -22,7 +22,7 @@ export const saveAvatar = data => dispatch =>
     (
         image('api/user/image', true, data).then(json => {
             if (json.object) {
-                dispatch(setUserAvatar(`http://visualtotal.com.br/images/users/${json.object.image_name}`))
+                dispatch(setUserAvatar(json.object.image_name))
             }
         })
     )

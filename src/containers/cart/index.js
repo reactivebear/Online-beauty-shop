@@ -16,6 +16,10 @@ class Cart extends Component {
 		store.dispatch(setStep(step))
 	}
 
+	componentWillMount() {
+		store.dispatch(setStep(1))
+	}
+
 	getStepContent = () => {
 		if (this.props.cart.list.service.length) {
 			switch(this.props.cart.step) {

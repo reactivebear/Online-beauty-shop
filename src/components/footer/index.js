@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import BtnMain from 'components/buttons/btn_main.js'
+import { history } from 'store'
+import BtnMain from 'components/buttons/btn_main'
 
 class Footer extends Component {
     render() {
@@ -16,6 +17,7 @@ class Footer extends Component {
                                     <div className="col-10">
                                         <BtnMain
                                             className="btn-block"
+                                            onClick={() => history.push('/about')}
                                             title={<span><img src="/assets/icons/app-icon.png" alt="" className="img-fluid small-icon mr-2" />Baixe grátis o app do Visual Total</span>} />
                                     </div>
                                 </div>

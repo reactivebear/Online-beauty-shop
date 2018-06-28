@@ -29,6 +29,7 @@ export const UPDATE_MODAL = 'UPDATE_MODAL'
 export const SHOW_ALERT = 'SHOW_ALERT'
 export const REMOVE_ALERT = 'REMOVE_ALERT'
 export const TOGGLE_LIGHT_BOX = 'TOGGLE_LIGHT_BOX'
+export const TOGGLE_LINK_LIST = 'TOGGLE_LINK_LIST'
 
 export const SET_LOCATION = 'SET_LOCATION'
 

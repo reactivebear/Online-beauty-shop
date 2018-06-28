@@ -24,7 +24,8 @@ class SideMenuWeb extends Component {
     }
 
     render() {
-        const { first_name, last_name, image_url } = this.props.user.data
+        const { first_name, last_name } = this.props.user.data
+        const image_url = this.props.user.data.user_image.image_url
         return (
         	<div className="bg-white rounded pb-4 border wrap-menu-web d-none d-sm-block">
         		<div className="p-4">
@@ -45,7 +46,9 @@ const mapStateToProps = state =>
             data: {
                 first_name: state.user.data.first_name,
                 last_name: state.user.data.last_name,
-                image_url: state.user.data.image_url,
+                user_image: {
+                    image_url: state.user.data.user_image.image_url,
+                }
             }
         }
     })

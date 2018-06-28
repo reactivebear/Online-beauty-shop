@@ -11,9 +11,7 @@ class Purchased extends Component {
 		store.dispatch(getPurchases())
 	}
 
-	printList = (item, i) => {
-		return <div key={i} className="col-lg-6 mb-3"><CardPurchase {...item} /></div>
-	}
+	printList = (item, i) => <div key={i} className="col-lg-6 mb-3"><CardPurchase {...item} /></div>
 
 	getPurchasesList = () => {
 		return 	<div>
@@ -25,9 +23,7 @@ class Purchased extends Component {
 				</div>
 	}
 
-	getPurchase = () => {
-		return this.props.user.purchases.find(item => item.id === this.props.match.params.id * 1)
-	}
+	getPurchase = () => this.props.user.purchases.find(item => item.id === this.props.match.params.id * 1)
 
 	render() {
 		return (

@@ -9,7 +9,8 @@ const initialState = {
         main_address: {},
         address: {},
         addresses: [],
-        billing_addresses: []
+        billing_addresses: [],
+        user_image: {}
     },
     cards: [],
     default_card: {},
@@ -17,7 +18,7 @@ const initialState = {
         products: [],
         services: []
     },
-    appointments: [],
+    appointments: [''],
     purchases: [],
 }
 
@@ -58,7 +59,7 @@ export default function user(user = initialState, action = {}) {
                 cards: [...user.cards, action.data]
             });
         case types.SET_USER_AVATAR:
-            temp.image_url = action.image
+            temp.user_image = action.image
             return Object.assign({}, user, {
                 data: temp
             });

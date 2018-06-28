@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import store from 'store'
 import { Link } from 'react-router-dom'
-import ImagePreview from 'components/images/preview.js'
+import ImagePreview from 'components/images/preview'
 import Counter from 'components/counter'
 import Price from 'components/price'
-import { removeFromCart, changeQuantity } from 'actions/cart.js'
+import { removeFromCart, changeQuantity } from 'actions/cart'
 
 class ProductCart extends Component {
 	removeFromCart = e => {

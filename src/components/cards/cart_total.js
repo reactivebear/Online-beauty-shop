@@ -14,10 +14,29 @@ class CartTotal extends Component {
 	}
 
 	render() {
+	 	const {  main_address } = this.props.user.data
+        const { guestAddress } = this.props.cart
 		const lastStep = this.props.cart.list.service.length ? 4 : 5
+
 		return (
 			<div className="rounded bg-white p-4">
 				{
+					this.props.step === lastStep - 1 && lastStep === 5
+					?	
+						!this.props.user.guest
+                        ? 	<div className="color-grey border-bottom mb-3">
+	                            <div className="color-grey">{main_address.title}</div>
+	                            <div className="color-grey">CEP: {main_address.zipcode}</div>
+							</div>
+                        : 	Object.keys(guestAddress).length
+	                        ?	<div className="color-grey border-bottom mb-3">
+		                            <div className="color-grey">{guestAddress.title}</div>
+		                            <div className="color-grey">CEP: {guestAddress.zipcode}</div>
+								</div>
+	                        : 	''
+						
+					: 	''
+				}{
 					this.props.step !== 3
 					? 	<div className="d-flex justify-content-between color-grey">
 							<div><h5>Subtotal:</h5></div>
@@ -100,11 +119,14 @@ const mapStateToProps = state =>
     ({
         user: {
             data: {
-            	credit_amount: state.user.data.credit_amount
-            }
+            	credit_amount: state.user.data.credit_amount,
+            	main_address: state.user.data.main_address,
+            },
+            guest: state.user.guest
         },
         cart: {
         	list: state.cart.list,
+        	guestAddress: state.cart.guestAddress
         }
     })
 
