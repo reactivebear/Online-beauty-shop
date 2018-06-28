@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import store from 'store'
-import { setStep } from 'actions/cart.js'
-import BtnMain from 'components/buttons/btn_main.js'
+import store, { history } from 'store'
+import { setStep } from 'actions/cart'
+import BtnMain from 'components/buttons/btn_main'
 import Price from 'components/price'
-import CheckBox from 'components/inputs/checkbox.js'
+import CheckBox from 'components/inputs/checkbox'
 
 class CartTotal extends Component {
 	changeStep = last => e => {
@@ -30,17 +30,14 @@ class CartTotal extends Component {
 								<div><CheckBox onChange={e => {this.credits = e.target.checked}} /></div>
 							</div>
 						</div>
-				}
-
-				{
+				}{
 					this.props.step === 2 || this.props.step === 4 || this.props.step === 5
 					? 	<div className="d-flex justify-content-between color-grey">
 							<div><h5>Frete:</h5></div>
 							<div><Price current={this.props.value.delivery} /></div>
 						</div>
 					: 	''
-				}
-				{
+				}{
 					this.props.step === 4 || this.props.step === 5
 					? 	<div className="d-flex justify-content-between color-grey">
 							<div><h5>Créditos:</h5></div>
@@ -75,20 +72,20 @@ class CartTotal extends Component {
 				                    }
 		                    </div>
 						: 	''
-					}
-					{
+					}{
 						this.props.step === lastStep
 						?	<div>
 								<BtnMain
 				                    className="btn-block btn-outline font-weight-bold"
+				                    onClick={() => history.push('/vouchers')}
 				                    title="Agendar serviços" />
 			                    <BtnMain
 				                    className="btn-block btn-outline font-weight-bold mb-2"
+				                    onClick={() => history.push('/purchased')}
 				                    title="Acompanhar produtos" />
 		                    </div>
 						: 	''
 					}
-					
 					<BtnMain
 	                    className="btn-block font-weight-bold"
 	                    onClick={this.changeStep(lastStep)}

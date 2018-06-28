@@ -178,18 +178,17 @@ path.cls-8 {
     background-color: #fff;
     opacity: 0.8;
     z-index: 3;
+
+    -moz-transform: scale(0.80) translate(-95%, 0px);
+    -ms-transform: scale(0.80) translate(-95%, 0px);
+    -o-transform: scale(0.80) translate(-95%, 0px);
+    transform: scale(0.80) translate(-95%, 0px);
     
-    -webkit-transform: scale(1) translate(0%, 0px);
-    -moz-transform: scale(1) translate(0%, 0px);
-    -ms-transform: scale(1) translate(0%, 0px);
-    -o-transform: scale(1) translate(0%, 0px);
-    transform: scale(1) translate(0%, 0px);
-    
-    -webkit-transition: transform 0.6s ease-out, right 0.6s linear 0s;
-    -moz-transform: transform 0.6s ease-out, right 0.6s linear 0s;
-    -ms-transform: transform 0.6s ease-out, right 0.6s linear 0s;
-    -o-transition: transform 0.6s ease-out, right 0.6s linear 0s;
-    transition: transform 0.6s ease-out, right 0.6s linear 0s;
+    -webkit-transition: right 0.6s linear 0s;
+    -moz-transform: right 0.6s linear 0s;
+    -ms-transform: right 0.6s linear 0s;
+    -o-transition: right 0.6s linear 0s;
+    transition: right 0.6s linear 0s;
 }
 
 .second-back-main-wrap {
@@ -202,17 +201,16 @@ path.cls-8 {
     opacity: 0.5;
     z-index: 3;
 
-    -webkit-transform: scale(1) translate(0%, 0px);
-    -moz-transform: scale(1) translate(0%, 0px);
-    -ms-transform: scale(1) translate(0%, 0px);
-    -o-transform: scale(1) translate(0%, 0px);
-    transform: scale(1) translate(0%, 0px);
+    -moz-transform: scale(0.80) translate(-95%, 0px);
+    -ms-transform: scale(0.80) translate(-95%, 0px);
+    -o-transform: scale(0.80) translate(-95%, 0px);
+    transform: scale(0.80) translate(-95%, 0px);
     
-    -webkit-transition: transform 0.6s ease-out, right 0.6s linear 0s;
-    -moz-transform: transform 0.6s ease-out, right 0.6s linear 0s;
-    -ms-transform: transform 0.6s ease-out, right 0.6s linear 0s;
-    -o-transition: transform 0.6s ease-out, right 0.6s linear 0s;
-    transition: transform 0.6s ease-out, right 0.6s linear 0s;
+    -webkit-transition: right 0.6s linear 0s;
+    -moz-transform: right 0.6s linear 0s;
+    -ms-transform: right 0.6s linear 0s;
+    -o-transition: right 0.6s linear 0s;
+    transition: right 0.6s linear 0s;
 }
 
 .back-main-wrap.unactive {
@@ -223,9 +221,7 @@ path.cls-8 {
 	right: -200px;
 }
 
-.main-wrap.unactive,
-.back-main-wrap.unactive,
-.second-back-main-wrap.unactive {
+.main-wrap.unactive {
 	border: 1px solid #fff;
     -webkit-transform: scale(0.80) translate(-95%, 0px);
     -moz-transform: scale(0.80) translate(-95%, 0px);

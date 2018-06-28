@@ -12,16 +12,18 @@ class WebSearch extends Component {
 		super(props)
 		history.listen((location, action) => {
 			if (location.pathname !== '/search') {
-	            this.query.value = ''
+	            this.setState({value: ''})
 	        }
         })
 
         this.state = {
-        	active: false
+        	active: false,
+        	value: ''
         }
 	}
 
 	setAutocomplete = e => {
+		this.setState({value: e.target.value})
 		if (!this.state.active) {
 			this.setState({active: true})
 			document.body.addEventListener('click', this.closeDropDown)
@@ -35,7 +37,7 @@ class WebSearch extends Component {
 			this.setState({active: false})
 			document.body.removeEventListener('click', this.closeDropDown)
 		} else {
-			this.query.focus()
+			this.queryWeb.focus()
 		}
 	}
 
@@ -52,7 +54,7 @@ class WebSearch extends Component {
 
 	search = e => {
 		e.preventDefault()
-		history.push(`/search#type=${this.props.search.type}&search_text=${this.query.value}`)
+		history.push(`/search#type=${this.props.search.type}&search_text=${this.state.value}`)
 	}
 
 	getSearchType = () => {
@@ -83,8 +85,8 @@ class WebSearch extends Component {
 					<input 
 						type="text"
 						onChange={this.setAutocomplete}
-						className="form-control with-shadow border-0" 
-						ref={ref => this.query = ref} 
+						value={this.state.value}
+						className="form-control with-shadow border-0"
 						placeholder="           Buscar por produtos e serviços" />
 					<div className="input-group-append">
 					    <BtnMain
@@ -96,8 +98,8 @@ class WebSearch extends Component {
 				<form className="input-group d-flex d-sm-none">
 					<input 
 						type="text"
-						className="form-control with-shadow border-0" 
-						ref={ref => this.query = ref} 
+						className="form-control with-shadow border-0"
+						value={this.state.value}
 						placeholder="Buscar por produtos e serviços" />
 					<div className="input-group-append">
 					    <BtnMain

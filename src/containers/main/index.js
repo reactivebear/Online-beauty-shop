@@ -50,7 +50,6 @@ class Main extends Component {
 	}
 
     render() {
-    	console.log(this.props.location.state)
     	const { product, service } = this.props.categories
 
     	const catButtons = [
