@@ -56,11 +56,15 @@ export const registration = data => dispatch =>
         })
     )
 
-export const setUser = data =>
-    ({
+export const setUser = data => {
+    if (!data.user_image) {
+        data.user_image = {}
+    }
+    return {
         type: types.SET_USER,
         data
-    })
+    }
+}
 
 export const setToken = (value, guest) => {
     Cookies.set('token', value)
