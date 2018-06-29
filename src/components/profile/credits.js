@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import store from 'store'
 import { getCredits } from 'actions/user.js'
 import { toggleModal } from 'actions/design.js'
@@ -9,6 +10,18 @@ import { SendCreditsForm } from 'components/forms'
 import CardCredit from 'components/cards/credit.js'
 
 class Credits extends Component {
+	constructor() {
+		super()
+		this.state = {
+			count: 0,
+			creditsInCart: 0
+		}
+	}
+
+	changeCount = count => {
+		this.setState({count, creditsInCart: count / 7})
+	}
+
 	componentWillMount() {
 		store.dispatch(getCredits())
 	}
@@ -37,7 +50,7 @@ class Credits extends Component {
 									<div className="fs-18">Insira quantos créditos deseja comprar</div>
 									<div className="color-grey mb-3 text-center text-sm-left">R$ 1,00 = 7,0 Créditos</div>
 									<div className="d-flex justify-content-center justify-content-sm-start">
-										<Counter className="w-50" hideDescription value={504} onChange={val => this.count = val} />
+										<Counter className="w-50" hideDescription step={7} value={this.state.count} onChange={this.changeCount} />
 									</div>
 								</div>
 							</div>
@@ -48,11 +61,11 @@ class Credits extends Component {
 						<div className="rounded border p-3 bg-white">
 							<div className="d-flex justify-content-between">
 								<span className="fs-18">Créditos na loja:</span>
-								<Price current={0} />
+								<Price current={this.state.creditsInCart} />
 							</div>
 							<div className="d-flex justify-content-between color-grey mb-3">
 								<span className="fs-18">Total:</span>
-								<Price current={72} />
+								<Price current={this.props.user.credits / this.props.user.dollar_value} />
 							</div>
 							<BtnMain
 		        				className="btn-block btn-outline font-weight-bold"
@@ -75,7 +88,7 @@ class Credits extends Component {
 									<div className="row mb-3">
 										<div className="fs-18 col-12 col-sm-6 pr-0">Créditos na loja:</div>
 										<div className="col-sm-6 col-12 text-sm-right pl-sm-0">
-											<Price current={72} />
+											<Price current={this.props.user.credits / this.props.user.dollar_value} />
 										</div>
 									</div>
 
@@ -105,4 +118,14 @@ class Credits extends Component {
 	}
 }
 
-export default Credits
+const mapStateToProps = state => 
+	({
+        user: {
+        	credits: state.user.credits,
+        	dollar_value: state.user.dollar_value
+        }
+    })
+
+export default connect(
+    mapStateToProps
+)(Credits)

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import store, { history } from 'store'
-import { setStep } from 'actions/cart'
+import { setStep, setUseCredits } from 'actions/cart'
 import BtnMain from 'components/buttons/btn_main'
 import Price from 'components/price'
 import CheckBox from 'components/inputs/checkbox'
@@ -12,6 +12,18 @@ class CartTotal extends Component {
 			store.dispatch(setStep(this.props.step+1))
 		}
 	}
+
+	setUseCredits = e => {
+		store.dispatch(setUseCredits(e.target.checked))
+	}
+
+	getTotal = () => {
+        return this.props.cart.use_credits ? this.props.cart.total.total - this.props.user.credits / this.props.user.dollar_value : this.props.cart.total.total
+    }
+
+    getUseCredits = () => {
+    	return this.props.cart.use_credits ? this.props.user.credits / this.props.user.dollar_value : 0
+    }
 
 	render() {
 	 	const {  main_address } = this.props.user.data
@@ -40,27 +52,27 @@ class CartTotal extends Component {
 					this.props.step !== 3
 					? 	<div className="d-flex justify-content-between color-grey">
 							<div><h5>Subtotal:</h5></div>
-							<div><Price current={this.props.value.products} /></div>
+							<div><Price current={this.props.cart.total.products} /></div>
 						</div>
 					: 	<div>
 							<h5>Usar créditos</h5>
 							<div className="d-flex justify-content-between color-grey">
-								<div><Price className="d-inline-block" current={this.props.user.data.credit_amount} /> créditos</div>
-								<div><CheckBox onChange={e => {this.credits = e.target.checked}} /></div>
+								<div><Price className="d-inline-block" current={this.props.user.credits / this.props.user.dollar_value} /> créditos</div>
+								<div><CheckBox value={this.props.cart.use_credits} onChange={this.setUseCredits} /></div>
 							</div>
 						</div>
 				}{
 					this.props.step === 2 || this.props.step === 4 || this.props.step === 5
 					? 	<div className="d-flex justify-content-between color-grey">
 							<div><h5>Frete:</h5></div>
-							<div><Price current={this.props.value.delivery} /></div>
+							<div><Price current={this.props.cart.total.delivery} /></div>
 						</div>
 					: 	''
 				}{
 					this.props.step === 4 || this.props.step === 5
 					? 	<div className="d-flex justify-content-between color-grey">
 							<div><h5>Créditos:</h5></div>
-							<div><Price current={0} /></div>
+							<div><Price current={this.getUseCredits()} /></div>
 						</div>
 					: 	''
 				}
@@ -69,7 +81,7 @@ class CartTotal extends Component {
 					this.props.step > 1
 					? 	<div className="d-flex justify-content-between mb-3">
 							<div><h5>Total:</h5></div>
-							<div><Price current={this.props.value.total} /></div>
+							<div><Price current={this.getTotal()} /></div>
 						</div>
 					: 	''
 				}
@@ -122,11 +134,15 @@ const mapStateToProps = state =>
             	credit_amount: state.user.data.credit_amount,
             	main_address: state.user.data.main_address,
             },
-            guest: state.user.guest
+            guest: state.user.guest,
+            credits: state.user.credits,
+            dollar_value: state.user.dollar_value,
         },
         cart: {
         	list: state.cart.list,
-        	guestAddress: state.cart.guestAddress
+        	guestAddress: state.cart.guestAddress,
+        	use_credits: state.cart.use_credits,
+        	total: state.cart.total,
         }
     })
 

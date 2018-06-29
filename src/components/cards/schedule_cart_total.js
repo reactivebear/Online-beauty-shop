@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import store from 'store'
-import { setScheduleStep } from 'actions/schedule_cart'
+import { setScheduleStep, setScheduleUseCredits } from 'actions/schedule_cart'
 import BtnMain from 'components/buttons/btn_main.js'
 import Price from 'components/price'
 import CheckBox from 'components/inputs/checkbox.js'
@@ -10,6 +11,18 @@ class ScheduleCartTotal extends Component {
 		store.dispatch(setScheduleStep(this.props.step+1))
 	}
 
+	getTotal = () => {
+        return this.props.schedule_cart.use_credits ? this.props.schedule_cart.total - this.props.user.credits / this.props.user.dollar_value : this.props.schedule_cart.total
+    }
+
+    setUseCredits = e => {
+		store.dispatch(setScheduleUseCredits(e.target.checked))
+	}
+
+	getUseCredits = () => {
+    	return this.props.schedule_cart.use_credits ? this.props.user.credits / this.props.user.dollar_value : 0
+    }
+
 	render() {
 		return (
 			<div className="rounded bg-white p-4">
@@ -17,13 +30,13 @@ class ScheduleCartTotal extends Component {
 					this.props.step !== 2
 					? 	<div className="d-flex justify-content-between color-grey">
 							<div><h5>Subtotal:</h5></div>
-							<div><Price current={this.props.value.products} /></div>
+							<div><Price current={this.props.schedule_cart.total} /></div>
 						</div>
 					: 	<div>
 							<h5>Usar créditos</h5>
 							<div className="d-flex justify-content-between color-grey">
-								<div><Price className="d-inline-block" current={0} /> créditos</div>
-								<div><CheckBox onChange={e => {this.credits = e.target.checked}} /></div>
+								<div><Price className="d-inline-block" current={this.props.user.credits / this.props.user.dollar_value} /> créditos</div>
+								<div><CheckBox value={this.props.schedule_cart.use_credits} onChange={this.setUseCredits} /></div>
 							</div>
 						</div>
 				}
@@ -31,7 +44,7 @@ class ScheduleCartTotal extends Component {
 					this.props.step === 3 || this.props.step === 4
 					? 	<div className="d-flex justify-content-between color-grey">
 							<div><h5>Créditos:</h5></div>
-							<div><Price current={0} /></div>
+							<div><Price current={this.getUseCredits()} /></div>
 						</div>
 					: 	''
 				}
@@ -40,7 +53,7 @@ class ScheduleCartTotal extends Component {
 					this.props.step > 1
 					? 	<div className="d-flex justify-content-between mb-3">
 							<div><h5>Total:</h5></div>
-							<div><Price current={this.props.value.total} /></div>
+							<div><Price current={this.getTotal()} /></div>
 						</div>
 					: 	''
 				}
@@ -80,4 +93,18 @@ class ScheduleCartTotal extends Component {
 	}
 }
 
-export default ScheduleCartTotal
+const mapStateToProps = state =>
+    ({
+        user: {
+            credits: state.user.credits,
+            dollar_value: state.user.dollar_value,
+        },
+        schedule_cart: {
+        	use_credits: state.schedule_cart.use_credits,
+        	total: state.schedule_cart.total,
+        }
+    })
+
+export default connect(
+    mapStateToProps
+)(ScheduleCartTotal)

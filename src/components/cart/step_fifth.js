@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import CartTotal from 'components/cards/cart_total'
 
 class StepFifth extends Component {
@@ -20,20 +19,11 @@ class StepFifth extends Component {
         		</div>
         		<div className="col-sm-6">
         			<h4>Resumo do pedido</h4>
-                    <CartTotal value={this.props.cart.total} step={this.props.step} />
+                    <CartTotal step={this.props.step} />
         		</div>
         	</div>
         );
     }
 }
 
-const mapStateToProps = state =>
-    ({
-        cart: {
-            total: state.cart.total
-        }
-    })
-
-export default connect(
-    mapStateToProps
-)(StepFifth)
+export default StepFifth

@@ -78,7 +78,7 @@ class StepThird extends Component {
         		</div>
         		<div className="col-sm-6">
         			<h4>Resumo do pedido</h4>
-                    <CartTotal value={this.props.cart.total} step={this.props.step} />
+                    <CartTotal step={this.props.step} />
         		</div>
         	</div>
         );
@@ -88,12 +88,11 @@ class StepThird extends Component {
 const mapStateToProps = state =>
     ({
         cart: {
-            total: state.cart.total,
-            guestCard: state.cart.guestCard
+            guestCard: state.cart.guestCard,
         },
         user: {
             guest: state.user.guest,
-            default_card: state.user.default_card
+            default_card: state.user.default_card,
         }
     })
 

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import store from 'store'
 import { toggleModal, updateModal } from 'actions/design'
+import { getProffesional } from 'actions/schedule_cart'
 import Price from 'components/price'
 import moment from 'moment'
 import RadioSwitch from 'components/inputs/radio_switch'
@@ -8,7 +10,10 @@ import BtnMain from 'components/buttons/btn_main'
 
 class ServiceCart extends Component {
 	state = {
-		activeProfessional: 0
+		activeProfessional: 0,
+		proffesional: {
+			user: {}
+		}
 	}
 
 	getDuration = () => {
@@ -22,8 +27,9 @@ class ServiceCart extends Component {
 	}
 
 	toggleProfessional = activeProfessional => {
-		this.setState({activeProfessional})
 		store.dispatch(updateModal(activeProfessional))
+		const prof = this.props.salon.professionals.find(item => item.id === activeProfessional)
+		store.dispatch(getProffesional(prof))
 	}
 
 	professionalsList = props => {
@@ -40,7 +46,7 @@ class ServiceCart extends Component {
 					                		style={{transform: 'scale(0.73, 0.7)'}} 
 			                                onChange={this.toggleProfessional} 
 			                                value={item.id}
-			                                checked={this.state.activeProfessional} />
+			                                checked={this.props.schedule_cart.proffesional.data.id} />
 					                </div>
 					            </div>
 		            })}
@@ -59,6 +65,7 @@ class ServiceCart extends Component {
 
     render() {
     	const { salon } = this.props
+    	const proffesional = this.props.schedule_cart.proffesional
         return (
         	<div className="bg-white px-3 py-3 rounded">
 	            <div className="fs-16 mb-3">
@@ -70,8 +77,12 @@ class ServiceCart extends Component {
 	            {
 	            	salon.professionals.length
 	            	? 	<div className="d-flex justify-content-between mb-2">
-	            			<div className="color-grey">{`com ${salon.professionals[0].user.first_name} ${salon.professionals[0].user.first_name}`}</div>
-		            		<div className="pointer color-green" onClick={this.openProfessionals}>Alterar</div>
+			            	{
+			            		proffesional.data.id
+			            		? 	<div className="color-grey">{`com ${proffesional.data.user.first_name} ${proffesional.data.user.first_name}`}</div>
+			            		: 	''
+			            	}
+		            		<div className="pointer color-green align-self-end" onClick={this.openProfessionals}>Alterar</div>
 	            		</div>
 	            	: 	''
 	            }
@@ -82,4 +93,13 @@ class ServiceCart extends Component {
     }
 }
 
-export default ServiceCart
+const mapStateToProps = state =>
+    ({
+        schedule_cart: {
+        	proffesional: state.schedule_cart.proffesional
+        }
+    })
+
+export default connect(
+    mapStateToProps
+)(ServiceCart)

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import store from 'store'
-import Input from 'components/inputs/input.js'
-import TextArea from 'components/inputs/textarea.js'
-import BtnMain from 'components/buttons/btn_main.js'
-import { toggleModal } from 'actions/design.js'
+import { sendCredits, getCredits } from 'actions/user'
+import Input from 'components/inputs/input'
+import TextArea from 'components/inputs/textarea'
+import BtnMain from 'components/buttons/btn_main'
 import Price from 'components/price'
 import Counter from 'components/counter'
 
@@ -17,12 +17,13 @@ class SendCreditsForm extends Component {
         this.setState({count: val, price: val / 7})
     }
 
-	closeModal = () => {
-		store.dispatch(toggleModal(false, null))
-	}
-
     sendCredits = () => {
-
+        store.dispatch(sendCredits({amount: this.state.count, to: this.email.value})).then(res => {
+            if (res) {
+                store.dispatch(getCredits())
+                this.props.onCancel()
+            }
+        })
     }
 
     render() {
@@ -36,7 +37,7 @@ class SendCreditsForm extends Component {
                     required
                     bottomText="Para quem devemos enviar os créditos?"
                     label="E-mail"
-                    inputRef={ref => this.text = ref} />
+                    inputRef={ref => this.email = ref} />
         		<TextArea 
                     required
                     bottomText="Está é a mensagem que será enviada junto com os créditos."
@@ -69,7 +70,7 @@ class SendCreditsForm extends Component {
             	
         		<BtnMain
     				className="font-weight-bold btn-outline btn-block"
-    				onClick={this.closeModal}
+    				onClick={this.props.onCancel}
     				title="Cancelar" />
         		<BtnMain
     				className="font-weight-bol btn-block"

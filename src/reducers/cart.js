@@ -6,6 +6,7 @@ const initialState = {
         service: []
     },
     total: {},
+    use_credits: false,
     step: 1,
     guestAddress: {},
     guestCard: {}
@@ -23,6 +24,10 @@ export default function cart(cart = initialState, action = {}) {
         case types.SET_CART_TOTAL:
             return Object.assign({}, cart, {
                 total: action.data
+            });
+        case types.SET_USE_CREDITS:
+            return Object.assign({}, cart, {
+                use_credits: action.value
             });
         case types.SET_STEP:
             return Object.assign({}, cart, {

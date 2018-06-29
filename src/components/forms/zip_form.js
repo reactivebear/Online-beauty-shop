@@ -35,7 +35,7 @@ class ZipForm extends Component {
             	<div className="d-flex align-items-center">
                     <input 
                         type="text"
-                        placeholder="0000"
+                        placeholder="00000"
                         className="form-control mr-2 w-35"
                         ref={ref => this.zip = ref}
                         defaultValue={''} />

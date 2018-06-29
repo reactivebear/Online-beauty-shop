@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import store from 'store'
-import { getUserAddress } from 'actions/user.js'
-import { setStep } from 'actions/cart.js'
-import StepsArrow from 'components/steps/steps_arrow.js'
+import { getUserAddress, getCredits } from 'actions/user'
+import { setStep } from 'actions/cart'
+import StepsArrow from 'components/steps/steps_arrow'
 import { StepFirst, StepSecond, StepThird, StepFourth, StepFifth } from 'components/cart'
 
 class Cart extends Component {
 	constructor(props) {
 		super(props)
 		store.dispatch(getUserAddress())
+		store.dispatch(getCredits())
 	}
 
 	changeStep = step => e => {

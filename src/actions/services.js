@@ -15,9 +15,19 @@ export const getService = id => dispatch =>
         get(`api/service/${id}/salon`, false).then(json => {
             if (json.object) {
                 dispatch(setServices(json.object, 'salon'))
+                return true
             }
         })
     )
+
+/*export const getProffesionalHours = id => dispatch => 
+    (
+        get(`api/professional/${id}/working-hours`, false).then(json => {
+            if (json.object) {
+                console.log(json.object)
+            }
+        })
+    )*/
 
 export const getServicesCategory = param => dispatch => 
     (

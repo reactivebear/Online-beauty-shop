@@ -20,6 +20,8 @@ const initialState = {
     },
     appointments: [''],
     purchases: [],
+    credits: 0,
+    dollar_value: 0
 }
 
 export default function user(user = initialState, action = {}) {

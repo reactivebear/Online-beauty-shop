@@ -135,9 +135,16 @@ export const getCredits = () => dispatch =>
     (
         get(`api/credits`).then(json => {
             if (json.object) {
-                console.log(json.object)
+                dispatch(setUserKey(json.object.total, 'credits'))
+                dispatch(setUserKey(json.object.dollar_value, 'dollar_value'))
             }
         })
+    )
+
+export const sendCredits = data => dispatch => 
+    (
+        post(`api/credits/transfer`, true, data)
+        .then(json => json.status === 200)
     )
 
 export const getAppointments = () => dispatch => 

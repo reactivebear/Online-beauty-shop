@@ -2,16 +2,20 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import store, { history } from 'store'
 import { getService } from 'actions/services'
-import { setScheduleStep } from 'actions/schedule_cart'
-import StepsArrow from 'components/steps/steps_arrow.js'
+import { getCredits } from 'actions/user'
+import { setScheduleStep, setScheduleTotal } from 'actions/schedule_cart'
+import StepsArrow from 'components/steps/steps_arrow'
 import { StepFirst, StepSecond, StepThird, StepFourth } from 'components/schedule_cart'
 
 class ScheduleCart extends Component {
 	constructor(props) {
 		super(props)
 		if (props.location.state) {
+			store.dispatch(setScheduleTotal(props.location.state.price))
 			store.dispatch(setScheduleStep(1))
 			store.dispatch(getService(props.match.params.id))
+			store.dispatch(getCredits())
+			
 			this.steps = [{title: 'Agendamento'}, {title: 'Pagamento'}, {title: 'Confirmação'}]
 		} else {
 			history.push('/')

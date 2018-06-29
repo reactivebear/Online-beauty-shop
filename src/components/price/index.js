@@ -25,7 +25,7 @@ class Price extends Component {
         const current = this.props.current ? this.props.current.toString().split('.') : '0'
         const old = this.props.old ? this.props.old.toString().split('.') : ''
         
-        const cent = current[1] ? current[1].length > 1 ? current[1] : `${current[1]}0` : '00'
+        const cent = current[1] ? current[1].length > 1 ? current[1].slice(0,2) : `${current[1]}0` : '00'
         const centOld = old[1] ? old[1].length > 1 ? old[1] : `${old[1]}0` : '00'
 
         return (

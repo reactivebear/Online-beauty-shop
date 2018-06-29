@@ -1,5 +1,6 @@
 import { get, post, remove, patch } from 'api'
 import * as types from './types.js'
+import { setAlert } from 'actions/design'
 
 export const getCart = () => dispatch => 
     (
@@ -12,8 +13,16 @@ export const getCart = () => dispatch =>
 
 export const addToCart = (id, type, param) => dispatch => 
     (
-        post(`api/cart/add/${type}/${id}`, true, param)
-        .then(json => json.status === 200)
+        post(`api/cart/add/${type}/${id}`, false, param)
+        .then(json => {
+            if (json.status === 400) {
+                dispatch(setAlert('Produto fora de estoque', 'error'))
+            } else {
+                dispatch(setAlert(json.message, 'success'))
+                
+            }
+            return json.status === 200
+        })
     )
 
 export const removeFromCart = id => dispatch => 
@@ -62,6 +71,12 @@ export const setCartTotal = data =>
     ({
         type: types.SET_CART_TOTAL,
         data
+    })
+
+export const setUseCredits = value => 
+    ({
+        type: types.SET_USE_CREDITS,
+        value
     })
 
 export const setStep = step => 

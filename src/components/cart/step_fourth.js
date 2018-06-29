@@ -16,21 +16,19 @@ class StepFourth extends Component {
         		</div>
         		<div className="col-sm-6">
         			<h4>Resumo do pedido</h4>
-                    <CartTotal value={this.props.cart.total} step={this.props.step} />
+                    <CartTotal step={this.props.step} />
         		</div>
         	</div>
         );
     }
 }
 
-const mapStateToProps = state => {
-    return {
+const mapStateToProps = state =>
+    ({
         cart: {
             list: state.cart.list,
-            total: state.cart.total
         }
-    }
-}
+    })
 
 export default connect(
     mapStateToProps

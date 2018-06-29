@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import store from 'store'
 import { connect } from 'react-redux'
-import { getCart, getCartTotal } from 'actions/cart.js'
-import ProductCart from 'components/cards/product_cart.js'
-import CartTotal from 'components/cards/cart_total.js'
+import { getCart, getCartTotal } from 'actions/cart'
+import ProductCart from 'components/cards/product_cart'
+import CartTotal from 'components/cards/cart_total'
 
 class StepFirst extends Component {
 	componentWillMount() {
@@ -28,7 +28,7 @@ class StepFirst extends Component {
         		</div>
         		<div className="col-md-6">
         			<h4>Resumo do pedido</h4>
-                    <CartTotal value={this.props.cart.total} step={this.props.step} />
+                    <CartTotal step={this.props.step} />
         		</div>
         	</div>
         );
@@ -39,7 +39,6 @@ const mapStateToProps = state =>
     ({
         cart: {
             list: state.cart.list,
-            total: state.cart.total
         }
     })
 
