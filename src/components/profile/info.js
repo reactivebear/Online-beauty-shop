@@ -54,7 +54,7 @@ class Info extends Component {
 									</div>
 								</div>
 		    				</div>
-		    				<div className="col-lg-2 col-4">
+		    				<div className="col-lg-2 col-4 align-self-end align-self-lg-center">
 								<Avatar image={image_url} edit={true} />
 							</div>
 						</div>

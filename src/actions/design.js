@@ -1,13 +1,16 @@
 import * as types from './types.js'
 import { DEFAULT_IMG } from 'config'
+import { addSwipe, removeSwipe } from 'utils'
 
 export const toggleSideMenu = state => {
     const el = document.getElementById('main-wrap')
     if (!state) {
+        removeSwipe(el)
         setTimeout(() => {
             el.style.overflowX = 'unset'
         }, 600)
     } else {
+        addSwipe(el)
         el.style.overflowX = 'hidden'
     }
     return {

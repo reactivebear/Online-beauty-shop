@@ -52,13 +52,9 @@ class SideMenu extends Component {
                                         <h2>{`${first_name} ${last_name}`}</h2>
                                     </div>
                                 </div>
-                                <div className="mb-5 pt-5">
-                                    {
-                                        LIST_MENU.map((item, i) => this.printMenu(item, i))
-                                    }
-                                </div>
-                                <div className="py-5">
-                                    <div className="px-5 py-3">
+                                <div className="pt-5">
+                                    { LIST_MENU.map((item, i) => this.printMenu(item, i)) }
+                                    <div className="px-5 py-3 pt-4">
                                         <i className="fa fa-power-off" aria-hidden="true"></i>
                                         <span className="pl-5 pointer" onClick={this.logout}>Logout</span>
                                     </div>
