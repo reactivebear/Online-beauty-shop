@@ -2,6 +2,7 @@ import { get, post } from 'api'
 import Cookies from 'js-cookie'
 import * as types from './types.js'
 import { history } from 'store'
+import { setAlert } from 'actions/design'
 
 export const loginAsGuest = redirect => dispatch => 
     (
@@ -18,7 +19,11 @@ export const loginAsGuest = redirect => dispatch =>
 
 export const login = data => dispatch => 
     (
-        post('login', true, data).then(json => {
+        post('login', false, data).then(json => {
+            if (json.status === 401) {
+                dispatch(setAlert('Credenciais inválidas', 'error'))
+            }
+
             if (json.apikey) {
                 dispatch(setToken(json.apikey.key, false))
                 dispatch(setUser(json.user))

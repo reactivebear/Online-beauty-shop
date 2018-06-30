@@ -8,3 +8,9 @@ export const getParams = hash => {
         })
         return params
     }
+
+export const getSearchText = hash =>
+	hash.replace('#', '').split('&').map(item => {
+		const [key, value] = item.split('=')
+		return key === 'search_text' ? value : ''
+	})

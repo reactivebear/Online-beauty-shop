@@ -18,7 +18,7 @@ const initialState = {
         products: [],
         services: []
     },
-    appointments: [''],
+    appointments: [],
     purchases: [],
     credits: 0,
     dollar_value: 0

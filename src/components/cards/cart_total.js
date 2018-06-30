@@ -36,9 +36,15 @@ class CartTotal extends Component {
 					this.props.step === lastStep - 1 && lastStep === 5
 					?	
 						!this.props.user.guest
-                        ? 	<div className="color-grey border-bottom mb-3">
-	                            <div className="color-grey">{main_address.title}</div>
-	                            <div className="color-grey">CEP: {main_address.zipcode}</div>
+                        ? 	<div className="fs-18 color-grey border-bottom mb-3">
+                        		<div className="d-flex justify-content-between">
+                        			<div>Address Name:</div>
+	                            	<div>{main_address.title}</div>
+                            	</div>
+                            	<div className="d-flex justify-content-between">
+                            		<div>CEP:</div>
+	                            	<div className="color-grey">{main_address.zipcode}</div>
+                            	</div>
 							</div>
                         : 	Object.keys(guestAddress).length
 	                        ?	<div className="color-grey border-bottom mb-3">

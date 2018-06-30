@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
+import store from 'store'
+import { getReports } from 'actions/user'
 import CardNotification from 'components/cards/notification.js'
 
 class Notifications extends Component {
+
+	componentWillMount() {
+		store.dispatch(getReports())
+	}
+
 	printList = (item, i) => <CardNotification {...item} key={i} />
 
 	render() {

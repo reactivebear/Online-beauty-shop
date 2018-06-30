@@ -5,7 +5,7 @@ import { getSearch, setSearch } from 'actions'
 import CardProduct from 'components/cards/product'
 import CardService from 'components/cards/service'
 import Badge from 'components/badge'
-import { getParams } from 'utils'
+import { getParams, getSearchText } from 'utils'
 
 class Search extends Component {
 
@@ -68,7 +68,7 @@ class Search extends Component {
                         ![...products.list, ...services.list].length
                         ?   <div className="row justify-content-center not-found-wrap">
                                 <div className="col-xl-6 col-md-7 col-sm-10 col-12">
-                                    <div className="font-avenir-light fs-38 mb-3">Não foi encontrado nada no seu pedido.</div>
+                                    <div className="font-avenir-light fs-38 mb-3">Ops... Não encontramos nenhum resultado para {getSearchText(this.props.location.hash)}.</div>
                                 </div>
                             </div>
                         :   ''

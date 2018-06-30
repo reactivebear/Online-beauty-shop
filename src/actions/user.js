@@ -149,7 +149,16 @@ export const sendCredits = data => dispatch =>
 
 export const getAppointments = () => dispatch => 
     (
-        get(`api/appointments`).then(json => {
+        post(`api/appointments`, false, {search_text: ''}).then(json => {
+            if (json.object) {
+                dispatch(setUserKey(json.object, 'appointments'))
+            }
+        })
+    )
+
+export const getReports = () => dispatch => 
+    (
+        get(`api/reports`).then(json => {
             if (json.object) {
                 console.log(json.object)
             }
