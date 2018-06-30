@@ -13,7 +13,7 @@ const initialState = {
         min_price: 0,
         max_price: 1000
     },
-    type: 'all',
+    type: 'alls',
     query: '',
     autocomplete: {
         product: [],

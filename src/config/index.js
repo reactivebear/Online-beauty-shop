@@ -70,6 +70,10 @@ export const LIST_MENU = [
 export const DROP_LIST = ['Mais relevantes', 'Menor preço', 'Maior preço']
 export const DROP_MENU_LIST = [
     {
+        title: 'Todos',
+        background: 'bg-all',
+        type: 'all'
+    }, {
         title: 'Produto',
         background: 'bg-green',
         type: 'product'

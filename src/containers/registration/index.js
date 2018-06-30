@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import SmallSwitch from 'components/inputs/small_switch.js'
+import SmallSwitch from 'components/inputs/small_switch'
 import { RegistrationForm } from 'components/forms'
 
 class Registration extends Component {

@@ -31,6 +31,9 @@ export default {
             'path': '/recovery',
             'component': 'Recovery'
         }, {
+            'path': '/recovery/:hash',
+            'component': 'Recovery'
+        }, {
             'path': '*',
             'component': 'NotFound'
         }

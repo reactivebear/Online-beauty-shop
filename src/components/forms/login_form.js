@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import BtnMain from 'components/buttons/btn_main.js'
-import Input from 'components/inputs/input.js'
-import { Link } from 'react-router-dom'
+import BtnMain from 'components/buttons/btn_main'
+import Input from 'components/inputs/input'
 import store, { history } from 'store'
-import { login } from 'actions/auth.js'
+import { login } from 'actions/auth'
 
 class LoginForm extends Component {
     
@@ -18,14 +17,13 @@ class LoginForm extends Component {
             if (res) {
                this.props.close()
                history.push('/')
-               //document.location.reload(false)
             }
         })
     }
 
-    goToRegistration = () => {
+    goToAddress = address => e => {
         this.props.close()
-        history.push('/registration')
+        history.push(`/${address}`)
     }
 
     render() {
@@ -52,7 +50,7 @@ class LoginForm extends Component {
         				title="Entrar" />
             	</div>
                 <div className="form-group text-right">
-                    <Link to="/recovery" className="color-grey">Esqueceu sua senha?</Link>
+                    <span onClick={this.goToAddress('recovery')} className="color-grey pointer">Esqueceu sua senha?</span>
                 </div>
                 <div className="border-bottom mb-2"></div>
                 <div className="d-flex flex-sm-row flex-column form-group">
@@ -72,7 +70,7 @@ class LoginForm extends Component {
                 <div className="form-group">
                     <BtnMain
                         className="font-weight-bold btn-outline btn-block"
-                        onClick={this.goToRegistration}
+                        onClick={this.goToAddress('registration')}
                         title="Criar cadastro" />
                 </div>
 			</form>

@@ -61,6 +61,20 @@ export const registration = data => dispatch =>
         })
     )
 
+export const resetPassword = data => dispatch => 
+    (
+        post('reset-password/request', true, data).then(json => {
+            console.log(json)
+        })
+    )
+
+export const checkHash = data => dispatch => 
+    (
+        post(`reset-password/confirm/${data.hash}`, true, {new_password: data.password}).then(json => {
+            console.log(json)
+        })
+    )
+
 export const setUser = data => {
     if (!data.user_image) {
         data.user_image = {}

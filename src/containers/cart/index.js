@@ -22,15 +22,7 @@ class Cart extends Component {
 	}
 
 	getStepContent = () => {
-		if (this.props.cart.list.service.length) {
-			switch(this.props.cart.step) {
-				case 1: return <StepFirst step={this.props.cart.step} />
-				case 2: return <StepThird step={this.props.cart.step} />
-				case 3: return <StepFourth step={this.props.cart.step} />
-				case 4: return <StepFifth step={this.props.cart.step} />
-				default: return
-			}
-		} else {
+		if (this.props.cart.list.product.length) {
 			switch(this.props.cart.step) {
 				case 1: return <StepFirst step={this.props.cart.step} />
 				case 2: return <StepSecond step={this.props.cart.step} />
@@ -39,14 +31,23 @@ class Cart extends Component {
 				case 5: return <StepFifth step={this.props.cart.step} />
 				default: return
 			}
+		} else {
+			switch(this.props.cart.step) {
+				case 1: return <StepFirst step={this.props.cart.step} />
+				case 2: return <StepThird step={this.props.cart.step} />
+				case 3: return <StepFourth step={this.props.cart.step} />
+				case 4: return <StepFifth step={this.props.cart.step} />
+				default: return
+			}
 		}
 	}
 
 	getSteps = () => {
-		return this.props.cart.list.service.length ? [{title: 'Meu carrinho'}, {title: 'Pagamento'}, {title: 'Confirmação'}] : [{title: 'Meu carrinho'}, {title: 'Entrega'}, {title: 'Pagamento'}, {title: 'Confirmação'}]
+		return this.props.cart.list.product.length ? [{title: 'Meu carrinho'}, {title: 'Entrega'}, {title: 'Pagamento'}, {title: 'Confirmação'}] : [{title: 'Meu carrinho'}, {title: 'Pagamento'}, {title: 'Confirmação'}]
 	}
 
     render() {
+    	console.log(this.props.cart.list)
         return (
         	<div className="bg-main font-avenir pt-4">
 	            <div className="container">

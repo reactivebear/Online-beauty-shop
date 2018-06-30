@@ -7,7 +7,7 @@ class CollapsedMenu extends Component {
     }
 
     toggleBody = active => e => {
-        this.setState({active})
+        this.setState({active: !active})
     }
 
     render() {
@@ -15,12 +15,12 @@ class CollapsedMenu extends Component {
         return (
             <div className="mb-2">
                 <div className="d-flex align-items-start">
-                    <div className="color-grey" style={{paddingTop: 2}}>
-                    {
-                        this.state.active
-                        ?   <i onClick={this.toggleBody(false)} className="fas fa-minus-circle pointer"></i>
-                        :   <i onClick={this.toggleBody(true)} className="fas fa-plus-circle pointer"></i>
-                    }
+                    <div className="color-grey pt-1">
+                        <div className="position-relative" style={{width: 15, height: 19}}>
+                            <object className="position-absolute" data="/assets/svg/minus.svg" width="100%" style={{opacity: this.state.active ? 1 : 0}} type="image/svg+xml"></object>
+                            <object className="position-absolute" data="/assets/svg/plus.svg" width="100%" style={{opacity: this.state.active ? 0 : 1}} type="image/svg+xml"></object>
+                            <div onClick={this.toggleBody(this.state.active)} className="position-absolute w-100 h-100 pointer z-index-1" style={{top: 0}}></div>
+                        </div>
                     </div>
                     <div className="px-2">
                         <span className="fs-22" style={{lineHeight: 1}}>{this.props.title}</span>

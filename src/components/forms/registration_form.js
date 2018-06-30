@@ -1,23 +1,34 @@
 import React, { Component } from 'react'
 import store from 'store'
-import { registration } from 'actions/auth.js'
-import BtnMain from 'components/buttons/btn_main.js'
-import Input from 'components/inputs/input.js'
+import { registration } from 'actions/auth'
+import { setAlert } from 'actions/design'
+import BtnMain from 'components/buttons/btn_main'
+import Input from 'components/inputs/input'
+import SmallSwitch from 'components/inputs/small_switch'
 
 class RegistrationForm extends Component {
 
     constructor(props) {
         super(props)
         this.auth = {}
+        this.state = {
+            terms: false,
+            email: false
+        }
     }
 
     getMyPosition = () => {
-        navigator.geolocation.getCurrentPosition(pos => {
-            this.registration({
-                latitude: pos.coords.latitude,
-                longitude: pos.coords.longitude
-            })
-        }, this.registration)
+        if (this.state.terms) {
+            navigator.geolocation.getCurrentPosition(pos => {
+                this.registration({
+                    latitude: pos.coords.latitude,
+                    longitude: pos.coords.longitude
+                })
+            }, this.registration)
+        } else {
+            store.dispatch(setAlert('Você deve concordar com os termos e condições de uso', 'error'))
+        }
+        
     }
 
     registration = pos => {
@@ -38,8 +49,15 @@ class RegistrationForm extends Component {
             data.cnpj = this.auth.cnpj.value
             data.company_name = this.auth.company_name.value
         }
-            
         store.dispatch(registration(data))
+    }
+
+    toggleTerms = terms => {
+        this.setState({terms: !this.state.terms})
+    }
+
+    toggleEmail = val => {
+        this.setState({email: !this.state.email})
     }
 
     render() {
@@ -85,6 +103,18 @@ class RegistrationForm extends Component {
                     label="Senha"
                     value={''}
                     inputRef={ref => this.auth.password = ref} />
+                <SmallSwitch
+                    className="mb-3"
+                    onChange={this.toggleEmail} 
+                    value={true}
+                    title="Desejo receber ofertas por e-mail"
+                    checked={this.state.email} />
+                <SmallSwitch
+                    className="mb-3"
+                    onChange={this.toggleTerms} 
+                    value={true}
+                    title={<span>Li e concordo com os <span className="pointer color-green">Termos e Condições de Uso</span></span>}
+                    checked={this.state.terms} />
                 <div className="row">
                     <div className="col-sm-10 offset-sm-1">
                         <BtnMain

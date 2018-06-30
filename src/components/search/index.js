@@ -63,11 +63,11 @@ class WebSearch extends Component {
 
 	getSearchType = () => {
 		switch(this.props.search.type) {
-			case 'products': return 'Produto'
-			case 'services': return 'Serviço'
-			case 'salons': return 'Salão'
-			case 'vendors': return 'Vendedor'
-			default: return 'Todos'
+			case 'products': return {title: 'Produto', placeholder: 'Buscar por produtos'}
+			case 'services': return {title: 'Serviço', placeholder: 'Buscar por serviços'}
+			case 'salons': return {title: 'Salão', placeholder: 'Buscar por salão'}
+			case 'vendors': return {title: 'Vendedor', placeholder: 'Buscar por vendedor'}
+			default: return {title: 'Todos', placeholder: 'Buscar por todos'}
 		}
 	}
 
@@ -77,7 +77,7 @@ class WebSearch extends Component {
 	            <form className="input-group d-none d-sm-flex" onSubmit={this.search}>
 	            	<div className="input-group-prepend" id="main-dropdown">
 					    <button type="button" onClick={this.toggleDropDown} className="btn btn-drop-search pl-3">
-					    	{ this.getSearchType() }
+					    	{ this.getSearchType().title }
 					    	<i className="fas fa-chevron-down px-3"></i>
 				    	</button>
 				    	{
@@ -92,7 +92,7 @@ class WebSearch extends Component {
 						value={this.state.value}
 						ref={ref => this.query = ref}
 						className="form-control with-shadow border-0"
-						placeholder="           Buscar por produtos e serviços" />
+						placeholder={`             ${this.getSearchType().placeholder}`} />
 					<div className="input-group-append">
 					    <BtnMain
 					    	className="btn-search px-4 pt-2"
