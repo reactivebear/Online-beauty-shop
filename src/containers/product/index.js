@@ -18,6 +18,8 @@ import MainList from 'components/lists/main'
 import Accordion from 'components/accordion'
 import { CommentForm } from 'components/forms'
 import Heart from 'components/heart'
+import Avatar from 'components/images/avatar'
+import Pagination from 'components/pagination'
 
 
 class Product extends Component {
@@ -26,7 +28,8 @@ class Product extends Component {
 		this.count = 1
 		this.state = {
 			lightboxIsOpen: false,
-			activeImg: 0
+			activeImg: 0,
+			page: 1
 		}
 		if (props.match.params.id) {
 			store.dispatch(getProduct(props.match.params.id))
@@ -42,15 +45,20 @@ class Product extends Component {
 		})
 	}
 
+	changePage = page => {
+		this.setState({page})
+	}
+
 	getReviewList = () => {
 		return 	<div className="row">
 					<div className="col-md-8">
 						{
-							this.props.products.reviews.map((item, i) => {
+							this.props.products.reviews.slice((this.state.page - 1) * 5, this.state.page * 5).map((item, i) => {
+								const image_url = item.reviewer ? (item.reviewer.user_image ? item.reviewer.user_image.image_url : '') : ''
 								return 	<div key={i}>
 											<div className="d-flex">
 												<div className="w-15 px-lg-3 px-sm-2 pr-2 pr-sm-0">
-													<img src="/assets/images/default-reviewer.png" className="img-fluid" alt="" />
+													<Avatar image={image_url} edit={false} />
 												</div>
 												<div className="w-85">
 													<div className="d-flex justify-content-between flex-wrap">
@@ -66,6 +74,12 @@ class Product extends Component {
 										</div>
 							})
 						}
+						<div className="mb-3">
+							<Pagination 
+	    						onChange={this.changePage} 
+	    						total={Math.ceil(this.props.products.reviews.length / 5)} 
+	    						active={this.state.page} />
+						</div>
 						<div className="d-flex justify-content-center">
 							<BtnMain
 		        				className="font-weight-bold w-80"
@@ -167,7 +181,7 @@ class Product extends Component {
 			{src: '/assets/images/default-image-square-big.png'},
 			{src: '/assets/images/default-image-square-big.png'},
 			{src: '/assets/images/default-image-square-big.png'},
-		], 0))
+		]))
 	}
 
     render() {

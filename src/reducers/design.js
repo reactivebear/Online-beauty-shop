@@ -71,8 +71,14 @@ export default function design(design = initialState, action = {}) {
                 }
             });
         case types.TOGGLE_LIGHT_BOX:
+            const tempLightbox = Object.assign([], design.lightbox)
+            Object.keys(action.data).forEach(item => {
+                if (action.data[item] !== undefined) {
+                    tempLightbox[item] = action.data[item]
+                }
+            })
             return Object.assign({}, design, {
-                lightbox: {...action.data}
+                lightbox: tempLightbox
             });
         case types.TOGGLE_LINK_LIST:
             return Object.assign({}, design, {

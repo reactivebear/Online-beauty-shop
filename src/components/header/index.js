@@ -86,7 +86,7 @@ class Header extends Component {
                 }
                 <div className="bg-dark effect6 pb-lg-3">
                     <div className="container text-white pt-4">
-                        <div className="row pb-5 d-sm-none">
+                        <div className="row pb-3 d-sm-none">
                             <div className="col-6 align-self-end">
                                 <Link to="/"><img src="/assets/images/logo.png" alt="" className="img-fluid logo" /></Link>
                             </div>

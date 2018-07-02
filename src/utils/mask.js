@@ -8,6 +8,16 @@ export const format = (mask, value) => {
             return value.replace(letters, '')
         case 'digits':
             return digitsValue
+        case 'digits-3':
+            if (digitsValue.length > 3) {
+                digitsValue = digitsValue.slice(0, 3)
+            }
+            return digitsValue
+        case 'digits-5':
+            if (digitsValue.length > 5) {
+                digitsValue = digitsValue.slice(0, 5)
+            }
+            return digitsValue
         case 'date':
             if (digitsValue.length > 8) {
                 digitsValue = digitsValue.slice(0, 8)

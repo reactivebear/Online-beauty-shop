@@ -1,22 +1,29 @@
 import * as types from './types.js'
 import { DEFAULT_IMG } from 'config'
+import store from 'store'
 import { addSwipe, removeSwipe } from 'utils'
 
 export const toggleSideMenu = state => {
     const el = document.getElementById('main-wrap')
     if (!state) {
         removeSwipe(el)
+        el.removeEventListener('click', closeSideMenu)
         setTimeout(() => {
             el.style.overflowX = 'unset'
         }, 600)
     } else {
         addSwipe(el)
+        el.addEventListener('click', closeSideMenu)
         el.style.overflowX = 'hidden'
     }
     return {
         type: types.TOGGLE_SIDE_MENU,
         state
     }
+}
+
+export const closeSideMenu = () => {
+    store.dispatch(toggleSideMenu(false))
 }
 
 export const toggleLeftMenu = (state, body) => 

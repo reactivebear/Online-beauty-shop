@@ -2,7 +2,7 @@
     font-family: 'Avenir LT Std 45 Book';
 }
 
-.service-card:hover .service-hiiden-block {
+.service-card.active .service-hiiden-block {
 	height: 250px;
 	box-shadow: 0px 8px 12px 1px rgba(0,0,0,0.1);
 	border-bottom: 1px solid #dee2e6!important;
@@ -11,13 +11,13 @@
 }
 
 @media (min-width: 1200px) {
-	.service-card:hover .service-hiiden-block {
+	.service-card.active .service-hiiden-block {
 		height: 200px;
 	}
 }
 
 
-.service-card:hover {
+.service-card.active {
     box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.1);
 }
 

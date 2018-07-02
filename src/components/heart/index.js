@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import store from 'store'
+import { setAlert } from 'actions/design'
 
 class Heart extends Component {
 	state = {
@@ -7,8 +10,13 @@ class Heart extends Component {
 
 	toggleWish = e => {
 		e.stopPropagation()
-		this.setState({active: !this.state.active}, () => {
-			this.props.onChange(this.state.active)
+		const active = this.props.user.guest ? false : !this.state.active
+		this.setState({active}, () => {
+			if (!this.props.user.guest) {
+				this.props.onChange(this.state.active)
+			} else {
+				store.dispatch(setAlert('Você deve se registrar para fazer isso', 'error'))
+			}
 		})
 	}
 
@@ -26,4 +34,13 @@ class Heart extends Component {
     }
 }
 
-export default Heart
+const mapStateToProps = state => 
+	({
+        user: {
+        	guest: state.user.guest,
+        }
+    })
+
+export default connect(
+    mapStateToProps
+)(Heart)

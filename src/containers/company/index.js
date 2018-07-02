@@ -19,7 +19,8 @@ import CardProduct from 'components/cards/product.js'
 class Company extends Component {
     state = {
         orderClassFirst: 'order-2',
-        orderClassLast: 'order-3'
+        orderClassLast: 'order-3',
+        page: 1
     }
 
     constructor(props) {
@@ -75,6 +76,10 @@ class Company extends Component {
         store.dispatch(getProducts('pagination', {new_pagination: true, page_size: 8, page: page}))
     }
 
+    changePageReviews = page => {
+        this.setState({page})
+    }
+
     printSocial = (item, i) =>
         (
             <div key={i} className="mb-2">
@@ -94,7 +99,7 @@ class Company extends Component {
     getReviewList = () => {
         return  <div>
                     {
-                        this.props.services.salon.reviews.map((item, i) => {
+                        this.props.services.salon.reviews.slice((this.state.page - 1) * 5, this.state.page * 5).map((item, i) => {
                             return  <div key={i}>
                                         <div className="d-flex">
                                             <div className="w-15 px-lg-3 px-sm-2 pr-2 pr-sm-0">
@@ -114,6 +119,12 @@ class Company extends Component {
                                     </div>
                         })
                     }
+                    <div className="mb-3">
+                        <Pagination 
+                            onChange={this.changePageReviews} 
+                            total={Math.ceil(this.props.services.salon.reviews.length / 5)} 
+                            active={this.state.page} />
+                    </div>
                     <div className="d-flex justify-content-center">
                         <BtnMain
                             className="font-weight-bold w-80"

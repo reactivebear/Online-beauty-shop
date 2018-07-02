@@ -27,7 +27,8 @@ class SideMenu extends Component {
 
     render() {
         const activeClass = this.props.design.sideMenu ? 'active' : ''
-        const { first_name, last_name, image_url } = this.props.user.data
+        const { first_name, last_name } = this.props.user.data
+        const image_url = this.props.user.data.user_image.image_url
         return (
             <div className={"text-white wrap-side-menu pl-5 " + activeClass}>
                     {
@@ -52,7 +53,7 @@ class SideMenu extends Component {
                                         <h2>{`${first_name} ${last_name}`}</h2>
                                     </div>
                                 </div>
-                                <div className="pt-5">
+                                <div>
                                     { LIST_MENU.map((item, i) => this.printMenu(item, i)) }
                                     <div className="px-5 py-3 pt-4">
                                         <i className="fa fa-power-off" aria-hidden="true"></i>
@@ -73,7 +74,9 @@ const mapStateToProps = state =>
             data: {
                 first_name: state.user.data.first_name,
                 last_name: state.user.data.last_name,
-                image_url: state.user.data.image_url,
+                user_image: {
+                    image_url: state.user.data.user_image.image_url,
+                }
             }
         },
         design: {

@@ -82,7 +82,7 @@ export const saveAddress = data => dispatch =>
 
 export const updateAddress = data => dispatch => 
     (
-        post(`api/user/address/${data.id}`, true, data).then(json => {
+        put(`api/user/address/${data.id}`, true, data).then(json => {
             if (json.object) {
                 console.log(json.object)
                 return true

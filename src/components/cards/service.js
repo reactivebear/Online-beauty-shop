@@ -16,10 +16,24 @@ class CardService extends Component {
 		range: '0.0 km'
 	}
 
-	toggleCard = () => {
+	toggleCard = e => {
+		e.stopPropagation()
 		this.setState({
 			active: !this.state.active
 		})
+	}
+
+	setCardTrue = active => e => {
+		e.stopPropagation()
+		if (document.body.clientWidth > 768) {
+			this.setState({active})
+		}
+		
+	}
+
+	setCardFalse = active => e => {
+		e.stopPropagation()
+		this.setState({active})
 	}
 
 	addToCart = () => {
@@ -65,8 +79,13 @@ class CardService extends Component {
 	}
 
     render() {
+    	const activeClass = this.state.active ? ' active' : ''
         return (
-	        	<div className="card rounded pointer h-100 service-card position-relative" onClick={this.toggleCard}>
+	        	<div
+	        		className={`card rounded pointer h-100 service-card position-relative${activeClass}`} 
+	        		onMouseEnter={this.setCardTrue(true)}
+	        		onMouseLeave={this.setCardFalse(false)}
+	        		onClick={this.toggleCard}>
 	        		<div className="d-flex align-items-end flex-column h-100 py-2 px-2">
 		        		<div>
 			            	<div className="position-relative mb-3">

@@ -18,7 +18,7 @@ class SearchMenuWeb extends Component {
     }
 	getCategories = () => 
 		this.props.categories[`${this.props.type}_list`].map((item, i) => 
-			<div className="py-2 color-grey pointer pl-4" onClick={this.changeCategory(item)} key={i}>{item.name}</div>
+			<div className="py-1 color-grey pointer pl-4" onClick={this.changeCategory(item)} key={i}>{item.name}</div>
 		)
 
     getSubCategories = () => 

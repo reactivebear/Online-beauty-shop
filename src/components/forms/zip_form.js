@@ -1,11 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import BtnMain from 'components/buttons/btn_main'
+import { format } from 'utils/mask'
 
 class ZipForm extends Component {
     openLogin = e => {
         e.stopPropagation()
         this.props.openAnother('login')
+    }
+
+    checkMask = (mask, field) => e => {
+        this[field].value = format(mask, e.target.value)
     }
 
     render() {
@@ -36,12 +41,14 @@ class ZipForm extends Component {
                     <input 
                         type="text"
                         placeholder="00000"
+                        onChange={this.checkMask('digits-5', 'zip')}
                         className="form-control mr-2 w-35"
                         ref={ref => this.zip = ref}
                         defaultValue={''} />
                     <input 
                         type="text"
                         placeholder="000"
+                        onChange={this.checkMask('digits-3', 'cep')}
                         className="form-control mr-2 w-25"
                         ref={ref => this.cep = ref}
                         defaultValue={''} />
