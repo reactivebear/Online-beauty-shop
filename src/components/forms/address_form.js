@@ -23,14 +23,11 @@ class AddressForm extends Component {
             const data = {
                 id: history.location.state ? history.location.state.id : '',
                 title: this.address.title.value,
-                email: '',
                 phone: this.address.phone.value.replace('(', '').replace(')', '').replace(' ', '').replace('-', ''),
-                longitude: '',
-                latitude: '',
                 street: this.address.street.value,
                 number: this.address.number.value,
                 zipcode: this.address.cep.value.replace('-', ''),
-                complement: '',
+                complement: this.address.complement.value,
                 district: this.address.district.value,
                 city: this.address.city.value,
                 state: this.address.state.value,
@@ -62,7 +59,7 @@ class AddressForm extends Component {
                 street: this.address.street.value,
                 number: this.address.number.value,
                 zipcode: this.address.cep.value.replace('-', ''),
-                complement: '',
+                complement: this.complement.value,
                 district: this.address.district.value,
                 city: this.address.city.value,
                 state: this.address.state.value,
@@ -78,6 +75,10 @@ class AddressForm extends Component {
 
     render() {
         const address = history.location.state || this.props.cart.guestAddress
+        if (Object.keys(address).length) {
+            address.zipcode = format('cep', address.zipcode)
+            address.phone = format('cellphone', address.phone)
+        }
 
         return (
         	<div>
@@ -121,7 +122,7 @@ class AddressForm extends Component {
                 <Input 
                     required
                     label="CEP"
-                    value={address.cep}
+                    value={address.zipcode}
                     onChange={this.checkMask('cep', 'cep')}
                     inputRef={ref => this.address.cep = ref} />
                 <Input 
@@ -142,8 +143,8 @@ class AddressForm extends Component {
                         <Input 
                             required
                             label="Complemento"
-                            value={address.complemento}
-                            inputRef={ref => this.address.complemento = ref} />
+                            value={address.complement}
+                            inputRef={ref => this.address.complement = ref} />
                     </div>
                     <div className="col-sm-6">
                         <Input 

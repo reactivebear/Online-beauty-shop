@@ -9,5 +9,6 @@ import RegistrationForm from './registration_form.js'
 import SendCreditsForm from './send_credits_form.js'
 import SupportForm from './support_form.js'
 import PasswordForm from './password_form.js'
+import SendVouchersForm from './send_vouchers_form.js'
 
-export { CommentForm, LoginForm, ZipForm, ProfileForm, AddressForm, CardForm, RegistrationForm, SendCreditsForm, SupportForm, CardSmallForm, PasswordForm }
+export { CommentForm, LoginForm, ZipForm, ProfileForm, AddressForm, CardForm, RegistrationForm, SendCreditsForm, SupportForm, CardSmallForm, PasswordForm, SendVouchersForm }

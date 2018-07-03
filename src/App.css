@@ -302,6 +302,18 @@ path.cls-8 {
 	color: #cc3333;
 }
 
+.color-facebook {
+	color: #3b5998;
+}
+
+.color-google {
+	color: #d62d20;
+}
+
+.color-twitter {
+	color: #00aced;
+}
+
 .price-old {
 	color: #A7A7A8;
 	text-decoration: line-through;
@@ -441,6 +453,7 @@ path.cls-8 {
 	height: calc(100vh - 190px);
 	background-position: -5px -5px;
 	background-size: 63%;
+	min-height: 500px;
 }
 
 .inner-about {

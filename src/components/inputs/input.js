@@ -7,6 +7,7 @@ class Input extends Component {
             placeholder = '',
             disabled = false,
             type = 'text',
+            readonly = false,
             onChange,
             inputRef,
             onKeyDown,
@@ -29,6 +30,7 @@ class Input extends Component {
                     }
                     <input 
                         type={type}
+                        readOnly={readonly}
                         disabled={disabled}
                         placeholder={placeholder}
                         className={`form-control ${className}`}

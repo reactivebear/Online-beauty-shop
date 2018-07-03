@@ -24,29 +24,23 @@ class PurchasePage extends Component {
 	            			<h4 className="mb-3">Valores</h4>
 	            			<div className="border-bottom mb-3"></div>
 
-	            			<div className="row color-grey mb-3">
-	            				<div className="col-sm-8 col-7">
-									<span className="fs-18">Subtotal:</span>
-								</div>
-								<div className="col-sm-4 col-5 text-left">
+	            			<div className="d-flex justify-content-between color-grey mb-3">
+	            				<div className="fs-18">Subtotal:</div>
+								<div className="text-left">
 									<Price current={purchase.items_total} />
 								</div>
 							</div>
 
-							<div className="row color-grey mb-3">
-	            				<div className="col-sm-8 col-7">
-									<span className="fs-18">Frete:</span>
-								</div>
-								<div className="col-sm-4 col-5 text-left">
+							<div className="d-flex justify-content-between color-grey mb-3">
+	            				<div className="fs-18">Frete:</div>
+								<div className="text-left">
 									<Price current={purchase.delivery_tax} />
 								</div>
 							</div>
 
-							<div className="row mb-3">
-	            				<div className="col-sm-8 col-7">
-									<span className="fs-18">Total:</span>
-								</div>
-								<div className="col-sm-4 col-5 text-left">
+							<div className="d-flex justify-content-between mb-3">
+	            				<div className="fs-18">Total:</div>
+								<div className="text-left">
 									<Price current={purchase.total} />
 								</div>
 							</div>

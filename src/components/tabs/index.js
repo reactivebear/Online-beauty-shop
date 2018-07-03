@@ -20,7 +20,7 @@ class Tabs extends Component {
 
 	printContent = (item, i) => {
 		const className = i + 1 === this.state.active ? 'tab-pane fade show active' : 'tab-pane fade'
-		return <div key={i} className={className} id="home">{item.content}</div>
+		return <div key={i} className={className} id="home">{React.cloneElement(item.content, { isactive: (i + 1 === this.state.active).toString() })}</div>
 	}
 
     render() {

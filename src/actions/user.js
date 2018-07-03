@@ -84,7 +84,7 @@ export const updateAddress = data => dispatch =>
     (
         put(`api/user/address/${data.id}`, true, data).then(json => {
             if (json.object) {
-                console.log(json.object)
+                dispatch(getUserAddresses())
                 return true
             }
         })
@@ -152,6 +152,24 @@ export const getAppointments = () => dispatch =>
         post(`api/appointments`, false, {search_text: ''}).then(json => {
             if (json.object) {
                 dispatch(setUserKey(json.object, 'appointments'))
+            }
+        })
+    )
+
+export const getVouchers = () => dispatch => 
+    (
+        post(`api/user/vouchers`, false, {search_text: ''}).then(json => {
+            if (json.object) {
+                console.log(json.object)
+            }
+        })
+    )
+
+export const sendVoucher = data => dispatch => 
+    (
+        post(`api/user/voucher/transfer`, true, data).then(json => {
+            if (json.object) {
+                console.log(json.object)
             }
         })
     )

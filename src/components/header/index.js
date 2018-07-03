@@ -119,7 +119,7 @@ class Header extends Component {
                                             onClick={() => history.push('/about')}
                                             title={<span><img src="/assets/icons/app-icon.png" alt="" className="img-fluid small-icon mr-2" />Baixe grátis o app do Visual Total</span>} />
                                     </div>
-                                    <div onClick={this.toggleTooltip('cart')} id="cart" className="header-link-icon col-6 col-sm-3 px-sm-0 form-group pointer"> {/*col-6 col-sm-3*/}
+                                    <div onClick={this.toggleTooltip('cart')} id="cart" className="header-link-icon col col-sm-3 px-sm-0 form-group pointer"> {/*col-6 col-sm-3*/}
                                         <img src="/assets/icons/cart-icon.png" id="cart" className="img-icon-header align-middle" alt="" />
                                         <div className="align-middle d-inline-block pl-2" id="cart">
                                             Meu<br />
@@ -145,7 +145,7 @@ class Header extends Component {
                                             :   ''
                                         }
                                     </div>
-                                    <div onClick={this.toggleTooltip('zip')} id="zip" className="header-link-icon col-6 col-sm-5 px-lg-0 order-sm-first form-group pointer"> {/*col-12 col-sm-5*/}
+                                    <div onClick={this.toggleTooltip('zip')} id="zip" className="header-link-icon col col-sm-5 px-lg-0 order-sm-first form-group pointer"> {/*col-12 col-sm-5*/}
                                         <img src="/assets/icons/pin-icon.png" id="zip" className="img-icon-header align-middle" alt="" />
                                         <div className="align-middle d-inline-block pl-2" id="zip">
                                             Encontre serviços<br />

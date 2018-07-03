@@ -20,7 +20,7 @@ import { CommentForm } from 'components/forms'
 import Heart from 'components/heart'
 import Avatar from 'components/images/avatar'
 import Pagination from 'components/pagination'
-
+import TextArea from 'components/inputs/textarea'
 
 class Product extends Component {
 	constructor(props) {
@@ -49,7 +49,8 @@ class Product extends Component {
 		this.setState({page})
 	}
 
-	getReviewList = () => {
+	getReviewList = (props) => {
+		
 		return 	<div className="row">
 					<div className="col-md-8">
 						{
@@ -75,7 +76,7 @@ class Product extends Component {
 							})
 						}
 						<div className="mb-3">
-							<Pagination 
+							<Pagination
 	    						onChange={this.changePage} 
 	    						total={Math.ceil(this.props.products.reviews.length / 5)} 
 	    						active={this.state.page} />
@@ -147,6 +148,7 @@ class Product extends Component {
 			        				title="Ver todas as perguntas" />
 		        				<BtnMain
 			        				className="font-weight-bold btn-block"
+			        				onClick={this.openQuestion}
 			        				title="Perguntar" />
 	        				</div>
 						</div>
@@ -174,6 +176,29 @@ class Product extends Component {
 
 	comment = () => {
 		store.dispatch(toggleModal(true, CommentForm, 'modal-sm', '', {id: this.props.products.product.id, type: 'product'}))
+	}
+
+	openQuestion = () => {
+		store.dispatch(toggleModal(true, this.questionForm, 'modal-sm', '', {position: 'center'}))
+	}
+
+	questionForm = props => {
+		return 	<div>
+					<TextArea 
+                        required
+                        label="Mensagem"
+                        inputRef={ref => this.message = ref} />
+                    <div className="pt-3">
+	            		<BtnMain
+	        				className="font-weight-bold btn-outline btn-block"
+	        				onClick={props.onCancel}
+	        				title="Cancelar" />
+	            		<BtnMain
+	        				className="font-weight-bol btn-block"
+	        				onClick={this.sendQuestion}
+	        				title="Perguntar" />
+	            	</div>
+				</div>
 	}
 
 	openLightBox = () => {

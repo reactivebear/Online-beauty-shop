@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { history } from 'store'
 import BtnMain from 'components/buttons/btn_main'
 import { format } from 'utils/mask'
 
@@ -13,7 +14,13 @@ class ZipForm extends Component {
         this[field].value = format(mask, e.target.value)
     }
 
+    search = () => {
+        history.push(`/search#type=services&search_text=`)
+        this.props.close()
+    }
+
     render() {
+        const zipcode = this.props.user.data.main_address.zipcode || ''
         return (
         	<div>
                 {
@@ -44,16 +51,17 @@ class ZipForm extends Component {
                         onChange={this.checkMask('digits-5', 'zip')}
                         className="form-control mr-2 w-35"
                         ref={ref => this.zip = ref}
-                        defaultValue={''} />
+                        defaultValue={zipcode.slice(0,5)} />
                     <input 
                         type="text"
                         placeholder="000"
                         onChange={this.checkMask('digits-3', 'cep')}
                         className="form-control mr-2 w-25"
                         ref={ref => this.cep = ref}
-                        defaultValue={''} />
+                        defaultValue={zipcode.slice(5)} />
             		<BtnMain
         				className="font-weight-bold btn-outline w-40 pt-2"
+                        onClick={this.search}
         				title="Buscar" />
             		
             	</div>
@@ -66,7 +74,9 @@ const mapStateToProps = state =>
     ({
         user: {
             guest: state.user.guest,
-            }
+            data: state.user.data
+        },
+            
     })
 
 export default connect(
