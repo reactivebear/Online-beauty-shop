@@ -19,7 +19,7 @@
 	bottom: 0;
 	right: 100%;
 	width: 100%;
-	z-index: 2;
+	z-index: 5;
 	overflow-y: auto;
 	overflow-x: hidden;
 	font-family: 'Avenir LT Std 45 Book';

@@ -49,8 +49,7 @@ class Product extends Component {
 		this.setState({page})
 	}
 
-	getReviewList = (props) => {
-		
+	getReviewList = props => {
 		return 	<div className="row">
 					<div className="col-md-8">
 						{
@@ -63,7 +62,7 @@ class Product extends Component {
 												</div>
 												<div className="w-85">
 													<div className="d-flex justify-content-between flex-wrap">
-														<h6>{ item.reviewer.username }</h6>
+														<h6>{ item.reviewer.first_name }</h6>
 														<div><Stars active={item.rating} /></div>
 													</div>
 													<div>
@@ -242,7 +241,7 @@ class Product extends Component {
 			            		</div>
 			            		<div className="row form-group">
 			            			<div className="col-6 col-sm-3">
-				            			<span className="color-green">Calcular frete</span><br />
+				            			<span className="color-green pointer">Calcular frete</span><br />
 				            			<Counter onChange={val => this.count = val} value={this.count} />
 			            			</div>
 			            		</div>

@@ -10,6 +10,7 @@ class LeftMenu extends Component {
     }
 
     render() {
+        console.log(this.props)
         const activeClass = this.props.design.leftMenu.state ? 'active' : ''
         return (
             <div className={`wrap-left-menu ${activeClass}`}>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import store from 'store'
+import { setAlert } from 'actions/design'
 import { resetPassword, checkHash } from 'actions/auth'
 import Input from 'components/inputs/input'
 import BtnMain from 'components/buttons/btn_main'
@@ -7,14 +8,20 @@ import BtnMain from 'components/buttons/btn_main'
 class Recovery extends Component {
 	
 	recovery = () => {
-		this.props.match.params.hash 
-		? store.dispatch(checkHash({hash: this.props.match.params.hash, password: this.password.value})) 
-		: store.dispatch(resetPassword({email: this.email.value}))
+		if (this.props.match.params.hash) {
+			if (this.password.value === this.password_confirm.value) {
+				store.dispatch(checkHash({hash: this.props.match.params.hash, password: this.password.value}))
+			} else {
+				store.dispatch(setAlert('Passwords do not match', 'error'))
+			}
+		} else {
+			store.dispatch(resetPassword({email: this.email.value}))
+		}
 	}
 
     render() {
         return (
-        	<div className="bg-main font-avenir pt-5">
+        	<div className="bg-main font-avenir pt-5 empty-content">
         		<div className="container">
 		            <div className="row">
 		            	<div className="col-md-6">
@@ -22,11 +29,18 @@ class Recovery extends Component {
 			    				<h4>Trocar a senha</h4>
 		    					{
 		    						this.props.match.params.hash
-		    						? 	<Input 
-					                        required
-					                        label="Nova Senha"
-					                        type="password"
-					                        inputRef={ref => this.password = ref} />
+		    						? 	<div>
+			    							<Input 
+						                        required
+						                        label="Nova Senha"
+						                        type="password"
+						                        inputRef={ref => this.password = ref} />
+					                        <Input 
+							                    required
+							                    type="password"
+							                    label="Repetir nova senha"
+							                    inputRef={ref => this.password_confirm = ref} />
+				                        </div>
 		    						: 	<div>
 		    								<div className="color-grey mb-2">Identifique-se para receber um e-mail com as instruções e o link para criar uma nova senha.</div>			
 			    							<Input 

@@ -12,8 +12,8 @@ class CategoryItem extends Component {
 			<div className="wrap-category-item pointer" onClick={this.goToCategory}>
 				<div className="inner-category-item">
 					<div style={{height: 100}}>
-						<div style={{height: 72}}>
-							<img src={this.props.image_url} alt="" className="img-fluid w-65" />
+						<div className="category-item-icon mb-1">
+							<img src={this.props.image_url} alt="" className="img-fluid" />
 						</div>
 						<strong>{this.props.name}</strong>
 					</div>

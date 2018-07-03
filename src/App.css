@@ -456,6 +456,10 @@ path.cls-8 {
 	min-height: 500px;
 }
 
+.empty-content {
+	min-height: calc(100% - 190px - 455px);
+}
+
 .inner-about {
 	height: calc(100% - 190px);
 }

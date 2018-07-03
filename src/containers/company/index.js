@@ -14,7 +14,8 @@ import Stars from 'components/stars'
 import { toggleModal, toggleLightBox } from 'actions/design'
 import { CommentForm } from 'components/forms'
 import Pagination from 'components/pagination'
-import CardProduct from 'components/cards/product.js'
+import CardProduct from 'components/cards/product'
+import Avatar from 'components/images/avatar'
 
 class Company extends Component {
     state = {
@@ -100,14 +101,15 @@ class Company extends Component {
         return  <div>
                     {
                         this.props.services.salon.reviews.slice((this.state.page - 1) * 5, this.state.page * 5).map((item, i) => {
+                            const image_url = item.reviewer ? (item.reviewer.user_image ? item.reviewer.user_image.image_url : '') : ''
                             return  <div key={i}>
                                         <div className="d-flex">
                                             <div className="w-15 px-lg-3 px-sm-2 pr-2 pr-sm-0">
-                                                <img src="/assets/images/default-reviewer.png" className="img-fluid" alt="" />
+                                                <Avatar image={image_url} edit={false} />
                                             </div>
                                             <div className="w-85">
                                                 <div className="d-flex justify-content-between flex-wrap">
-                                                    <h6>{ item.reviewer.username }</h6>
+                                                    <h6>{ item.reviewer.first_name }</h6>
                                                     <div><Stars active={item.rating} /></div>
                                                 </div>
                                                 <div>
