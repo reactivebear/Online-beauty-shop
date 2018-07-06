@@ -3,7 +3,7 @@ import store from 'store'
 import { connect } from 'react-redux'
 import { Route, Switch } from 'react-router-dom'
 import { getPurchases } from 'actions/user.js'
-import CardPurchase from 'components/cards/purchase.js'
+import CardPurchase from 'components/cards/purchase'
 import { PurchasePage } from 'components/profile'
 
 class Purchased extends Component {

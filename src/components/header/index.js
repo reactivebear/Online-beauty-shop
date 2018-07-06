@@ -11,6 +11,7 @@ import CartHeader from 'components/cart/cart_header'
 import { LoginForm, ZipForm } from 'components/forms'
 import HeaderMenu from 'components/menu/header_menu'
 import './style.css'
+import { getLang } from 'utils/lang'
 
 class Header extends Component {
     state = {
@@ -101,7 +102,7 @@ class Header extends Component {
                                         <BtnMain
                                             className="pt-2"
                                             onClick={() => history.push('/about')}
-                                            title={<span><img src="/assets/icons/app-icon.png" alt="" className="img-fluid small-icon mr-2" />Baixe grátis o app do Visual Total</span>} />
+                                            title={<span><img src="/assets/icons/app-icon.png" alt="" className="img-fluid small-icon mr-2" />{getLang('Baixe grátis o app do Visual Total')}</span>} />
                                     </div>
                                     <Link to="/"><img src="/assets/images/logo.png" alt="" className="img-fluid" /></Link>
                                     { this.props.categories[linkList].map((item, i) => this.printLink(item, i)) }

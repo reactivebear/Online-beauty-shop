@@ -15,6 +15,7 @@ export const getProduct = id => dispatch =>
         get(`api/product/${id}`, false).then(json => {
             if (json.object) {
                 dispatch(setProduct(json.object))
+                return true
             }
         })
     )

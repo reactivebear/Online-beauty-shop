@@ -5,12 +5,16 @@ import { getUserAddress, getCredits } from 'actions/user'
 import { setStep } from 'actions/cart'
 import StepsArrow from 'components/steps/steps_arrow'
 import { StepFirst, StepSecond, StepThird, StepFourth, StepFifth } from 'components/cart'
+import { getCreditCards } from 'actions/user'
 
 class Cart extends Component {
 	constructor(props) {
 		super(props)
 		store.dispatch(getUserAddress())
 		store.dispatch(getCredits())
+		if (!props.user.guest) {
+            store.dispatch(getCreditCards())
+        }
 	}
 
 	changeStep = step => e => {
@@ -47,7 +51,6 @@ class Cart extends Component {
 	}
 
     render() {
-    	console.log(this.props.cart.list)
         return (
         	<div className="bg-main font-avenir pt-4">
 	            <div className="container">
@@ -64,6 +67,9 @@ const mapStateToProps = state =>
         cart: {
         	step: state.cart.step,
         	list: state.cart.list,
+        },
+        user: {
+        	guest: state.user.guest
         }
     })
 

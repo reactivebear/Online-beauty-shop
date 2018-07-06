@@ -3,19 +3,22 @@ import { connect } from 'react-redux'
 import store, { history } from 'store'
 import CollapsedMenu from 'components/blocks/collapsed_menu'
 import Stars from 'components/stars'
-import SmallCheckBox from 'components/inputs/small_checkbox'
 import { setActiveCategory, setFilters } from 'actions'
 import RangeSlider from 'components/inputs/range_slider'
 import { getProducts } from 'actions/products'
 import { getServices } from 'actions/services'
+import SmallSwitch from 'components/inputs/small_switch'
+
+let initialState = {}
 
 class SearchMenuWeb extends Component {
     state = {
-        price: {
-            min: 0,
-            max: 1000
-        }
+        min_price: 0,
+        max_price: 5000,
+        min_rating: 0,
+        min_vendor_rating: 0
     }
+
 	getCategories = () => 
 		this.props.categories[`${this.props.type}_list`].map((item, i) => 
 			<div className="py-1 color-grey pointer pl-4" onClick={this.changeCategory(item)} key={i}>{item.name}</div>
@@ -26,19 +29,39 @@ class SearchMenuWeb extends Component {
             <div className="py-2 color-grey pointer pl-4" key={i}>{item.name}</div>
         )
 
-	getRatings = () => {
+	getRatings = type => {
 		const list = Array.apply(null, Array(5))
+        const func = type === 'min_rating' ? this.productsFilter : this.vendorFilter
 		return list.map((item, i) => 
 			(<div className="py-2 color-grey" key={i}>
-                <SmallCheckBox onChange={this.handleCheckbox(i+1)}/>
+                <SmallSwitch
+                    className="d-inline-block"
+                    onChange={func} 
+                    value={i+1}
+                    checked={this.state[type]} />
                 <Stars wrapClass="pl-1" active={i+1} />
             </div>)
 		).reverse()
 	}
 
-    handleCheckbox = stars => e => {
-        console.log(e.target.checked)
-        console.log(stars)
+    getParam = param => {
+        const temp = Object.assign({}, this.state)
+        Object.keys(param).forEach(item => {
+            temp[item] = param[item]
+        })
+        return temp
+    }
+
+    productsFilter = val => {
+        this.setState({min_rating: val})
+        this.getData(this.props.type, this.props.catId, this.getParam({min_rating: val}))
+        store.dispatch(setFilters({min_rating: val}))
+    }
+
+    vendorFilter = val => {
+        this.setState({min_vendor_rating: val})
+        this.getData(this.props.type, this.props.catId, this.getParam({min_vendor_rating: val}))
+        store.dispatch(setFilters({min_vendor_rating: val}))
     }
 
     changeCategory = category => e => {
@@ -50,18 +73,18 @@ class SearchMenuWeb extends Component {
     getRangeSlider = () => {
         return  <div className="pl-4 py-2">
                     <div className="rounded border mb-2 color-grey px-2 py-1 d-inline-block">
-                        R$ {this.state.price.min}
+                        R$ {this.state.min_price}
                         <sup><small>,00</small></sup> - 
-                        R$ {this.state.price.max}
+                        R$ {this.state.max_price}
                         <sup><small>,00</small></sup>
                     </div>
-                    <RangeSlider onChange={this.changeRange} onComplete={this.rangeComplete} value={this.state.price} min={0} max={1000} />
+                    <RangeSlider onChange={this.changeRange} onComplete={this.rangeComplete} value={{min: this.state.min_price, max: this.state.max_price}} min={0} max={5000} />
                 </div>
     }
 
     rangeComplete = () => {
-        this.getData(this.props.type, this.props.catId, {min_price: this.state.price.min, max_price: this.state.price.max})
-        store.dispatch(setFilters({min_price: this.state.price.min, max_price: this.state.price.max}))
+        this.getData(this.props.type, this.props.catId, this.getParam({min_price: this.state.min_price, max_price: this.state.max_price}))
+        store.dispatch(setFilters({min_price: this.state.min_price, max_price: this.state.max_price}))
     }
 
     getData = (type, id, param) => {
@@ -78,11 +101,17 @@ class SearchMenuWeb extends Component {
 
     changeRange = value => {
         this.setState({
-            price: {
-                min: value.min,
-                max: value.max
-            }
+            min_price: value.min,
+            max_price: value.max
         })
+    }
+
+    componentWillMount() {
+        initialState = this.state
+    }
+
+    componentWillUnmount() {
+        store.dispatch(setFilters(initialState))
     }
 
     render() {
@@ -96,8 +125,8 @@ class SearchMenuWeb extends Component {
     			<CollapsedMenu title="Estado" body={<span></span>} />
     			<CollapsedMenu title="Provedor do serviço" body={<span></span>} />
                 <CollapsedMenu title="Promoção" body={<span></span>} />
-                <CollapsedMenu title="Avaliação do produto" body={this.getRatings()} />
-    			<CollapsedMenu title="Avaliação do vendedor" body={this.getRatings()} />
+                <CollapsedMenu title="Avaliação do produto" body={this.getRatings('min_rating')} />
+    			<CollapsedMenu title="Avaliação do vendedor" body={this.getRatings('min_vendor_rating')} />
 			</div>
         );
     }

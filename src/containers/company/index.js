@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import store from 'store'
 import { connect } from 'react-redux'
-import { getService, getServicesCategory } from 'actions/services'
-import { getCategoriesByType, setCategory } from 'actions'
-import { getProducts } from 'actions/products'
+import { getService, getVendorServices } from 'actions/services'
+import { getProducts, getProductsVendor } from 'actions/products'
 import Carousel from 'components/carousel'
 import Tabs from 'components/tabs'
 import Accordion from 'components/accordion'
@@ -35,18 +34,14 @@ class Company extends Component {
     }
 
 	componentWillMount() {
-		store.dispatch(getService(this.props.match.params.id))
-
-        store.dispatch(getProducts('pagination', {new_pagination: true, page_size: 8, page: 1}))
-
-        store.dispatch(getCategoriesByType('service')).then(res => {
+		store.dispatch(getService(this.props.match.params.id)).then(res => {
             if (res) {
-                store.dispatch(setCategory(res, 'service'))
-                res.forEach(item => {
-                    store.dispatch(getServicesCategory({category: item.id, page_size: 2}))
-                })
+                store.dispatch(getVendorServices(this.props.services.salon.id))
+                store.dispatch(getProductsVendor(this.props.services.salon.id))
             }
         })
+
+        store.dispatch(getProducts('pagination', {new_pagination: true, page_size: 8, page: 1}))
 	}
 
     showComment = () => e => {
@@ -138,7 +133,6 @@ class Company extends Component {
 
     render() {
     	const { salon } = this.props.services
-        const servicesCategories = this.props.categories.service
     	const products = this.props.product.pagination.items
     	const settings = {
             slidesToShow: 3,
@@ -183,7 +177,7 @@ class Company extends Component {
                                     {
                                         title: 'Serviços',
                                         onClick: this.hideComment,
-                                        content: <Accordion list={servicesCategories} />
+                                        content: <Accordion list={this.props.products.vendor_services} />
                                     }, {
                                         title: 'Profissionais',
                                         onClick: this.hideComment,
@@ -255,9 +249,9 @@ const mapStateToProps = state =>
         product: {
             pagination: state.products.pagination
         },
-        categories: {
-            service: state.categories.service
-        }
+        products: {
+            vendor_services: state.products.vendor_services
+        },
     })
 
 export default connect(

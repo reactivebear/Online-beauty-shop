@@ -61,6 +61,12 @@ export const changeQuantity = (id, val) => dispatch =>
         })
     )
 
+export const cartPurchase = (method, data) => dispatch => 
+    (
+        post(`api/cart/purchase/${method}`, true, data)
+        .then(json => json.status === 200)
+    )
+
 export const setCart = data => 
     ({
         type: types.SET_CART,

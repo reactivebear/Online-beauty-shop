@@ -14,7 +14,11 @@ class SendVouchersForm extends Component {
             message: this.message.value,
         }
         store.dispatch(sendVoucher(data))
-        console.log(data)
+        .then(res => {
+            if (res) {
+                this.props.onCancel()
+            }
+        })
     }
 
     render() {

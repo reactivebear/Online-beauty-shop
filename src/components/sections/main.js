@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import CategoryItem from 'components/cards/category'
 import Carousel from 'components/carousel'
 import ListMain from 'components/lists/main'
+import { getLang, getValue } from 'utils/lang'
 
 class MainSection extends Component {
 
@@ -33,10 +34,16 @@ class MainSection extends Component {
                 }
             ]
         }
+
         return (
             <div>
                 <div className="form-group">
-                    <div className="fs-28">Catálogo de <strong>{this.props.title}</strong></div>
+                    {
+                        getValue() === 'br'
+                        ?   <div className="fs-28">Catálogo de <strong>{this.props.title}</strong></div>
+                        :   <div className="fs-28">{getLang(this.props.title)}<strong> catalog</strong></div>
+                    }
+                    
                 </div>
                 <div className="form-group">
                     <div className="row">
@@ -48,7 +55,12 @@ class MainSection extends Component {
                     </div>
                 </div>
                 <div className="form-group">
-                    <div className="fs-28"><span className="text-capitalize">{this.props.title}</span> em <strong>destaque</strong></div>
+                    {
+                        getValue() === 'br'
+                        ?   <div className="fs-28"><span className="text-capitalize">{this.props.title}</span> em <strong>destaque</strong></div>
+                        :   <div className="fs-28"><span className="text-capitalize">Featured</span><strong> {getLang(this.props.title)}</strong></div>
+                    }
+                    
                 </div>
                 <ListMain type={this.props.type} />
             </div>    

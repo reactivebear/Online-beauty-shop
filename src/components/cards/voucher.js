@@ -6,10 +6,11 @@ import Price from 'components/price'
 import BtnMain from 'components/buttons/btn_main'
 import { SendVouchersForm } from 'components/forms'
 import Input from 'components/inputs/input'
+import { format } from 'utils/mask'
 
 class CardVoucher extends Component {
 	openSendVoucher = () => {
-		store.dispatch(toggleModal(true, SendVouchersForm, 'modal-sm', '', {id: 34, position: 'center'}))
+		store.dispatch(toggleModal(true, SendVouchersForm, 'modal-sm', '', {id: this.props.id, position: 'center'}))
 	}
 
 	socialForm = () => {
@@ -39,11 +40,11 @@ class CardVoucher extends Component {
 						<ImagePreview images={''} />
 					</div>
 					<div className="w-60 pl-2">
-						<div className="fs-16">Máscara Senscience  Inner Restore Intensif  500ml</div>
+						<div className="fs-16">{this.props.service.title}</div>
 						<div className="color-grey">
-							Vendido e realizado por <span className="color-green pointer">Olist</span>
+							Vendido e realizado por <span className="color-green pointer">{this.props.service.vendor.organization_name}</span>
 						</div>
-						<Price current={72} />
+						<Price current={this.props.service.price} />
 					</div>
 				</div>
 				<div className="row mb-3">
@@ -63,13 +64,13 @@ class CardVoucher extends Component {
 						<div className="color-grey">
 							Contato
 						</div>
-						<div>(11) 96162-1832</div>
+						<div>{format('phone', this.props.service.vendor.phone)}</div>
 					</div>
 					<div className="col-12">
 						<div className="color-grey">
 							Local
 						</div>
-						<div>Rua Diogo jacome, 447 Villa Nova Conceição</div>
+						<div>{`${this.props.service.vendor.address.title}, ${this.props.service.vendor.address.number}, ${this.props.service.vendor.address.street}`}</div>
 					</div>
 				</div>
 				{ 	

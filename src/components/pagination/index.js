@@ -40,7 +40,7 @@ class Pagination extends Component {
 
 	componentDidMount() {
 		setTimeout(() => {
-			console.log(this.container.offsetWidth)
+			
 		}, 500)
 	}
 

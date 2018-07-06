@@ -5,7 +5,6 @@ import { toggleModal } from 'actions/design'
 import { CardSmallForm } from 'components/forms'
 import CartTotal from 'components/cards/cart_total'
 import BtnMain from 'components/buttons/btn_main'
-import { getCreditCards } from 'actions/user'
 import Input from 'components/inputs/input'
 import { format } from 'utils/mask'
 
@@ -21,12 +20,6 @@ class StepThird extends Component {
 
     checkMask = (mask, field) => e => {
         this.cvv.value = format(mask, e.target.value)
-    }
-
-    componentWillMount() {
-        if (!this.props.user.guest) {
-            store.dispatch(getCreditCards())
-        }
     }
 
     getCardNumber = num => `****.****.****.${num.slice(-4)}`

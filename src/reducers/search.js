@@ -11,7 +11,9 @@ const initialState = {
     },
     filters: {
         min_price: 0,
-        max_price: 1000
+        max_price: 1000,
+        min_rating: 0,
+        min_vendor_rating: 0
     },
     type: 'alls',
     query: '',
@@ -28,9 +30,11 @@ export default function search(search = initialState, action = {}) {
                 [action.key]: action.data,
             })
         case types.SET_FILTERS:
-            return  Object.assign({}, search, { 
-                filters: action.data
+            const filters = Object.assign({}, search.filters)
+            Object.keys(action.data).forEach(item => {
+                filters[item] = action.data[item]
             })
+            return  Object.assign({}, search, {filters})
         case types.SET_SEARCH_QUERY:
             return Object.assign({}, search, { 
                 query: action.value

@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import store from 'store'
-import { getCredits } from 'actions/user.js'
-import { toggleModal } from 'actions/design.js'
+import { getCredits, getBundles } from 'actions/user'
+import { toggleModal } from 'actions/design'
 import Price from 'components/price'
-import BtnMain from 'components/buttons/btn_main.js'
+import BtnMain from 'components/buttons/btn_main'
 import Counter from 'components/counter'
 import { SendCreditsForm } from 'components/forms'
-import CardCredit from 'components/cards/credit.js'
+import CardCredit from 'components/cards/credit'
 
 class Credits extends Component {
 	constructor() {
@@ -24,6 +24,7 @@ class Credits extends Component {
 
 	componentWillMount() {
 		store.dispatch(getCredits())
+		store.dispatch(getBundles())
 	}
 
 	openModal = () => {

@@ -44,7 +44,7 @@ class AddressList extends Component {
 			    <div className="col-12 col-md-6">
                     <BtnMain
                         className="font-weight-bold btn-outline btn-block"
-                        onClick={() => history.push('add')}
+                        onClick={() => history.push(`/profile/${this.type}/add`)}
                         title={nameButton} />
                 </div>
                 <div className="col-12 mb-3"></div>

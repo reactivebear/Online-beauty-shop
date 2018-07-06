@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
-import { history } from 'store'
+import { connect } from 'react-redux'
+import store, { history } from 'store'
+import { setLanguage } from 'actions/design'
 import BtnMain from 'components/buttons/btn_main'
 
 class Footer extends Component {
+    setLanguage = e => {
+        store.dispatch(setLanguage(e.target.value))
+    }
+
     render() {
         return (
             <footer className="bg-dark text-white pt-3 font-avenir">
@@ -65,7 +71,7 @@ class Footer extends Component {
                                 </div>
                                 <div className="col-sm col-8 text-left">
                                     <p className="color-grey">Selecione um país/região</p>
-                                    <select className="form-control h-75">
+                                    <select className="form-control h-75" onChange={this.setLanguage} defaultValue={this.props.design.lang}>
                                         <option value="br">Brasil - Português</option>
                                         <option value="en">EUA - English</option>
                                     </select>
@@ -84,4 +90,13 @@ class Footer extends Component {
     }
 }
 
-export default Footer
+const mapStateToProps = state =>
+    ({
+        design: {
+            lang: state.design.lang
+        }
+    })
+
+export default connect(
+    mapStateToProps
+)(Footer)

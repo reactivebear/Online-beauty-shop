@@ -141,6 +141,15 @@ export const getCredits = () => dispatch =>
         })
     )
 
+export const getBundles = () => dispatch => 
+    (
+        get(`api/credit-bundles`).then(json => {
+            if (json.object) {
+                dispatch(setUserKey(json.object.total, 'credits_bundles'))
+            }
+        })
+    )
+
 export const sendCredits = data => dispatch => 
     (
         post(`api/credits/transfer`, true, data)
@@ -160,7 +169,7 @@ export const getVouchers = () => dispatch =>
     (
         post(`api/user/vouchers`, false, {search_text: ''}).then(json => {
             if (json.object) {
-                console.log(json.object)
+                dispatch(setUserKey(json.object, 'vouchers'))
             }
         })
     )
@@ -168,8 +177,9 @@ export const getVouchers = () => dispatch =>
 export const sendVoucher = data => dispatch => 
     (
         post(`api/user/voucher/transfer`, true, data).then(json => {
-            if (json.object) {
-                console.log(json.object)
+            if (json.status === 200) {
+                dispatch(getVouchers())
+                return true
             }
         })
     )
@@ -185,7 +195,7 @@ export const getReports = () => dispatch =>
 
 export const getPurchases = () => dispatch => 
     (
-        get(`api/user/purchases`).then(json => {
+        get(`api/user/purchases`, false).then(json => {
             if (json.object) {
                 dispatch(setUserKey(json.object, 'purchases'))
             }

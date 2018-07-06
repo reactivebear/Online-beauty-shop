@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { getLang } from 'utils/lang'
 
 class BtnGroup extends Component {
     printButtons = (item , i) => {
@@ -8,7 +9,7 @@ class BtnGroup extends Component {
                     type="button" 
                     onClick={item.onClick}
                     className={"btn btn-primary w-50 " + unactiveClass}>
-                    {item.title}
+                    {getLang(item.title)}
                 </button>
     }
     render = () =>

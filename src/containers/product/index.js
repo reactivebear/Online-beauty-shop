@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import { getProduct, getProductComments } from 'actions/products'
 import { addToCart } from 'actions/cart'
 import { toggleModal, toggleLightBox } from 'actions/design'
-import { getServicesCategory } from 'actions/services'
-import { getCategoriesByType, setCategory, addToWishList, removeFromWishList } from 'actions'
+import { getVendorServices } from 'actions/services'
+import { addToWishList, removeFromWishList } from 'actions'
 import ImageMultiPreview from 'components/images/multi_preview.js'
 import ImagePreview from 'components/images/preview.js'
 import Price from 'components/price'
@@ -33,16 +33,11 @@ class Product extends Component {
 		}
 		if (props.match.params.id) {
 			store.dispatch(getProduct(props.match.params.id))
+			.then(res => {
+				store.dispatch(getVendorServices(this.props.products.salon.id))
+			})
 			store.dispatch(getProductComments(props.match.params.id))
 		}
-		store.dispatch(getCategoriesByType('service')).then(res => {
-			if (res) {
-				store.dispatch(setCategory(res, 'service'))
-				res.forEach(item => {
-					store.dispatch(getServicesCategory({category: item.id, page_size: 2}))
-				})
-			}
-		})
 	}
 
 	changePage = page => {
@@ -209,8 +204,7 @@ class Product extends Component {
 	}
 
     render() {
-    	const { product, salon } = this.props.products
-    	const servicesCategories = this.props.categories.service
+    	const { product, salon, vendor_services } = this.props.products
         return (
         	<div className="bg-main pt-4">
 	        	<div className="font-avenir pt-2 bg-white">
@@ -274,7 +268,7 @@ class Product extends Component {
 		            					content: <div className="p-3"><MainList type="product" itemType="small" /></div>
 		            				}, {
 		            					title: 'Serviços',
-		            					content: <div className="p-3"><div className="row"><div className="col-md-8"><Accordion list={servicesCategories} /></div></div></div>
+		            					content: <div className="p-3"><div className="row"><div className="col-md-8"><Accordion list={vendor_services} /></div></div></div>
 		            				}, {
 		            					title: 'Avaliações',
 		            					content: <div className="p-3">{this.getReviewList()}</div>
@@ -296,10 +290,8 @@ const mapStateToProps = state =>
         products: {
         	product: state.products.product,
         	reviews: state.products.reviews,
-        	salon: state.products.salon
-        },
-        categories: {
-        	service: state.categories.service
+        	salon: state.products.salon,
+        	vendor_services: state.products.vendor_services
         }
     })
 

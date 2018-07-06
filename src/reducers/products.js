@@ -10,6 +10,7 @@ const initialState = {
         social_media: [],
         reviews: []
     },
+    vendor_services: [],
     pagination: {
         items: [],
         page: 1,
@@ -28,8 +29,23 @@ export default function products(products = initialState, action = {}) {
         	temp.product = action.data.product
         	temp.salon = action.data.salon
             return Object.assign({}, products, temp);
+        case types.SET_VENDOR_SERVICES:
+            let vendor_services = []
+            
+            action.data.forEach(item => {
+                let catKey = 0
+                const cat = vendor_services.find((i, key) => {
+                    catKey = key
+                    return i.id === item.category.id
+                })
+
+                cat ? vendor_services[catKey].list.push(item) : vendor_services.push({id: item.category.id, name: item.category.name, list: [item]})
+            })
+
+            return Object.assign({}, products, {
+                vendor_services
+            });
         case types.SET_PRODUCT_COMMENTS:
-            console.log(action.data)
             return Object.assign({}, products, {reviews: action.data.items});
         default:
             return products;

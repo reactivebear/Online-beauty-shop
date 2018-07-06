@@ -59,7 +59,7 @@ class AddressForm extends Component {
                 street: this.address.street.value,
                 number: this.address.number.value,
                 zipcode: this.address.cep.value.replace('-', ''),
-                complement: this.complement.value,
+                complement: this.address.complement.value,
                 district: this.address.district.value,
                 city: this.address.city.value,
                 state: this.address.state.value,
@@ -77,7 +77,7 @@ class AddressForm extends Component {
         const address = history.location.state || this.props.cart.guestAddress
         if (Object.keys(address).length) {
             address.zipcode = format('cep', address.zipcode)
-            address.phone = format('cellphone', address.phone)
+            address.phone = address.phone ? format('cellphone', address.phone) : ''
         }
 
         return (

@@ -1,13 +1,36 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import store, { history } from 'store'
-import { setStep, setUseCredits } from 'actions/cart'
+import { setStep, setUseCredits, cartPurchase } from 'actions/cart'
 import BtnMain from 'components/buttons/btn_main'
 import Price from 'components/price'
 import CheckBox from 'components/inputs/checkbox'
+import { card_types } from 'config'
 
 class CartTotal extends Component {
 	changeStep = last => e => {
+		if (this.props.step === last - 1 || (this.props.step === 4 && last === 4)) {
+			const method = this.props.cart.use_credits ? 'credits' : 'cielo'
+			const card = this.props.user.guest ? this.props.cart.guestCard : this.props.user.default_card
+			const card_brand = card_types.find(item => item.pattern.test(card.card_number)) ? card_types.find(item => item.pattern.test(card.card_number)).name : ''
+			const data = {
+				first_name: this.props.user.data.first_name,
+				last_name: this.props.user.data.last_name,
+				card_number: card.card_number,
+				expiry_month: card.validity_month,
+				expiry_year: card.validity_year,
+				cvv: card.cvv,
+				card_brand: card_brand,
+			}
+
+			store.dispatch(cartPurchase(method, data))
+			.then(res => {
+				if (res) {
+					store.dispatch(setStep(this.props.step+1))
+				}
+			})
+			return
+		}
 		if (this.props.step < last) {
 			store.dispatch(setStep(this.props.step+1))
 		}
@@ -139,14 +162,18 @@ const mapStateToProps = state =>
             data: {
             	credit_amount: state.user.data.credit_amount,
             	main_address: state.user.data.main_address,
+            	first_name: state.user.data.first_name,
+            	last_name: state.user.data.last_name,
             },
             guest: state.user.guest,
             credits: state.user.credits,
             dollar_value: state.user.dollar_value,
+            default_card: state.user.default_card
         },
         cart: {
         	list: state.cart.list,
         	guestAddress: state.cart.guestAddress,
+        	guestCard: state.cart.guestCard,
         	use_credits: state.cart.use_credits,
         	total: state.cart.total,
         }

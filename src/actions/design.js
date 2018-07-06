@@ -2,6 +2,7 @@ import * as types from './types.js'
 import { DEFAULT_IMG } from 'config'
 import store from 'store'
 import { addSwipe, removeSwipe } from 'utils'
+import Cookies from 'js-cookie'
 
 export const toggleSideMenu = state => {
     const el = document.getElementById('main-wrap')
@@ -78,3 +79,11 @@ export const toggleLightBox = (open, img, current) =>
         type: types.TOGGLE_LIGHT_BOX,
         data: {img: img.length ? img : [DEFAULT_IMG, DEFAULT_IMG, DEFAULT_IMG, DEFAULT_IMG], open, current},
     })
+
+export const setLanguage = value => {
+    Cookies.set('lang', value)
+    return {
+        type: types.SET_LANGUAGE,
+        value
+    }
+}

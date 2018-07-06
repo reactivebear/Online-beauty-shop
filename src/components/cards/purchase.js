@@ -17,6 +17,7 @@ class CardPurchase extends Component {
 
     render() {
     	const { products, services } = this.props.items
+
         return (
         	<div className="rounded bg-white border p-3 mb-3 h-100">
         		<div className="d-flex align-items-end flex-column bd-highlight h-100">

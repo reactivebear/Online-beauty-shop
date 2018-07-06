@@ -1,7 +1,9 @@
 import * as types from 'actions/types.js'
 import { DEFAULT_IMG } from 'config'
+import Cookies from 'js-cookie'
 
 const initialState = {
+    lang: Cookies.get('lang') || 'br',
     sideMenu: false,
     leftMenu: {
         state: false,
@@ -54,6 +56,10 @@ export default function design(design = initialState, action = {}) {
         case types.SET_LOCATION:
             return Object.assign({}, design, {
                location: action.location
+            });
+        case types.SET_LANGUAGE:
+            return Object.assign({}, design, {
+               lang: action.value
             });
         case types.SHOW_ALERT:
             let tempMessages = Object.assign([], design.alerts.messages)

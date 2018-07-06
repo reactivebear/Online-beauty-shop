@@ -20,6 +20,15 @@ export const getService = id => dispatch =>
         })
     )
 
+export const getVendorServices = id => dispatch => 
+    (
+        get(`api/services/vendor/${id}`, false).then(json => {
+            if (json.object) {
+                dispatch(setVendorServices(json.object))
+            }
+        })
+    )
+
 /*export const getProffesionalHours = id => dispatch => 
     (
         get(`api/professional/${id}/working-hours`, false).then(json => {
@@ -55,5 +64,11 @@ export const setServiceCategory = (catId, data) =>
     ({
         type: types.SET_SERVICE_CATEGORY,
         catId,
+        data
+    })
+
+export const setVendorServices = data => 
+    ({
+        type: types.SET_VENDOR_SERVICES,
         data
     })

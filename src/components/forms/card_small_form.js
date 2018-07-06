@@ -19,11 +19,13 @@ class CardForm extends Component {
     }
 
     saveCard = () => {
+        const [m, y] = this.card.validity_month.value.split('/')
         const data = {
             card_name: this.card.card_name.value,
             name_on_card: this.card.name_on_card.value,
-            card_number: this.card.card_number.value,
-            validity_month: this.card.validity_month.value,
+            card_number: this.card.card_number.value.replaceAll('\\.', ''),
+            validity_month: m,
+            validity_year: y,
             cvv: this.card.cvv.value,
         }
         store.dispatch(setGuestInfo(data, 'guestCard'))

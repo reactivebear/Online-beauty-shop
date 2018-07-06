@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import CardVoucher from 'components/cards/voucher'
 import store from 'store'
 import { getVouchers } from 'actions/user'
@@ -10,18 +11,26 @@ class Vouchers extends Component {
 
 	printList = (item, i) => {
 		return 	<div key={i} className="col-lg-6 mb-3">
-					<CardVoucher buttons />
+					<CardVoucher {...item} buttons />
 				</div>
 	}
 
 	render() {
-		const list = ['', '']
 		return (
 			<div className="row">
-				{ list.map((item, i) => this.printList(item, i)) }
+				{ this.props.user.vouchers.map((item, i) => this.printList(item, i)) }
 			</div>
 		)
 	}
 }
 
-export default Vouchers
+const mapStateToProps = state => 
+	({
+        user: {
+        	vouchers:  state.user.vouchers
+        }
+    })
+
+export default connect(
+    mapStateToProps
+)(Vouchers)
