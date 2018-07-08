@@ -39,7 +39,8 @@ class CardService extends Component {
 		this.setState({active})
 	}
 
-	addToCart = () => {
+	addToCart = e => {
+		e.stopPropagation()
 		store.dispatch(addToCart(this.props.id, 'service', {quantity: 1}))
 	}
 
@@ -60,11 +61,13 @@ class CardService extends Component {
 		})
 	}
 
-	addToScheduleCart = () => {
+	addToScheduleCart = e => {
+		e.stopPropagation()
 		history.push(`/schedule/${this.props.id}`, this.props)
 	}
 
-	goToSalon = () => {
+	goToSalon = e => {
+		e.stopPropagation()
 		history.push(`/salon/${this.props.id}`)
 	}
 
