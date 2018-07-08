@@ -18,6 +18,10 @@ class CardService extends Component {
 
 	toggleCard = e => {
 		e.stopPropagation()
+		if (this.state.active && document.body.clientWidth > 768) {
+			this.goToSalon()
+		}
+
 		this.setState({
 			active: !this.state.active
 		})
@@ -28,7 +32,6 @@ class CardService extends Component {
 		if (document.body.clientWidth > 768) {
 			this.setState({active})
 		}
-		
 	}
 
 	setCardFalse = active => e => {

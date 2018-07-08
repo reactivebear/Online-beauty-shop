@@ -9,7 +9,7 @@ class StepThird extends Component {
         	<div className="row pb-5">
         		<div className="col-sm-5">
                     <h4>Voucher do serviço</h4>
-                    <CardVoucher />
+                    {/*<CardVoucher />*/}
         		</div>
                 <div className="col-sm-1">
                 </div>

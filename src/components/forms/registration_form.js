@@ -138,6 +138,7 @@ class RegistrationForm extends Component {
                     required
                     type="password"
                     label="Senha"
+                    className="mb-5"
                     value={''}
                     inputRef={ref => this.auth.password = ref} />
                 <SmallSwitch

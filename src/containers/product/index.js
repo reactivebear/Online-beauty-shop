@@ -198,13 +198,20 @@ class Product extends Component {
 	openLightBox = () => {
 		store.dispatch(toggleLightBox(true, [
 			{src: '/assets/images/default-image-square-big.png'},
-			{src: '/assets/images/default-image-square-big.png'},
-			{src: '/assets/images/default-image-square-big.png'},
+			{src: '/assets/images/default-image-square-big-blue.png'},
+			{src: '/assets/images/default-image-square-big-green.png'},
+			{src: '/assets/images/default-image-square-big-orange.png'},
 		]))
 	}
 
     render() {
     	const { product, salon, vendor_services } = this.props.products
+    	product.images = [
+    				{image_url: '/assets/images/default-image-square-big.png'},
+					{image_url: '/assets/images/default-image-square-big-blue.png'},
+					{image_url: '/assets/images/default-image-square-big-green.png'},
+					{image_url: '/assets/images/default-image-square-big-orange.png'},
+				]
         return (
         	<div className="bg-main pt-4">
 	        	<div className="font-avenir pt-2 bg-white">
@@ -212,7 +219,7 @@ class Product extends Component {
 			            <div className="row">
 			            	<div className="col-12 col-sm-4">
 			            		<ImageMultiPreview onClick={this.openLightBox} className="d-none d-sm-flex" images={product.images} />
-			            		<ImagePreview className="d-block d-sm-none" images={product.images} />
+			            		{/*<ImagePreview className="d-block d-sm-none" images={product.images} />*/}
 			            	</div>
 			            	<div className="col-12 col-sm-8">
 			            		<h4>
@@ -268,6 +275,7 @@ class Product extends Component {
 		            					content: <div className="p-3"><MainList type="product" itemType="small" /></div>
 		            				}, {
 		            					title: 'Serviços',
+		            					hide: !vendor_services.length,
 		            					content: <div className="p-3"><div className="row"><div className="col-md-8"><Accordion list={vendor_services} /></div></div></div>
 		            				}, {
 		            					title: 'Avaliações',

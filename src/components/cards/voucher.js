@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import store from 'store'
+import store, { history } from 'store'
 import { toggleModal } from 'actions/design'
 import ImagePreview from 'components/images/preview'
 import Price from 'components/price'
@@ -32,7 +32,12 @@ class CardVoucher extends Component {
 		store.dispatch(toggleModal(true, this.socialForm, 'modal-sm', 'Social', {position: 'center'}))
 	}
 
+	addToScheduleCart = () => {
+		history.push(`/schedule/${this.props.service.id}`, this.props.service)
+	}
+
 	render() {
+		console.log(this.props)
 		return (
 			<div className="bg-white rounded p-3">
 				<div className="d-flex">
@@ -87,6 +92,7 @@ class CardVoucher extends Component {
 									className="btn-block btn-outline" />
 								<BtnMain
 									title="Agendar"
+									onClick={this.addToScheduleCart}
 									className="btn-block" />
 							</div>
 						</div>

@@ -16,7 +16,6 @@ class CommentForm extends Component {
 
 	sendComment = () => {
         const data = {
-            name: this.name.value,
             comment: this.message.value,
             rating: this.state.rating
         }
@@ -67,12 +66,6 @@ class CommentForm extends Component {
                 <div className="text-center">
                     &nbsp;{ level }&nbsp;
                 </div>
-            	<div className="color-grey">
-            		<Input 
-                        required
-                        label="Nome"
-                        inputRef={ref => this.name = ref} />
-            	</div>
             	<div className="color-grey">
             		<TextArea 
                         required

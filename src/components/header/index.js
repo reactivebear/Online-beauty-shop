@@ -150,7 +150,7 @@ class Header extends Component {
                                         <img src="/assets/icons/pin-icon.png" id="zip" className="img-icon-header align-middle" alt="" />
                                         <div className="align-middle d-inline-block pl-2" id="zip">
                                             Encontre serviços<br />
-                                            <strong id="zip">{this.props.user.guest ? 'Selecionar endereço' : `${address.title} ${address.zipcode}`}</strong>
+                                            <strong id="zip">{this.props.user.guest ? 'Selecionar endereço' : (address ? `${address.title} ${address.zipcode}`: `Selecione um endereço`)}</strong>
                                         </div>
                                         { this.state.tooltip === 'zip' ? <div className="tooltip-background z-index-3"></div> : '' }
                                         {

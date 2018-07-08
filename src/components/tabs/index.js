@@ -11,16 +11,20 @@ class Tabs extends Component {
 	}
 
 	printLink = (item, i) => {
-		const className =  i + 1 === this.state.active ? 'nav-link active' : 'nav-link'
-		item.onClick = item.onClick ? item.onClick : () => {}
-		return 	<li key={i} className="nav-item" onClick={item.onClick()}>
-					<span className={`${className} pointer pb-3`} id="home-tab" onClick={this.toggleTab(i)}>{item.title}</span>
-				</li>
+		if(!item.hide) {
+			const className =  i + 1 === this.state.active ? 'nav-link active' : 'nav-link'
+			item.onClick = item.onClick ? item.onClick : () => {}
+			return 	<li key={i} className="nav-item" onClick={item.onClick()}>
+						<span className={`${className} pointer pb-2`} id="home-tab" onClick={this.toggleTab(i)}>{item.title}</span>
+					</li>
+		}
 	}
 
 	printContent = (item, i) => {
-		const className = i + 1 === this.state.active ? 'tab-pane fade show active' : 'tab-pane fade'
-		return <div key={i} className={className} id="home">{React.cloneElement(item.content, { isactive: (i + 1 === this.state.active).toString() })}</div>
+		if(!item.hide) {
+			const className = i + 1 === this.state.active ? 'tab-pane fade show active' : 'tab-pane fade'
+			return <div key={i} className={className} id="home">{React.cloneElement(item.content, { isactive: (i + 1 === this.state.active).toString() })}</div>
+		}
 	}
 
     render() {
