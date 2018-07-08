@@ -19,7 +19,7 @@ class CardService extends Component {
 	toggleCard = e => {
 		e.stopPropagation()
 		if (this.state.active && document.body.clientWidth > 768) {
-			this.goToSalon()
+			history.push(`/salon/${this.props.id}`)
 		}
 
 		this.setState({
