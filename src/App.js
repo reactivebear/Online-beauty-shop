@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import routing from 'config/route.js'
+import routing from 'config/route'
 import store, { history } from 'store'
 import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import 'App.css'
 import Footer from 'components/footer'
-import * as pages from './containers'
-import { loginAsGuest, keepToken } from 'actions/auth.js'
-import { setLocation, toggleSideMenu } from 'actions/design.js'
+import * as pages from 'containers'
+import { loginAsGuest, keepToken } from 'actions/auth'
+import { setLocation, toggleSideMenu } from 'actions/design'
 import Header from 'components/header'
 import SideMenu from 'components/menu/side_menu'
 import LeftMenu from 'components/menu/left_menu'
@@ -42,7 +42,6 @@ class App extends Component {
     render() {
         const { approve_token, guest } = this.props.user
         const key = !guest ? 'private' : 'public'
-        const routes = routing[key]
         const unactiveClass = this.props.design.sideMenu ? 'unactive' : ''
         return (
             <div className="App">
@@ -54,11 +53,10 @@ class App extends Component {
                             <div id="main-wrap" className={`main-wrap ${unactiveClass}`} style={{overflowX: 'unset'}}>
                                 <Header />
                                 <Switch>
-                                    { routes.map((route, i) => this.printRoutes(route, i)) }
+                                    { routing[key].map((route, i) => this.printRoutes(route, i)) }
                                 </Switch>
                                 <Footer />
                             </div>
-                            
                             <SideMenu />
                             <LeftMenu />
                             <Modal />

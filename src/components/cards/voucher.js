@@ -37,7 +37,6 @@ class CardVoucher extends Component {
 	}
 
 	render() {
-		console.log(this.props)
 		return (
 			<div className="bg-white rounded p-3">
 				<div className="d-flex">

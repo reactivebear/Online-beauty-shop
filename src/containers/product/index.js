@@ -6,6 +6,7 @@ import { addToCart } from 'actions/cart'
 import { toggleModal, toggleLightBox } from 'actions/design'
 import { getVendorServices } from 'actions/services'
 import { addToWishList, removeFromWishList } from 'actions'
+import { calcDelivery } from 'actions/user'
 import ImageMultiPreview from 'components/images/multi_preview.js'
 import ImagePreview from 'components/images/preview.js'
 import Price from 'components/price'
@@ -151,10 +152,6 @@ class Product extends Component {
 			</div>
 		)
 
-	buy = () => {
-		
-	}
-
 	toggleWish = val => {
 		val ? store.dispatch(addToWishList('product', this.props.products.product.id)) : store.dispatch(removeFromWishList('product', this.props.products.product.id))
 	}
@@ -204,6 +201,10 @@ class Product extends Component {
 		]))
 	}
 
+	calcDelivery = () => {
+		store.dispatch(calcDelivery(this.props.user.data.main_address.id))
+	}
+
     render() {
     	const { product, salon, vendor_services } = this.props.products
     	product.images = [
@@ -219,7 +220,7 @@ class Product extends Component {
 			            <div className="row">
 			            	<div className="col-12 col-sm-4">
 			            		<ImageMultiPreview onClick={this.openLightBox} className="d-none d-sm-flex" images={product.images} />
-			            		{/*<ImagePreview className="d-block d-sm-none" images={product.images} />*/}
+			            		<ImagePreview className="d-block d-sm-none" images={product.images} />
 			            	</div>
 			            	<div className="col-12 col-sm-8">
 			            		<h4>
@@ -242,7 +243,7 @@ class Product extends Component {
 			            		</div>
 			            		<div className="row form-group">
 			            			<div className="col-6 col-sm-3">
-				            			<span className="color-green pointer">Calcular frete</span><br />
+				            			<span className="color-green pointer" onClick={this.calcDelivery}>Calcular frete</span><br />
 				            			<Counter onChange={val => this.count = val} value={this.count} />
 			            			</div>
 			            		</div>
@@ -300,6 +301,11 @@ const mapStateToProps = state =>
         	reviews: state.products.reviews,
         	salon: state.products.salon,
         	vendor_services: state.products.vendor_services
+        },
+        user: {
+        	data: {
+        		main_address: state.user.data.main_address
+        	}
         }
     })
 

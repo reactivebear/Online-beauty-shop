@@ -63,8 +63,7 @@ class Search extends Component {
 								</div>
     						</div>
     					: 	''
-    				}
-                    {
+    				} {
                         ![...products.list, ...services.list].length
                         ?   <div className="row justify-content-center not-found-wrap">
                                 <div className="col-xl-6 col-md-7 col-sm-10 col-12">

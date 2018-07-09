@@ -97,6 +97,15 @@ export const removeAddress = id => dispatch =>
         })
     )
 
+export const calcDelivery = id => dispatch => 
+    (
+        get(`api/cart/delivery/${id}`).then(json => {
+            if (json.object) {
+                console.log(json.object)
+            }
+        })
+    )
+
 export const toggleDefaultAddress = (id, state) => dispatch => 
     (
         put(`api/user/address/${id}`, true, {default: state}).then(json => {

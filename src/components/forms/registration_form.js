@@ -30,44 +30,6 @@ class RegistrationForm extends Component {
         }
     }
 
-    /*readFile = (file, index) => {
-        const reader = new FileReader()
-        reader.readAsText(file)
-        reader.onload = () => {
-            const array = reader.result.split("\n").filter(item => item.indexOf('=') + 1 || ! item)
-            const data = {}
-            array.forEach(item => {
-                const [key, val] = item.split('=')
-                if (val) {
-                    data[key.trim()] = val.replaceAll('"', '').replaceAll('\'', '').trim()
-                }
-            })
-            const key = index ? 'en' : 'br'
-            langList[key] = data
-            
-            if (index) {
-                const res = {}
-                Object.keys(langList.br).forEach(item => {
-                    Object.keys(langList.en).forEach(enItem => {
-                        if (enItem === item) {
-                            res[langList.br[item]] = langList.en[item]
-                        }
-                    })
-                })
-                console.log(JSON.stringify(res))
-            }
-        }
-    }
-    
-
-    lang = e => {
-        if (e.target.files) {
-            for (var i = 0; i < e.target.files.length; i++) {
-                this.readFile(e.target.files[i], i)
-            }
-        }
-    }*/
-
     registration = pos => {
         let data = {
             email: this.auth.email.value,
