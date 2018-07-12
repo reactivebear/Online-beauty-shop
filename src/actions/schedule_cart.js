@@ -1,5 +1,5 @@
 import * as types from './types.js'
-import { get } from 'api'
+import { get, post } from 'api'
 
 export const setScheduleCart = data => 
     ({
@@ -25,6 +25,13 @@ export const getProffesional = prof => dispatch =>
             if (json.object) {
                 dispatch(setProffesional({data: prof, hours: json.object}))
             }
+        })
+    )
+
+export const makeAppointment = serviceId => dispatch => 
+    (
+        post(`api/appointment/new/${serviceId}`, true).then(json => {
+            console.log(json)
         })
     )
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import store from 'store'
-import { getUserAddress, getCredits } from 'actions/user'
+import { getUserAddress, getCredits, calcDelivery } from 'actions/user'
 import { setStep } from 'actions/cart'
 import StepsArrow from 'components/steps/steps_arrow'
 import { StepFirst, StepSecond, StepThird, StepFourth, StepFifth } from 'components/cart'
@@ -10,10 +10,15 @@ import { getCreditCards } from 'actions/user'
 class Cart extends Component {
 	constructor(props) {
 		super(props)
+		this.state = {
+			getDelivery: false
+		}
+
 		store.dispatch(getUserAddress())
 		store.dispatch(getCredits())
 		if (!props.user.guest) {
             store.dispatch(getCreditCards())
+
         }
 	}
 
@@ -23,6 +28,13 @@ class Cart extends Component {
 
 	componentWillMount() {
 		store.dispatch(setStep(1))
+	}
+
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.user.data.main_address.id && ! this.props.cart.delivery_types.length && !this.state.getDelivery) {
+			store.dispatch(calcDelivery(nextProps.user.data.main_address.id))
+			this.setState({getDelivery: true})
+		}
 	}
 
 	getStepContent = () => {
@@ -67,9 +79,15 @@ const mapStateToProps = state =>
         cart: {
         	step: state.cart.step,
         	list: state.cart.list,
+        	delivery_types: state.cart.delivery_types,
         },
         user: {
-        	guest: state.user.guest
+        	guest: state.user.guest,
+        	data: {
+        		main_address: {
+        			id: state.user.data.main_address.id
+        		}
+        	}
         }
     })
 

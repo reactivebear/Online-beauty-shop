@@ -3,9 +3,8 @@ import store from 'store'
 import { sendProductComment, getProductComments } from 'actions/products'
 import { sendSalonComment, getService } from 'actions/services'
 import Stars from 'components/stars'
-import Input from 'components/inputs/input.js'
-import TextArea from 'components/inputs/textarea.js'
-import BtnMain from 'components/buttons/btn_main.js'
+import TextArea from 'components/inputs/textarea'
+import BtnMain from 'components/buttons/btn_main'
 
 class CommentForm extends Component {
 

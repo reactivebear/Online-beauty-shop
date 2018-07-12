@@ -29,13 +29,13 @@ class Price extends Component {
         const centOld = old[1] ? old[1].length > 1 ? old[1] : `${old[1]}0` : '00'
 
         return (
-            <div className={this.props.className} style={{marginBottom: -7}}>
+            <div className={this.props.className}>
                 {
                     this.props.old
                     ?   <span><span className="price-old fs-18">R$ {this.format(old[0])}<sup><small>,{centOld}</small></sup></span>&nbsp;&nbsp;&nbsp;</span>
                     :   ''
                 }
-                <span className="fs-22">R$ {this.format(current[0])}<sup><small>,{cent}</small></sup></span>
+                <span className="fs-22" style={this.props.style}>R$ {this.format(current[0])}<sup><small>,{cent}</small></sup></span>
             </div>
         );
     }

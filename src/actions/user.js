@@ -1,6 +1,7 @@
 import { put, get, post, patch, remove, image } from 'api'
-import * as types from './types.js'
-import { setUser } from './auth.js'
+import * as types from './types'
+import { setUser } from './auth'
+import { setDeliveryTypes } from './cart'
 
 export const updateUser = data => dispatch => 
     (
@@ -101,7 +102,8 @@ export const calcDelivery = id => dispatch =>
     (
         get(`api/cart/delivery/${id}`).then(json => {
             if (json.object) {
-                console.log(json.object)
+                dispatch(setDeliveryTypes(json.object))
+                return true
             }
         })
     )
@@ -154,7 +156,7 @@ export const getBundles = () => dispatch =>
     (
         get(`api/credit-bundles`).then(json => {
             if (json.object) {
-                dispatch(setUserKey(json.object.total, 'credits_bundles'))
+                dispatch(setUserKey(json.object, 'credits_bundles'))
             }
         })
     )

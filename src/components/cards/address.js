@@ -46,7 +46,7 @@ class AddressCard extends Component {
                 <div className="color-grey mb-2 fs-18">{`${item.street}, ${item.number}`}</div>
                 <div className="color-grey mb-2 fs-18">{`${item.state}, ${item.city}, ${item.zipcode}`}</div>
                 <div className="color-grey mb-2 fs-18">{`${item.country}`}</div>
-                <div className="color-grey mb-3 fs-18">{`${item.phone}`}</div>
+                <div className="color-grey mb-3 fs-18">{`${item.recipient_phone}`}</div>
                 <BtnMain
                     className="font-weight-bold btn-outline btn-block"
                     onClick={this.gotoAddress('edit', item)}

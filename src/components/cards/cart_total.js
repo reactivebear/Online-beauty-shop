@@ -31,8 +31,13 @@ class CartTotal extends Component {
 			})
 			return
 		}
+
 		if (this.props.step < last) {
 			store.dispatch(setStep(this.props.step+1))
+		}
+
+		if (this.props.step === last) {
+			history.push('/')
 		}
 	}
 
@@ -149,7 +154,7 @@ class CartTotal extends Component {
 					<BtnMain
 	                    className="btn-block font-weight-bold"
 	                    onClick={this.changeStep(lastStep)}
-	                    title="Continuar" />
+	                    title={this.props.step === lastStep ? 'Continuar comprando' : 'Continuar'} />
                 </div>
 			</div>
 		)

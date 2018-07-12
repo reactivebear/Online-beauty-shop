@@ -6,7 +6,7 @@ class StepsRound extends Component {
 		const activeClass = i + 1 <= this.props.active ? 'active' : ''
 		const title = i + 1 === this.props.active ? <b>{item}</b> : item
 		return  <div key={i} className="wrap-point position-relative">
-	            	<div onClick={this.props.onClick(i+1)} className={`steps-point p-2 border-green pointer ${activeClass}`}></div>
+	            	<div className={`steps-point p-2 border-green ${activeClass}`}></div>
 	            	<div className="position-absolute point-text text-sm-nowrap text-sm-left pt-1">{title}</div>
             	</div>
 	}

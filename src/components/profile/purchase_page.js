@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
-import StepsRound from 'components/steps/steps_round.js'
+import StepsRound from 'components/steps/steps_round'
 import Price from 'components/price'
 
 class PurchasePage extends Component {
-	state = {
-		step: 1
-	}
 
-	changeStep = step => e => {
-		this.setState({step})
+	getDeliveryStatus = status => {
+		switch(status) {
+			case 'none': return 1;
+			case 'pending': return 2;
+			case 'posted': return 3;
+			case 'finished': return 4;
+			default: return 1;
+		}
 	}
 
     render() {
@@ -16,7 +19,7 @@ class PurchasePage extends Component {
         return (
         	<div>
         		<div className="mb-3">
-	            	<StepsRound active={this.state.step} onClick={this.changeStep} />
+	            	<StepsRound active={this.getDeliveryStatus(purchase.delivery_status)} />
 	            </div>
 	            <div className="row">
 	            	<div className="col-sm-6">

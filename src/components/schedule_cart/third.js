@@ -15,7 +15,7 @@ class StepThird extends Component {
                 </div>
         		<div className="col-sm-6">
         			<h4>Resumo do pedido</h4>
-                    <ScheduleCartTotal value={this.props.cart.total} step={this.props.step} />
+                    <ScheduleCartTotal value={this.props.cart.total} serviceId={this.props.service.id} step={this.props.step} />
         		</div>
         	</div>
         );

@@ -4,7 +4,7 @@ import { RegistrationForm } from 'components/forms'
 
 class Registration extends Component {
 	state = {
-		form: 'personal'
+		form: 'client'
 	}
 
 	toggleForm = value => {
@@ -28,13 +28,13 @@ class Registration extends Component {
 			    				<div className="d-flex mb-3">
 				    				<SmallSwitch
 				    					onChange={this.toggleForm} 
-		                                value="personal"
+		                                value="client"
 		                                title="Pessoal"
 		                                checked={this.state.form} />
 	                                <SmallSwitch
 	                                	className="pl-3"
 				    					onChange={this.toggleForm} 
-		                                value="company"
+		                                value="vendor"
 		                                title="Empresa"
 		                                checked={this.state.form} />
                                 </div>

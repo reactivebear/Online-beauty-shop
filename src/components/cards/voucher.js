@@ -5,31 +5,11 @@ import ImagePreview from 'components/images/preview'
 import Price from 'components/price'
 import BtnMain from 'components/buttons/btn_main'
 import { SendVouchersForm } from 'components/forms'
-import Input from 'components/inputs/input'
 import { format } from 'utils/mask'
 
 class CardVoucher extends Component {
 	openSendVoucher = () => {
 		store.dispatch(toggleModal(true, SendVouchersForm, 'modal-sm', '', {id: this.props.id, position: 'center'}))
-	}
-
-	socialForm = () => {
-		return 	<div>
-					<div className="mb-1">Click to share on:</div>
-					<div className="mb-3">
-						<i className="fab fa-facebook-square fa-2x color-facebook mr-2 pointer"></i>
-						<i className="fab fa-google-plus-square fa-2x color-google mr-2 pointer"></i>
-						<i className="fab fa-twitter-square fa-2x color-twitter pointer"></i>
-					</div>
-					<Input
-	                    label="Or copy link:"
-	                    readonly
-	                    value={'https://g.co/doodle/bp37sm'} />
-				</div>
-	}
-
-	openSocialSend = () => {
-		store.dispatch(toggleModal(true, this.socialForm, 'modal-sm', 'Social', {position: 'center'}))
 	}
 
 	addToScheduleCart = () => {
@@ -84,10 +64,6 @@ class CardVoucher extends Component {
 								<BtnMain
 									title="Enviar para..."
 									onClick={this.openSendVoucher}
-									className="btn-block btn-outline" />
-								<BtnMain
-									title="Compartilhar"
-									onClick={this.openSocialSend}
 									className="btn-block btn-outline" />
 								<BtnMain
 									title="Agendar"

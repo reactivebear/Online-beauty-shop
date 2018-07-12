@@ -1,13 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import store from 'store'
-import { setScheduleStep, setScheduleUseCredits } from 'actions/schedule_cart'
+import store, { history } from 'store'
+import { setScheduleStep, setScheduleUseCredits, makeAppointment } from 'actions/schedule_cart'
 import BtnMain from 'components/buttons/btn_main.js'
 import Price from 'components/price'
 import CheckBox from 'components/inputs/checkbox.js'
 
 class ScheduleCartTotal extends Component {
 	changeStep = () => {
+		
+		if (this.props.step === 3) {
+			console.log(this.props.serviceId)
+			store.dispatch(makeAppointment(this.props.serviceId))
+			return
+		}
 		store.dispatch(setScheduleStep(this.props.step+1))
 	}
 
@@ -74,6 +80,7 @@ class ScheduleCartTotal extends Component {
 				                    title="Continuar comprando" />
 			                    <BtnMain
 				                    className="btn-block font-weight-bold"
+				                    onClick={() => history.push('/', {active: 'service'})}
 				                    title="Agendar serviços" />
 		                    </div>
 						: 	''
@@ -102,6 +109,9 @@ const mapStateToProps = state =>
         schedule_cart: {
         	use_credits: state.schedule_cart.use_credits,
         	total: state.schedule_cart.total,
+        },
+        services: {
+            salon: state.services.salon
         }
     })
 

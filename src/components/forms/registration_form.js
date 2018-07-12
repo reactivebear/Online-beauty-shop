@@ -41,14 +41,14 @@ class RegistrationForm extends Component {
             }*/
         }
         
-        if (this.props.type === 'personal') {
+        if (this.props.type === 'client') {
             data.first_name = this.auth.first_name.value
             data.last_name = this.auth.last_name.value
         } else {
             data.cnpj = this.auth.cnpj.value
             data.company_name = this.auth.company_name.value
         }
-        store.dispatch(registration(data))
+        store.dispatch(registration(data, this.props.type))
     }
 
     toggleTerms = terms => {
@@ -63,7 +63,7 @@ class RegistrationForm extends Component {
         return (
         	<div>
                 {
-                    this.props.type === 'personal'
+                    this.props.type === 'client'
                     ?   <div>
                             <Input 
                                 required

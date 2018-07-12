@@ -52,9 +52,9 @@ export const keepToken = () => dispatch =>
         })
     )
 
-export const registration = data => dispatch => 
+export const registration = (data, type) => dispatch => 
     (
-        post('signup/client', true, data).then(json => {
+        post(`signup/${type}`, true, data).then(json => {
             if (json.object) {
                 history.push('/')
             }
@@ -78,6 +78,9 @@ export const checkHash = data => dispatch =>
 export const setUser = data => {
     if (!data.user_image) {
         data.user_image = {}
+    }
+    if (!data.main_address) {
+        data.main_address = {}
     }
     return {
         type: types.SET_USER,

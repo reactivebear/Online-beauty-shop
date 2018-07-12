@@ -23,7 +23,10 @@ class AddressForm extends Component {
             const data = {
                 id: history.location.state ? history.location.state.id : '',
                 title: this.address.title.value,
-                phone: this.address.phone.value.replace('(', '').replace(')', '').replace(' ', '').replace('-', ''),
+                recipient_first_name: this.address.first_name.value,
+                recipient_last_name: this.address.last_name.value,
+                recipient_phone: this.address.phone.value.replace('(', '').replace(')', '').replace(' ', '').replace('-', ''),
+                recipient_cellphone: this.address.celular.value.replace('(', '').replace(')', '').replace(' ', '').replace('-', ''),
                 street: this.address.street.value,
                 number: this.address.number.value,
                 zipcode: this.address.cep.value.replace('-', ''),
@@ -50,12 +53,10 @@ class AddressForm extends Component {
     saveAsGuest = () => {
         const data = {
                 title: this.address.title.value,
-                first_name: this.address.first_name.value,
-                last_name: this.address.last_name.value,
-                email: '',
-                phone: this.address.phone.value,
-                longitude: '',
-                latitude: '',
+                recipient_first_name: this.address.first_name.value,
+                recipient_last_name: this.address.last_name.value,
+                recipient_phone: this.address.phone.value.replace('(', '').replace(')', '').replace(' ', '').replace('-', ''),
+                recipient_cellphone: this.address.celular.value.replace('(', '').replace(')', '').replace(' ', '').replace('-', ''),
                 street: this.address.street.value,
                 number: this.address.number.value,
                 zipcode: this.address.cep.value.replace('-', ''),
@@ -77,7 +78,8 @@ class AddressForm extends Component {
         const address = history.location.state || this.props.cart.guestAddress
         if (Object.keys(address).length) {
             address.zipcode = format('cep', address.zipcode)
-            address.phone = address.phone ? format('cellphone', address.phone) : ''
+            address.recipient_phone = address.recipient_phone ? format('cellphone', address.recipient_phone) : ''
+            address.recipient_cellphone = address.recipient_cellphone ? format('phone', address.recipient_cellphone) : ''
         }
 
         return (
@@ -92,13 +94,13 @@ class AddressForm extends Component {
                 <Input 
                     required
                     label="Nome"
-                    value={address.first_name}
+                    value={address.recipient_first_name}
                     onChange={this.checkMask('alphabet', 'first_name')}
                     inputRef={ref => this.address.first_name = ref} />
                 <Input 
                     required
                     label="Sobrenome"
-                    value={address.last_name}
+                    value={address.recipient_last_name}
                     onChange={this.checkMask('alphabet', 'last_name')}
                     inputRef={ref => this.address.last_name = ref} />
                 <div className="row">
@@ -106,7 +108,7 @@ class AddressForm extends Component {
                         <Input 
                             required
                             label="Telefone"
-                            value={address.phone}
+                            value={address.recipient_phone}
                             onChange={this.checkMask('cellphone', 'phone')}
                             inputRef={ref => this.address.phone = ref} />
                     </div>
@@ -114,7 +116,7 @@ class AddressForm extends Component {
                         <Input 
                             required
                             label="Celular"
-                            value={address.celular}
+                            value={address.recipient_cellphone}
                             onChange={this.checkMask('phone', 'celular')}
                             inputRef={ref => this.address.celular = ref} />
                     </div>

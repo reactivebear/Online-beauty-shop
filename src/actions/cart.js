@@ -42,6 +42,13 @@ export const getDelivery = id => dispatch =>
         })
     )
 
+export const chooseDelivery = id => dispatch => 
+    (
+        get(`api/cart/delivery/choose/${id}`).then(json => {
+            dispatch(getCartTotal())
+        })
+    )
+
 export const getCartTotal = () => dispatch => 
     (
         get(`api/cart/value`).then(json => {
@@ -65,6 +72,13 @@ export const cartPurchase = (method, data) => dispatch =>
     (
         post(`api/cart/purchase/${method}`, true, data)
         .then(json => json.status === 200)
+    )
+
+export const buyCreditBundle = (id, method) => dispatch => 
+    (
+        post(`api/credit-bundle/${id}/buy/${method}`, true).then(json => {
+            console.log(json)
+        })
     )
 
 export const setCart = data => 
@@ -96,4 +110,16 @@ export const setGuestInfo = (data, key) =>
         type: types.SET_GUEST_INFO,
         data,
         key
+    })
+
+export const setDeliveryTypes = data =>
+    ({
+        type: types.SET_DELIVERY_TYPES,
+        data,
+    })
+
+export const setDeliveryCart = value =>
+    ({
+        type: types.SET_DELIVERY_CART,
+        value,
     })

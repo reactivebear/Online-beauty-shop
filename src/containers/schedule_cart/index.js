@@ -30,7 +30,7 @@ class ScheduleCart extends Component {
 		switch(this.props.schedule_cart.step) {
 			case 1: return <StepFirst step={this.props.schedule_cart.step} service={this.props.location.state} />
 			case 2: return <StepSecond step={this.props.schedule_cart.step} />
-			case 3: return <StepThird step={this.props.schedule_cart.step} />
+			case 3: return <StepThird step={this.props.schedule_cart.step} service={this.props.location.state} />
 			case 4: return <StepFourth step={this.props.schedule_cart.step} />
 			default: return
 		}

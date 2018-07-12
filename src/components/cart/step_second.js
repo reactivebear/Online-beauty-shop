@@ -1,21 +1,30 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import store, { history } from 'store'
-import CartTotal from 'components/cards/cart_total.js'
-import RadioSwitch from 'components/inputs/radio_switch.js'
-import BtnMain from 'components/buttons/btn_main.js'
+import CartTotal from 'components/cards/cart_total'
+import RadioSwitch from 'components/inputs/radio_switch'
+import BtnMain from 'components/buttons/btn_main'
 import { AddressForm } from 'components/forms'
 import { toggleModal } from 'actions/design'
+import { chooseDelivery } from 'actions/cart'
+import Price from 'components/price'
+
+let state = {
+    delivery: 0
+}
 
 class StepSecond extends Component {
-    state = {
-        delivery: 'free'
+    constructor() {
+        super()
+        this.state = state
     }
 
     toggleDelivery = value => {
         this.setState({
             delivery: value
         })
+
+        store.dispatch(chooseDelivery(value))
     }
 
     changeAddress = () => {
@@ -26,9 +35,26 @@ class StepSecond extends Component {
         }
     }
 
+    printSwitch = (item, i) => {
+        return  <div key={i} className="d-flex justify-content-between mb-4">
+                    <RadioSwitch 
+                        onChange={this.toggleDelivery} 
+                        value={item.id}
+                        title={item.name}
+                        checked={this.state.delivery} />
+                    <div className="color-grey">
+                        { item.price ? <Price current={item.price} /> : 'Grátis' }
+                    </div>
+                </div>
+    }
+
+    componentWillUnmount() {
+        state = this.state
+    }
+
     render() {
-        const { first_name, last_name, main_address } = this.props.user.data
-        const { guestAddress } = this.props.cart
+        const { main_address } = this.props.user.data
+        const { guestAddress, delivery_types } = this.props.cart
         return (
         	<div className="row pb-5">
         		<div className="col-sm-6">
@@ -37,14 +63,14 @@ class StepSecond extends Component {
                         !this.props.user.guest
                         ?   
                             <div className="rounded bg-white p-4 mb-3">
-                                <div className="fs-18 mb-3">{`${first_name} ${last_name}`}</div>
+                                <div className="fs-18 mb-3">{`${main_address.recipient_first_name} ${main_address.recipient_last_name}`}</div>
                                 <div className="color-grey">{main_address.title}</div>
                                 <div className="color-grey">{main_address.state}, {main_address.state}</div>
                                 <div className="color-grey">CEP: {main_address.zipcode}</div>
                             </div>
                         :   Object.keys(guestAddress).length
                             ?   <div className="rounded bg-white p-4 mb-3">
-                                    <div className="fs-18 mb-3">{`${guestAddress.first_name} ${guestAddress.last_name}`}</div>
+                                    <div className="fs-18 mb-3">{`${guestAddress.recipient_first_name} ${guestAddress.recipient_first_name}`}</div>
                                     <div className="color-grey">{guestAddress.title}</div>
                                     <div className="color-grey">{guestAddress.state}, {guestAddress.state}</div>
                                     <div className="color-grey">CEP: {guestAddress.zipcode}</div>
@@ -58,21 +84,8 @@ class StepSecond extends Component {
                             title="Alterar endereço" />
                     </div>
         			<h4>Tipo de envio</h4>
-                    <div className="rounded bg-white p-4">
-                        <div className="mb-4">
-                            <RadioSwitch 
-                                onChange={this.toggleDelivery} 
-                                value="free"
-                                title="Entrega expressa"
-                                checked={this.state.delivery} />
-                        </div>
-                        <div>
-                            <RadioSwitch 
-                                onChange={this.toggleDelivery} 
-                                value="notfree"
-                                title="Entrega Padrão"
-                                checked={this.state.delivery} />
-                        </div>
+                    <div className="rounded bg-white px-4 pt-4 pb-2">
+                        { delivery_types.map((item, i) => this.printSwitch(item, i)) }
                     </div>
         		</div>
         		<div className="col-sm-6">
@@ -87,7 +100,8 @@ class StepSecond extends Component {
 const mapStateToProps = state =>
     ({
         cart: {
-            guestAddress: state.cart.guestAddress
+            guestAddress: state.cart.guestAddress,
+            delivery_types: state.cart.delivery_types,
         },
         user: {
             data: {

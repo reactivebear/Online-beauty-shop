@@ -7,8 +7,8 @@ import { toggleModal, toggleLightBox } from 'actions/design'
 import { getVendorServices } from 'actions/services'
 import { addToWishList, removeFromWishList } from 'actions'
 import { calcDelivery } from 'actions/user'
-import ImageMultiPreview from 'components/images/multi_preview.js'
-import ImagePreview from 'components/images/preview.js'
+import ImageMultiPreview from 'components/images/multi_preview'
+import ImagePreview from 'components/images/preview'
 import Price from 'components/price'
 import Stars from 'components/stars'
 import Counter from 'components/counter'
@@ -201,8 +201,33 @@ class Product extends Component {
 		]))
 	}
 
+	deliveryInfo = props =>
+		(
+			<div>
+				<div className="mb-3">
+					{ 
+						this.props.cart.delivery_types.map((item, i) =>
+						 	(<div key={i} className="d-flex justify-content-between color-grey">
+								<div>{item.name}</div>
+								<Price current={item.price} />
+							</div>)
+						)
+					}
+				</div>
+				<BtnMain 
+					className="btn-block btn-outline"
+					title="Fechar" 
+					onClick={props.onCancel}/>
+			</div>
+		)
+
 	calcDelivery = () => {
 		store.dispatch(calcDelivery(this.props.user.data.main_address.id))
+		.then(res => {
+			if (res) {
+				store.dispatch(toggleModal(true, this.deliveryInfo, 'modal-sm', 'Tipo de envio', {position: 'center'}))
+			}
+		})
 	}
 
     render() {
@@ -306,6 +331,9 @@ const mapStateToProps = state =>
         	data: {
         		main_address: state.user.data.main_address
         	}
+        },
+        cart: {
+        	delivery_types: state.cart.delivery_types,
         }
     })
 

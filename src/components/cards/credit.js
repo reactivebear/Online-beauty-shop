@@ -1,12 +1,18 @@
 import React, { Component } from 'react'
-import BtnMain from 'components/buttons/btn_main.js'
+import BtnMain from 'components/buttons/btn_main'
+import Price from 'components/price'
 
 class CardCredit extends Component {
+	addToCart = () => {
+		//store.dispatch(buyCreditBundle(this.props.id, 'credits'))
+	}
+
     render() {
+    	console.log(this.props)
         return (
         	<div>
         		<div className="rounded bg-white border p-3">
-	            	<div className="fs-22 color-green text-right">05%</div>
+	            	<div className="fs-22 color-green text-right">{this.props.discount_percentage * 100}%</div>
 	            	<div className="px-3 mb-3">
 	            		<img src="/assets/images/credits.png" className="img-fluid" alt="" />
 	            	</div>
@@ -14,9 +20,9 @@ class CardCredit extends Component {
 	            		Promoção
 	            	</div>
 	            	<div className="d-flex align-items-center mb-3">
-	            		<span className="color-grey">5040 Créditos por </span>
+	            		<span className="color-grey">{this.props.amount} Créditos por </span>
 	            		&nbsp;
-	            		<span className="fs-18"> R$ 684,00</span>
+	            		<Price style={{fontSize: 18}} current={this.props.discount_price} />
 	            	</div>
 	            	<BtnMain
         				className="btn-block btn-outline font-weight-bold"

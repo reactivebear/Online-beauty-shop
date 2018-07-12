@@ -31,12 +31,9 @@ class Credits extends Component {
 		store.dispatch(toggleModal(true, SendCreditsForm, 'modal-md'))
 	}
 
-	printCreditsCard = (item, i) => {
-		return <div key={i} className="col-xl-4 col-lg-6 mb-3"><CardCredit /></div>
-	}
+	printCreditsCard = (item, i) => <div key={i} className="col-xl-4 col-lg-6 mb-3"><CardCredit {...item} /></div>
 
 	render() {
-		const creditsList = ['', '', '']
 		return (
 			<div>
 				<div className="row align-items-stretch">
@@ -110,7 +107,7 @@ class Credits extends Component {
 					<div className="col-12">
 						<h4>Pacotes de créditos</h4>
 						<div className="row">
-							{ creditsList.map((item, i) => this.printCreditsCard(item, i)) }
+							{ this.props.user.credits_bundles.map((item, i) => this.printCreditsCard(item, i)) }
 						</div>
 					</div>
 				</div>
@@ -123,7 +120,8 @@ const mapStateToProps = state =>
 	({
         user: {
         	credits: state.user.credits,
-        	dollar_value: state.user.dollar_value
+        	dollar_value: state.user.dollar_value,
+        	credits_bundles: state.user.credits_bundles
         }
     })
 
