@@ -1,4 +1,5 @@
-.month-item:hover {
+.month-item:hover,
+.month-item.active {
 	background-color: #609D6D;
 	color: #fff;
 }

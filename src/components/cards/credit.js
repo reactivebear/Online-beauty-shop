@@ -8,7 +8,6 @@ class CardCredit extends Component {
 	}
 
     render() {
-    	console.log(this.props)
         return (
         	<div>
         		<div className="rounded bg-white border p-3">

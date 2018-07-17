@@ -5,7 +5,7 @@ import { addToWishList, removeFromWishList } from 'actions'
 import Stars from 'components/stars'
 import Price from 'components/price'
 import BtnMain from 'components/buttons/btn_main'
-import Distance from 'utils/distance'
+import { getDistance } from 'utils'
 import Heart from 'components/heart'
 import Tag from 'components/tags'
 import './service.css'
@@ -52,7 +52,7 @@ class CardService extends Component {
 		let range = false
 		const address = this.props.vendor.address || this.props.address
 		navigator.geolocation.getCurrentPosition(pos => {
-			range = Distance.get(pos.coords.latitude, pos.coords.longitude, address.latitude, address.longitude)
+			range = getDistance(pos.coords.latitude, pos.coords.longitude, address.latitude, address.longitude)
 			if (range) {
 				this.setState({
 					range: range

@@ -21,6 +21,7 @@ class CartTotal extends Component {
 				expiry_year: card.validity_year,
 				cvv: card.cvv,
 				card_brand: card_brand,
+				credits_to_use: this.props.user.credits
 			}
 
 			store.dispatch(cartPurchase(method, data))

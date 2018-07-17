@@ -10,7 +10,7 @@ export const getParams = hash => {
         }
         hash.split('&').forEach(item => { 
             const [key, value] = item.split('=')
-            key === 'type' ? params[key] = (value === 'alls' ? ['products', 'services'] : [value]) : params[key] = decodeURIComponent(value)
+            key === 'type' ? params[key] = (value === 'alls' ? ['products', 'services', 'vendors'] : [value]) : params[key] = decodeURIComponent(value)
         })
         return params
     }
@@ -29,6 +29,27 @@ export const removeSwipe = el => {
 export const addSwipe = el => {
     el.addEventListener('touchstart', initSwipe)
     el.addEventListener('touchmove', handleSwipe)
+}
+
+export const getDistance = (lat1, lon1, lat2, lon2) => {
+    let radlat1 = Math.PI * lat1/180
+    let radlat2 = Math.PI * lat2/180
+    let theta = lon1-lon2
+    let radtheta = Math.PI * theta/180
+    let dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+    dist = Math.acos(dist)
+    dist = dist * 180/Math.PI
+    dist = dist * 60 * 1.1515
+    return `${(dist * 1.609344).toFixed(1)} km`
+}
+
+export const getMyPosition = callback => {
+    navigator.geolocation.getCurrentPosition(pos => {
+        callback({
+            lat: pos.coords.latitude,
+            lon: pos.coords.longitude
+        })
+    }, callback)
 }
 
 const initSwipe = e => {

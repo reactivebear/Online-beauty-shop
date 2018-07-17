@@ -17,38 +17,24 @@ class RegistrationForm extends Component {
         }
     }
 
-    getMyPosition = () => {
+    registration = () => {
         if (this.state.terms) {
-            navigator.geolocation.getCurrentPosition(pos => {
-                this.registration({
-                    latitude: pos.coords.latitude,
-                    longitude: pos.coords.longitude
-                })
-            }, this.registration)
+            let data = {
+                email: this.auth.email.value,
+                password: this.auth.password.value,
+            }
+            
+            if (this.props.type === 'client') {
+                data.first_name = this.auth.first_name.value
+                data.last_name = this.auth.last_name.value
+            } else {
+                data.cnpj = this.auth.cnpj.value
+                data.company_name = this.auth.company_name.value
+            }
+            store.dispatch(registration(data, this.props.type))
         } else {
             store.dispatch(setAlert('Você deve concordar com os termos e condições de uso', 'error'))
         }
-    }
-
-    registration = pos => {
-        let data = {
-            email: this.auth.email.value,
-            password: this.auth.password.value,
-            /*address: {
-                street: 'Prince Roman',
-                longitude: pos.latitude || '',
-                latitude:  pos.longitude || '',
-            }*/
-        }
-        
-        if (this.props.type === 'client') {
-            data.first_name = this.auth.first_name.value
-            data.last_name = this.auth.last_name.value
-        } else {
-            data.cnpj = this.auth.cnpj.value
-            data.company_name = this.auth.company_name.value
-        }
-        store.dispatch(registration(data, this.props.type))
     }
 
     toggleTerms = terms => {
@@ -119,7 +105,7 @@ class RegistrationForm extends Component {
                     <div className="col-sm-10 offset-sm-1">
                         <BtnMain
                             className="font-weight-bold btn-block"
-                            onClick={this.getMyPosition}
+                            onClick={this.registration}
                             title="Criar conta" />
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 import { get, post, remove } from 'api'
 import * as types from './types.js'
-import { getWishlist } from 'actions/user'
+import { getWishlist, setUserKey } from 'actions/user'
 
 export const getCategories = () => dispatch => 
     (
@@ -57,6 +57,15 @@ export const getBlogs = () => dispatch =>
         get(`api/blog/posts`).then(json => {
             if (json.object) {
                 dispatch(setBlogs(json.object))
+            }
+        })
+    )
+
+export const getLocation = zipcode => dispatch => 
+    (
+        get(`api/location/geocode?zipcode=${zipcode}`).then(json => {
+            if (json.object) {
+                dispatch(setUserKey(json.object, 'location'))
             }
         })
     )

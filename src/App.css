@@ -242,6 +242,13 @@ path.cls-8 {
 	font-family: 'Avenir LT Std 65 Light';
 }
 
+.counter-input {
+    border: none;
+    text-align: center;
+    width: 100%;
+    outline: unset;
+}
+
 .img-icon {
 	width: 18px;
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { format } from 'utils/mask'
 
 class Counter extends Component {
 	state = {
@@ -28,10 +29,11 @@ class Counter extends Component {
     componentWillReceiveProps(nextProps) {
     	this.setState({count: nextProps.value})
     }
-
-    spanChange = e => {
-    	this.setState({count: e.target.textContent * 1})
-    	this.props.onChange(e.target.textContent * 1)
+    
+    onChange = e => {
+    	const count = format('digits', e.target.value) * 1
+    	this.setState({count})
+    	this.props.onChange(count)
     }
 
     render() {
@@ -45,8 +47,7 @@ class Counter extends Component {
 	        	}
 	        	<div className="rounded border d-flex align-items-center justify-content-between px-2">
 		            <i className={"fas fa-minus " + color} onClick={this.decrement}></i>
-		            {/*<div contentEditable={true} onInput={this.spanChange} style={{width: 30}}></div>*/}
-		            <span>{this.state.count}</span>
+		            <input value={this.state.count} className="counter-input" onChange={this.onChange} />
 		            <i className="fas fa-plus pointer color-green" onClick={this.increment}></i>
 				</div>
 			</div>

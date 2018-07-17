@@ -25,6 +25,11 @@ class Search extends Component {
 
     search = hash => {
         const params = getParams(hash.replace('#', ''))
+        if (params.latitude && params.longitude) {
+            params.latitude *= 1
+            params.longitude *= 1
+        }
+        
         store.dispatch(setSearch({items: [], total_items: 0}, 'products'))
         store.dispatch(setSearch({items: [], total_items: 0}, 'services'))
         params.type.forEach(item => {

@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { history } from 'store'
+import store, { history } from 'store'
+import { getLocation } from 'actions'
 import BtnMain from 'components/buttons/btn_main'
 import { format } from 'utils/mask'
+import { getMyPosition } from 'utils'
 
 class ZipForm extends Component {
     openLogin = e => {
@@ -17,6 +19,19 @@ class ZipForm extends Component {
     search = () => {
         history.push(`/search#type=services&search_text=`)
         this.props.close()
+    }
+
+    getLocation = () => {
+        store.dispatch(getLocation(`${this.zip.value}${this.cep.value}`))
+    }
+
+    nearbySearch = pos => {
+        let location = ''
+        if (this.props.user.location.lat &&this.props.user.location.lng) {
+            location = `&latitude=${this.props.user.location.lat}&longitude=${this.props.user.location.lng}`
+            history.push(`/search#type=${this.props.search.type}&search_text=${this.props.search.query}${location}`)
+            this.props.close()
+        }
     }
 
     render() {
@@ -44,7 +59,7 @@ class ZipForm extends Component {
                     :   ''
                 }
                     
-            	<div className="d-flex align-items-center">
+            	<div className="d-flex align-items-center mb-3">
                     <input 
                         type="text"
                         placeholder="00000"
@@ -61,10 +76,18 @@ class ZipForm extends Component {
                         defaultValue={zipcode.slice(5)} />
             		<BtnMain
         				className="font-weight-bold btn-outline w-40 pt-2"
-                        onClick={this.search}
+                        onClick={this.getLocation}
         				title="Buscar" />
             		
             	</div>
+                {
+                    !this.props.user.guest
+                    ?   <BtnMain
+                            className="font-weight-bold pt-2 btn-block"
+                            onClick={this.nearbySearch}
+                            title="Utilizar a minha localização" />
+                    :   ''
+                }
 			</div>
         );
     }
@@ -74,9 +97,10 @@ const mapStateToProps = state =>
     ({
         user: {
             guest: state.user.guest,
-            data: state.user.data
+            data: state.user.data,
+            location: state.user.location
         },
-            
+        search: state.search
     })
 
 export default connect(

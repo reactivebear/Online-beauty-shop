@@ -23,7 +23,11 @@ const initialState = {
     vouchers: [],
     credits: 0,
     dollar_value: 0,
-    credits_bundles: []
+    credits_bundles: [],
+    location: {
+        lat: 0,
+        lng: 0
+    }
 }
 
 export default function user(user = initialState, action = {}) {
@@ -36,6 +40,7 @@ export default function user(user = initialState, action = {}) {
                 approve_token: true
             });
         case types.SET_USER_KEY:
+        console.log(action)
             return Object.assign({}, user, {
                 [action.key]: action.data
             });

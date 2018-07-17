@@ -31,7 +31,7 @@ class HeaderMenu extends Component {
                 <div className="border-bottom mb-2 mt-2"></div>
                 <div className="row align-items-center">
                     <div className="col-2 text-center py-2">
-                        <i className="fa fa-power-off fa-2x" style={{color: '#6B6B6B'}} aria-hidden="true"></i>
+                        <img src={`/assets/svg/Logout.svg`} alt="" style={{opacity: 0.8}} className="img-fluid" />
                     </div>
                     <div className="col-10 pl-4">
                         <span className="pointer" onClick={this.logout}>Logout</span>

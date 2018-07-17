@@ -5,7 +5,8 @@ import './style.css'
 
 class Calendar extends Component {
 	state = {
-		activeTime: 0
+		activeTime: 0,
+        activeDate: 0
 	}
 
 	setActiveTime = activeTime => e => {
@@ -13,11 +14,16 @@ class Calendar extends Component {
 	}
 
 	printDates = (item, i) => {
-		return 	<div key={i} className="text-center px-0 py-3 pointer month-item">
+        const activeClass = item.date === this.state.activeDate ? 'active' : ''
+		return 	<div key={i} className={`text-center px-0 py-3 pointer month-item ${activeClass}`} onClick={this.setDay(item.date)}>
 					<div className="mb-3">{item.day}</div>
 					<div>{item.date}</div>
 				</div>
 	}
+
+    setDay = activeDate => e => {
+        this.setState({activeDate})
+    }
 
 	printTimes = (item, i, length) => {
 		const lastClass = i+1 === length ? '' : 'border-bottom'

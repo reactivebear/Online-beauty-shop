@@ -92,7 +92,7 @@ class WebSearch extends Component {
 						value={this.state.value}
 						ref={ref => this.query = ref}
 						className="form-control with-shadow border-0"
-						placeholder={`             ${this.getSearchType().placeholder}`} />
+						placeholder={this.getSearchType().placeholder} />
 					<div className="input-group-append">
 					    <BtnMain
 					    	className="btn-search px-4 pt-2"
