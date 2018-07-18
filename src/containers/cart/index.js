@@ -6,6 +6,7 @@ import { setStep } from 'actions/cart'
 import StepsArrow from 'components/steps/steps_arrow'
 import { StepFirst, StepSecond, StepThird, StepFourth, StepFifth } from 'components/cart'
 import { getCreditCards } from 'actions/user'
+import { getStepsCount } from 'utils'
 
 class Cart extends Component {
 	constructor(props) {
@@ -18,7 +19,6 @@ class Cart extends Component {
 		store.dispatch(getCredits())
 		if (!props.user.guest) {
             store.dispatch(getCreditCards())
-
         }
 	}
 
@@ -35,10 +35,16 @@ class Cart extends Component {
 			store.dispatch(calcDelivery(nextProps.user.data.main_address.id))
 			this.setState({getDelivery: true})
 		}
+
+		if (nextProps.cart.updated && nextProps.cart.updated !== this.props.cart.updated) {
+			if (this.props.cart.step > 1) {
+				store.dispatch(setStep(getStepsCount() - 1))
+			}
+		}
 	}
 
 	getStepContent = () => {
-		if (this.props.cart.list.product.length) {
+		if (getStepsCount() === 5) {
 			switch(this.props.cart.step) {
 				case 1: return <StepFirst step={this.props.cart.step} />
 				case 2: return <StepSecond step={this.props.cart.step} />
@@ -58,8 +64,12 @@ class Cart extends Component {
 		}
 	}
 
+	getStepsCount = () => {
+		return this.props.cart.list.product.length || (! this.props.cart.list.product.length && ! this.props.cart.list.service.length) ? 5 : 4
+	}
+
 	getSteps = () => {
-		return this.props.cart.list.product.length ? [{title: 'Meu carrinho'}, {title: 'Entrega'}, {title: 'Pagamento'}, {title: 'Confirmação'}] : [{title: 'Meu carrinho'}, {title: 'Pagamento'}, {title: 'Confirmação'}]
+		return getStepsCount() === 5 ? [{title: 'Meu carrinho'}, {title: 'Entrega'}, {title: 'Pagamento'}, {title: 'Confirmação'}] : [{title: 'Meu carrinho'}, {title: 'Pagamento'}, {title: 'Confirmação'}]
 	}
 
     render() {
@@ -80,6 +90,7 @@ const mapStateToProps = state =>
         	step: state.cart.step,
         	list: state.cart.list,
         	delivery_types: state.cart.delivery_types,
+        	updated: state.cart.updated
         },
         user: {
         	guest: state.user.guest,

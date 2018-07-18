@@ -9,7 +9,7 @@ class StepThird extends Component {
         	<div className="row pb-5">
         		<div className="col-sm-5">
                     <h4>Voucher do serviço</h4>
-                    {/*<CardVoucher />*/}
+                    <CardVoucher {...this.props.schedule_cart.voucher} />
         		</div>
                 <div className="col-sm-1">
                 </div>
@@ -25,7 +25,11 @@ class StepThird extends Component {
 const mapStateToProps = state =>
     ({
         cart: {
-            total: state.cart.total
+            total: state.cart.total,
+            
+        },
+        schedule_cart: {
+            voucher: state.schedule_cart.voucher
         }
     })
 

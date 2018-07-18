@@ -52,6 +52,11 @@ export const getMyPosition = callback => {
     }, callback)
 }
 
+export const getStepsCount = () => {
+    const cartList = store.getState().cart.list
+    return cartList.product.length || (! cartList.product.length && ! cartList.service.length) ? 5 : 4
+}
+
 const initSwipe = e => {
     xDown = e.touches[0].clientX
     yDown = e.touches[0].clientY

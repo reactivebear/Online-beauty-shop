@@ -7,6 +7,13 @@ export const setScheduleCart = data =>
         data
     })
 
+export const setScheduleCartKey = (data, key) =>
+    ({
+        type: types.SET_SCHEDULE_CART_KEY,
+        data,
+        key
+    })
+
 export const setScheduleStep = step => 
     ({
         type: types.SET_SCHEDULE_STEP,
@@ -28,9 +35,9 @@ export const getProffesional = prof => dispatch =>
         })
     )
 
-export const makeAppointment = serviceId => dispatch => 
+export const makeAppointment = data => dispatch => 
     (
-        post(`api/appointment/new/${serviceId}`, true).then(json => {
+        post(`api/appointment/new`, true, data).then(json => {
             console.log(json)
         })
     )

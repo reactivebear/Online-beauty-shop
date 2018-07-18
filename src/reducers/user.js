@@ -40,7 +40,6 @@ export default function user(user = initialState, action = {}) {
                 approve_token: true
             });
         case types.SET_USER_KEY:
-        console.log(action)
             return Object.assign({}, user, {
                 [action.key]: action.data
             });

@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom'
 import ImagePreview from 'components/images/preview'
 import Counter from 'components/counter'
 import Price from 'components/price'
+import { setStep } from 'actions/cart'
 import { removeFromCart, changeQuantity } from 'actions/cart'
+import { getStepsCount } from 'utils'
 
 class ProductCart extends Component {
 	removeFromCart = e => {
@@ -18,7 +20,6 @@ class ProductCart extends Component {
     render() {
         return (
         	<div className="rounded bg-white p-2 mb-3 position-relative">
-        		
         		<div className="row">
 		            <div className="col-4 pr-1">
 		            	<ImagePreview images={this.props[this.props.type].images} />

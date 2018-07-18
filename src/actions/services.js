@@ -1,5 +1,6 @@
 import * as types from './types.js'
 import { post, get } from 'api'
+import { setScheduleCartKey } from 'actions/schedule_cart'
 
 export const getServices = (type, param) => dispatch => 
     (
@@ -66,6 +67,15 @@ export const setServiceCategory = (catId, data) =>
         catId,
         data
     })
+
+export const getTempVoucher = id => dispatch => 
+    (
+        get(`api/service/${id}/voucher`, false).then(json => {
+            if (json.object) {
+                dispatch(setScheduleCartKey(json.object, 'voucher'))
+            }
+        })
+    )
 
 export const setVendorServices = data => 
     ({

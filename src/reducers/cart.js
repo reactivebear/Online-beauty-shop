@@ -8,6 +8,7 @@ const initialState = {
     total: {},
     use_credits: false,
     step: 1,
+    updated: false,
     delivery: {},
     guestAddress: {},
     guestCard: {},
@@ -21,7 +22,8 @@ export default function cart(cart = initialState, action = {}) {
             tempList.product = action.data.filter(item => item.type === 'product')
             tempList.service = action.data.filter(item => item.type === 'service')
             return Object.assign({}, cart, {
-                list: tempList
+                list: tempList,
+                updated: true
             });
         case types.SET_CART_TOTAL:
             return Object.assign({}, cart, {
@@ -34,6 +36,10 @@ export default function cart(cart = initialState, action = {}) {
         case types.SET_STEP:
             return Object.assign({}, cart, {
                 step: action.step
+            });
+        case types.SET_UPDATED_CART:
+            return Object.assign({}, cart, {
+                updated: action.value
             });
         case types.SET_GUEST_INFO:
             return Object.assign({}, cart, {

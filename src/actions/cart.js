@@ -2,14 +2,15 @@ import { get, post, remove, patch } from 'api'
 import * as types from './types.js'
 import { setAlert } from 'actions/design'
 
-export const getCart = () => dispatch => 
-    (
-        get(`api/cart`).then(json => {
-            if (json.object) {
-                dispatch(setCart(json.object))
-            }
-        })
-    )
+export const getCart = () => dispatch => {
+    dispatch(setUpdatedCart(false))
+    return  get(`api/cart`).then(json => {
+                if (json.object) {
+                    dispatch(setCart(json.object))
+                    return true
+                }
+            })
+}
 
 export const addToCart = (id, type, param) => dispatch => 
     (
@@ -19,7 +20,6 @@ export const addToCart = (id, type, param) => dispatch =>
                 dispatch(setAlert('Produto fora de estoque', 'error'))
             } else {
                 dispatch(setAlert(json.message, 'success'))
-                
             }
             return json.status === 200
         })
@@ -30,6 +30,7 @@ export const removeFromCart = id => dispatch =>
         remove(`api/cart/remove-item/${id}`, true).then(json => {
             dispatch(getCart())
             dispatch(getCartTotal())
+            return true
         })
     )
 
@@ -85,6 +86,12 @@ export const setCart = data =>
     ({
         type: types.SET_CART,
         data
+    })
+
+export const setUpdatedCart = value => 
+    ({
+        type: types.SET_UPDATED_CART,
+        value
     })
 
 export const setCartTotal = data => 

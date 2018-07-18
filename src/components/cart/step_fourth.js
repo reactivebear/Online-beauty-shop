@@ -4,7 +4,7 @@ import CartTotal from 'components/cards/cart_total.js'
 import ProductCart from 'components/cards/product_cart.js'
 
 class StepFourth extends Component {
-    printList = (item, i) => <ProductCart key={i} {...item} />
+    printList = (item, i) => <ProductCart key={i} {...item} step={this.props.step} />
 
     render() {
         const { product, service } = this.props.cart.list
@@ -12,7 +12,11 @@ class StepFourth extends Component {
         	<div className="row pb-5">
         		<div className="col-sm-6">
         			<h4>Meu carrinho</h4>
-                    { [...product, ...service].map((item, i) => this.printList(item, i)) }
+                    {
+                        [...product, ...service].length
+                        ?   [...product, ...service].map((item, i) => this.printList(item, i))
+                        :   <div className="rounded p-5 bg-white">O seu carrinho está vazio</div>
+                    }
         		</div>
         		<div className="col-sm-6">
         			<h4>Resumo do pedido</h4>

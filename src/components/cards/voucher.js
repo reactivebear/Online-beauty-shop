@@ -6,6 +6,8 @@ import Price from 'components/price'
 import BtnMain from 'components/buttons/btn_main'
 import { SendVouchersForm } from 'components/forms'
 import { format } from 'utils/mask'
+import { getDate } from 'utils/date'
+import moment from 'moment'
 
 class CardVoucher extends Component {
 	openSendVoucher = () => {
@@ -16,7 +18,10 @@ class CardVoucher extends Component {
 		history.push(`/schedule/${this.props.service.id}`, this.props.service)
 	}
 
+	getDays = () => moment(this.props.expiration_date).diff(moment(), 'days') + 1
+
 	render() {
+		
 		return (
 			<div className="bg-white rounded p-3">
 				<div className="d-flex">
@@ -42,7 +47,7 @@ class CardVoucher extends Component {
 						<div className="color-grey">
 							Validade
 						</div>
-						<div>09/03/2018 (30 dias)</div>
+						<div>{getDate(this.props.expiration_date)} ({this.getDays()} dias)</div>
 					</div>
 					<div className="col-6">
 						<div className="color-grey">

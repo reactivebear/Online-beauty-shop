@@ -56,7 +56,7 @@ class SideMenu extends Component {
                                 <div>
                                     { LIST_MENU.map((item, i) => this.printMenu(item, i)) }
                                     <div className="px-5 py-3 pt-4">
-                                        <i className="fa fa-power-off" aria-hidden="true"></i>
+                                        <img src={`/assets/svg/Logout-white.svg`} alt="" className="img-icon-header" />
                                         <span className="pl-5 pointer" onClick={this.logout}>Logout</span>
                                     </div>
                                 </div>

@@ -14,8 +14,8 @@ const initialState = {
             }
         },
         hours: {}
-    }
-    
+    },
+    voucher: {}
 }
 
 export default function schedule_cart(schedule_cart = initialState, action = {}) {
@@ -23,6 +23,10 @@ export default function schedule_cart(schedule_cart = initialState, action = {})
         case types.SET_SCHEDULE_CART:
             return Object.assign({}, schedule_cart, {
                 item: action.data
+            });
+        case types.SET_SCHEDULE_CART_KEY:
+            return Object.assign({}, schedule_cart, {
+                [action.key]: action.data
             });
         case types.SET_SCHEDULE_TOTAL:
             return Object.assign({}, schedule_cart, {

@@ -10,8 +10,13 @@ class ScheduleCartTotal extends Component {
 	changeStep = () => {
 		
 		if (this.props.step === 3) {
-			console.log(this.props.serviceId)
-			store.dispatch(makeAppointment(this.props.serviceId))
+			const data = {
+				professional: 12,
+				voucher: this.props.schedule_cart.voucher.id,
+				datetime: '2018-08-18 08:20'
+			}
+
+			store.dispatch(makeAppointment(data))
 			return
 		}
 		store.dispatch(setScheduleStep(this.props.step+1))
@@ -109,6 +114,7 @@ const mapStateToProps = state =>
         schedule_cart: {
         	use_credits: state.schedule_cart.use_credits,
         	total: state.schedule_cart.total,
+        	voucher: state.schedule_cart.voucher
         },
         services: {
             salon: state.services.salon
