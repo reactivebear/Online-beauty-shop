@@ -15,7 +15,7 @@ class CustomAccordion extends Component {
         return  <div key={i} className="bg-white">
                     <div className="row">
                         <div className="col-sm-6 mb-2">
-                            <p><strong>{item.title}</strong></p>
+                            <p className="fs-18"><strong>{item.title}</strong></p>
                             <Price current={item.price} old={item.discount_price} />
                         </div>
                         <div className="col-sm-6">
