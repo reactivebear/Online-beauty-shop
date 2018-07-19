@@ -13,7 +13,7 @@ export const getFullDate = data => {
 
 export const getDaysInMonth = (month, year) => {
          const date = new Date(year, month, 1);
-         const names = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+         const names = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'];
          let days = [];
          while (date.getMonth() === month) {
             days.push({ date: date.getDate(), day: names[date.getDay()] });
