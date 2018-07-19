@@ -5,6 +5,7 @@ import { setAlert } from 'actions/design'
 import BtnMain from 'components/buttons/btn_main'
 import Input from 'components/inputs/input'
 import SmallSwitch from 'components/inputs/small_switch'
+import { format } from 'utils/mask'
 
 class RegistrationForm extends Component {
 
@@ -45,6 +46,10 @@ class RegistrationForm extends Component {
         this.setState({email: !this.state.email})
     }
 
+    checkMask = (mask, field) => e => {
+        this.auth[field].value = format(mask, e.target.value)
+    }
+
     render() {
         return (
         	<div>
@@ -67,6 +72,7 @@ class RegistrationForm extends Component {
                                 required
                                 label="CNPJ"
                                 value={''}
+                                onChange={this.checkMask('cnpj', 'cnpj')}
                                 inputRef={ref => this.auth.cnpj = ref} />
                             <Input 
                                 required

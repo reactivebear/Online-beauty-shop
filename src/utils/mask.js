@@ -93,6 +93,20 @@ export const format = (mask, value) => {
                 digitsValue = `${digitsValue.slice(0,5)}-${digitsValue.slice(5)}`
             }
             return digitsValue
+        case 'cnpj':
+            if (digitsValue.length > 14) {
+                digitsValue = digitsValue.slice(0, 14)
+            }
+            if (digitsValue.length >= 13) {
+                digitsValue = `${digitsValue.slice(0,2)}.${digitsValue.slice(2,5)}.${digitsValue.slice(5,8)}/${digitsValue.slice(8,12)}-${digitsValue.slice(12)}`
+            } else if (digitsValue.length >= 9) {
+                digitsValue = `${digitsValue.slice(0,2)}.${digitsValue.slice(2,5)}.${digitsValue.slice(5,8)}/${digitsValue.slice(8)}`
+            } else if (digitsValue.length >= 6) {
+                digitsValue = `${digitsValue.slice(0,2)}.${digitsValue.slice(2,5)}.${digitsValue.slice(5)}`
+            } else if (digitsValue.length >= 3) {
+                digitsValue = `${digitsValue.slice(0,2)}.${digitsValue.slice(2)}`
+            }
+            return digitsValue
         default:
             return value
     }
