@@ -2,7 +2,7 @@
 	z-index: 3;
     min-width: 300px;
     top: 70px;
-    right: 0;
+    right: 30px;
     box-shadow: 0 0 15px 1px rgba(0,0,0,0.2);
 }
 
@@ -35,7 +35,7 @@
 }
 
 .tooltip-wrap.zip:before {
-    right: 90px;
+    right: 100px;
 }
 
 .tooltip-wrap.menu:before {

@@ -80,6 +80,7 @@ class ZipForm extends Component {
         				title="Buscar" />
             		
             	</div>
+                <div className="border-bottom mb-3"></div>
                 {
                     !this.props.user.guest
                     ?   <BtnMain
