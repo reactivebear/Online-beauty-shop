@@ -217,6 +217,10 @@ path.cls-8 {
     transition: right 0.6s linear 0s;
 }
 
+.tab-content .accordion__body {
+	padding: 10px 20px;
+}
+
 .back-main-wrap.unactive {
 	right: -100px;
 }

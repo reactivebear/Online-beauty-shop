@@ -53,35 +53,32 @@ class RegistrationForm extends Component {
     render() {
         return (
         	<div>
-                {
-                    this.props.type === 'client'
-                    ?   <div>
-                            <Input 
-                                required
-                                label="Name"
-                                value={''}
-                                inputRef={ref => this.auth.first_name = ref} />
-                            <Input 
-                                required
-                                label="Sobrenome"
-                                value={''}
-                                inputRef={ref => this.auth.last_name = ref} />
-                        </div>
-                    :   <div>
-                            <Input 
-                                required
-                                label="CNPJ"
-                                value={''}
-                                onChange={this.checkMask('cnpj', 'cnpj')}
-                                inputRef={ref => this.auth.cnpj = ref} />
-                            <Input 
-                                required
-                                label="Razão social"
-                                value={''}
-                                inputRef={ref => this.auth.company_name = ref} />
-                        </div>
-                }
-                    
+                <div className={this.props.type === 'client' ? '' : 'd-none'}>
+                    <Input 
+                        required
+                        label="Name"
+                        value={''}
+                        
+                        inputRef={ref => this.auth.first_name = ref} />
+                    <Input 
+                        required
+                        label="Sobrenome"
+                        value={''}
+                        inputRef={ref => this.auth.last_name = ref} />
+                </div>
+                <div className={this.props.type === 'vendor' ? '' : 'd-none'}>
+                    <Input 
+                        required
+                        label="CNPJ"
+                        value={''}
+                        onChange={this.checkMask('cnpj', 'cnpj')}
+                        inputRef={ref => this.auth.cnpj = ref} />
+                    <Input 
+                        required
+                        label="Razão social"
+                        value={''}
+                        inputRef={ref => this.auth.company_name = ref} />
+                </div>
                 <Input 
                     required
                     type="email"

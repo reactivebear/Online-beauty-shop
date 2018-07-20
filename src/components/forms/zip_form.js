@@ -80,13 +80,16 @@ class ZipForm extends Component {
         				title="Buscar" />
             		
             	</div>
-                <div className="border-bottom mb-4"></div>
+                
                 {
                     !this.props.user.guest
-                    ?   <BtnMain
-                            className="font-weight-bold pt-2 btn-block"
-                            onClick={this.nearbySearch}
-                            title="Utilizar a minha localização" />
+                    ?   <div>
+                            <div className="border-bottom mb-4"></div>
+                            <BtnMain
+                                    className="font-weight-bold pt-2 btn-block"
+                                    onClick={this.nearbySearch}
+                                    title="Utilizar a minha localização" />
+                        </div>
                     :   ''
                 }
 			</div>
