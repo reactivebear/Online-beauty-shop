@@ -58,7 +58,7 @@ class Edit extends Component {
         	<div>
         		<h4 className="mb-3">{this.title}</h4>
         		<div className="color-grey mb-3">
-        			Se você está atualizando seus dados cadastrais, faça as alterações  nos campos abaixo e depois clique em "Salvar"
+					Faça as alterações nos campos abaixo e depois clique em "Salvar"
     			</div>
     			<div className="row">
 		        	<div className="rounded p-4 bg-white border mb-3 col-lg-8">
