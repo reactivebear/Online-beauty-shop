@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import store, { history } from 'store'
-import { getService, getTempVoucher } from 'actions/services'
+import { getService, getTempVoucher, getAvailableTimes } from 'actions/services'
 import { getCredits } from 'actions/user'
 import { setScheduleStep, setScheduleTotal } from 'actions/schedule_cart'
 import StepsArrow from 'components/steps/steps_arrow'
 import { StepFirst, StepSecond, StepThird, StepFourth } from 'components/schedule_cart'
+import { getCurrentDate, getLastDateMonth } from 'utils/date'
 
 class ScheduleCart extends Component {
 	constructor(props) {
@@ -16,6 +17,7 @@ class ScheduleCart extends Component {
 			store.dispatch(getService(props.match.params.id))
 			store.dispatch(getCredits())
 			store.dispatch(getTempVoucher(props.match.params.id))
+			store.dispatch(getAvailableTimes(props.match.params.id, getCurrentDate(), getLastDateMonth()))
 			
 			this.steps = [{title: 'Agendamento'}, {title: 'Pagamento'}, {title: 'Confirmação'}]
 		} else {

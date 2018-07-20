@@ -13,6 +13,10 @@
 	height: 152px;
 }
 
+.wrap-calendar-times div:last-child {
+	border-bottom: none !important;
+}
+
 .wrap-calendar-times::-webkit-scrollbar {
 	display: none;
 }

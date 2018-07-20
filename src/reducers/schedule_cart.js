@@ -7,14 +7,12 @@ const initialState = {
     step: 1,
     guest_card: {},
     proffesional: {
-        data: {
-            user: {
-                first_name: '',
-                last_name: ''
-            }
+        professional: {
+            id: false
         },
-        hours: {}
+        schedule: {}
     },
+    professionals: [],
     voucher: {}
 }
 
@@ -47,6 +45,10 @@ export default function schedule_cart(schedule_cart = initialState, action = {})
         case types.SET_PROFFESIONAL:
             return Object.assign({}, schedule_cart, {
                 proffesional: action.data
+            });
+        case types.SET_PROFESSIONALS:
+            return Object.assign({}, schedule_cart, {
+                professionals: action.data
             });
         default:
             return schedule_cart;
