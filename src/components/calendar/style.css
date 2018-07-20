@@ -1,7 +1,11 @@
-.month-item:hover,
-.month-item.active {
+.month-item:hover:not(.color-grey),
+.month-item.active:not(.color-grey) {
 	background-color: #609D6D;
 	color: #fff;
+}
+
+.month-item.color-grey {
+	cursor: default;
 }
 
 .wrap-calendar-times {

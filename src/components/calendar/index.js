@@ -6,7 +6,7 @@ import './style.css'
 
 class Calendar extends Component {
 	state = {
-		currentDate: 0,
+		currentDate: new Date().getDate(),
 		activeTime: 0,
         activeDate: 0
 	}
@@ -20,15 +20,18 @@ class Calendar extends Component {
 	}
 
 	printDates = (item, i) => {
-        const activeClass = item.date === this.state.activeDate ? 'active' : ''
-		return 	<div key={i} className={`text-center px-0 py-3 pointer month-item ${activeClass}`} onClick={this.setDay(item.date)}>
+		const activeClass = item.date === this.state.activeDate ? 'active' : ''
+		const unActiveClass = item.date < this.state.currentDate ? 'color-grey' : (item.date === this.state.currentDate ? 'color-green' : '')
+		return 	<div key={i} className={`text-center px-0 py-3 pointer month-item ${activeClass} ${unActiveClass}`} onClick={this.setDay(item.date)}>
 					<div className="mb-3">{getLang(item.day)}</div>
 					<div>{item.date}</div>
 				</div>
 	}
 
     setDay = activeDate => e => {
-        this.setState({activeDate})
+		if (activeDate >= this.state.currentDate) {
+			this.setState({activeDate})
+		}
     }
 
 	printTimes = (item, i, length) => {
@@ -47,7 +50,8 @@ class Calendar extends Component {
     	const settings = {
             slidesToShow: 5,
             swipeToSlide: true,
-            infinite: false,
+			infinite: false,
+			initialSlide: this.state.currentDate - 3,
             responsive: [
             	{
             		breakpoint: 991, 
