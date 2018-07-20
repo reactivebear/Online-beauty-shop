@@ -1,13 +1,19 @@
 import React, { Component } from 'react'
 import { getDaysInMonth } from 'utils/date'
 import Carousel from 'components/carousel'
+import { getLang } from 'utils/lang'
 import './style.css'
 
 class Calendar extends Component {
 	state = {
+		currentDate: 0,
 		activeTime: 0,
         activeDate: 0
 	}
+
+	setCurrentDay = currentDate => e => {
+        this.setState({currentDate})
+    }
 
 	setActiveTime = activeTime => e => {
 		this.state.activeTime === activeTime ? this.setState({activeTime: 0}) : this.setState({activeTime})
@@ -16,7 +22,7 @@ class Calendar extends Component {
 	printDates = (item, i) => {
         const activeClass = item.date === this.state.activeDate ? 'active' : ''
 		return 	<div key={i} className={`text-center px-0 py-3 pointer month-item ${activeClass}`} onClick={this.setDay(item.date)}>
-					<div className="mb-3">{item.day}</div>
+					<div className="mb-3">{getLang(item.day)}</div>
 					<div>{item.date}</div>
 				</div>
 	}

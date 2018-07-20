@@ -59,7 +59,7 @@ class ZipForm extends Component {
                     :   ''
                 }
                     
-            	<div className="d-flex align-items-center mb-3">
+            	<div className="d-flex align-items-center mb-4">
                     <input 
                         type="text"
                         placeholder="00000"
@@ -80,7 +80,7 @@ class ZipForm extends Component {
         				title="Buscar" />
             		
             	</div>
-                <div className="border-bottom mb-3"></div>
+                <div className="border-bottom mb-4"></div>
                 {
                     !this.props.user.guest
                     ?   <BtnMain
