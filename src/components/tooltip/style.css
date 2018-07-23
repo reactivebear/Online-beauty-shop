@@ -26,6 +26,10 @@
     width: 10000px;
 }
 
+.tooltip-wrap.cart {
+    min-width: 330px;
+}
+
 .tooltip-wrap.login:before {
     right: 80px;
 }

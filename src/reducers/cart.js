@@ -3,7 +3,8 @@ import * as types from 'actions/types.js'
 const initialState = {
     list: {
         product: [],
-        service: []
+        service: [],
+        credit_bundle: []
     },
     total: {},
     use_credits: false,
@@ -21,6 +22,7 @@ export default function cart(cart = initialState, action = {}) {
         case types.SET_CART:
             tempList.product = action.data.filter(item => item.type === 'product')
             tempList.service = action.data.filter(item => item.type === 'service')
+            tempList.credit_bundle = action.data.filter(item => item.type === 'credit-bundle')
             return Object.assign({}, cart, {
                 list: tempList,
                 updated: true

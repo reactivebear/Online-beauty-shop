@@ -1,10 +1,21 @@
 import React, { Component } from 'react'
+import store, { history } from 'store'
 import BtnMain from 'components/buttons/btn_main'
 import Price from 'components/price'
+import { addToCart } from 'actions/cart'
 
 class CardCredit extends Component {
 	addToCart = () => {
-		//store.dispatch(buyCreditBundle(this.props.id, 'credits'))
+		store.dispatch(addToCart(this.props.id, 'credit-bundle'))
+	}
+
+	goToCart = () => {
+		store.dispatch(addToCart(this.props.id, 'credit-bundle'))
+		.then(res => {
+			if (res) {
+				history.push('/cart')
+			}
+		})
 	}
 
     render() {
@@ -29,6 +40,7 @@ class CardCredit extends Component {
         				title="Adicionar ao carrinho" />
     				<BtnMain
         				className="btn-block font-weight-bold"
+        				onClick={this.goToCart}
         				title="Comprar agora" />
 		        </div>
 			</div>

@@ -92,7 +92,9 @@ export const resetPassword = data => dispatch =>
 export const checkHash = data => dispatch => 
     (
         post(`reset-password/confirm/${data.hash}`, true, {new_password: data.password}).then(json => {
-            console.log(json)
+            if (json.object) {
+                history.push('/')
+            }
         })
     )
 
