@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import store from 'store'
 import { setAlert } from 'actions/design'
 import { resetPassword, checkHash } from 'actions/auth'
+import { history } from 'store'
 import Input from 'components/inputs/input'
 import BtnMain from 'components/buttons/btn_main'
 
@@ -16,6 +17,11 @@ class Recovery extends Component {
 			}
 		} else {
 			store.dispatch(resetPassword({email: this.email.value}))
+			.then(res => {
+				if (res) {
+					history.push('/')
+				}
+			})
 		}
 	}
 

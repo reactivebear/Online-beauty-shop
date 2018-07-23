@@ -249,7 +249,7 @@ path.cls-8 {
 .counter-input {
     border: none;
     text-align: center;
-    width: 100%;
+    max-width: 80%;
     outline: unset;
 }
 

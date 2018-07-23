@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import BtnMain from 'components/buttons/btn_main'
 import Input from 'components/inputs/input'
 import store, { history } from 'store'
-import { login } from 'actions/auth'
+import { login, loginGoogle } from 'actions/auth'
 
 class LoginForm extends Component {
     
@@ -19,6 +19,41 @@ class LoginForm extends Component {
                history.push('/')
             }
         })
+    }
+
+    loginGoogle = () => {
+        const script = document.createElement('script')
+        script.src = 'https://apis.google.com/js/platform.js'
+        script.onload = () => {
+            window.gapi.load('auth2', () => {
+                let auth2 = window.gapi.auth2.init({
+                    'client_id': '55526766344-8jfclisoipen6s8r4rmvn1v9hdnpoh04.apps.googleusercontent.com',
+                    'cookiepolicy': 'google-signin-scope',
+                    'scope': 'profile email'
+                });
+                let element = document.getElementById('google')
+                auth2.attachClickHandler(element, {}, googleUser => {
+                    console.log(googleUser)
+                    const data = {
+                        id_token: googleUser.getAuthResponse().id_token
+                    }
+                    store.dispatch(loginGoogle(data))
+                })
+            });
+        }
+        document.body.appendChild(script)
+    }
+
+    loginFacebook = () => {
+        window.FB.login(response => {
+            window.FB.api('/me', {fields: ['first_name, last_name, email, picture.width(2048), gender, locale']}, response => {
+                console.log(response) 
+            });
+        }, {scope: 'public_profile, email'});
+    }
+
+    componentDidMount() {
+       this.loginGoogle()
     }
 
     goToAddress = address => e => {
@@ -57,13 +92,12 @@ class LoginForm extends Component {
                     <div className="pr-sm-1 mb-1">
                         <BtnMain
                             className="btn-block btn-facebook px-1"
-                            onClick={this.login}
+                            onClick={this.loginFacebook}
                             title="Entrar com o Facebook" />
                     </div>
-                    <div className="pl-sm-1">
+                    <div id="google" className="pl-sm-1">
                         <BtnMain
                             className="btn-block btn-google px-1"
-                            onClick={this.login}
                             title="Entrar com o Google +" />
                     </div>
                 </div>
