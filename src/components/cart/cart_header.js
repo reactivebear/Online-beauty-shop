@@ -5,6 +5,7 @@ import { getCart, removeFromCart } from 'actions/cart'
 import BtnMain from 'components/buttons/btn_main'
 import Price from 'components/price'
 import ImagePreview from 'components/images/preview'
+import { getLang } from 'utils/lang'
 
 class CartHeader extends Component {
 	state = {
@@ -73,7 +74,7 @@ class CartHeader extends Component {
         	<div>
 	            { 	[...product, ...service, ...credit_bundle].length 
 	            	? 	[...product, ...service, ...credit_bundle].map((item, i) => this.printList(item, i, [...product, ...service].length))
-	            	: 	<div className="text-center mb-3">Carrinho Vazio</div> 
+	            	: 	<div className="text-center mb-3">{getLang("Carrinho está vazio")}</div> 
             	}
             	{
             		[...product, ...service, ...credit_bundle].length > 3 && !this.state.active

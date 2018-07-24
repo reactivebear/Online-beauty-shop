@@ -48,7 +48,7 @@ class Header extends Component {
 
     printLink = (item, i) => {
         if (i > 0) {
-            return <span key={i} onClick={this.changePage(item)} className="text-white pointer text-nowrap px-1 header-link">{item.name}</span>
+            return <span key={i} onClick={this.changePage(item)} className="text-white pointer text-nowrap px-1 header-link">{getLang(item.name)}</span>
         }
     }
 
@@ -123,13 +123,13 @@ class Header extends Component {
                                     <div onClick={this.toggleTooltip('cart')} id="cart" className="header-link-icon col col-sm-3 px-sm-0 form-group pointer"> {/*col-6 col-sm-3*/}
                                         <img src="/assets/icons/cart-icon.png" id="cart" className="img-icon-header align-middle" alt="" />
                                         <div className="align-middle d-inline-block pl-2" id="cart">
-                                            Meu<br />
-                                            <strong id="cart">Carrinho</strong>
+                                            {getLang('Meu')}<br />
+                                            <strong id="cart">{getLang('Carrinho')}</strong>
                                         </div>
                                         { this.state.tooltip === 'cart' ? <div className="tooltip-background z-index-3"></div> : '' }
                                         {
                                             this.state.tooltip === 'cart'
-                                            ?   <Tooltip title="Adicionado ao seu carrinho" type="cart" content={CartHeader} close={() => this.setState({tooltip: false})} />
+                                            ?   <Tooltip title={getLang("Adicionado ao seu carrinho")} type="cart" content={CartHeader} close={() => this.setState({tooltip: false})} />
                                             :   ''
                                         }
                                     </div>
@@ -137,8 +137,8 @@ class Header extends Component {
                                         { this.state.tooltip === 'login' ? <div className="tooltip-background z-index-3"></div> : '' }
                                         {
                                             this.props.user.guest
-                                            ?   <span id="login">Bem vindo<br /><strong id="login">Entre ou cadastre-se</strong></span>
-                                            :   <span id="login">Olá, {this.props.user.data.first_name}<br /><strong id="login">Seja bem-vindo</strong></span>
+                                            ?   <span id="login">{getLang('Bem vindo')}<br /><strong id="login">{getLang('Entre ou cadastre-se')}</strong></span>
+                                            :   <span id="login">{getLang('Olá')}, {this.props.user.data.first_name}<br /><strong id="login">{getLang('Sejá bem-vindo')}</strong></span>
                                         }
                                         {
                                             this.state.tooltip === 'login'
@@ -149,14 +149,14 @@ class Header extends Component {
                                     <div onClick={this.toggleTooltip('zip')} id="zip" className="header-link-icon col col-sm-5 px-lg-0 order-sm-first form-group pointer"> {/*col-12 col-sm-5*/}
                                         <img src="/assets/icons/pin-icon.png" id="zip" className="img-icon-header align-middle" alt="" />
                                         <div className="align-middle d-inline-block pl-2" id="zip">
-                                            Encontre serviços<br />
-                                            <strong id="zip">{this.props.user.guest ? 'Selecionar endereço' : (Object.keys(address).length ? `${address.title} ${address.zipcode}`: `Selecione um endereço`)}</strong>
+                                            {getLang('Encontre serviços')}<br />
+                                            <strong id="zip">{this.props.user.guest ? getLang('Selecionar endereço') : (Object.keys(address).length ? `${address.title} ${address.zipcode}`: getLang(`Selecione um endereço`))}</strong>
                                         </div>
                                         { this.state.tooltip === 'zip' ? <div className="tooltip-background z-index-3"></div> : '' }
                                         {
                                             this.state.tooltip === 'zip'
                                             ?   <Tooltip 
-                                                    title="Adicionar CEP" 
+                                                    title={getLang("Adicionar CEP")} 
                                                     type="zip" content={ZipForm}
                                                     openAnother={type => this.setState({tooltip: type})} 
                                                     close={() => this.setState({tooltip: false})} />

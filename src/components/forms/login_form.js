@@ -3,6 +3,7 @@ import BtnMain from 'components/buttons/btn_main'
 import Input from 'components/inputs/input'
 import store, { history } from 'store'
 import { login, loginGoogle } from 'actions/auth'
+import { getLang } from 'utils/lang'
 
 class LoginForm extends Component {
     
@@ -64,7 +65,7 @@ class LoginForm extends Component {
     render() {
         return (
         	<form onSubmit={this.login}>
-                <h4 className="text-center">Identificação</h4>
+                <h4 className="text-center">{getLang('Identificação')}</h4>
                 <div className="form-group">
                     <Input 
                         required
@@ -75,7 +76,7 @@ class LoginForm extends Component {
                     <Input 
                         required
                         type="password"
-                        label="Senha"
+                        label={getLang("Senha")}
                         inputRef={ref => this.password = ref} />
                 </div>
             	<div className="form-group">
@@ -85,7 +86,7 @@ class LoginForm extends Component {
         				title="Entrar" />
             	</div>
                 <div className="form-group text-right">
-                    <span onClick={this.goToAddress('recovery')} className="color-grey pointer">Esqueceu sua senha?</span>
+                    <span onClick={this.goToAddress('recovery')} className="color-grey pointer">{getLang("Esqueceu a senha?")}</span>
                 </div>
                 <div className="border-bottom mb-2"></div>
                 <div className="d-flex flex-sm-row flex-column form-group">

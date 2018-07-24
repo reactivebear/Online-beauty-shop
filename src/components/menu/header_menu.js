@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import store, { history } from 'store'
 import { LIST_MENU } from 'config'
 import { logout } from 'actions/auth'
+import { getLang } from 'utils/lang'
 
 class HeaderMenu extends Component {
 	printList = (item, i) => {
@@ -10,7 +11,7 @@ class HeaderMenu extends Component {
                     	<img src={`/assets/icons/${item.icon}.png`} alt="" className="img-fluid" />
                     </div>
                     <div className="col-10 pl-4">
-                    	<span className="pointer">{item.title}</span>
+                    	<span className="pointer">{getLang(item.title)}</span>
                 	</div>
                 </div>
     }

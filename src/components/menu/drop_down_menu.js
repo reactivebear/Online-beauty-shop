@@ -4,6 +4,7 @@ import store from 'store'
 import { setSearchType } from 'actions'
 import { DROP_MENU_LIST } from 'config'
 import './style.css'
+import { getLang } from 'utils/lang'
 
 class DropDownMenu extends Component {
 	setSearch = type => e => {
@@ -26,7 +27,7 @@ class DropDownMenu extends Component {
 
 	printList = (item, i) =>
 		(<div key={i} className="py-2 d-flex pointer wrap-drop-search" onClick={this.setSearch(`${item.type}s`)}>
-   			<div className={`ml-3 text-white text-uppercase px-0 pt-0 pb-0 btn w-15 drop-search-item ${item.background}`} style={{minWidth: 95}}>{item.title}</div>
+   			<div className={`ml-3 text-white text-uppercase px-0 pt-0 pb-0 btn w-15 drop-search-item ${item.background}`} style={{minWidth: 95}}>{getLang(item.title)}</div>
    			<div className="w-85">{this.setResult(item.type)}</div>
        	</div>)
 
