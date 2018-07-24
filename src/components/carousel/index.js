@@ -7,7 +7,8 @@ import "slick-carousel/slick/slick-theme.css"
 
 
 class Carousel extends Component {
-    printItems = (item, i) =>  <div key={i} onClick={this.onClickItem(i)}>{item}</div>
+
+    printItems = (item, i) => <div key={i} onClick={this.onClickItem(i)}>{item}</div>
     
     onClickItem = i => e => {
         if (this.props.onClickItem) {
@@ -17,6 +18,7 @@ class Carousel extends Component {
 
     render() {
         let nextArrow, prevArrow
+
         switch (this.props.arrowType) {
             case 'rounded': 
                 nextArrow = <NextArrowRounded />
@@ -27,7 +29,7 @@ class Carousel extends Component {
                 prevArrow = <PrevArrowCalendar />
                 break
             case 'promotions':
-                nextArrow = <NextArrowPromotion />
+                nextArrow = <NextArrowPromotion slideToShow={this.props.settings} />
                 prevArrow = <PrevArrowPromotion />
                 break
             default:

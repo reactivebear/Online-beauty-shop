@@ -22,11 +22,11 @@ const NextArrowCalendar = props =>
         </div>
     )
 
-const NextArrowPromotion = props =>
-    (
-        <div className="next-arrow-promotions" onClick={props.onClick}>
-            <img src="/assets/icons/next-arrow.png" alt="" className="img-fluid arrow-img" />
-        </div>
-    )
+const NextArrowPromotion = props => {
+    const unActiveClass = props.currentSlide + 1 >= props.slideCount ? 'opacity-5' : 'pointer'
+    return  <div className={`next-arrow-promotions ${unActiveClass}`} onClick={props.onClick}>
+                <img src="/assets/icons/next-arrow.png" alt="" className="img-fluid arrow-img-promotion" />
+            </div>
+}
 
 export { NextArrow, NextArrowRounded, NextArrowCalendar, NextArrowPromotion }

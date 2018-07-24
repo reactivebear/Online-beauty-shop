@@ -232,7 +232,12 @@ class Product extends Component {
 		})
 	}
 
-	printPromotions = (item, i) => <PromotionBlock key={i} {...item} />
+	printPromotions = (item, i, last) => {
+		const lastClass = i+1 === last ? '' : 'border-bottom'
+		return 	<div key={i} className={`py-4 ${lastClass}`}>
+					<PromotionBlock {...item} />
+				</div>
+	}
 
     render() {
     	const { product, salon, vendor_services } = this.props.products
@@ -275,7 +280,7 @@ class Product extends Component {
 			            			<span className="color-grey">Saiba os prazos de entrega e as formas de envio.</span>
 			            		</div>
 			            		<div className="row form-group">
-			            			<div className="col-6 col-sm-3">
+			            			<div className="col-6 col-md-4 col-sm-5 col-lg-3">
 				            			<span className="color-green pointer" onClick={this.calcDelivery}>Calcular frete</span><br />
 				            			<Counter onChange={val => this.count = val} value={this.count} />
 			            			</div>
@@ -298,7 +303,7 @@ class Product extends Component {
 
 		            		<div className="rounded py-4 px-3 bg-white mb-4">
 		            			<h5>Promoções relacionadas a este produto:</h5>
-		            			<div>{ promotions.map((item, i) => this.printPromotions(item, i)) }</div>
+		            			<div>{ promotions.map((item, i) => this.printPromotions(item, i, promotions.length)) }</div>
 		            		</div>
 
 		            		<div className="rounded py-4 px-3 bg-white mb-4">

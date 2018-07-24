@@ -217,6 +217,17 @@ path.cls-8 {
     transition: right 0.6s linear 0s;
 }
 
+.paggin-plus {
+	opacity: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	right: -8px;
+}
+
+.slick-current .paggin-plus {
+	opacity: 1;
+}
+
 .tab-content .accordion__body {
 	padding: 10px 20px;
 }
@@ -382,6 +393,10 @@ path.cls-8 {
 
 .overflow-hidden {
 	overflow: hidden;
+}
+
+.opacity-5 {
+	opacity: 0.5;
 }
 
 .side-line:after {

@@ -2,11 +2,37 @@ import React, { Component } from 'react'
 import BtnMain from 'components/buttons/btn_main'
 import Price from 'components/price'
 import Carousel from 'components/carousel'
+import ImagePreview from 'components/images/preview'
+import Stars from 'components/stars'
 
 class PromotionBlock extends Component { 
 
 	printPromotionItem = (item, i) => {
-		return <div key={i}>Item</div>
+		return 	<div key={i} className="px-4 position-relative">
+					<div className="position-absolute paggin-plus d-none d-md-block">
+						<i className="fas fa-plus color-green"></i>
+					</div>
+					<div className="rounded border p-2">
+						<div className="d-flex align-items-center">
+							<div className="w-20 mr-2">
+								<ImagePreview image={''} />
+							</div>
+							<div>
+								<div>Eau Thermale Avéne</div>
+								<div className="d-flex">
+									<div className="mr-1">
+										<div className="color-grey">Avaliação</div>
+										<div className="color-grey"><Stars active={4} /></div>
+									</div>
+									<div>
+										<div className="color-grey">Quantidade:</div>
+										<div>3 itens</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 	}
 
 	render() {
@@ -15,21 +41,29 @@ class PromotionBlock extends Component {
 			infinite: false,
 			slidesToShow: 2,
 			swipeToSlide: true,
+			responsive: [
+				{
+            		breakpoint: 767, 
+                    settings: {
+                        slidesToShow: 1
+                    }
+            	}
+            ]
 		}
 		return (
 			<div>
-				<div>Air plant you prorably haven't heard of them pour-over</div>
-				<div className="d-flex align-items-center">
-					<div className="w-60">
+				<div className="mb-2">Air plant you prorably haven't heard of them pour-over</div>
+				<div className="row align-items-center">
+					<div className="col-xl-8 col-lg-12 mb-3 mb-xl-0">
 						<Carousel 
 							items={promotionCards.map((item, i) => this.printPromotionItem(item, i))} 
 							arrowType="promotions"
 		        			settings={settings} />
 					</div>
-					<div className="mr-2 w-15 text-center">
+					<div className="col-xl-2 col-lg-6 text-center mb-3 mb-lg-0">
 						<Price style={{fontSize: 22}} current={72} old={140.90} />
 					</div>
-					<div>
+					<div className="col-xl-2 col-lg-6">
 						<BtnMain
 	        				className="font-weight-bold mb-2 btn-block"
 	        				title="Comprar agora" />

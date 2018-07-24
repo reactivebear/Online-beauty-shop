@@ -22,11 +22,11 @@ const PrevArrowCalendar = props =>
         </div>
     )
 
-const PrevArrowPromotion = props =>
-    (
-        <div className="prev-arrow-promotions" onClick={props.onClick}>
-            <img src="/assets/icons/prev-arrow.png" alt="" className="img-fluid arrow-img" />
-        </div>
-    )
+const PrevArrowPromotion = props => {
+    const unActiveClass = props.currentSlide === 0 ? 'opacity-5' : 'pointer'
+    return  <div className={`prev-arrow-promotions ${unActiveClass}`} onClick={props.onClick}>
+                <img src="/assets/icons/prev-arrow.png" alt="" className="img-fluid arrow-img-promotion" />
+            </div>
+}
 
 export { PrevArrow, PrevArrowRounded, PrevArrowCalendar, PrevArrowPromotion }

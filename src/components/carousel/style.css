@@ -51,6 +51,10 @@
 	width: 12px;
 }
 
+.arrow-img-promotion {
+	width: 10px;
+}
+
 .next-arrow-calendar {
 	position: absolute;
 	width: 30px;
@@ -76,7 +80,6 @@
 	left: 0px;
 	top: 50%;
 	transform: translateY(-50%);
-	cursor: pointer;
 	z-index: 1;
 }
 
@@ -85,7 +88,6 @@
 	right: 0px;
 	top: 50%;
 	transform: translateY(-50%);
-	cursor: pointer;
 	z-index: 1;
 }
 
