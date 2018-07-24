@@ -21,7 +21,7 @@ class CardForm extends Component {
                 <Input 
                     required
                     label="Nome para o cartão"
-                    description="ex: meu cartão1, meu cartão2"
+                    description="ex: meu cartão"
                     value={card.card_name}
                     onChange={this.checkMask('alphabet', 'card_name')}
                     inputRef={ref => this.card.card_name = ref} />

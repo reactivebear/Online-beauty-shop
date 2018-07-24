@@ -1,9 +1,10 @@
-
 {
 "Baixe grátis o app do Visual Total":"Download free the app Visual Total",
 "Olá, {User}":"Hello, {User}",
+"Olá":"Hello",
 "Sejá bem-vindo":"Welcome",
-"Meu Carrinho":"My cart",
+"Meu":"My",
+"Carrinho":"Cart",
 "Adicionado ao seu carrinho":"Added to your cart",
 "Ir para o meu carrinho":"Go to My Cart",
 "Encontre serviços":"Find services",
@@ -822,6 +823,7 @@
 "Obrigado por registrar-se":"Thank You For Your Registration",
 "O código de ativação foi enviado para o seu e-mail. Abra o seu e-mail e ative a sua conta.":"Email has been sent to your email address. Please Activate your account.",
 "Agendamentos do dia":"Schedules of the day",
+"Agendamentos":"Schedules",
 "Validar agendamento":"Validate scheduling",
 "Agendar serviços":"Schedule services",
 "Enviar produtos e serviços":"Send products and services",

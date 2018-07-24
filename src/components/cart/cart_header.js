@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import store, { history } from 'store'
-import { getCart, removeFromCart } from 'actions/cart.js'
-import BtnMain from 'components/buttons/btn_main.js'
+import { getCart, removeFromCart } from 'actions/cart'
+import BtnMain from 'components/buttons/btn_main'
 import Price from 'components/price'
-import ImagePreview from 'components/images/preview.js'
+import ImagePreview from 'components/images/preview'
+import { getLang } from 'utils/lang'
 
 class CartHeader extends Component {
 	state = {
@@ -24,6 +25,13 @@ class CartHeader extends Component {
 		store.dispatch(removeFromCart(id))
 	}
 
+	getImage = item => {
+		if (item.type === 'credit-bundle') {
+			return [{image_url: '/assets/images/credits.png'}]
+		}
+		return ''
+	}
+
 	goToCart = () => {
 		this.props.close()
 		history.push('/cart')
@@ -31,18 +39,23 @@ class CartHeader extends Component {
 
 	printList = (item, i) => {
 		if ((i < 3 && !this.state.active) || this.state.active) {
+			const type = item[item.type.replace('-', '_')]
+			const title = type.name || type.title || `Créditos: ${type.amount}`
+			const image = ''
 			return 	<div key={i}>
 						<div className="d-flex mb-1">
 							<div className="w-15">
-								<div className="position-relative">
-									<ImagePreview image={item.images} />
+								<div className="position-relative d-flex h-100">
+									<div className="mt-auto mb-auto">
+										<ImagePreview image={this.getImage(item)} />
+									</div>
 									<span style={{top: -5, right: -5}} className="badge bg-green badge-pill text-white position-absolute py-1">{item.quantity}</span>
 								</div>
 							</div>
 							<div className="w-85 px-2">
 								<div className="d-flex">
 									<div className="w-50">
-										<span className="color-grey">{ item[item.type].name || item[item.type].title }</span>
+										<span className="color-grey">{ title }</span>
 									</div>
 									<div className="w-50 text-right">
 										<Price current={item.total} />
@@ -56,20 +69,20 @@ class CartHeader extends Component {
 	}
 
     render() {
-    	const { product, service } = this.props.cart.list
+    	const { product, service, credit_bundle } = this.props.cart.list
         return (
         	<div>
-	            { 	[...product, ...service].length 
-	            	? 	[...product, ...service].map((item, i) => this.printList(item, i, [...product, ...service].length))
-	            	: 	<div className="text-center mb-3">Carrinho Vazio</div> 
+	            { 	[...product, ...service, ...credit_bundle].length 
+	            	? 	[...product, ...service, ...credit_bundle].map((item, i) => this.printList(item, i, [...product, ...service].length))
+	            	: 	<div className="text-center mb-3">{getLang("Carrinho está vazio")}</div> 
             	}
             	{
-            		[...product, ...service].length > 3 && !this.state.active
+            		[...product, ...service, ...credit_bundle].length > 3 && !this.state.active
             		? 	<div className="text-center mb-3 color-grey pointer" onClick={this.showAll}>&#9679;&#9679;&#9679;</div>
             		: 	<div className="text-center mb-3"></div>
             	}
             	{
-            		[...product, ...service].length
+            		[...product, ...service, ...credit_bundle].length
             		?	<div className="row justify-content-center">
 		            		<div className="col-10">
 					            <BtnMain
@@ -85,13 +98,12 @@ class CartHeader extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
+const mapStateToProps = state =>
+    ({
         cart: {
             list: state.cart.list
         }
-    }
-}
+    })
 
 export default connect(
     mapStateToProps

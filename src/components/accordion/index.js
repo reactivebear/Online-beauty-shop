@@ -6,8 +6,9 @@ import {
     AccordionItemBody,
 } from 'react-accessible-accordion'
 import 'react-accessible-accordion/dist/fancy-example.css'
-import BtnMain from 'components/buttons/btn_main.js'
+import BtnMain from 'components/buttons/btn_main'
 import Price from 'components/price'
+import moment from 'moment'
 
 class CustomAccordion extends Component {
     printBody = (item, i, length) => {
@@ -15,7 +16,16 @@ class CustomAccordion extends Component {
         return  <div key={i} className="bg-white">
                     <div className="row">
                         <div className="col-sm-6 mb-2">
-                            <p><strong>{item.title}</strong></p>
+                            <p className="fs-18"><strong>{item.title}</strong></p>
+                            <div className="d-flex">
+                                <div className="mr-2">{this.getDuration(item.duration)}</div>
+                                <div className="border color-grey rounded px-3">Salão</div>
+                                {
+                                    item.at_home
+                                    ?   <div className="border color-grey rounded px-3">Domiciliar</div>
+                                    :   ''
+                                }
+                            </div>
                             <Price current={item.price} old={item.discount_price} />
                         </div>
                         <div className="col-sm-6">
@@ -31,10 +41,20 @@ class CustomAccordion extends Component {
                 </div>
     }
 
+    getDuration = duration => {
+        let temp = ''
+        for (let k in moment.duration(duration)._data) {
+            if (moment.duration(duration)._data[k]) {
+                temp += `${moment.duration(duration)._data[k]} ${k} `
+            }
+        }
+        return temp
+    }
+
 	printAccordion = (item, i) => {
         const list = item.list ? item.list : []
         
-        return  <AccordionItem key={i} className="accordion-item mb-2 border rounded-top rounded-bottom">
+        return  <AccordionItem key={i} className="accordion-item mb-2 border rounded-top rounded-bottom bg-white">
                     <AccordionItemTitle style={{outline: 'unset'}} className="accordion__title bg-white rounded-top rounded-bottom">
                         <div className="u-position-relative">
                             <div className="fs-18">{ item.name }</div>

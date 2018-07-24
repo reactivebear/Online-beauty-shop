@@ -45,12 +45,12 @@ class Counter extends Component {
 	        		?	''
 	        		: 	<div>Quantidade:</div>
 	        	}
-	        	<div className="rounded border d-flex align-items-center justify-content-between px-2">
+	        	<div className="rounded border d-flex align-items-center justify-content-between px-2 overflow-hidden">
 		            <i className={"fas fa-minus " + color} onClick={this.decrement}></i>
 		            <input value={this.state.count} className="counter-input" onChange={this.onChange} />
 		            <i className="fas fa-plus pointer color-green" onClick={this.increment}></i>
-				</div>
-			</div>
+						</div>
+					</div>
         );
     }
 }

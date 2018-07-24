@@ -32,6 +32,28 @@ export const login = data => dispatch =>
         })
     )
 
+export const loginGoogle = data => dispatch =>
+    (
+        post(`api/login/google`, true, data).then(json => {
+            console.log(json)
+            if (json.apikey) {
+                dispatch(setToken(json.apikey.key, false))
+                dispatch(setUser(json.user))
+            }
+        })
+    )
+
+export const loginFacebook = data => dispatch =>
+    (
+        post(`api/login/facebook`, true, data).then(json => {
+            console.log(json)
+            if (json.apikey) {
+                dispatch(setToken(json.apikey.key, false))
+                dispatch(setUser(json.user))
+            }
+        })
+    )
+
 export const logout = () => dispatch => 
     (
         get('logout', true).then(json => {
@@ -63,15 +85,16 @@ export const registration = (data, type) => dispatch =>
 
 export const resetPassword = data => dispatch => 
     (
-        post('reset-password/request', true, data).then(json => {
-            console.log(json)
-        })
+        post('reset-password/request', true, data)
+        .then(json => json.status === 200)
     )
 
 export const checkHash = data => dispatch => 
     (
         post(`reset-password/confirm/${data.hash}`, true, {new_password: data.password}).then(json => {
-            console.log(json)
+            if (json.object) {
+                history.push('/')
+            }
         })
     )
 

@@ -77,8 +77,23 @@ export const getTempVoucher = id => dispatch =>
         })
     )
 
+export const getAvailableTimes = (id, dateFrom, dateTo) => dispatch => 
+    (
+        get(`api/schedules/${dateFrom}/${dateTo}/${id}`, false).then(json => {
+            if (json.object) {
+                dispatch(setProfessionals(json.object))
+            }
+        })
+    )
+
 export const setVendorServices = data => 
     ({
         type: types.SET_VENDOR_SERVICES,
+        data
+    })
+
+export const setProfessionals = data => 
+    ({
+        type: types.SET_PROFESSIONALS,
         data
     })

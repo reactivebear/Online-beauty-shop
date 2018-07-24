@@ -6,6 +6,7 @@ import { getAutocomplete, setSearchQuery } from 'actions'
 import './style.css'
 import DropDownMenu from 'components/menu/drop_down_menu'
 import Tooltip from 'components/tooltip'
+import { getLang } from 'utils/lang'
 
 class WebSearch extends Component {
 	constructor(props) {
@@ -77,7 +78,7 @@ class WebSearch extends Component {
 	            <form className="input-group d-none d-sm-flex" onSubmit={this.search}>
 	            	<div className="input-group-prepend" id="main-dropdown">
 					    <button type="button" onClick={this.toggleDropDown} className="btn btn-drop-search pl-3">
-					    	{ this.getSearchType().title }
+					    	{ getLang(this.getSearchType().title) }
 					    	<i className="fas fa-chevron-down px-3"></i>
 				    	</button>
 				    	{

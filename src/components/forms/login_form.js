@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import BtnMain from 'components/buttons/btn_main'
 import Input from 'components/inputs/input'
 import store, { history } from 'store'
-import { login } from 'actions/auth'
+import { login, loginGoogle } from 'actions/auth'
+import { getLang } from 'utils/lang'
 
 class LoginForm extends Component {
     
@@ -21,6 +22,41 @@ class LoginForm extends Component {
         })
     }
 
+    loginGoogle = () => {
+        const script = document.createElement('script')
+        script.src = 'https://apis.google.com/js/platform.js'
+        script.onload = () => {
+            window.gapi.load('auth2', () => {
+                let auth2 = window.gapi.auth2.init({
+                    'client_id': '55526766344-8jfclisoipen6s8r4rmvn1v9hdnpoh04.apps.googleusercontent.com',
+                    'cookiepolicy': 'google-signin-scope',
+                    'scope': 'profile email'
+                });
+                let element = document.getElementById('google')
+                auth2.attachClickHandler(element, {}, googleUser => {
+                    console.log(googleUser)
+                    const data = {
+                        id_token: googleUser.getAuthResponse().id_token
+                    }
+                    store.dispatch(loginGoogle(data))
+                })
+            });
+        }
+        document.body.appendChild(script)
+    }
+
+    loginFacebook = () => {
+        window.FB.login(response => {
+            window.FB.api('/me', {fields: ['first_name, last_name, email, picture.width(2048), gender, locale']}, response => {
+                console.log(response) 
+            });
+        }, {scope: 'public_profile, email'});
+    }
+
+    componentDidMount() {
+       this.loginGoogle()
+    }
+
     goToAddress = address => e => {
         this.props.close()
         history.push(`/${address}`)
@@ -29,7 +65,7 @@ class LoginForm extends Component {
     render() {
         return (
         	<form onSubmit={this.login}>
-                <h4 className="text-center">Identificação</h4>
+                <h4 className="text-center">{getLang('Identificação')}</h4>
                 <div className="form-group">
                     <Input 
                         required
@@ -40,7 +76,7 @@ class LoginForm extends Component {
                     <Input 
                         required
                         type="password"
-                        label="Senha"
+                        label={getLang("Senha")}
                         inputRef={ref => this.password = ref} />
                 </div>
             	<div className="form-group">
@@ -50,20 +86,19 @@ class LoginForm extends Component {
         				title="Entrar" />
             	</div>
                 <div className="form-group text-right">
-                    <span onClick={this.goToAddress('recovery')} className="color-grey pointer">Esqueceu sua senha?</span>
+                    <span onClick={this.goToAddress('recovery')} className="color-grey pointer">{getLang("Esqueceu a senha?")}</span>
                 </div>
                 <div className="border-bottom mb-2"></div>
                 <div className="d-flex flex-sm-row flex-column form-group">
                     <div className="pr-sm-1 mb-1">
                         <BtnMain
                             className="btn-block btn-facebook px-1"
-                            onClick={this.login}
+                            onClick={this.loginFacebook}
                             title="Entrar com o Facebook" />
                     </div>
-                    <div className="pl-sm-1">
+                    <div id="google" className="pl-sm-1">
                         <BtnMain
                             className="btn-block btn-google px-1"
-                            onClick={this.login}
                             title="Entrar com o Google +" />
                     </div>
                 </div>

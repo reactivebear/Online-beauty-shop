@@ -4,7 +4,7 @@ import store, { history } from 'store'
 import { getLocation } from 'actions'
 import BtnMain from 'components/buttons/btn_main'
 import { format } from 'utils/mask'
-import { getMyPosition } from 'utils'
+import { getLang } from 'utils/lang'
 
 class ZipForm extends Component {
     openLogin = e => {
@@ -42,7 +42,7 @@ class ZipForm extends Component {
                     this.props.user.guest
                     ?   <div>
                             <div className="color-grey mb-3">
-                                Busque por serviços mais próximos de você as opções e velocidade de entrega podem variar de acordo com a região
+                                {getLang("Busque por serviços mais próximos de você. As opções e velocidade de entrega podem variar de acordo com a região")}
                             </div>
                             <div className="mb-3">
                                 <BtnMain
@@ -52,14 +52,14 @@ class ZipForm extends Component {
                             </div>
                             <div className="text-center mb-3">
                                 <div className="side-line position-relative">
-                                    <div className="color-grey bg-white position-relative z-index-2 d-inline px-2">ou insira um cep</div>
+                                    <div className="color-grey bg-white position-relative z-index-2 d-inline px-2">{getLang("ou insira um cep")}</div>
                                 </div>
                             </div>
                         </div>
                     :   ''
                 }
                     
-            	<div className="d-flex align-items-center mb-3">
+            	<div className="d-flex align-items-center mb-4">
                     <input 
                         type="text"
                         placeholder="00000"
@@ -80,12 +80,16 @@ class ZipForm extends Component {
         				title="Buscar" />
             		
             	</div>
+                
                 {
                     !this.props.user.guest
-                    ?   <BtnMain
-                            className="font-weight-bold pt-2 btn-block"
-                            onClick={this.nearbySearch}
-                            title="Utilizar a minha localização" />
+                    ?   <div>
+                            <div className="border-bottom mb-4"></div>
+                            <BtnMain
+                                    className="font-weight-bold pt-2 btn-block"
+                                    onClick={this.nearbySearch}
+                                    title="Utilizar a minha localização" />
+                        </div>
                     :   ''
                 }
 			</div>
