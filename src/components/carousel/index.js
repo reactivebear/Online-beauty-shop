@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Slider from 'react-slick'
-import { PrevArrow, PrevArrowRounded, PrevArrowCalendar } from './prev_arrow.js'
-import { NextArrow, NextArrowRounded, NextArrowCalendar } from './next_arrow.js'
+import { PrevArrow, PrevArrowRounded, PrevArrowCalendar, PrevArrowPromotion } from './prev_arrow.js'
+import { NextArrow, NextArrowRounded, NextArrowCalendar, NextArrowPromotion } from './next_arrow.js'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
@@ -25,6 +25,10 @@ class Carousel extends Component {
             case 'calendar':
                 nextArrow = <NextArrowCalendar />
                 prevArrow = <PrevArrowCalendar />
+                break
+            case 'promotions':
+                nextArrow = <NextArrowPromotion />
+                prevArrow = <PrevArrowPromotion />
                 break
             default:
                 nextArrow = <NextArrow />

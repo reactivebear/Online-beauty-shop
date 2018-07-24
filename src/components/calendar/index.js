@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import store from 'store'
 import { getDaysInMonth } from 'utils/date'
 import Carousel from 'components/carousel'
 import { getLang } from 'utils/lang'
 import { times } from 'config'
 import { getTime } from 'utils/date'
+import { setScheduleCartKey } from 'actions/schedule_cart'
 import './style.css'
 
 class Calendar extends Component {
@@ -17,6 +19,7 @@ class Calendar extends Component {
 
 	setActiveTime = activeTime => e => {
 		this.state.activeTime === activeTime ? this.setState({activeTime: 0}) : this.setState({activeTime})
+		store.dispatch(setScheduleCartKey(activeTime, 'activeTime'))
 	}
 
 	printDates = (item, i) => {
@@ -33,7 +36,7 @@ class Calendar extends Component {
 		if (activeDate >= this.state.currentDate) {
 			this.setState({activeDate})
 			const month = this.props.month > 9 ? this.props.month : `0${this.props.month}`
-			//store.dispatch(setActiveDate(`${this.props.year}-${month}-${activeDate}`))
+			store.dispatch(setScheduleCartKey(`${this.props.year}-${month}-${activeDate}`, 'activeDate'))
 		}
     }
 

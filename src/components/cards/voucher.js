@@ -21,7 +21,6 @@ class CardVoucher extends Component {
 	getDays = () => moment(this.props.expiration_date).diff(moment(), 'days') + 1
 
 	render() {
-		
 		return (
 			<div className="bg-white rounded p-3">
 				<div className="d-flex">
@@ -30,8 +29,9 @@ class CardVoucher extends Component {
 					</div>
 					<div className="w-60 pl-2">
 						<div className="fs-16">{this.props.service.title}</div>
-						<div className="color-grey">
-							Vendido e realizado por <span className="color-green pointer">{this.props.service.vendor.organization_name}</span>
+						<div className="color-grey mb-2">
+							Vendido e realizado por <br />
+							<span className="color-green pointer">{this.props.service.vendor.organization_name}</span>
 						</div>
 						<Price current={this.props.service.price} />
 					</div>
@@ -45,9 +45,9 @@ class CardVoucher extends Component {
 					</div>
 					<div className="col-6">
 						<div className="color-grey">
-							Validade
+							Agendamento
 						</div>
-						<div>{getDate(this.props.expiration_date)} ({this.getDays()} dias)</div>
+						<div>{getDate(this.props.created_at)}</div> {/*({this.getDays()} dias)*/}
 					</div>
 					<div className="col-6">
 						<div className="color-grey">

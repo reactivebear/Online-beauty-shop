@@ -22,4 +22,11 @@ const PrevArrowCalendar = props =>
         </div>
     )
 
-export { PrevArrow, PrevArrowRounded, PrevArrowCalendar }
+const PrevArrowPromotion = props =>
+    (
+        <div className="prev-arrow-promotions" onClick={props.onClick}>
+            <img src="/assets/icons/prev-arrow.png" alt="" className="img-fluid arrow-img" />
+        </div>
+    )
+
+export { PrevArrow, PrevArrowRounded, PrevArrowCalendar, PrevArrowPromotion }

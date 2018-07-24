@@ -32,10 +32,10 @@ class Price extends Component {
             <div className={this.props.className}>
                 {
                     this.props.old
-                    ?   <span><span className="price-old fs-18">R$ {this.format(old[0])}<sup><small>,{centOld}</small></sup></span>&nbsp;&nbsp;&nbsp;</span>
+                    ?   <span><span className="price-old fs-18" style={this.props.style}>R$&nbsp;{this.format(old[0])}<sup><small>,{centOld}</small></sup></span>&nbsp;&nbsp; </span>
                     :   ''
                 }
-                <span className="fs-22" style={this.props.style}>R$ {this.format(current[0])}<sup><small>,{cent}</small></sup></span>
+                <span className="fs-22 no-wrap" style={this.props.style}>R$&nbsp;{this.format(current[0])}<sup><small>,{cent}</small></sup></span>
             </div>
         );
     }

@@ -6,6 +6,8 @@ const initialState = {
     use_credits: false,
     step: 1,
     guest_card: {},
+    activeDate: '',
+    activeTime: '',
     proffesional: {
         professional: {
             id: false

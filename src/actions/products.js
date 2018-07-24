@@ -20,6 +20,15 @@ export const getProduct = id => dispatch =>
         })
     )
 
+export const getPromotions = id => dispatch => 
+    (
+        get(`api/promotions?product=${id}`, false).then(json => {
+            if (json.object) {
+                dispatch(setProductPromotions(json.object))
+            }
+        })
+    )
+
 export const getProductsVendor = id => dispatch => 
     (
         get(`api/products/vendor/${id}`, false).then(json => {
@@ -43,6 +52,12 @@ export const sendProductComment = (data, id) => dispatch =>
         post(`api/product/${id}/review`, true, data)
         .then(json => json.status === 200)
     )
+
+export const setProductPromotions = data => dispatch =>
+    ({
+        type: types.SET_PRODUCT_PROMOTIONS,
+        data,
+    })
 
 export const setProducts = (data, key) => 
     ({

@@ -71,6 +71,24 @@
 	z-index: 1;
 }
 
+.prev-arrow-promotions {
+	position: absolute;
+	left: 0px;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: pointer;
+	z-index: 1;
+}
+
+.next-arrow-promotions {
+	position: absolute;
+	right: 0px;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: pointer;
+	z-index: 1;
+}
+
 @media (max-width: 575px) {
 	.prev-arrow-calendar {
 		left: -35px;

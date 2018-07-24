@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import store, { history } from 'store'
 import { connect } from 'react-redux'
-import { getProduct, getProductComments } from 'actions/products'
+import { getProduct, getProductComments, getPromotions } from 'actions/products'
 import { addToCart } from 'actions/cart'
 import { toggleModal, toggleLightBox } from 'actions/design'
 import { getVendorServices } from 'actions/services'
@@ -22,6 +22,7 @@ import Heart from 'components/heart'
 import Avatar from 'components/images/avatar'
 import Pagination from 'components/pagination'
 import TextArea from 'components/inputs/textarea'
+import PromotionBlock from 'components/blocks/promotion'
 
 class Product extends Component {
 	constructor(props) {
@@ -35,6 +36,7 @@ class Product extends Component {
 		if (props.match.params.id) {
 			store.dispatch(getProduct(props.match.params.id))
 			.then(res => {
+				store.dispatch(getPromotions(props.match.params.id))
 				store.dispatch(getVendorServices(this.props.products.salon.id))
 			})
 			store.dispatch(getProductComments(props.match.params.id))
@@ -230,6 +232,8 @@ class Product extends Component {
 		})
 	}
 
+	printPromotions = (item, i) => <PromotionBlock key={i} {...item} />
+
     render() {
     	const { product, salon, vendor_services } = this.props.products
     	product.images = [
@@ -238,6 +242,10 @@ class Product extends Component {
 					{image_url: '/assets/images/default-image-square-big-green.png'},
 					{image_url: '/assets/images/default-image-square-big-orange.png'},
 				]
+
+		const promotions = ['', '']
+
+		console.log(this.props.products.promotions)
         return (
         	<div className="bg-main pt-4">
 	        	<div className="font-avenir pt-2 bg-white">
@@ -287,10 +295,17 @@ class Product extends Component {
 		            </div>
 		            <div className="bg-main pb-4">
 		            	<div className="container pt-4">
+
+		            		<div className="rounded py-4 px-3 bg-white mb-4">
+		            			<h5>Promoções relacionadas a este produto:</h5>
+		            			<div>{ promotions.map((item, i) => this.printPromotions(item, i)) }</div>
+		            		</div>
+
 		            		<div className="rounded py-4 px-3 bg-white mb-4">
 		            			<h5>Descrição</h5>
 		            			<span className="color-grey">{ product.description }</span>
 		            		</div>
+
 		            		<div className="rounded py-3 bg-white">
 		            			<Tabs tabs={[
 		            				{
@@ -324,6 +339,7 @@ const mapStateToProps = state =>
         products: {
         	product: state.products.product,
         	reviews: state.products.reviews,
+        	promotions: state.products.promotions,
         	salon: state.products.salon,
         	vendor_services: state.products.vendor_services
         },

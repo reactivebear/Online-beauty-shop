@@ -22,4 +22,11 @@ const NextArrowCalendar = props =>
         </div>
     )
 
-export { NextArrow, NextArrowRounded, NextArrowCalendar }
+const NextArrowPromotion = props =>
+    (
+        <div className="next-arrow-promotions" onClick={props.onClick}>
+            <img src="/assets/icons/next-arrow.png" alt="" className="img-fluid arrow-img" />
+        </div>
+    )
+
+export { NextArrow, NextArrowRounded, NextArrowCalendar, NextArrowPromotion }

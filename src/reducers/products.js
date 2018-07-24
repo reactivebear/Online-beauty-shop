@@ -5,6 +5,7 @@ const initialState = {
     category_list: [],
     product: {},
     reviews: [],
+    promotions: [],
     salon: {
         address: {},
         social_media: [],
@@ -47,6 +48,8 @@ export default function products(products = initialState, action = {}) {
             });
         case types.SET_PRODUCT_COMMENTS:
             return Object.assign({}, products, {reviews: action.data.items});
+        case types.SET_PRODUCT_PROMOTIONS:
+            return Object.assign({}, products, {promotions: action.data});
         default:
             return products;
     }

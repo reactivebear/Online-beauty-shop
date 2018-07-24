@@ -8,12 +8,11 @@ import CheckBox from 'components/inputs/checkbox.js'
 
 class ScheduleCartTotal extends Component {
 	changeStep = () => {
-		
 		if (this.props.step === 3) {
 			const data = {
-				professional: 12,
+				professional: this.props.schedule_cart.proffesional.professional.id,
 				voucher: this.props.schedule_cart.voucher.id,
-				datetime: '2018-08-18 08:20'
+				datetime: `${this.props.schedule_cart.activeDate} ${this.props.schedule_cart.activeTime}`
 			}
 
 			store.dispatch(makeAppointment(data))
@@ -114,7 +113,10 @@ const mapStateToProps = state =>
         schedule_cart: {
         	use_credits: state.schedule_cart.use_credits,
         	total: state.schedule_cart.total,
-        	voucher: state.schedule_cart.voucher
+        	voucher: state.schedule_cart.voucher,
+        	proffesional: state.schedule_cart.proffesional,
+        	activeDate: state.schedule_cart.activeDate,
+        	activeTime: state.schedule_cart.activeTime,
         },
         services: {
             salon: state.services.salon
