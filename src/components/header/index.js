@@ -72,11 +72,11 @@ class Header extends Component {
                     ?   <div className="download-app-big d-sm-none">
                             <div className="d-block text-center text-white p-5">
                                 <div className="form-group position-relative">
-                                    <strong>Use grátis o app do Visual Total</strong>
+                                    <strong>{getLang('Use grátis o app do Visual Total')}</strong>
                                     <img src="/assets/icons/close-icon.png" onClick={this.handleDismissClick} className="img-icon" alt="" />
                                 </div>
                                 <div className="form-group">
-                                    <span>Descubra a melhor experiência na hora de comprar pela internet</span>
+                                    <span>{getLang('Descubra a melhor experiência na hora de comprar pela internet')}</span>
                                 </div>
                                 <BtnMain
                                     className="btn-block"

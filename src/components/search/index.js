@@ -93,7 +93,7 @@ class WebSearch extends Component {
 						value={this.state.value}
 						ref={ref => this.query = ref}
 						className="form-control with-shadow border-0"
-						placeholder={this.getSearchType().placeholder} />
+						placeholder={getLang(this.getSearchType().placeholder)} />
 					<div className="input-group-append">
 					    <BtnMain
 					    	className="btn-search px-4 pt-2"
@@ -107,7 +107,7 @@ class WebSearch extends Component {
 						className="form-control with-shadow border-0 fs-13"
 						value={this.state.value}
 						onChange={this.handleOnChange}
-						placeholder="Buscar por produtos e serviços" />
+						placeholder={getLang("Buscar por produtos e serviços")} />
 					<div className="input-group-append">
 					    <BtnMain
 					    	className="btn-search px-4 pt-2"
