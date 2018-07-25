@@ -67,14 +67,17 @@ class Search extends Component {
 								<div className="row mb-4">
 									{ services.list.map((item, i) => this.printList(item, i, 'service')) }
 								</div>
-                                <Pagination 
-                                    responsive={[{width: 1199, count: 15}, {width: 810, count: 12}, {width: 767, count: 10}, {width: 600, count: 6}, {width: 550, count: 5}, {width: 375, count: 3}]}
-                                    onChange={this.changePage('services')} 
-                                    total={services.total_pages} 
-                                    active={services.page} />
+                                
     						</div>
     					: 	''
-    				} {
+    				} 
+                        <Pagination 
+                            responsive={[{width: 1199, count: 15}, {width: 810, count: 12}, {width: 767, count: 10}, {width: 600, count: 6}, {width: 550, count: 5}, {width: 375, count: 3}]}
+                            onChange={this.changePage('services')}
+                            className="mb-2"
+                            total={services.total_pages} 
+                            active={services.page} />
+                    {
     					products.list.length
     					?	<div>
     							<div className="d-flex justify-content-between align-items-center mb-3">
@@ -83,14 +86,16 @@ class Search extends Component {
 			    				<div className="row mb-4">
 									{ products.list.map((item, i) => this.printList(item, i, 'product')) }
 								</div>
-                                <Pagination
-                                    responsive={[{width: 1199, count: 15}, {width: 810, count: 12}, {width: 767, count: 10}, {width: 600, count: 6}, {width: 550, count: 5}, {width: 375, count: 3}]}
-                                    onChange={this.changePage('products')} 
-                                    total={products.total_pages} 
-                                    active={products.page} />
+                                
     						</div>
     					: 	''
-    				} {
+    				} 
+                        <Pagination
+                            responsive={[{width: 1199, count: 15}, {width: 810, count: 12}, {width: 767, count: 10}, {width: 600, count: 6}, {width: 550, count: 5}, {width: 375, count: 3}]}
+                            onChange={this.changePage('products')} 
+                            total={products.total_pages} 
+                            active={products.page} />
+                    {
                         ![...products.list, ...services.list].length
                         ?   <div className="row justify-content-center not-found-wrap">
                                 <div className="col-xl-6 col-md-7 col-sm-10 col-12">

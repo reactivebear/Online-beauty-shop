@@ -66,6 +66,7 @@ export const getLocation = zipcode => dispatch =>
         get(`api/location/geocode?zipcode=${zipcode}`).then(json => {
             if (json.object) {
                 dispatch(setUserKey(json.object, 'location'))
+                return true
             }
         })
     )

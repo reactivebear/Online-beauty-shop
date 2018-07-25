@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import store from 'store'
 import { getNotifications } from 'actions/user'
-import CardNotification from 'components/cards/notification.js'
+import CardNotification from 'components/cards/notification'
 
 class Notifications extends Component {
 

@@ -28,6 +28,7 @@ class Pagination extends Component {
 	}
 
 	getHiddenClass = page => {
+		console.log(this.state.active, this.state.prev)
 		if (this.getMaxCount() < this.props.total) {
 			if (this.state.active === page || page === this.props.total) { //active & last
 				return 'num'
@@ -91,14 +92,14 @@ class Pagination extends Component {
 
 	prevPage = () => {
 		if (this.state.active > 1) {
-			this.setState({active: this.state.active - 1})
+			this.setState({active: this.state.active - 1, prev: this.state.active})
 			this.props.onChange(this.state.active - 1)
 		}
 	}
 
 	nextPage = () => {
 		if (this.state.active < this.props.total) {
-			this.setState({active: this.state.active + 1})
+			this.setState({active: this.state.active + 1, prev: this.state.active})
 			this.props.onChange(this.state.active + 1)
 		}
 	}
@@ -126,7 +127,7 @@ class Pagination extends Component {
     	const prevClass = this.state.active > 1 ? 'pointer color-green' : 'color-grey'
     	const nextClass = this.state.active < this.props.total ? 'pointer color-green' : 'color-grey'
         return (
-        	<div ref={ref => this.container = ref} style={{minHeight: 1}}>
+        	<div ref={ref => this.container = ref} style={{minHeight: 1}} className={this.props.className}>
 	        	<div className="d-flex justify-content-center">
 		            <div className={`rounded bg-white py-2 px-3 mx-1 border ${prevClass}`} ref={ref => this.prev = ref} onClick={this.prevPage}>
 		            	<i className="fas fa-chevron-left"></i>

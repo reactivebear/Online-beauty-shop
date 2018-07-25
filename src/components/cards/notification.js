@@ -1,9 +1,24 @@
 import React, { Component } from 'react'
+import store from 'store'
 import { NOTIFICATION_TYPE } from 'config'
 import BtnMain from 'components/buttons/btn_main'
 import { getLang } from 'utils/lang'
+import { tempRemoveNotify, removeNotify } from 'actions/user'
 
 class CardNotification extends Component {
+
+	tempRemove = () => {
+		store.dispatch(tempRemoveNotify(1))
+	}
+
+	remove = () => {
+		store.dispatch(removeNotify(1))
+	}
+
+	sendThanks = () => {
+		//store.dispatch(sendThanks())
+	}
+
     render() {
     	const notify = {...NOTIFICATION_TYPE[this.props.type], desc: this.props.desc}
         return (
@@ -24,11 +39,13 @@ class CardNotification extends Component {
 	            			<div className="col order-2 px-1 mb-2">
 			            		<BtnMain
 			        				className="btn-outline w-100 font-weight-bold"
+			        				onClick={this.tempRemove}
 			        				title="Lembrar mais tarde" />
 	        				</div>
 	        				<div className="col order-3 px-1 mb-2">
 		        				<BtnMain
 			        				className="btn-outline w-100 font-weight-bold"
+			        				onClick={this.remove}
 			        				title="Excluir" />
 	        				</div>
 		            		{
@@ -36,6 +53,7 @@ class CardNotification extends Component {
 		            			? 	<div className="col order-4 order-sm-1 px-1 mb-2">
 				            			<BtnMain
 					        				className="btn-outline w-100 font-weight-bold"
+					        				onClick={this.sendThanks}
 					        				title="Agradecer" />
 			        				</div>
 		            			: 	''

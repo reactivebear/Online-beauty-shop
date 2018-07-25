@@ -204,6 +204,20 @@ export const getNotifications = () => dispatch =>
         })
     )
 
+export const tempRemoveNotify = id => dispatch =>
+    (
+        post(`api/notification/${id}/remind-later`, true).then(json => {
+            console.log(json)
+        })
+    )
+
+export const removeNotify = id => dispatch =>
+    (
+        post(`api/notification/${id}/dismiss`, true).then(json => {
+            console.log(json)
+        })
+    )
+
 export const getPurchases = () => dispatch => 
     (
         get(`api/user/purchases`, false).then(json => {
