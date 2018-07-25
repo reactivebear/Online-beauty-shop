@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SupportAccordion from 'components/accordion/support'
 import { SupportForm } from 'components/forms'
+import { getLang } from 'utils/lang'
 
 class Support extends Component {
 	state = {
@@ -12,19 +13,19 @@ class Support extends Component {
 					<div className="row">
                     	<div className="col-lg-10 offset-lg-1">
 							<div className="color-grey">
-								Grande São Paulo
+								{getLang('Grande São Paulo')}
 							</div>
 							<div className="mb-3">
 								(11) 3065-7200
 							</div>
 							<div className="color-grey">
-								Outras Localidades
+								{getLang('Outras Localidades')}
 							</div>
 							<div className="mb-3">
 								0800-754-4000
 							</div>
 							<div className="color-grey">
-								Horário de atendimento das 8h às 20h, de segunda a sábado  (exceto feriados)
+								{getLang('Horário de atendimento das 8h às 20h, de segunda a sábado (exceto feriados)')}
 							</div>
 						</div>
 					</div>
@@ -50,17 +51,17 @@ class Support extends Component {
 		]
 		const list = [
 			{
-				title: 'Quando recebo meu pedido',
-				body: <div className="px-3 px-sm-0 px-md-3 color-grey">{text}</div>
+				title: getLang('Quando recebo meu pedido'),
+				body: <div className="px-3 px-sm-0 px-md-3 color-grey">{getLang(text)}</div>
 			}, {
-				title: 'Quem paga o frete de retorno',
-				body: <div className="px-3 px-sm-0 px-md-3 color-grey">{text}</div>
+				title: getLang('Quem paga o frete de retorno'),
+				body: <div className="px-3 px-sm-0 px-md-3 color-grey">{getLang(text)}</div>
 			}, {
-				title: 'Quando receberá o meu reembolso',
-				body: <div className="px-3 px-sm-0 px-md-3 color-grey">{text}</div>
+				title: getLang('Quando receberá o meu reembolso'),
+				body: <div className="px-3 px-sm-0 px-md-3 color-grey">{getLang(text)}</div>
 			}, {
-				title: 'E se eu perdesse o prazo de agendamento',
-				body: <div className="px-3 px-sm-0 px-md-3 color-grey">{text}</div>
+				title: getLang('E se eu perdesse o prazo de agendamento'),
+				body: <div className="px-3 px-sm-0 px-md-3 color-grey">{getLang(text)}</div>
 			}
 		]
 
@@ -72,7 +73,7 @@ class Support extends Component {
 						<div className="d-inline-block footer-icon d-sm-none d-md-inline-block">
 							<img src="/assets/icons/support-setting.png" className="img-fluid" alt="" />
 						</div>
-	                    <div className="fs-18 support-title d-inline-block pl-3 pl-sm-0 pl-md-3">Perguntas frequentes</div>
+	                    <div className="fs-18 support-title d-inline-block pl-3 pl-sm-0 pl-md-3">{getLang('Perguntas frequentes')}</div>
 	                    <div className="accordion-right-arrow"></div>
 					</div>
 					<SupportAccordion list={mainList} />

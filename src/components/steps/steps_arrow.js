@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './steps_arrow.css'
+import { getLang } from 'utils/lang'
 
 class StepsArrow extends Component {
     printSteps = (item, i) => {
@@ -11,7 +12,7 @@ class StepsArrow extends Component {
                             ?  <span className="step-number">{i+1}</span>
                             :  <span className="step-number check"><i className="fas fa-check"></i></span>
                         }
-                        <span className="step-description">{item.title}</span>
+                        <span className="step-description">{getLang(item.title)}</span>
                     </span>
                 </li>
     }

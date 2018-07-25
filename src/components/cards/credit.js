@@ -3,6 +3,7 @@ import store, { history } from 'store'
 import BtnMain from 'components/buttons/btn_main'
 import Price from 'components/price'
 import { addToCart } from 'actions/cart'
+import { getLang } from 'utils/lang'
 
 class CardCredit extends Component {
 	addToCart = () => {
@@ -27,10 +28,10 @@ class CardCredit extends Component {
 	            		<img src="/assets/images/credits.png" className="img-fluid" alt="" />
 	            	</div>
 	            	<div className="text-center fs-18">
-	            		Promoção
+	            		{getLang('Promoção')}
 	            	</div>
 	            	<div className="d-flex align-items-center mb-3">
-	            		<span className="color-grey">{this.props.amount} Créditos por </span>
+	            		<span className="color-grey">{this.props.amount} {getLang('Créditos por')} </span>
 	            		&nbsp;
 	            		<Price style={{fontSize: 18}} current={this.props.discount_price} />
 	            	</div>

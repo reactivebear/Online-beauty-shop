@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './steps_round.css'
+import { getLang } from 'utils/lang'
 
 class StepsRound extends Component {
 	printList = (item, i) => {
@@ -12,7 +13,7 @@ class StepsRound extends Component {
 	}
     render() {
     	const activeClass = `active-${this.props.active}`
-    	const steps = ['Pedido efetuado', 'Processando', 'Em transporte', 'Produto entregue']
+    	const steps = [getLang('Pedido efetuado'), getLang('Processando...'), getLang('Em transporte'), getLang('Produto entregue')]
         return (
     		<div className="wrap-wrap-steps px-sm-5 px-3 py-5">
 	            <div className={`${activeClass} wrap-steps-round d-flex justify-content-between align-items-center position-relative`}>

@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom'
 import { getPurchases } from 'actions/user.js'
 import CardPurchase from 'components/cards/purchase'
 import { PurchasePage } from 'components/profile'
+import { getLang } from 'utils/lang'
 
 class Purchased extends Component {
 	componentWillMount() {
@@ -18,7 +19,7 @@ class Purchased extends Component {
 					{ 
 						this.props.user.purchases.length
 						? 	<div className="row align-items-strech">{ this.props.user.purchases.map((item, i) => this.printList(item, i)) }</div>
-						: 	<div className="text-center fs-18">Você ainda não possui nenhum produto</div>
+						: 	<div className="text-center fs-18">{getLang('Você ainda não possui nenhum produto')}</div>
 					}
 				</div>
 	}

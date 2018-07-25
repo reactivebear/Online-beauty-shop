@@ -7,6 +7,7 @@ import StepsArrow from 'components/steps/steps_arrow'
 import { StepFirst, StepSecond, StepThird, StepFourth, StepFifth } from 'components/cart'
 import { getCreditCards } from 'actions/user'
 import { getStepsCount } from 'utils'
+import { getLang } from 'utils/lang'
 
 class Cart extends Component {
 	constructor(props) {
@@ -69,7 +70,7 @@ class Cart extends Component {
 	}
 
 	getSteps = () => {
-		return getStepsCount() === 5 ? [{title: 'Meu carrinho'}, {title: 'Entrega'}, {title: 'Pagamento'}, {title: 'Confirmação'}] : [{title: 'Meu carrinho'}, {title: 'Pagamento'}, {title: 'Confirmação'}]
+		return getStepsCount() === 5 ? [{title: getLang('Meu carrinho')}, {title: getLang('Entrega')}, {title: getLang('Pagamento')}, {title: getLang('Confirmação')}] : [{title: getLang('Meu carrinho')}, {title: getLang('Pagamento')}, {title: getLang('Confirmação')}]
 	}
 
     render() {

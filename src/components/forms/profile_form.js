@@ -5,6 +5,7 @@ import BtnMain from 'components/buttons/btn_main.js'
 import Input from 'components/inputs/input.js'
 import Select from 'components/inputs/select'
 import { format } from 'utils/mask'
+import { getLang } from 'utils/lang'
 
 class ProfileForm extends Component {
 
@@ -35,13 +36,13 @@ class ProfileForm extends Component {
         	<div>
                 <Input 
                     required
-                    label="Name"
+                    label={getLang("Name")}
                     value={first_name}
                     onChange={this.checkMask('alphabet', 'first_name')}
                     inputRef={ref => this.user.first_name = ref} />
                 <Input 
                     required
-                    label="Sobrenome"
+                    label={getLang("Sobrenome")}
                     value={last_name}
                     onChange={this.checkMask('alphabet', 'last_name')}
                     inputRef={ref => this.user.last_name = ref} />
@@ -55,16 +56,16 @@ class ProfileForm extends Component {
                 <Input 
                     required
                     placeholder="DD/MM/YYYY"
-                    label="Data de nascimento"
+                    label={getLang("Data de nascimento")}
                     onChange={this.checkMask('date', 'birth')}
                     inputRef={ref => this.user.birth = ref} />
                 <Select 
                     required
-                    label="Sexo"
-                    options={[{value: 'Masculino'}, {value: 'Feminino'}]} />
+                    label={getLang("Sexo")}
+                    options={[{value: getLang('Masculino')}, {value: getLang('Feminino')}]} />
                 <Input 
                     required
-                    label="Número do CPF"
+                    label={getLang("Número do CPF")}
                     onChange={this.checkMask('cpf', 'cpf')}
                     inputRef={ref => this.user.cpf = ref} />
                 <div className="row justify-content-center">

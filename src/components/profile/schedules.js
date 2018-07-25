@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { getAppointments } from 'actions/user'
 import BtnMain from 'components/buttons/btn_main'
 import CardAppointment from 'components/cards/appointment'
+import { getLang } from 'utils/lang'
 
 class Schedules extends Component {
 	componentWillMount() {
@@ -31,9 +32,9 @@ class Schedules extends Component {
 								</div>
 							</div>
 							<div className="color-grey mb-4">
-								Você ainda não agendou um horário. 
+								{getLang('Você ainda não agendou um horário.')} 
 								<br />
-								Que tal encontrar um novo estabelecimento?
+								{getLang('Que tal encontrar um novo estabelecimento?')}
 							</div>
 							<div className="row justify-content-center">
 								<div className="col-sm-6">

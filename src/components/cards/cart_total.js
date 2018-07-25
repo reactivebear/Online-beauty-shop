@@ -6,6 +6,7 @@ import BtnMain from 'components/buttons/btn_main'
 import Price from 'components/price'
 import CheckBox from 'components/inputs/checkbox'
 import { card_types } from 'config'
+import { getLang } from 'utils/lang'
 
 class CartTotal extends Component {
 	changeStep = last => e => {
@@ -67,18 +68,18 @@ class CartTotal extends Component {
 						!this.props.user.guest
                         ? 	<div className="fs-18 color-grey border-bottom mb-3">
                         		<div className="d-flex justify-content-between">
-                        			<div>Address Name:</div>
+                        			<div>{getLang('Nome de endereço')}:</div>
 	                            	<div>{main_address.title}</div>
                             	</div>
                             	<div className="d-flex justify-content-between">
-                            		<div>CEP:</div>
+                            		<div>{getLang('CEP')}:</div>
 	                            	<div className="color-grey">{main_address.zipcode}</div>
                             	</div>
 							</div>
                         : 	Object.keys(guestAddress).length
 	                        ?	<div className="color-grey border-bottom mb-3">
 		                            <div className="color-grey">{guestAddress.title}</div>
-		                            <div className="color-grey">CEP: {guestAddress.zipcode}</div>
+		                            <div className="color-grey">{getLang('CEP')}: {guestAddress.zipcode}</div>
 								</div>
 	                        : 	''
 						
@@ -86,27 +87,27 @@ class CartTotal extends Component {
 				}{
 					this.props.step !== 3
 					? 	<div className="d-flex justify-content-between color-grey">
-							<div><h5>Subtotal:</h5></div>
+							<div><h5>{getLang('Subtotal')}:</h5></div>
 							<div><Price current={this.props.cart.total.products} /></div>
 						</div>
 					: 	<div>
-							<h5>Usar créditos</h5>
+							<h5>{getLang('Usar créditos')}</h5>
 							<div className="d-flex justify-content-between color-grey">
-								<div><Price className="d-inline-block" current={this.props.user.credits / this.props.user.dollar_value} /> créditos</div>
+								<div><Price className="d-inline-block" current={this.props.user.credits / this.props.user.dollar_value} /> {getLang('créditos')}</div>
 								<div><CheckBox value={this.props.cart.use_credits} onChange={this.setUseCredits} /></div>
 							</div>
 						</div>
 				}{
 					this.props.step === 2 || this.props.step === 4 || this.props.step === 5
 					? 	<div className="d-flex justify-content-between color-grey">
-							<div><h5>Frete:</h5></div>
+							<div><h5>{getLang('Frete')}:</h5></div>
 							<div><Price current={this.props.cart.total.delivery} /></div>
 						</div>
 					: 	''
 				}{
 					this.props.step === 4 || this.props.step === 5
 					? 	<div className="d-flex justify-content-between color-grey">
-							<div><h5>Créditos:</h5></div>
+							<div><h5>{getLang('Créditos')}:</h5></div>
 							<div><Price current={this.getUseCredits()} /></div>
 						</div>
 					: 	''
@@ -115,7 +116,7 @@ class CartTotal extends Component {
 				{
 					this.props.step > 1
 					? 	<div className="d-flex justify-content-between mb-3">
-							<div><h5>Total:</h5></div>
+							<div><h5>{getLang('Total')}:</h5></div>
 							<div><Price current={this.getTotal()} /></div>
 						</div>
 					: 	''

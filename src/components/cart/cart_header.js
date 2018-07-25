@@ -40,7 +40,7 @@ class CartHeader extends Component {
 	printList = (item, i) => {
 		if ((i < 3 && !this.state.active) || this.state.active) {
 			const type = item[item.type.replace('-', '_')]
-			const title = type.name || type.title || `Créditos: ${type.amount}`
+			const title = getLang(type.name) || getLang(type.title) || `${getLang('Créditos')}: ${type.amount}`
 			const image = ''
 			return 	<div key={i}>
 						<div className="d-flex mb-1">

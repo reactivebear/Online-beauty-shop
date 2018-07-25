@@ -7,6 +7,7 @@ import Price from 'components/price'
 import { setStep } from 'actions/cart'
 import { removeFromCart, changeQuantity } from 'actions/cart'
 import { getStepsCount } from 'utils'
+import { getLang } from 'utils/lang'
 
 class ProductCart extends Component {
 	removeFromCart = e => {
@@ -29,7 +30,7 @@ class ProductCart extends Component {
 	            		{
 	            			this.props.type === 'service'
 	            			? 	<div className="mb-2">
-	            					<span className="color-grey">Vendido e entregue por </span>
+	            					<span className="color-grey">{getLang('Vendido e entregue por')} </span>
 	            					<Link to={`salon/${this.props[this.props.type].id}`}>{this.props[this.props.type].vendor.organization_name}</Link>
 	            					
 	            				</div>
