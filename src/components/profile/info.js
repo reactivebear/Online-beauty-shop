@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import BtnMain from 'components/buttons/btn_main'
 import Avatar from 'components/images/avatar'
 import { getCreditCards } from 'actions/user'
+import { getLang } from 'utils/lang'
 
 class Info extends Component {
 	goToEdit = type => e => {
@@ -33,7 +34,7 @@ class Info extends Component {
         	<div className="row">
 	        	<div className="col-12 mb-3">
 	        		<div className="rounded px-4 pt-4 pb-2 bg-white border">
-						<h4 className="mb-3">Meus Dados</h4>
+						<h4 className="mb-3">{getLang('Meus Dados')}</h4>
 						<div className="border-bottom mb-4"></div>
 						<div className="row align-items-center mb-3">
 		    				<div className="color-grey col-lg-10 col-8">
@@ -63,7 +64,7 @@ class Info extends Component {
 				</div>
 				<div className="col-lg-6 col-md-8 mb-3">
 					<div className="rounded p-4 bg-white border">
-						<h4 className="mb-3">Endereço de entrega</h4>
+						<h4 className="mb-3">{getLang('Endereço de entrega')}</h4>
 						<div className="border-bottom mb-4"></div>
 						<div className="color-grey mb-3 fs-18">
 							{address.title}<br />
@@ -86,7 +87,7 @@ class Info extends Component {
 
 				<div className="col-lg-6 col-md-8">
 					<div className="rounded p-4 bg-white border">
-						<h4 className="mb-3">Meu cartão</h4>
+						<h4 className="mb-3">{getLang('Meu cartão')}</h4>
 						<div className="border-bottom mb-3"></div>
 						{
 							Object.keys(default_card).length

@@ -4,6 +4,7 @@ import { changePassword } from 'actions/user'
 import { toggleModal } from 'actions/design'
 import BtnMain from 'components/buttons/btn_main'
 import Input from 'components/inputs/input'
+import { getLang } from 'utils/lang'
 
 class PasswordForm extends Component {
     save = () => {
@@ -36,17 +37,17 @@ class PasswordForm extends Component {
                 <Input 
                     required
                     type="password"
-                    label="Senha antiga"
+                    label={getLang("Senha antiga")}
                     inputRef={ref => this.password_old = ref} />
                 <Input 
                     required
                     type="password"
-                    label="Nova senha"
+                    label={getLang("Nova senha")}
                     inputRef={ref => this.password_new = ref} />
                 <Input 
                     required
                     type="password"
-                    label="Repetir nova senha"
+                    label={getLang("Repetir nova senha")}
                     inputRef={ref => this.password_confirm = ref} />
                 <div className="row justify-content-center">
                     <div className="form-group col-sm-8">

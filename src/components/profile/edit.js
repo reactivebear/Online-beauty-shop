@@ -5,6 +5,7 @@ import BtnMain from 'components/buttons/btn_main.js'
 import CheckBox from 'components/inputs/checkbox.js'
 import { ProfileForm, AddressForm, CardForm, PasswordForm } from 'components/forms'
 import { saveCard } from 'actions/user'
+import { getLang } from 'utils/lang'
 
 class Edit extends Component {
 	state = {
@@ -37,19 +38,19 @@ class Edit extends Component {
 		switch(this.props.match.params.formType) {
 			case 'address':
 				this.form = <AddressForm onCancel={e => history.goBack()} />
-				this.title = 'Adicionar endereço'
+				this.title = getLang('Adicionar endereço')
 				break
 			case 'cards':
 				this.form = <CardForm onChange={this.getCardData} />
-				this.title = 'Adicionar cartão'
+				this.title = getLang('Adicionar cartão')
 				break
 			case 'password':
 				this.form = <PasswordForm onCancel={e => history.goBack()} />
-				this.title = 'Alterar senha'
+				this.title = getLang('Alterar senha')
 				break
 			default:
 				this.form = <ProfileForm {...this.props.user.data} />
-				this.title = 'Editar Meus Dados'
+				this.title = getLang('Editar Meus Dados')
 		}
 	}
 
@@ -58,7 +59,7 @@ class Edit extends Component {
         	<div>
         		<h4 className="mb-3">{this.title}</h4>
         		<div className="color-grey mb-3">
-					Faça as alterações nos campos abaixo e depois clique em "Salvar"
+					{getLang('Faça as alterações nos campos abaixo e depois clique em Salvar')}
     			</div>
     			<div className="row">
 		        	<div className="rounded p-4 bg-white border mb-3 col-lg-8">
@@ -68,7 +69,7 @@ class Edit extends Component {
 						this.props.match.params.formType === 'cards'
 						? 	<div className="rounded p-4 bg-white border mb-3 col-lg-8">
 								<div className="d-flex justify-content-between align-items-center color-grey">
-									<div>É o mesmo endereço de entrega?</div>
+									<div>{getLang('É o mesmo endereço de entrega?')}</div>
 									<div><CheckBox onChange={this.toggleAddressForm} /></div>
 								</div>
 								{this.state.showAddressForm ? <AddressForm /> : ''}

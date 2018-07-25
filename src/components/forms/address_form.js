@@ -7,6 +7,7 @@ import BtnMain from 'components/buttons/btn_main'
 import Input from 'components/inputs/input'
 import { format } from 'utils/mask'
 import CheckBox from 'components/inputs/checkbox'
+import { getLang } from 'utils/lang'
 
 class AddressForm extends Component {
 
@@ -86,20 +87,20 @@ class AddressForm extends Component {
         	<div>
                 <Input 
                     required
-                    label="Nome de endereço"
-                    description="ex: minha casa, meu trabalho"
+                    label={getLang("Nome de endereço")}
+                    description={getLang("ex: minha casa, meu trabalho")}
                     value={address.title}
                     onChange={this.checkMask('alphabet', 'title')}
                     inputRef={ref => this.address.title = ref} />
                 <Input 
                     required
-                    label="Nome"
+                    label={getLang("Nome")}
                     value={address.recipient_first_name}
                     onChange={this.checkMask('alphabet', 'first_name')}
                     inputRef={ref => this.address.first_name = ref} />
                 <Input 
                     required
-                    label="Sobrenome"
+                    label={getLang("Sobrenome")}
                     value={address.recipient_last_name}
                     onChange={this.checkMask('alphabet', 'last_name')}
                     inputRef={ref => this.address.last_name = ref} />
@@ -107,7 +108,7 @@ class AddressForm extends Component {
                     <div className="col-sm-6">
                         <Input 
                             required
-                            label="Telefone"
+                            label={getLang("Telefone")}
                             value={address.recipient_phone}
                             onChange={this.checkMask('cellphone', 'phone')}
                             inputRef={ref => this.address.phone = ref} />
@@ -115,7 +116,7 @@ class AddressForm extends Component {
                     <div className="col-sm-6">
                         <Input 
                             required
-                            label="Celular"
+                            label={getLang("Celular")}
                             value={address.recipient_cellphone}
                             onChange={this.checkMask('phone', 'celular')}
                             inputRef={ref => this.address.celular = ref} />
@@ -123,20 +124,20 @@ class AddressForm extends Component {
                 </div>
                 <Input 
                     required
-                    label="CEP"
+                    label={getLang("CEP")}
                     value={address.zipcode}
                     onChange={this.checkMask('cep', 'cep')}
                     inputRef={ref => this.address.cep = ref} />
                 <Input 
                     required
-                    label="Endereço"
+                    label={getLang("Endereço")}
                     value={address.street}
                     inputRef={ref => this.address.street = ref} />
                 <div className="row">
                     <div className="col-sm-6">
                         <Input 
                             required
-                            label="Número"
+                            label={getLang("Número")}
                             value={address.number}
                             onChange={this.checkMask('digits', 'number')}
                             inputRef={ref => this.address.number = ref} />
@@ -144,14 +145,14 @@ class AddressForm extends Component {
                     <div className="col-sm-6">
                         <Input 
                             required
-                            label="Complemento"
+                            label={getLang("Complemento")}
                             value={address.complement}
                             inputRef={ref => this.address.complement = ref} />
                     </div>
                     <div className="col-sm-6">
                         <Input 
                             required
-                            label="País"
+                            label={getLang("País")}
                             value={address.country}
                             onChange={this.checkMask('alphabet', 'country')}
                             inputRef={ref => this.address.country = ref} />
@@ -159,7 +160,7 @@ class AddressForm extends Component {
                     <div className="col-sm-6">
                         <Input 
                             required
-                            label="Estado"
+                            label={getLang("Estado")}
                             value={address.state}
                             onChange={this.checkMask('alphabet', 'state')}
                             inputRef={ref => this.address.state = ref} />
@@ -167,14 +168,14 @@ class AddressForm extends Component {
                     <div className="col-sm-6">
                         <Input 
                             required
-                            label="Cidade"
+                            label={getLang("Cidade")}
                             value={address.city}
                             inputRef={ref => this.address.city = ref} />
                     </div>
                     <div className="col-sm-6">
                         <Input 
                             required
-                            label="Bairro"
+                            label={getLang("Bairro")}
                             value={address.district}
                             inputRef={ref => this.address.district = ref} />
                     </div>
