@@ -6,6 +6,7 @@ import {
     AccordionItemBody,
 } from 'react-accessible-accordion'
 import 'react-accessible-accordion/dist/fancy-example.css'
+import { getLang } from 'utils/lang'
 
 class SupportAccordion extends Component {
 	printAccordion = (item, i) =>
@@ -18,7 +19,7 @@ class SupportAccordion extends Component {
                             ?   <div className="d-inline-block footer-icon d-sm-none d-md-inline-block"><img src={item.img} className="img-fluid" alt="" /></div>
                             :   ''
                         }
-                        <div className="fs-18 support-title d-inline-block pl-3 pl-sm-0 pl-md-3">{ item.title }</div>
+                        <div className="fs-18 support-title d-inline-block pl-3 pl-sm-0 pl-md-3">{ getLang(item.title) }</div>
                         <div className="accordion__arrow" role="presentation"></div>
                     </div>
                 </AccordionItemTitle>

@@ -3,6 +3,7 @@ import { history } from 'store'
 import Price from 'components/price'
 import { getDate } from 'utils/date.js'
 import BtnMain from 'components/buttons/btn_main.js'
+import { getLang } from 'utils/lang'
 
 class CardPurchase extends Component {
 	printList = (item, i) => {
@@ -23,15 +24,15 @@ class CardPurchase extends Component {
         		<div className="d-flex align-items-end flex-column bd-highlight h-100">
 		            <div className="row">
 		            	<div className="col-6 mb-3">
-		            		<div className="color-grey">Pedido:</div>
+		            		<div className="color-grey">{getLang('Pedido')}:</div>
 		            		<div>{this.props.id}</div>
 		            	</div>
 		            	<div className="col-6 mb-3">
-		            		<div className="color-grey">Valor:</div>
+		            		<div className="color-grey">{getLang('Valor')}:</div>
 		            		<div><Price current={this.props.items_total} /></div>
 		            	</div>
 		            	<div className="col-6 mb-3">
-		            		<div className="color-grey">Data de compra:</div>
+		            		<div className="color-grey">{getLang('Data de compra')}:</div>
 		            		<div>{getDate(this.props.created_at)}</div>
 		            	</div>
 		            	<div className="col-6 mb-3">
@@ -39,7 +40,7 @@ class CardPurchase extends Component {
 		            		<div>#{this.props.id}</div>
 		            	</div>
 		            	<div className="col-12 mb-3">
-		            		<div className="color-grey">Produto(s):</div>
+		            		<div className="color-grey">{getLang('Produto')}(s):</div>
 		            		<div>
 		            			{ [...products, ...services].map((item, i) => this.printList(item, i)) }
 		            		</div>
@@ -47,7 +48,7 @@ class CardPurchase extends Component {
 		            	</div>
 	            	</div>
 	            	<div className="mt-auto w-100">
-	            		<div className="color-grey mb-3">Vendido e entregue por</div>
+	            		<div className="color-grey mb-3">{getLang('Vendido e entregue por')}</div>
 		            	<BtnMain
 	        				className="btn-block font-weight-bold"
 	        				onClick={this.goDetails}

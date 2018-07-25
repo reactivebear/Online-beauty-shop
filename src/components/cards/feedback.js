@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Stars from 'components/stars'
 import ImagePreview from 'components/images/preview'
+import { getLang } from 'utils/lang'
 
 class CardFeedback extends Component {
 	render() {
@@ -13,26 +14,26 @@ class CardFeedback extends Component {
 					<div className="col-lg-6 col-md-8 col-sm-6">
 						<div>Máscara Senscience Inner Restore Intensif 500ml</div>
 						<div className="color-grey mb-3">
-							Vendido e realizado por <span className="color-green pointer">Olist</span>
+							{getLang('Vendido e realizado por')} <span className="color-green pointer">{getLang('Olist')}</span>
 						</div>
 						<div className="row d-md-flex d-none">
 							<div className="col-md-6">
-								<div className="color-grey">Data de compra:</div>
+								<div className="color-grey">{getLang('Data de compra')}:</div>
 								<div>23/04/2018</div>
 							</div>
 							<div className="col-md-6">
-								<div className="color-grey">Data de avaliação:</div>
+								<div className="color-grey">{getLang('Data da avaliação')}:</div>
 								<div>23/04/2018</div>
 							</div>
 						</div>
 					</div>
 
 					<div className="col-6 d-md-none">
-						<div className="color-grey">Data de compra:</div>
+						<div className="color-grey">{getLang('Data de compra')}:</div>
 						<div>23/04/2018</div>
 					</div>
 					<div className="col-6 d-md-none mb-3">
-						<div className="color-grey">Data de avaliação:</div>
+						<div className="color-grey">{getLang('Data da avaliação')}:</div>
 						<div>23/04/2018</div>
 					</div>
 
@@ -42,7 +43,7 @@ class CardFeedback extends Component {
 							<Stars active={3} />
 						</div>
 						<div className="color-grey">
-							Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. 
+							{getLang('Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.')} 
 						</div>
 					</div>
 				</div>

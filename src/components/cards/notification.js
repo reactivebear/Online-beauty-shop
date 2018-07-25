@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { NOTIFICATION_TYPE } from 'config'
 import BtnMain from 'components/buttons/btn_main'
+import { getLang } from 'utils/lang'
 
 class CardNotification extends Component {
     render() {
@@ -12,10 +13,10 @@ class CardNotification extends Component {
 	            		<img src={notify.icon} alt="" className="img-fluid" />
 	            	</div>
 	            	<div className="col-9 col-md-10 mb-2">
-	            		<h4>{notify.title}</h4>
+	            		<h4>{getLang(notify.title)}</h4>
 	            		<div className="border-bottom mb-2"></div>
 	            		<div className="color-grey">
-	            			{ notify.desc }
+	            			{ getLang(notify.desc) }
 	            		</div>
 	            	</div>
 	            	<div className="col-12 col-md-10 offset-md-2">

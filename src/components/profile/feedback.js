@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import CardReview from 'components/cards/review'
 import CardFeedback from 'components/cards/feedback'
+import { getLang } from 'utils/lang'
 
 class Feedback extends Component {
 	printReviews = (item, i) => {
@@ -16,20 +17,20 @@ class Feedback extends Component {
 		const listFeedback = ['']
 		return (
 			<div>
-				<h4 className="mb-3">Revisão</h4>
+				<h4 className="mb-3">{getLang('Revisão')}</h4>
 				{
 					listReview.length
 					?	<div className="row">{ listReview.map((item, i) => this.printReviews(item, i)) }</div>
 					: 	<div className="rounded bg-white p-4 mb-4">
-							Você ainda não fez nenhuma revisão
+							{getLang('Você ainda não fez nenhuma revisão')}
 						</div>
 				}
-				<h4 className="mb-3">Feedback</h4>
+				<h4 className="mb-3">{getLang('Feedback')}</h4>
 				{
 					listFeedback.length
 					? 	listFeedback.map((item, i) => this.printFeedbacks(item, i))
 					: 	<div className="rounded bg-white p-4 mb-4">
-							Você ainda não fez nenhum feedback
+							{getLang('Você ainda não fez nenhuma revisão')}
 						</div>
 				}
 			</div>

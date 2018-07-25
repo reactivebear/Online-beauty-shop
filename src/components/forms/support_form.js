@@ -5,6 +5,7 @@ import { format } from 'utils/mask'
 import Input from 'components/inputs/input'
 import TextArea from 'components/inputs/textarea'
 import { sendSupport } from 'actions/user'
+import { getLang } from 'utils/lang'
 
 class SupportForm extends Component {
     constructor(props) {
@@ -34,7 +35,7 @@ class SupportForm extends Component {
                     <div className="col-lg-10 offset-lg-1">
                         <Input 
                             required
-                            label="Nome"
+                            label={getLang("Nome")}
                             value={''}
                             onChange={this.checkMask('alphabet', 'name')}
                             inputRef={ref => this.support.name = ref} />
@@ -49,7 +50,7 @@ class SupportForm extends Component {
                             <div className="col-md-6">
                                 <Input 
                                     required
-                                    label="Telefone"
+                                    label={getLang("Telefone")}
                                     value={''}
                                     onChange={this.checkMask('cellphone', 'phone')}
                                     inputRef={ref => this.support.phone = ref} />
@@ -57,7 +58,7 @@ class SupportForm extends Component {
                             <div className="col-md-6">
                                 <Input 
                                     required
-                                    label="Celular"
+                                    label={getLang("Celular")}
                                     value={''}
                                     onChange={this.checkMask('phone', 'cellphone')}
                                     inputRef={ref => this.support.cellphone = ref} />
@@ -65,7 +66,7 @@ class SupportForm extends Component {
                         </div>
                         <TextArea 
                             required
-                            label="Mensagem"
+                            label={getLang("Mensagem")}
                             inputRef={ref => this.support.message = ref} />
                     </div>
                 
