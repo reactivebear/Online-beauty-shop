@@ -15,6 +15,7 @@ import { CommentForm } from 'components/forms'
 import Pagination from 'components/pagination'
 import CardProduct from 'components/cards/product'
 import Avatar from 'components/images/avatar'
+import { getLang } from 'utils/lang'
 
 class Company extends Component {
     state = {
@@ -159,7 +160,7 @@ class Company extends Component {
             		<div className="container">
     	            	<div className="d-flex align-items-center">
     	            		<img src="/assets/icons/home-icon-grey.png" alt="" className="img-fluid img-icon-header pb-2" />
-    	            		<span className="fs-22 px-3">{salon.name}</span>
+    	            		<span className="fs-22 px-3">{getLang(salon.name)}</span>
                 		</div>
                 		<div>
                 			<Carousel items={carouselItems} settings={settings} arrowType="rounded" onClickItem={this.toggleLightBox} />
@@ -175,19 +176,19 @@ class Company extends Component {
                                 styleHeader={{marginTop: -73}}
                                 tabs={[
                                     {
-                                        title: 'Serviços',
+                                        title: getLang('Serviços'),
                                         onClick: this.hideComment,
                                         content: <Accordion list={this.props.products.vendor_services} />
                                     }, {
-                                        title: 'Profissionais',
+                                        title: getLang('Profissionais'),
                                         onClick: this.hideComment,
                                         content: <div className="bg-white p-3 rounded mb-3">{salon.professionals.map((item, i) => this.printProfessionals(item, i))}</div>
                                     }, {
-                                        title: 'Avaliações',
+                                        title: getLang('Avaliações'),
                                         onClick: this.showComment,
                                         content: <div className="bg-white rounded p-3 mb-3">{this.getReviewList()}</div>
                                     }, {
-                                        title: 'Produtos',
+                                        title: getLang('Produtos'),
                                         onClick: this.hideComment,
                                         content:    <div className="mb-3">
                                                         <div className="row align-items-stretch">
@@ -204,25 +205,25 @@ class Company extends Component {
                         <div className={`col-lg-4 col-md-5 mb-3 ${this.state.orderClassFirst}`}>
                             <div className="bg-white rounded p-3">
                                 <div className="color-grey mb-3">
-                                    Um novo conceito em salão de beleza na Chácara Santo Antônio com foco na excelência no atendimento e prestação de serviços
+                                    {getLang('Um novo conceito em salão de beleza na Chácara Santo Antônio com foco na excelência no atendimento e prestação de serviços')}
                                 </div>
                                 <div className="d-flex justify-content-between align-items-center mb-3">
-                                    <div className="fs-18">Horários</div>
-                                    <div className="d-inline-block bg-green text-white px-2 py-1 rounded">Aberto</div>
+                                    <div className="fs-18">{getLang('Horários')}</div>
+                                    <div className="d-inline-block bg-green text-white px-2 py-1 rounded">{getLang('Aberto')}</div>
                                 </div>
                                 <div className="mb-3">
                                     {
                                         WEEK.map((item, i) => 
                                         <div key={i} className="color-grey d-flex justify-content-between py-1">
-                                            <div>{item}</div>
+                                            <div>{getLang(item)}</div>
                                             <div>09:00 - 19:00</div>
                                         </div>)
                                     }
                                 </div>
-                                <div className="fs-18">Contatos</div>
+                                <div className="fs-18">{getLang('Contatos')}</div>
                                 <div className="color-grey">{salon.address.phone}</div>
                                 <div className="color-grey mb-3">{salon.address.email}</div>
-                                <div className="fs-18">Endereço</div>
+                                <div className="fs-18">{getLang('Endereço')}</div>
                                 <div className="mb-3">
                                     <div className="color-grey">{`${salon.address.title}, ${salon.address.number} ${salon.address.street}`}</div>
                                     {

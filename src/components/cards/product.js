@@ -7,6 +7,7 @@ import BtnMain from 'components/buttons/btn_main'
 import { addToCart } from 'actions/cart'
 import { addToWishList, removeFromWishList } from 'actions'
 import Heart from 'components/heart'
+import { getLang } from 'utils/lang'
 
 class CardProduct extends Component {
 	state = {
@@ -56,7 +57,7 @@ class CardProduct extends Component {
 		            	</div>
 		            	<div className={`color-grey d-flex justify-content-between align-items-center mb-1${hiddenClass}`}>
 		            		<div>
-			            		Avaliação<br />
+			            		{getLang('Avaliação')}<br />
 			            		<Stars active={this.props.rating} />
 		            		</div>
 		            		{
@@ -70,7 +71,7 @@ class CardProduct extends Component {
             	</div>
             	<div className={`color-grey justify-content-between align-items-center mb-3${visibleCLass}`}>
             		<div>
-	            		Avaliação<br />
+									{getLang('Avaliação')}<br />
 	            		<Stars active={this.props.rating} />
             		</div>
             		{

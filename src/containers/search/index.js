@@ -7,6 +7,7 @@ import CardService from 'components/cards/service'
 import Badge from 'components/badge'
 import { getParams, getSearchText } from 'utils'
 import Pagination from 'components/pagination'
+import { getLang } from 'utils/lang'
 
 class Search extends Component {
 
@@ -62,7 +63,7 @@ class Search extends Component {
     					services.list.length
     					? 	<div>
     							<div className="d-flex justify-content-between align-items-center mb-3">
-			    					<div><span className="fs-16">Serviços</span>&nbsp;&nbsp;<Badge count={services.all} /></div>
+			    					<div><span className="fs-16">{getLang('Serviços')}</span>&nbsp;&nbsp;<Badge count={services.all} /></div>
 								</div>
 								<div className="row mb-4">
 									{ services.list.map((item, i) => this.printList(item, i, 'service')) }
@@ -78,7 +79,7 @@ class Search extends Component {
     					products.list.length
     					?	<div>
     							<div className="d-flex justify-content-between align-items-center mb-3">
-			    					<div><span className="fs-16">Produtos</span>&nbsp;&nbsp;<Badge count={products.all} /></div>
+			    					<div><span className="fs-16">{getLang('Produtos')}</span>&nbsp;&nbsp;<Badge count={products.all} /></div>
 								</div>
 			    				<div className="row mb-4">
 									{ products.list.map((item, i) => this.printList(item, i, 'product')) }

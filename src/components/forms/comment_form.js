@@ -5,6 +5,7 @@ import { sendSalonComment, getService } from 'actions/services'
 import Stars from 'components/stars'
 import TextArea from 'components/inputs/textarea'
 import BtnMain from 'components/buttons/btn_main'
+import { getLang } from 'utils/lang'
 
 class CommentForm extends Component {
 
@@ -51,7 +52,7 @@ class CommentForm extends Component {
     }
 
     render() {
-        const levels = ['Excelente', 'Bom', 'Normal', 'Satisfatório', 'Ruim'].reverse()
+        const levels = [getLang('Excelente'), getLang('Bom'), getLang('Normal'), getLang('Satisfatório'), getLang('Ruim')].reverse()
         const level = this.state.activeStar + 1 > 0 ? <span>{levels[this.state.activeStar]}</span> : <strong>{levels[this.state.rating - 1]}</strong>
         return (
         	<div>
@@ -68,7 +69,7 @@ class CommentForm extends Component {
             	<div className="color-grey">
             		<TextArea 
                         required
-                        label="Mensagem"
+                        label={getLang("Mensagem")}
                         inputRef={ref => this.message = ref} />
             	</div>
             	<div className="pt-3">

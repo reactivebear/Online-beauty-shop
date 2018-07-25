@@ -4,6 +4,7 @@ import Price from 'components/price'
 import Carousel from 'components/carousel'
 import ImagePreview from 'components/images/preview'
 import Stars from 'components/stars'
+import { getLang } from 'utils/lang'
 
 class PromotionBlock extends Component { 
 
@@ -18,15 +19,15 @@ class PromotionBlock extends Component {
 								<ImagePreview image={''} />
 							</div>
 							<div>
-								<div>Eau Thermale Avéne</div>
+								<div>{getLang('Eau Thermale Avéne')}</div>
 								<div className="d-flex">
 									<div className="mr-1">
-										<div className="color-grey">Avaliação</div>
+										<div className="color-grey">{getLang('Avaliação')}</div>
 										<div className="color-grey"><Stars active={4} /></div>
 									</div>
 									<div>
-										<div className="color-grey">Quantidade:</div>
-										<div>3 itens</div>
+										<div className="color-grey">{getLang('Quantidade')}:</div>
+										<div>3 {getLang('itens')}</div>
 									</div>
 								</div>
 							</div>

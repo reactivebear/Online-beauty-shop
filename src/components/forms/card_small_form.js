@@ -6,6 +6,7 @@ import Input from 'components/inputs/input'
 import BtnMain from 'components/buttons/btn_main'
 import CheckBox from 'components/inputs/checkbox'
 import { format } from 'utils/mask'
+import { getLang } from 'utils/lang'
 
 class CardForm extends Component {
 
@@ -38,20 +39,20 @@ class CardForm extends Component {
         	<form>
                 <Input 
                     required
-                    label="Nome para o cartão"
-                    description="ex: meu cartão1, meu cartão2"
+                    label={getLang("Nome para o cartão")}
+                    description={getLang("ex: Meu cartão")}
                     value={card.card_name}
                     onChange={this.checkMask('alphabet', 'card_name')}
                     inputRef={ref => this.card.card_name = ref} />
                 <Input 
                     required
-                    label="Nome impresso no cartão"
+                    label={getLang("Nome impresso no cartão")}
                     value={card.name_on_card}
                     onChange={this.checkMask('alphabet', 'name_on_card')}
                     inputRef={ref => this.card.name_on_card = ref} />
                 <Input 
                     required
-                    label="Número do cartão"
+                    label={getLang("Número do cartão")}
                     value={card.card_number}
                     onChange={this.checkMask('card', 'card_number')}
                     inputRef={ref => this.card.card_number = ref} />
@@ -59,7 +60,7 @@ class CardForm extends Component {
                     <div className="col-md-6">
                         <Input 
                             required
-                            label="Validate"
+                            label={getLang("Validate")}
                             placeholder="DD/MM"
                             value={card.validity_month}
                             onChange={this.checkMask('dd/mm', 'validity_month')}
@@ -68,7 +69,7 @@ class CardForm extends Component {
                     <div className="col-md-6">
                         <Input 
                             required
-                            label="Código de segurança"
+                            label={getLang("Código de segurança")}
                             value={card.cvv}
                             onChange={this.checkMask('cvv', 'cvv')}
                             inputRef={ref => this.card.cvv = ref} />
@@ -78,14 +79,14 @@ class CardForm extends Component {
                     <div className="col-12">
                         <div className="d-flex justify-content-between mb-3">
                             <div>
-                                Salvar cartão para as proximas as proximas compras
+                                {getLang('Salvar cartão para as proximas as proximas compras')}
                             </div>
                             <CheckBox onChange={e => {console.log(e.target.checked)}} />
                         </div>
                         <div className="border-bottom mb-3"></div>
                         <div className="d-flex justify-content-between mb-3">
                             <div>
-                                É o mesmo endereço de entrega?
+                                {getLang('É o mesmo endereço de entrega?')}
                             </div>
                             <CheckBox onChange={e => {console.log(e.target.checked)}} />
                         </div>

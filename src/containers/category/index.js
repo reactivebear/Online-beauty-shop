@@ -13,6 +13,7 @@ import CardService from 'components/cards/service'
 import Pagination from 'components/pagination'
 import DropDown from 'components/buttons/dropdown'
 import { DROP_LIST } from 'config'
+import { getLang } from 'utils/lang'
 
 class Category extends Component {
 	componentWillMount() {
@@ -73,7 +74,7 @@ class Category extends Component {
 	            		</div>
 	            		<div className="col-md-8 px-md-0">
                             <div className="d-flex justify-content-between align-items-center">
-    	            			<h5><small>Pesquisa: </small>{category.name}</h5>
+    	            			<h5><small>{getLang('Pesquisa')}: </small>{getLang(category.name)}</h5>
                                 <div className="d-none d-sm-block"><DropDown list={DROP_LIST} /></div>
                             </div>
 
@@ -81,12 +82,12 @@ class Category extends Component {
                                 <span className="color-green mr-4 pointer" onClick={this.showMenu('order')}>
                                     <img src="/assets/icons/order-icon.png" alt="" className="img-fluid small-icon" />
                                     &nbsp;
-                                    Ordenar
+                                    {getLang('Ordenar')}
                                 </span>
                                 <span className="color-green pointer" onClick={this.showMenu('filter')}>
                                     <img src="/assets/icons/setup-icon.png" alt="" className="img-fluid small-icon" />
                                     &nbsp;
-                                    Filtrar
+                                    {getLang('Filtrar')}
                                 </span>
                             </div>
 	            			<div className="row align-items-stretch">

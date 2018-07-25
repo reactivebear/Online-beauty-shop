@@ -23,6 +23,7 @@ import Avatar from 'components/images/avatar'
 import Pagination from 'components/pagination'
 import TextArea from 'components/inputs/textarea'
 import PromotionBlock from 'components/blocks/promotion'
+import { getLang } from 'utils/lang'
 
 class Product extends Component {
 	constructor(props) {
@@ -271,17 +272,17 @@ class Product extends Component {
 			            			<Price current={product.price} old={product.discount_price} />
 			            		</div>
 			            		<div className="color-grey form-group">
-				            		Avaliação<br />
+				            		{getLang('Avaliação')}<br />
 				            		<Stars active={product.rating} />
 			            		</div>
 			            		<div className="form-group">
 			            			<img src={`/assets/svg/Truck.svg`} alt="" className="img-fluid img-icon-header pb-1 mr-2" />
-			            			<span>Envio para todos o país</span><br />
-			            			<span className="color-grey">Saiba os prazos de entrega e as formas de envio.</span>
+			            			<span>{getLang('Envio para todos o país')}</span><br />
+			            			<span className="color-grey">{getLang('Saiba os prazos de entrega e as formas de envio.')}</span>
 			            		</div>
 			            		<div className="row form-group">
 			            			<div className="col-6 col-md-4 col-sm-5 col-lg-3">
-				            			<span className="color-green pointer" onClick={this.calcDelivery}>Calcular frete</span><br />
+				            			<span className="color-green pointer" onClick={this.calcDelivery}>{getLang('Calcular frete')}</span><br />
 				            			<Counter onChange={val => this.count = val} value={this.count} />
 			            			</div>
 			            		</div>
@@ -302,32 +303,32 @@ class Product extends Component {
 		            	<div className="container pt-4">
 
 		            		<div className="rounded py-4 px-3 bg-white mb-4">
-		            			<h5>Promoções relacionadas a este produto:</h5>
+		            			<h5>{getLang('Promoções relacionadas a este produto')}:</h5>
 		            			<div>{ promotions.map((item, i) => this.printPromotions(item, i, promotions.length)) }</div>
 		            		</div>
 
 		            		<div className="rounded py-4 px-3 bg-white mb-4">
-		            			<h5>Descrição</h5>
-		            			<span className="color-grey">{ product.description }</span>
+		            			<h5>{getLang('Descrição')}</h5>
+		            			<span className="color-grey">{ getLang(product.description) }</span>
 		            		</div>
 
 		            		<div className="rounded py-3 bg-white">
 		            			<Tabs tabs={[
 		            				{
-		            					title: 'Sobre',
+		            					title: getLang('Sobre'),
 		            					content: <div className="p-3"><SalonInfo {...salon} /></div>
 		            				}, {
-		            					title: 'Produtos',
+		            					title: getLang('Produtos'),
 		            					content: <div className="p-3"><MainList type="product" itemType="small" /></div>
 		            				}, {
-		            					title: 'Serviços',
+		            					title: getLang('Serviços'),
 		            					hide: !vendor_services.length,
 		            					content: <div className="p-3"><div className="row"><div className="col-md-8"><Accordion list={vendor_services} /></div></div></div>
 		            				}, {
-		            					title: 'Avaliações',
+		            					title: getLang('Avaliações'),
 		            					content: <div className="p-3">{this.getReviewList()}</div>
 		            				}, {
-	            						title: 'Perguntas',
+	            						title: getLang('Perguntas'),
 	            						content: <div className="p-3">{this.getQuestionBlock()}</div>
 		            				}]} />
 		            		</div>
