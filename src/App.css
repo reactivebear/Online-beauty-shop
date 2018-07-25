@@ -224,6 +224,30 @@ path.cls-8 {
 	right: -8px;
 }
 
+.dots {
+	width: 0px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    color: transparent !important;
+    background-color: transparent !important;
+    margin: 0 !important;
+}
+
+.dots i {
+    right: -22px;
+    font-size: 18px;
+    bottom: 0;
+    color: #609D6D;
+}
+
+.dots div.dots {
+	display: block !important;
+}
+
+.dots + .num  {
+    margin-left: 30px !important;
+}
+
 .slick-current .paggin-plus {
 	opacity: 1;
 }

@@ -1,36 +1,91 @@
 import React, { Component } from 'react'
 
 class Pagination extends Component {
-	
 
 	constructor(props) {
 		super(props)
 		this.state = {
 			active: props.active,
+			prev: props.active,
+			resizeUpdater: 0
 		}
 		this.list = ['']
 		this.container = null
+
+		window.addEventListener('resize', () => {
+			this.setState({resizeUpdater: 1})
+		}, true);
+	}
+
+	getVector = page => {
+		if ((this.state.active >= this.state.prev || this.state.active === 1 || this.state.active === 2) && this.state.active !== this.props.total) {
+			return page > this.state.active && this.getMaxCount() - 7 >= page - this.state.active
+		}
+
+		if (this.state.active < this.state.prev || this.state.active === this.props.total || this.state.active === this.props.total - 1) {
+			return page < this.state.active && this.getMaxCount() - 7 >= this.state.active - page
+		}
 	}
 
 	getHiddenClass = page => {
 		if (this.getMaxCount() < this.props.total) {
-			
-			return 'd-none'
+			if (this.state.active === page || page === this.props.total) { //active & last
+				return 'num'
+			}
+
+			if (this.props.total === this.state.active && page === 1) { //first when last active
+				return 'num'
+			}
+
+			if (this.state.active === page - 1 && this.getMaxCount() > 2) { //next from active
+				return 'num'
+			}
+
+			if (this.state.active === page + 1 && this.getMaxCount() > 3) { //prev from active
+				return 'num'
+			}
+
+			if (this.state.active === page - 2 && this.getMaxCount() > 4) { //next + 1 from active
+				//return 'num'
+			}
+
+			if (page === 1 && this.getMaxCount() > 5) { //first
+				return 'num'
+			}
+
+			if (page === this.props.total - 1 && this.getMaxCount() > 6) { //prev from last
+				//return 'num'
+			}
+
+			if (page === 2 && this.getMaxCount() > 7) { //second
+				//return 'num'
+			}
+
+			if (this.getMaxCount() > 7 && this.getVector(page)) { //other next or prev from active
+				return 'num'
+			}
+			return 'dots'
 		}
-		return ''
+		return 'num'
 	}
 
 	printButtons = (item, i) => {
 		const activeClass = this.state.active === i+1 ? 'color-green' : 'color-grey'
 		const hiddenClass = this.getHiddenClass(i+1)
 		
-		return 	<div key={i} ref={ref => this.list[i] = ref} className={`rounded bg-white p-2 px-3 mx-1 border pointer ${activeClass}`} onClick={this.setPage(i+1)}>
+		return 	<div 
+					key={i} ref={ref => this.list[i] = ref} 
+					className={`rounded bg-white p-2 px-3 mx-1 border pointer position-relative ${activeClass} ${hiddenClass}`} 
+					onClick={this.setPage(i+1)}>
+					<div className={`d-none ${hiddenClass}`}>
+						<i className="fas fa-ellipsis-h position-absolute"></i>
+					</div>
 	            	{i+1}
 	            </div>
 	}
 
 	setPage = active => e => {
-		this.setState({active})
+		this.setState({active, prev: this.state.active})
 		this.props.onChange(active)
 	}
 

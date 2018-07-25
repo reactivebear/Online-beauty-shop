@@ -94,6 +94,7 @@ class Category extends Component {
             				</div>
             				<div>
             					<Pagination 
+                                    responsive={[{width: 1199, count: 10}, {width: 991, count: 7}, {width: 600, count: 6}, {width: 500, count: 5}, {width: 420, count: 4}, {width: 375, count: 3}]}
             						onChange={this.changePage} 
             						total={this.props[this.props.match.params.type].pagination.total_pages} 
             						active={this.props[this.props.match.params.type].pagination.page} />

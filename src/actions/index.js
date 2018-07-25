@@ -127,6 +127,8 @@ export const setSearch = (data, key) =>
         data: {
             list: data.items,
             all: data.total_items,
+            page: data.page,
+            total_pages: data.total_pages
         },
         key
     })

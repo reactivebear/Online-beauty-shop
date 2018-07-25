@@ -6,6 +6,7 @@ import CardProduct from 'components/cards/product'
 import CardService from 'components/cards/service'
 import Badge from 'components/badge'
 import { getParams, getSearchText } from 'utils'
+import Pagination from 'components/pagination'
 
 class Search extends Component {
 
@@ -30,11 +31,22 @@ class Search extends Component {
             params.longitude *= 1
         }
         
-        store.dispatch(setSearch({items: [], total_items: 0}, 'products'))
-        store.dispatch(setSearch({items: [], total_items: 0}, 'services'))
+        store.dispatch(setSearch({items: [], total_items: 0, page: 1, total_pages: 1}, 'products'))
+        store.dispatch(setSearch({items: [], total_items: 0, page: 1, total_pages: 1}, 'services'))
         params.type.forEach(item => {
             store.dispatch(getSearch(item, {new_pagination: true, page_size: 6, ...params}))
         })
+    }
+
+    changePage = type => page => {
+        const params = getParams(history.location.hash.replace('#', ''))
+        if (params.latitude && params.longitude) {
+            params.latitude *= 1
+            params.longitude *= 1
+        }
+
+        store.dispatch(setSearch({items: [], total_items: 0, page: 1, total_pages: 1}, type))
+        store.dispatch(getSearch([type], {new_pagination: true, page_size: 6, page: page, ...params}))
     }
 
     componentWillMount() {
@@ -55,6 +67,11 @@ class Search extends Component {
 								<div className="row mb-4">
 									{ services.list.map((item, i) => this.printList(item, i, 'service')) }
 								</div>
+                                <Pagination 
+                                    responsive={[{width: 600, count: 6}, {width: 550, count: 5}, {width: 375, count: 3}]}
+                                    onChange={this.changePage('services')} 
+                                    total={services.total_pages} 
+                                    active={services.page} />
     						</div>
     					: 	''
     				} {
@@ -66,6 +83,11 @@ class Search extends Component {
 			    				<div className="row mb-4">
 									{ products.list.map((item, i) => this.printList(item, i, 'product')) }
 								</div>
+                                <Pagination
+                                    responsive={[{width: 600, count: 6}, {width: 550, count: 5}, {width: 375, count: 3}]}
+                                    onChange={this.changePage('products')} 
+                                    total={products.total_pages} 
+                                    active={products.page} />
     						</div>
     					: 	''
     				} {

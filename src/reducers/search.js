@@ -3,11 +3,15 @@ import * as types from 'actions/types.js'
 const initialState = {
     products: {
         all: 0,
-        list: []
+        list: [],
+        page: 1,
+        total_pages: 1,
     },
     services: {
         all: 0,
-        list: []
+        list: [],
+        page: 1,
+        total_pages: 1,
     },
     filters: {
         min_price: 0,

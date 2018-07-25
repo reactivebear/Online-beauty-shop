@@ -193,7 +193,8 @@ class Company extends Component {
                                                         <div className="row align-items-stretch">
                                                             { products.map((item, i) => this.printProducts(item, i)) }
                                                         </div>
-                                                        <Pagination 
+                                                        <Pagination
+                                                            responsive={[{width: 1199, count: 10}, {width: 991, count: 7}, {width: 600, count: 6}, {width: 500, count: 5}, {width: 420, count: 4}, {width: 375, count: 3}]} 
                                                             onChange={this.changePage} 
                                                             total={this.props.product.pagination.total_pages} 
                                                             active={this.props.product.pagination.page} />
