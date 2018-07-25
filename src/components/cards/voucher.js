@@ -8,6 +8,7 @@ import { SendVouchersForm } from 'components/forms'
 import { format } from 'utils/mask'
 import { getDate } from 'utils/date'
 import moment from 'moment'
+import { getLang } from 'utils/lang'
 
 class CardVoucher extends Component {
 	openSendVoucher = () => {
@@ -30,7 +31,7 @@ class CardVoucher extends Component {
 					<div className="w-60 pl-2">
 						<div className="fs-16">{this.props.service.title}</div>
 						<div className="color-grey mb-2">
-							Vendido e realizado por <br />
+							{getLang("Vendido e realizado por")} <br />
 							<span className="color-green pointer">{this.props.service.vendor.organization_name}</span>
 						</div>
 						<Price current={this.props.service.price} />
@@ -39,25 +40,25 @@ class CardVoucher extends Component {
 				<div className="row mb-3">
 					<div className="col-6">
 						<div className="color-grey">
-							Profissional
+							{getLang('Profissional')}
 						</div>
 						<div>Margarette Reis</div>
 					</div>
 					<div className="col-6">
 						<div className="color-grey">
-							Agendamento
+							{getLang('Agendamento')}
 						</div>
 						<div>{getDate(this.props.created_at)}</div> {/*({this.getDays()} dias)*/}
 					</div>
 					<div className="col-6">
 						<div className="color-grey">
-							Contato
+							{getLang('Contato')}
 						</div>
 						<div>{format('phone', this.props.service.vendor.phone)}</div>
 					</div>
 					<div className="col-12">
 						<div className="color-grey">
-							Local
+							{getLang('Local')}
 						</div>
 						<div>{`${this.props.service.vendor.address.title}, ${this.props.service.vendor.address.number}, ${this.props.service.vendor.address.street}`}</div>
 					</div>

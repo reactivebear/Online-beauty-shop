@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import store from 'store'
 import Price from 'components/price'
 import { removeFromCart } from 'actions/cart'
+import { getLang } from 'utils/lang'
 
 class CardCreditCart extends Component {
 	
@@ -17,7 +18,7 @@ class CardCreditCart extends Component {
                         <img src="/assets/images/credits.png" className="img-fluid" alt="" />
                     </div>
                     <div className="col-8">
-                        <div className="color-grey">Créditos: {this.props.credit_bundle.amount}</div>
+                        <div className="color-grey">{getLang('Créditos')}: {this.props.credit_bundle.amount}</div>
                         <Price current={this.props.price} old={this.props.original_price} />
                     </div>
                 </div>
