@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Carousel from 'components/carousel'
 import CardBlog from 'components/cards/blog'
 import { getBlogs } from 'actions'
+import { getLang } from 'utils/lang'
 
 class BlogSection extends Component {
 
@@ -40,7 +41,7 @@ class BlogSection extends Component {
         return (
             <div>
 				<div className="form-group">
-                    <h2>Blog</h2>
+                    <h2>{getLang('Blog')}</h2>
                     <div style={{marginLeft: -7, marginRight: -7}}>
                         <Carousel items={this.props.design.blogs.map((item, i) => <CardBlog key={i} {...item} />)} settings={settings} />
                     </div>

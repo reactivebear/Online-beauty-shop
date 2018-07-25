@@ -118,7 +118,7 @@ class Header extends Component {
                                         <BtnMain
                                             className="pt-2"
                                             onClick={() => history.push('/about')}
-                                            title={<span><img src="/assets/icons/app-icon.png" alt="" className="img-fluid small-icon mr-2" />Baixe grátis o app do Visual Total</span>} />
+                                            title={<span><img src="/assets/icons/app-icon.png" alt="" className="img-fluid small-icon mr-2" />{getLang('Baixe grátis o app do Visual Total')}</span>} />
                                     </div>
                                     <div onClick={this.toggleTooltip('cart')} id="cart" className="header-link-icon col col-sm-3 px-sm-0 form-group pointer"> {/*col-6 col-sm-3*/}
                                         <img src="/assets/icons/cart-icon.png" id="cart" className="img-icon-header align-middle" alt="" />
