@@ -195,9 +195,9 @@ export const sendVoucher = data => dispatch =>
         })
     )
 
-export const getReports = () => dispatch => 
+export const getNotifications = () => dispatch => 
     (
-        get(`api/reports`).then(json => {
+        get(`api/notifications`).then(json => {
             if (json.object) {
                 console.log(json.object)
             }

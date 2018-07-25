@@ -68,7 +68,7 @@ class Search extends Component {
 									{ services.list.map((item, i) => this.printList(item, i, 'service')) }
 								</div>
                                 <Pagination 
-                                    responsive={[{width: 600, count: 6}, {width: 550, count: 5}, {width: 375, count: 3}]}
+                                    responsive={[{width: 1199, count: 15}, {width: 810, count: 12}, {width: 767, count: 10}, {width: 600, count: 6}, {width: 550, count: 5}, {width: 375, count: 3}]}
                                     onChange={this.changePage('services')} 
                                     total={services.total_pages} 
                                     active={services.page} />
@@ -84,7 +84,7 @@ class Search extends Component {
 									{ products.list.map((item, i) => this.printList(item, i, 'product')) }
 								</div>
                                 <Pagination
-                                    responsive={[{width: 600, count: 6}, {width: 550, count: 5}, {width: 375, count: 3}]}
+                                    responsive={[{width: 1199, count: 15}, {width: 810, count: 12}, {width: 767, count: 10}, {width: 600, count: 6}, {width: 550, count: 5}, {width: 375, count: 3}]}
                                     onChange={this.changePage('products')} 
                                     total={products.total_pages} 
                                     active={products.page} />
