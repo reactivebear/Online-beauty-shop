@@ -1,27 +1,17 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import store from 'store'
+import { getFeedbacks } from 'actions'
 import Carousel from 'components/carousel'
 import CardTestimonial from 'components/cards/testimonial'
 
 class TestimonialsSection extends Component {
-	printList = () => {
-		const list = [
-			{
-				reviewer: 'Tony',
-				rating: 4,
-				text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the'
-			}, {
-				reviewer: 'Antonio',
-				rating: 3,
-				text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the'
-			}, {
-				reviewer: 'Tony Stark',
-				rating: 5,
-				text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the'
-			},
+	printList = () => this.props.design.feedbacks.map((item, i) => <CardTestimonial key={i} {...item} />)
 
-		]
-		return list.map((item, i) => <CardTestimonial key={i} {...item} />)
+	componentWillMount() {
+		store.dispatch(getFeedbacks())
 	}
+
     render() {
     	const settings = {
             arrows: false,
@@ -47,4 +37,13 @@ class TestimonialsSection extends Component {
     }
 }
 
-export default TestimonialsSection
+const mapStateToProps = state =>
+    ({ 
+        design: {
+            feedbacks: state.design.feedbacks
+        }
+    })
+
+export default connect(
+    mapStateToProps
+)(TestimonialsSection)

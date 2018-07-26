@@ -3,16 +3,21 @@ import store from 'store'
 import { NOTIFICATION_TYPE } from 'config'
 import BtnMain from 'components/buttons/btn_main'
 import { getLang } from 'utils/lang'
-import { tempRemoveNotify, removeNotify } from 'actions/user'
+import { tempRemoveNotify, removeNotify, getNotifications } from 'actions/user'
 
 class CardNotification extends Component {
 
 	tempRemove = () => {
-		store.dispatch(tempRemoveNotify(1))
+		store.dispatch(tempRemoveNotify(this.props.id))
 	}
 
 	remove = () => {
-		store.dispatch(removeNotify(1))
+		store.dispatch(removeNotify(this.props.id))
+		.then(res => {
+			if (res) {
+				store.dispatch(getNotifications())
+			}
+		})
 	}
 
 	sendThanks = () => {
@@ -20,7 +25,7 @@ class CardNotification extends Component {
 	}
 
     render() {
-    	const notify = {...NOTIFICATION_TYPE[this.props.type], desc: this.props.desc}
+    	const notify = {...NOTIFICATION_TYPE[this.props.type], desc: this.props.message}
         return (
         	<div className="rounded bg-white border p-3 mb-3">
 	            <div className="row justify-content-between align-items-sm-center">

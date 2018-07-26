@@ -61,6 +61,15 @@ export const getBlogs = () => dispatch =>
         })
     )
 
+export const getFeedbacks = () => dispatch => 
+    (
+        get(`api/feedbacks`).then(json => {
+            if (json.object) {
+                dispatch(setFeedbacks(json.object))
+            }
+        })
+    )
+
 export const getLocation = zipcode => dispatch => 
     (
         get(`api/location/geocode?zipcode=${zipcode}`).then(json => {
@@ -85,6 +94,15 @@ export const getAutocomplete = search_text => dispatch =>
         post(`api/search`, false, {search_text}).then(json => {
             if (json.object) {
                 dispatch(setAutocomplete(json.object))
+            }
+        })
+    )
+
+export const getAutocompleteSalon = search_text => dispatch => 
+    (
+        post(`api/vendors`, false, {search_text}).then(json => {
+            if (json.object) {
+                dispatch(setAutocompleteSalon(json.object))
             }
         })
     )
@@ -140,9 +158,21 @@ export const setAutocomplete = data =>
         data
     })
 
+export const setAutocompleteSalon = data => 
+    ({
+        type: types.SET_AUTOCOMPLETE_SALON,
+        data
+    })
+
 export const setBlogs = data => 
     ({
         type: types.SET_BLOGS,
+        data
+    })
+
+export const setFeedbacks = data => 
+    ({
+        type: types.SET_FEEDBACKS,
         data
     })
 

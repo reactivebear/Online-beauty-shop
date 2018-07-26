@@ -27,7 +27,8 @@ const initialState = {
         img: [DEFAULT_IMG, DEFAULT_IMG, DEFAULT_IMG, DEFAULT_IMG],
         open: false,
     },
-    blogs: []
+    blogs: [],
+    feedbacks: []
 }
 
 export default function design(design = initialState, action = {}) {
@@ -93,6 +94,10 @@ export default function design(design = initialState, action = {}) {
         case types.SET_BLOGS:
             return Object.assign({}, design, {
                 blogs: action.data
+            });
+        case types.SET_FEEDBACKS:
+            return Object.assign({}, design, {
+                feedbacks: action.data
             });
         default:
             return design;

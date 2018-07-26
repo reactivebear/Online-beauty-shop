@@ -199,7 +199,7 @@ export const getNotifications = () => dispatch =>
     (
         get(`api/notifications`).then(json => {
             if (json.object) {
-                console.log(json.object)
+                dispatch(setUserKey(json.object, 'notifications'))
             }
         })
     )
@@ -213,9 +213,8 @@ export const tempRemoveNotify = id => dispatch =>
 
 export const removeNotify = id => dispatch =>
     (
-        post(`api/notification/${id}/dismiss`, true).then(json => {
-            console.log(json)
-        })
+        post(`api/notification/${id}/dismiss`, true)
+        .then(json => json.status === 200)
     )
 
 export const getPurchases = () => dispatch => 
