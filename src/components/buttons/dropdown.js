@@ -3,7 +3,7 @@ import './dropdown.css'
 
 class DropDown extends Component {
     state = {
-        active: this.props.list[0],
+        active: this.props.list[0].title,
         open: false
     }
 
@@ -25,12 +25,13 @@ class DropDown extends Component {
     }
 
     setItem = item => e => {
-        this.setState({active: item, open: false})
+        this.setState({active: item.title, open: false})
         document.body.removeEventListener('click', this.closeMenu)
+        this.props.onClickItem(item)
     }
 
     printList = (item, i) => {
-        return <div className="px-4 py-3 drop-item color-grey pointer text-nowrap" onClick={this.setItem(item)} key={i}>{item}</div>
+        return <div className="px-4 py-3 drop-item color-grey pointer text-nowrap" onClick={this.setItem(item)} key={i}>{item.title}</div>
     }
 
     render() {

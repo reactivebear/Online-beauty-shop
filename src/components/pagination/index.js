@@ -12,9 +12,15 @@ class Pagination extends Component {
 		this.list = ['']
 		this.container = null
 
-		window.addEventListener('resize', () => {
-			this.setState({resizeUpdater: 1})
-		}, true);
+		window.addEventListener('resize', this.resizeHandler, true);
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.resizeHandler, true);
+	}
+
+	resizeHandler = () => {
+		this.setState({resizeUpdater: 1})
 	}
 
 	getVector = page => {
@@ -28,7 +34,6 @@ class Pagination extends Component {
 	}
 
 	getHiddenClass = page => {
-		console.log(this.state.active, this.state.prev)
 		if (this.getMaxCount() < this.props.total) {
 			if (this.state.active === page || page === this.props.total) { //active & last
 				return 'num'

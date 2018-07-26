@@ -53,7 +53,7 @@ class CardService extends Component {
 		const address = this.props.vendor.address || this.props.address
 		navigator.geolocation.getCurrentPosition(pos => {
 			range = getDistance(pos.coords.latitude, pos.coords.longitude, address.latitude, address.longitude)
-			if (range) {
+			if (this.mount && range) {
 				this.setState({
 					range: range
 				})
@@ -82,6 +82,11 @@ class CardService extends Component {
 
 	componentDidMount() {
 		this.getDistance()
+		this.mount = true
+	}
+
+	componentWillUnmount() {
+		this.mount = false
 	}
 
     render() {

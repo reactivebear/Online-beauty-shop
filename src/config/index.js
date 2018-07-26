@@ -67,7 +67,7 @@ export const LIST_MENU = [
             }
         ]
 
-export const DROP_LIST = ['Mais relevantes', 'Menor preço', 'Maior preço']
+export const DROP_LIST = [{title: 'Mais relevantes', key: ''}, {title: 'Menor preço', key: 'lowest_price_first'}, {title: 'Maior preço', key: ''}]
 export const DROP_MENU_LIST = [
     {
         title: 'Todos',
