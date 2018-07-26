@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { format } from 'utils/mask'
+import { getLang } from 'utils/lang'
 
 class Counter extends Component {
 	state = {
@@ -43,7 +44,7 @@ class Counter extends Component {
 	        	{
 	        		this.props.hideDescription
 	        		?	''
-	        		: 	<div>Quantidade:</div>
+	        		: 	<div>{getLang('Quantidade')}:</div>
 	        	}
 	        	<div className="rounded border d-flex align-items-center justify-content-between px-2 overflow-hidden">
 		            <i className={"fas fa-minus " + color} onClick={this.decrement}></i>

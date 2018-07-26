@@ -5,6 +5,7 @@ import { setScheduleStep, setScheduleUseCredits, makeAppointment } from 'actions
 import BtnMain from 'components/buttons/btn_main.js'
 import Price from 'components/price'
 import CheckBox from 'components/inputs/checkbox.js'
+import { getLang } from 'utils/lang'
 
 class ScheduleCartTotal extends Component {
 	changeStep = () => {
@@ -39,13 +40,13 @@ class ScheduleCartTotal extends Component {
 				{
 					this.props.step !== 2
 					? 	<div className="d-flex justify-content-between color-grey">
-							<div><h5>Subtotal:</h5></div>
+							<div><h5>{getLang('Subtotal')}:</h5></div>
 							<div><Price current={this.props.schedule_cart.total} /></div>
 						</div>
 					: 	<div>
-							<h5>Usar créditos</h5>
+							<h5>{getLang('Usar créditos')}</h5>
 							<div className="d-flex justify-content-between color-grey">
-								<div><Price className="d-inline-block" current={this.props.user.credits / this.props.user.dollar_value} /> créditos</div>
+								<div><Price className="d-inline-block" current={this.props.user.credits / this.props.user.dollar_value} /> {getLang('créditos')}</div>
 								<div><CheckBox value={this.props.schedule_cart.use_credits} onChange={this.setUseCredits} /></div>
 							</div>
 						</div>
@@ -53,7 +54,7 @@ class ScheduleCartTotal extends Component {
 				{
 					this.props.step === 3 || this.props.step === 4
 					? 	<div className="d-flex justify-content-between color-grey">
-							<div><h5>Créditos:</h5></div>
+							<div><h5>{getLang('Créditos')}:</h5></div>
 							<div><Price current={this.getUseCredits()} /></div>
 						</div>
 					: 	''
@@ -62,7 +63,7 @@ class ScheduleCartTotal extends Component {
 				{
 					this.props.step > 1
 					? 	<div className="d-flex justify-content-between mb-3">
-							<div><h5>Total:</h5></div>
+							<div><h5>{getLang('Total')}:</h5></div>
 							<div><Price current={this.getTotal()} /></div>
 						</div>
 					: 	''

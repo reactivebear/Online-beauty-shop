@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './dropdown.css'
+import { getLang } from 'utils/lang'
 
 class DropDown extends Component {
     state = {
@@ -31,7 +32,7 @@ class DropDown extends Component {
     }
 
     printList = (item, i) => {
-        return <div className="px-4 py-3 drop-item color-grey pointer text-nowrap" onClick={this.setItem(item)} key={i}>{item.title}</div>
+        return <div className="px-4 py-3 drop-item color-grey pointer text-nowrap" onClick={this.setItem(item)} key={i}>{getLang(item.title)}</div>
     }
 
     render() {
@@ -40,7 +41,7 @@ class DropDown extends Component {
             <div id="dropdown">
                 <div className="position-relative z-index-1">
                     <div className="d-inline pointer" onClick={this.toggleMenu}>
-                       <span className="color-green">{this.state.active}</span>
+                       <span className="color-green">{getLang(this.state.active)}</span>
                        &nbsp;
                        <i className={`fas fa-chevron-${activeClass} color-green px-2`}></i>
                    </div>

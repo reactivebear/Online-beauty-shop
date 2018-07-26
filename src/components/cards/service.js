@@ -9,6 +9,7 @@ import { getDistance } from 'utils'
 import Heart from 'components/heart'
 import Tag from 'components/tags'
 import './service.css'
+import { getLang } from 'utils/lang'
 
 class CardService extends Component {
 	state = {
@@ -111,7 +112,7 @@ class CardService extends Component {
 
 			            	<div className="color-grey d-flex justify-content-between align-items-center mb-2">
 			            		<div>
-				            		Avaliação<br />
+												{getLang('Avaliação')}<br />
 				            		<Stars active={this.props.rating} />
 			            		</div>
 			            		{

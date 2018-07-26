@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import InputRange from 'react-input-range'
 import 'react-input-range/lib/css/index.css'
 import './range_slider.css'
+import { getLang } from 'utils/lang'
 
 class RangeSlider extends Component {
 	constructor(props) {
@@ -29,7 +30,7 @@ class RangeSlider extends Component {
 	render() {
 		return (
 			<div className="d-flex align-items-center">
-				<span className="px-2 color-grey">Mín.</span>
+				<span className="px-2 color-grey">{getLang('Mín.')}</span>
 				<InputRange
 					maxValue={this.props.max}
 					minValue={this.props.min}
@@ -37,7 +38,7 @@ class RangeSlider extends Component {
 					value={this.state.value}
 					onChangeComplete={this.props.onComplete}
 					onChange={this.onChange} />
-				<span className="px-2 color-grey">Máx.</span>
+				<span className="px-2 color-grey">{getLang('Máx.')}</span>
 			</div>
 		);
 	}

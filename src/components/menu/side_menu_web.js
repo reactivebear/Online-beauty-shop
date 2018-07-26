@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { history } from 'store'
 import { LIST_MENU } from 'config'
 import Avatar from 'components/images/avatar'
+import { getLang } from 'utils/lang'
 
 class SideMenuWeb extends Component {
     state = {
@@ -19,7 +20,7 @@ class SideMenuWeb extends Component {
                     <div className="img-fluid w-15 h-100 pr-2"></div>
                     <object data={`/assets/svg/${item.svg_icon}`} width="15%" className="svg-icon" type="image/svg+xml"></object>
                     <object data={`/assets/svg/${item.svg_icon_hover}`} width="15%" className="svg-icon-hover" type="image/svg+xml"></object>
-                    <span className="w-85 fs-18 pl-4">{item.title}</span>
+                    <span className="w-85 fs-18 pl-4">{getLang(item.title)}</span>
                 </div>
     }
 

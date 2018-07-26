@@ -8,6 +8,7 @@ import RangeSlider from 'components/inputs/range_slider'
 import { getProducts } from 'actions/products'
 import { getServices } from 'actions/services'
 import SmallSwitch from 'components/inputs/small_switch'
+import { getLang } from 'utils/lang'
 
 let initialState = {}
 
@@ -21,12 +22,12 @@ class SearchMenuWeb extends Component {
 
 	getCategories = () => 
 		this.props.categories[`${this.props.type}_list`].map((item, i) => 
-			<div className="py-1 color-grey pointer pl-4" onClick={this.changeCategory(item)} key={i}>{item.name}</div>
+			<div className="py-1 color-grey pointer pl-4" onClick={this.changeCategory(item)} key={i}>{getLang(item.name)}</div>
 		)
 
     getSubCategories = () => 
         this.props.categories.subcategories.map((item, i) => 
-            <div className="py-2 color-grey pointer pl-4" key={i}>{item.name}</div>
+            <div className="py-2 color-grey pointer pl-4" key={i}>{getLang(item.name)}</div>
         )
 
 	getRatings = type => {
@@ -117,16 +118,16 @@ class SearchMenuWeb extends Component {
     render() {
         return (
         	<div>
-	            <h4>Organizar anúncios</h4>
-                <CollapsedMenu title="Faixa de preço" body={this.getRangeSlider()} />
-    			<CollapsedMenu title="Categoria" body={this.getCategories()} />
-                <CollapsedMenu title="Subcategoria" body={this.getSubCategories()} />
-    			<CollapsedMenu title="Marca" body={<span></span>} />
-    			<CollapsedMenu title="Estado" body={<span></span>} />
-    			<CollapsedMenu title="Provedor do serviço" body={<span></span>} />
-                <CollapsedMenu title="Promoção" body={<span></span>} />
-                <CollapsedMenu title="Avaliação do produto" body={this.getRatings('min_rating')} />
-    			<CollapsedMenu title="Avaliação do vendedor" body={this.getRatings('min_vendor_rating')} />
+	            <h4>{getLang('Organizar anúncios')}</h4>
+                <CollapsedMenu title={getLang("Faixa de preço")} body={this.getRangeSlider()} />
+    			<CollapsedMenu title={getLang("Categoria")} body={this.getCategories()} />
+                <CollapsedMenu title={getLang("Subcategoria")} body={this.getSubCategories()} />
+    			<CollapsedMenu title={getLang("Marca")} body={<span></span>} />
+    			<CollapsedMenu title={getLang("Estado")} body={<span></span>} />
+    			<CollapsedMenu title={getLang("Provedor do serviço")} body={<span></span>} />
+                <CollapsedMenu title={getLang("Promoção")} body={<span></span>} />
+                <CollapsedMenu title={getLang("Avaliação do produto")} body={this.getRatings('min_rating')} />
+    			<CollapsedMenu title={getLang("Avaliação do vendedor")} body={this.getRatings('min_vendor_rating')} />
 			</div>
         );
     }

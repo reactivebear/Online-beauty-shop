@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { history } from 'store'
 import './category.css'
+import { getLang } from 'utils/lang'
 
 class CategoryItem extends Component {
 	goToCategory = () => {
@@ -15,7 +16,7 @@ class CategoryItem extends Component {
 						<div className="category-item-icon mb-1">
 							<img src={this.props.image_url} alt="" className="img-fluid" />
 						</div>
-						<strong>{this.props.name}</strong>
+						<strong>{getLang(this.props.name)}</strong>
 					</div>
 					<img className="category-arrow" src="assets/icons/icons8-right-50.png" alt="" />
 				</div>
