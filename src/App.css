@@ -127,6 +127,10 @@ path.cls-8 {
 	width: 85%;
 }
 
+.w-90 {
+	width: 90%;
+}
+
 .z-index-0 {
 	z-index: 0;
 }
@@ -502,7 +506,7 @@ path.cls-8 {
 }
 
 .about-wrap {
-	background-image: url('/assets/images/about.png');
+	background-image: url('/assets/images/about1.png');
 	background-repeat: no-repeat;
 	height: calc(100vh - 190px);
 	background-position: -5px -5px;

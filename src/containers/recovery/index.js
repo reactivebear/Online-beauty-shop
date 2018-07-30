@@ -5,6 +5,7 @@ import { resetPassword, checkHash } from 'actions/auth'
 import { history } from 'store'
 import Input from 'components/inputs/input'
 import BtnMain from 'components/buttons/btn_main'
+import { getLang } from 'utils/lang'
 
 class Recovery extends Component {
 	
@@ -32,7 +33,7 @@ class Recovery extends Component {
 		            <div className="row">
 		            	<div className="col-md-6">
 			    			<div className="rounded p-4 bg-white border mb-5">
-			    				<h4>Trocar a senha</h4>
+			    				<h4>{getLang('Trocar a senha')}</h4>
 		    					{
 		    						this.props.match.params.hash
 		    						? 	<div>
@@ -48,7 +49,7 @@ class Recovery extends Component {
 							                    inputRef={ref => this.password_confirm = ref} />
 				                        </div>
 		    						: 	<div>
-		    								<div className="color-grey mb-2">Identifique-se para receber um e-mail com as instruções e o link para criar uma nova senha.</div>			
+		    								<div className="color-grey mb-2">{getLang('Identifique-se para receber um e-mail com as instruções e o link para criar uma nova senha.')}</div>			
 			    							<Input 
 						                        required
 						                        label="Email"
@@ -61,7 +62,7 @@ class Recovery extends Component {
 				                        <BtnMain
 		                                    className="font-weight-bold btn-block"
 		                                    onClick={this.recovery}
-		                                    title="Email enviado" />
+		                                    title="Salvar" />
                                     </div>
                                 </div>
 			    			</div>
