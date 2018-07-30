@@ -34,6 +34,7 @@ class Search extends Component {
         
         store.dispatch(setSearch({items: [], total_items: 0, page: 1, total_pages: 1}, 'products'))
         store.dispatch(setSearch({items: [], total_items: 0, page: 1, total_pages: 1}, 'services'))
+        
         params.type.forEach(item => {
             store.dispatch(getSearch(item, {new_pagination: true, page_size: 6, ...params}))
         })
@@ -68,9 +69,10 @@ class Search extends Component {
 								<div className="row mb-4">
 									{ services.list.map((item, i) => this.printList(item, i, 'service')) }
 								</div>
-                                <Pagination 
-                                    responsive={[{width: 600, count: 6}, {width: 550, count: 5}, {width: 375, count: 3}]}
-                                    onChange={this.changePage('services')} 
+                                 <Pagination 
+                                    responsive={[{width: 1199, count: 15}, {width: 810, count: 12}, {width: 767, count: 10}, {width: 600, count: 6}, {width: 550, count: 5}, {width: 375, count: 3}]}
+                                    onChange={this.changePage('services')}
+                                    className="mb-2"
                                     total={services.total_pages} 
                                     active={services.page} />
     						</div>
@@ -85,7 +87,7 @@ class Search extends Component {
 									{ products.list.map((item, i) => this.printList(item, i, 'product')) }
 								</div>
                                 <Pagination
-                                    responsive={[{width: 600, count: 6}, {width: 550, count: 5}, {width: 375, count: 3}]}
+                                    responsive={[{width: 1199, count: 15}, {width: 810, count: 12}, {width: 767, count: 10}, {width: 600, count: 6}, {width: 550, count: 5}, {width: 375, count: 3}]}
                                     onChange={this.changePage('products')} 
                                     total={products.total_pages} 
                                     active={products.page} />

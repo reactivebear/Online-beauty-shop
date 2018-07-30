@@ -49,7 +49,7 @@ export const getMyPosition = callback => {
             lat: pos.coords.latitude,
             lon: pos.coords.longitude
         })
-    }, callback)
+    }, callback, {maximumAge: 50000, timeout: 20000, enableHighAccuracy: true})
 }
 
 export const getStepsCount = () => {

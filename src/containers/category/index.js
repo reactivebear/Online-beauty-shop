@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { getProducts } from 'actions/products'
 import { getServices } from 'actions/services'
 import { getSubCategories } from 'actions'
-import { getCategoryList, setCategory } from 'actions'
+import { getCategoryList, setCategory, setFilters } from 'actions'
 import { toggleLeftMenu } from 'actions/design'
 import CardProduct from 'components/cards/product'
 import CardService from 'components/cards/service'
@@ -38,14 +38,14 @@ class Category extends Component {
 		return <div key={i} className="col-sm-6 mb-3">{card}</div>
 	}
 
-	getData = (type, id, page) => {
+	getData = (type, id, page, params) => {
         store.dispatch(getSubCategories(type, id))
 		switch(type) {
             case 'product':
-                store.dispatch(getProducts('pagination', {category: id, new_pagination: true, page_size: 14, page: page, ...this.props.search.filters}))
+                store.dispatch(getProducts('pagination', {category: id, new_pagination: true, page_size: 14, page: page, ...this.props.search.filters, ...params}))
                 break
             case 'service':
-                store.dispatch(getServices('pagination', {category: id, new_pagination: true, page_size: 14, page: page, ...this.props.search.filters}))
+                store.dispatch(getServices('pagination', {category: id, new_pagination: true, page_size: 14, page: page, ...this.props.search.filters, ...params}))
                 break
             default: return
         }
@@ -55,8 +55,18 @@ class Category extends Component {
 		this.getData(this.props.match.params.type, this.props.match.params.id, page)
 	}
 
+    changeOrder = item => {
+        let order = {lowest_price_first: false}
+        if (item.key) {
+            order = {[item.key]: true}
+        }
+
+        store.dispatch(setFilters(order))
+        this.getData(this.props.match.params.type, this.props.match.params.id, this.props[this.props.match.params.type].pagination.page, order)
+    }
+
     showMenu = body => e => {
-        const content = body === 'filter' ? <SearchMenuWeb type={this.props.match.params.type} catId={this.props.match.params.id} /> : <OrderMenu />
+        const content = body === 'filter' ? <SearchMenuWeb type={this.props.match.params.type} catId={this.props.match.params.id} /> : <OrderMenu onClickItem={this.changeOrder} />
         store.dispatch(toggleLeftMenu(true, content))
     }
 
@@ -75,7 +85,7 @@ class Category extends Component {
 	            		<div className="col-md-8 px-md-0">
                             <div className="d-flex justify-content-between align-items-center">
     	            			<h5><small>{getLang('Pesquisa')}: </small>{getLang(category.name)}</h5>
-                                <div className="d-none d-sm-block"><DropDown list={DROP_LIST} /></div>
+                                <div className="d-none d-sm-block"><DropDown onClickItem={this.changeOrder} list={DROP_LIST} /></div>
                             </div>
 
                             <div className="mb-3 d-sm-none">

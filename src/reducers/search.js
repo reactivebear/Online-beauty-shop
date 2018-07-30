@@ -15,7 +15,7 @@ const initialState = {
     },
     filters: {
         min_price: 0,
-        max_price: 1000,
+        max_price: 5000,
         min_rating: 0,
         min_vendor_rating: 0
     },
@@ -24,7 +24,8 @@ const initialState = {
     autocomplete: {
         product: [],
         service: []
-    }
+    },
+    autocompleteSalon: []
 }
 
 export default function search(search = initialState, action = {}) {
@@ -49,6 +50,10 @@ export default function search(search = initialState, action = {}) {
                     product: action.data.filter(item => item.product).map(item => item.product.name),
                     service: action.data.filter(item => item.service).map(item => item.service.title),
                 }
+            })
+        case types.SET_AUTOCOMPLETE_SALON:
+            return Object.assign({}, search, { 
+                autocompleteSalon: action.data.map(item => item.organization_name)
             })
         case types.SET_SEARCH_TYPE:
             return  Object.assign({}, search, { 

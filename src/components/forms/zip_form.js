@@ -5,6 +5,7 @@ import { getLocation } from 'actions'
 import BtnMain from 'components/buttons/btn_main'
 import { format } from 'utils/mask'
 import { getLang } from 'utils/lang'
+import { getMyPosition } from 'utils'
 
 class ZipForm extends Component {
     openLogin = e => {
@@ -23,15 +24,26 @@ class ZipForm extends Component {
 
     getLocation = () => {
         store.dispatch(getLocation(`${this.zip.value}${this.cep.value}`))
+        .then(res => {
+            if (res) {
+                let location = ''
+                if (this.props.user.location.lat &&this.props.user.location.lng) {
+                    location = `&latitude=${this.props.user.location.lat}&longitude=${this.props.user.location.lng}`
+                    history.push(`/search#type=${this.props.search.type}&search_text=${this.props.search.query}${location}`)
+                    this.props.close()
+                }
+            }
+        })
     }
 
     nearbySearch = pos => {
-        let location = ''
-        if (this.props.user.location.lat &&this.props.user.location.lng) {
-            location = `&latitude=${this.props.user.location.lat}&longitude=${this.props.user.location.lng}`
-            history.push(`/search#type=${this.props.search.type}&search_text=${this.props.search.query}${location}`)
-            this.props.close()
-        }
+        getMyPosition(loc => {
+            if (loc.lat && loc.lon) {
+                const location = `&latitude=${loc.lat}&longitude=${loc.lon}`
+                history.push(`/search#type=${this.props.search.type}&search_text=${this.props.search.query}${location}`)
+                this.props.close()
+            }
+        })
     }
 
     render() {

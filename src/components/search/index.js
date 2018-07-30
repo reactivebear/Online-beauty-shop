@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import store, { history } from 'store'
 import BtnMain from 'components/buttons/btn_main'
-import { getAutocomplete, setSearchQuery } from 'actions'
+import { getAutocomplete, setSearchQuery, getAutocompleteSalon } from 'actions'
 import './style.css'
 import DropDownMenu from 'components/menu/drop_down_menu'
 import Tooltip from 'components/tooltip'
@@ -31,6 +31,7 @@ class WebSearch extends Component {
 		}
 		store.dispatch(setSearchQuery(e.target.value))
 		store.dispatch(getAutocomplete(e.target.value))
+		store.dispatch(getAutocompleteSalon(e.target.value))
 	}
 
 	handleOnChange = e => {
@@ -59,7 +60,12 @@ class WebSearch extends Component {
 
 	search = e => {
 		e.preventDefault()
-		history.push(`/search#type=${this.props.search.type}&search_text=${this.state.value}`)
+		if (this.props.search.type === 'salons') {
+			history.push(`/search#type=alls&search_text=&vendor=${this.state.value}`)
+		} else {
+			history.push(`/search#type=${this.props.search.type}&search_text=${this.state.value}`)
+		}
+		
 	}
 
 	getSearchType = () => {

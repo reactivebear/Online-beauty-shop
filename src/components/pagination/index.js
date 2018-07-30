@@ -12,9 +12,15 @@ class Pagination extends Component {
 		this.list = ['']
 		this.container = null
 
-		window.addEventListener('resize', () => {
-			this.setState({resizeUpdater: 1})
-		}, true);
+		window.addEventListener('resize', this.resizeHandler, true);
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.resizeHandler, true);
+	}
+
+	resizeHandler = () => {
+		this.setState({resizeUpdater: 1})
 	}
 
 	getVector = page => {
@@ -91,14 +97,14 @@ class Pagination extends Component {
 
 	prevPage = () => {
 		if (this.state.active > 1) {
-			this.setState({active: this.state.active - 1})
+			this.setState({active: this.state.active - 1, prev: this.state.active})
 			this.props.onChange(this.state.active - 1)
 		}
 	}
 
 	nextPage = () => {
 		if (this.state.active < this.props.total) {
-			this.setState({active: this.state.active + 1})
+			this.setState({active: this.state.active + 1, prev: this.state.active})
 			this.props.onChange(this.state.active + 1)
 		}
 	}
@@ -126,7 +132,7 @@ class Pagination extends Component {
     	const prevClass = this.state.active > 1 ? 'pointer color-green' : 'color-grey'
     	const nextClass = this.state.active < this.props.total ? 'pointer color-green' : 'color-grey'
         return (
-        	<div ref={ref => this.container = ref} style={{minHeight: 1}}>
+        	<div ref={ref => this.container = ref} style={{minHeight: 1}} className={this.props.className}>
 	        	<div className="d-flex justify-content-center">
 		            <div className={`rounded bg-white py-2 px-3 mx-1 border ${prevClass}`} ref={ref => this.prev = ref} onClick={this.prevPage}>
 		            	<i className="fas fa-chevron-left"></i>

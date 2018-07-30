@@ -195,13 +195,26 @@ export const sendVoucher = data => dispatch =>
         })
     )
 
-export const getReports = () => dispatch => 
+export const getNotifications = () => dispatch => 
     (
-        get(`api/reports`).then(json => {
+        get(`api/notifications`).then(json => {
             if (json.object) {
-                console.log(json.object)
+                dispatch(setUserKey(json.object, 'notifications'))
             }
         })
+    )
+
+export const tempRemoveNotify = id => dispatch =>
+    (
+        post(`api/notification/${id}/remind-later`, true).then(json => {
+            console.log(json)
+        })
+    )
+
+export const removeNotify = id => dispatch =>
+    (
+        post(`api/notification/${id}/dismiss`, true)
+        .then(json => json.status === 200)
     )
 
 export const getPurchases = () => dispatch => 

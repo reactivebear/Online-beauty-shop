@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import store, { history } from 'store'
 import { connect } from 'react-redux'
-import { getProduct, getProductComments, getPromotions } from 'actions/products'
+import { getProduct, getProductComments, getPromotions, getQuestions, sendQuestion } from 'actions/products'
 import { addToCart } from 'actions/cart'
 import { toggleModal, toggleLightBox } from 'actions/design'
 import { getVendorServices } from 'actions/services'
@@ -39,8 +39,10 @@ class Product extends Component {
 			.then(res => {
 				store.dispatch(getPromotions(props.match.params.id))
 				store.dispatch(getVendorServices(this.props.products.salon.id))
+				store.dispatch(getQuestions(this.props.products.salon.id))
 			})
 			store.dispatch(getProductComments(props.match.params.id))
+
 		}
 	}
 
@@ -176,6 +178,21 @@ class Product extends Component {
 		store.dispatch(toggleModal(true, this.questionForm, 'modal-sm', '', {position: 'center'}))
 	}
 
+	sendQuestion = onClose => e => {
+		const data = {
+			message: this.message.value,
+			product_id: this.props.match.params.id,
+			vendor_id: this.props.products.salon.id
+		}
+		store.dispatch(sendQuestion(data))
+		.then(res => {
+			if (res) {
+				store.dispatch(getQuestions(this.props.products.salon.id))
+				onClose()
+			}
+		})
+	}
+
 	questionForm = props => {
 		return 	<div>
 					<TextArea 
@@ -189,7 +206,7 @@ class Product extends Component {
 	        				title="Cancelar" />
 	            		<BtnMain
 	        				className="font-weight-bol btn-block"
-	        				onClick={this.sendQuestion}
+	        				onClick={this.sendQuestion(props.onCancel)}
 	        				title="Perguntar" />
 	            	</div>
 				</div>

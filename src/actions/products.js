@@ -29,6 +29,27 @@ export const getPromotions = id => dispatch =>
         })
     )
 
+export const getQuestions = id => dispatch =>
+    (
+        get(`api/vendor/${id}/vendor-questions`, false).then(json => {
+            if (json.object) {
+                console.log(json.object)
+            }
+            
+        })
+    )
+
+export const sendQuestion = data => dispatch =>
+    (
+        post(`api/vendor-questions/question`, true, data).then(json => {
+            if (json.object) {
+                console.log(json.object)
+                return true
+            }
+            
+        })
+    )
+
 export const getProductsVendor = id => dispatch => 
     (
         get(`api/products/vendor/${id}`, false).then(json => {
