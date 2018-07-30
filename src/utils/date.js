@@ -13,6 +13,13 @@ export const getTime = date => {
     return h
 }
 
+export const getFullTime = date => {
+    const [, temp] = date.split('T')
+    const [time] = temp.split('+')
+    const [h,m] = time.split(':')
+    return `${h}:${m}`
+}
+
 export const getFullDate = data => {
 	const [date, time] = data.split('T')
 	const [y, m, d] = date.split('-')

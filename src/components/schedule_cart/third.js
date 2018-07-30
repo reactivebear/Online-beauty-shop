@@ -6,11 +6,17 @@ import { getLang } from 'utils/lang'
 
 class StepThird extends Component {
     render() {
+        const dataVoucher = {
+            service: this.props.service,
+            proffesional: this.props.schedule_cart.proffesional.professional,
+            created_at: this.props.schedule_cart.activeTime && this.props.schedule_cart.activeDate ? `${this.props.schedule_cart.activeDate}T${this.props.schedule_cart.activeTime}` : ''
+        }
+
         return (
         	<div className="row pb-5">
         		<div className="col-sm-5">
                     <h4>{getLang('Voucher do serviço')}</h4>
-                    <CardVoucher {...this.props.schedule_cart.voucher} />
+                    <CardVoucher {...dataVoucher} />
         		</div>
                 <div className="col-sm-1">
                 </div>
@@ -30,7 +36,10 @@ const mapStateToProps = state =>
             
         },
         schedule_cart: {
-            voucher: state.schedule_cart.voucher
+            voucher: state.schedule_cart.voucher,
+            proffesional: state.schedule_cart.proffesional,
+            activeDate: state.schedule_cart.activeDate,
+            activeTime: state.schedule_cart.activeTime,
         }
     })
 

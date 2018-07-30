@@ -35,7 +35,7 @@ class Calendar extends Component {
     setDay = activeDate => e => {
 		if (activeDate >= this.state.currentDate) {
 			this.setState({activeDate})
-			const month = this.props.month > 9 ? this.props.month : `0${this.props.month}`
+			const month = this.props.month + 1 > 9 ? this.props.month + 1 : `0${this.props.month + 1}`
 			store.dispatch(setScheduleCartKey(`${this.props.year}-${month}-${activeDate}`, 'activeDate'))
 		}
     }

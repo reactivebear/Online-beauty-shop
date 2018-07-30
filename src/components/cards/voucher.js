@@ -19,9 +19,10 @@ class CardVoucher extends Component {
 		history.push(`/schedule/${this.props.service.id}`, this.props.service)
 	}
 
-	getDays = () => moment(this.props.expiration_date).diff(moment(), 'days') + 1
+	getDays = () => moment(this.props.created_at).diff(moment(), 'days') + 1
 
 	render() {
+		const profName = this.props.proffesional && this.props.proffesional.id ? `${this.props.proffesional.user.first_name} ${this.props.proffesional.user.last_name}` : ''
 		return (
 			<div className="bg-white rounded p-3">
 				<div className="d-flex">
@@ -42,13 +43,17 @@ class CardVoucher extends Component {
 						<div className="color-grey">
 							{getLang('Profissional')}
 						</div>
-						<div>Margarette Reis</div>
+						<div>{profName}</div>
 					</div>
 					<div className="col-6">
 						<div className="color-grey">
 							{getLang('Agendamento')}
 						</div>
-						<div>{getDate(this.props.created_at)}</div> {/*({this.getDays()} dias)*/}
+						{
+							this.props.created_at
+							? 	<div>{getDate(this.props.created_at)} ({this.getDays()} dias)</div>
+							: 	''
+						}
 					</div>
 					<div className="col-6">
 						<div className="color-grey">

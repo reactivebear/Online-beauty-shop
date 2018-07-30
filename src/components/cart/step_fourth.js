@@ -17,7 +17,7 @@ class StepFourth extends Component {
         		<div className="col-sm-6">
         			<h4>{getLang('Meu carrinho')}</h4>
                     {
-                        [...product, ...service].length
+                        [...product, ...service, ...credit_bundle].length
                         ?   [...product, ...service].map((item, i) => this.printList(item, i))
                         :   <div className="rounded p-5 bg-white">{getLang('O seu carrinho está vazio')}</div>
                     }

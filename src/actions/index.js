@@ -107,6 +107,12 @@ export const getAutocompleteSalon = search_text => dispatch =>
         })
     )
 
+export const cancelAppointment = id => dispatch => 
+    (
+        post(`api/appointment/${id}/cancel`, true)
+        .then(json => json.status === 200)
+    )
+
 export const setCategoryList = (data, key, id) => 
     ({
         type: types.SET_CATEGORY_LIST,
