@@ -4,7 +4,7 @@ import { getLang } from 'utils/lang'
 
 class DropDown extends Component {
     state = {
-        active: this.props.list[0].title,
+        active: this.props.list[0],
         open: false
     }
 
@@ -26,7 +26,7 @@ class DropDown extends Component {
     }
 
     setItem = item => e => {
-        this.setState({active: item.title, open: false})
+        this.setState({active: item, open: false})
         document.body.removeEventListener('click', this.closeMenu)
         this.props.onClickItem(item)
     }
@@ -41,7 +41,7 @@ class DropDown extends Component {
             <div id="dropdown">
                 <div className="position-relative z-index-1">
                     <div className="d-inline pointer" onClick={this.toggleMenu}>
-                       <span className="color-green">{getLang(this.state.active)}</span>
+                       <span className="color-green">{getLang(this.state.active.title)}</span>
                        &nbsp;
                        <i className={`fas fa-chevron-${activeClass} color-green px-2`}></i>
                    </div>

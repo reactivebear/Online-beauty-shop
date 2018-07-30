@@ -67,7 +67,7 @@ export const LIST_MENU = [
             }
         ]
 
-export const DROP_LIST = [{title: 'Mais relevantes', key: ''}, {title: 'Menor preço', key: 'lowest_price_first'}, {title: 'Maior preço', key: ''}]
+export const DROP_LIST = [{title: 'Mais relevantes', key: ''}, {title: 'Menor preço', key: 'lowest_price_first'}, {title: 'Maior preço', key: 'highest_price_first'}]
 export const DROP_MENU_LIST = [
     {
         title: 'Todos',
@@ -118,7 +118,7 @@ export const NOTIFICATION_TYPE = {
         }
     }
 
-export const WEEK = ['Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado', 'Domingo']
+export const WEEK = {monday: 'Segunda-Feira', tuesday:'Terça-Feira', wednesday: 'Quarta-Feira', thursday: 'Quinta-Feira', friday: 'Sexta-Feira', saturday: 'Sábado', sunday: 'Domingo'}
 
 export const LIGHTBOX_THEME = {
                             container: {

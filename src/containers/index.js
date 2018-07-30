@@ -10,5 +10,6 @@ import Company from './company'
 import Search from './search'
 import About from './about'
 import Recovery from './recovery'
+import WithOutConnection from './withoutconnection'
 
-export { NotFound, Main, Product, Cart, Profile, Registration, Category, Company, Search, ScheduleCart, About, Recovery }
+export { NotFound, Main, Product, Cart, Profile, Registration, Category, Company, Search, ScheduleCart, About, Recovery, WithOutConnection }

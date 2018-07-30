@@ -11,7 +11,8 @@ const initialState = {
         address: {},
         social_media: [],
         reviews: [],
-        professionals: []
+        professionals: [],
+        working_hours: {}
     }
 }
 

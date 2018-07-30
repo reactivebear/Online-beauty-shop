@@ -1,3 +1,5 @@
+import moment from 'moment-timezone'
+
 export const getDate = date => {
 	[date] = date.split('T')
 	const [y, m, d] = date.split('-')
@@ -42,4 +44,10 @@ export const getLastDateMonth = () => {
     const month = last.getMonth()+1 > 9 ? last.getMonth()+1 : `0${last.getMonth()+1}`
 
     return `${last.getFullYear()}-${month}-${last.getDate()}`
+}
+
+export const getTimeZone = (lat, lon) => {
+    return fetch(`https://maps.googleapis.com/maps/api/timezone/json?location=${lat},${lon}&timestamp=1331161200&key=AIzaSyDj4sTd2JrTrqeS7znEooVqxLkBgvca-II`)
+    .then(res => res.json())
+    .then(json => moment().tz(json.timeZoneId).format('H:m'))
 }

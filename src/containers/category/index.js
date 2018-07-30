@@ -56,9 +56,9 @@ class Category extends Component {
 	}
 
     changeOrder = item => {
-        let order = {lowest_price_first: false}
+        let order = {lowest_price_first: false, highest_price_first: false}
         if (item.key) {
-            order = {[item.key]: true}
+            order[item.key] = true
         }
 
         store.dispatch(setFilters(order))

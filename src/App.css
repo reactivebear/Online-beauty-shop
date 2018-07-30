@@ -510,6 +510,10 @@ path.cls-8 {
 	min-height: 500px;
 }
 
+.vh-100 {
+	height: 100vh;
+}
+
 .empty-content {
 	min-height: calc(100% - 190px - 455px);
 }

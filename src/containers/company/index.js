@@ -16,12 +16,15 @@ import Pagination from 'components/pagination'
 import CardProduct from 'components/cards/product'
 import Avatar from 'components/images/avatar'
 import { getLang } from 'utils/lang'
+import { getTimeZone } from 'utils/date'
+
 
 class Company extends Component {
     state = {
         orderClassFirst: 'order-2',
         orderClassLast: 'order-3',
-        page: 1
+        page: 1,
+        companyTime: ''
     }
 
     constructor(props) {
@@ -132,6 +135,65 @@ class Company extends Component {
                 </div>
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.services.salon.id && nextProps.services.salon.id !== this.props.services.salon.id) {
+            const lat = nextProps.services.salon.address.latitude
+            const lon = nextProps.services.salon.address.longitude
+            getTimeZone(lat, lon)
+            .then(companyTime => {
+                this.setState({companyTime})
+            })
+        }
+    }
+
+    isOpen = () => {
+        let day = {}
+        let from, to
+        switch (new Date().getDay()) {
+            case 1: [{from, to}] = this.props.services.salon.working_hours.monday && this.props.services.salon.working_hours.monday.length
+                    ? this.props.services.salon.working_hours.monday
+                    : [{from: '', to: ''}]
+                break
+            case 2: [{from, to}] = this.props.services.salon.working_hours.tuesday && this.props.services.salon.working_hours.tuesday.length
+                    ? this.props.services.salon.working_hours.tuesday
+                    : [{from: '', to: ''}] //tuesday
+                break
+            case 3: [{from, to}] = this.props.services.salon.working_hours.wednesday && this.props.services.salon.working_hours.wednesday.length
+                    ? this.props.services.salon.working_hours.wednesday
+                    : [{from: '', to: ''}] //wednesday
+                break
+            case 4: [{from, to}] = this.props.services.salon.working_hours.thursday && this.props.services.salon.working_hours.thursday.length
+                    ? this.props.services.salon.working_hours.thursday
+                    : [{from: '', to: ''}] //thursday
+                break
+            case 5: [{from, to}] = this.props.services.salon.working_hours.friday && this.props.services.salon.working_hours.friday.length
+                    ? this.props.services.salon.working_hours.friday
+                    : [{from: '', to: ''}] //friday
+                break
+            case 6: [{from, to}] = this.props.services.salon.working_hours.saturday && this.props.services.salon.working_hours.saturday.length
+                    ? this.props.services.salon.working_hours.saturday
+                    : [{from: '', to: ''}] //saturday
+                break
+            case 7: [{from, to}] = this.props.services.salon.working_hours.sunday && this.props.services.salon.working_hours.sunday.length
+                    ? this.props.services.salon.working_hours.sunday
+                    : [{from: '', to: ''}] //sunday
+                break
+            default: return
+        }
+
+        const [hFrom, mFrom] = from.split(':')
+        const [hTo, mTo] = to.split(':')
+
+        if (this.state.companyTime) {
+            const [hCurrent, mCurrent] = this.state.companyTime.split(':')
+            if (hCurrent * 60 + mCurrent * 1 > hFrom * 60 + mFrom * 1 && hCurrent * 60 + mCurrent * 1 < hTo * 60 + mTo * 1) {
+                return <div className="d-inline-block bg-green text-white px-2 py-1 rounded">{getLang('Aberto')}</div>
+            }
+        }
+
+        return <div className="d-inline-block bg-danger text-white px-2 py-1 rounded">{getLang('Fechado')}</div>
+    }
+
     render() {
     	const { salon } = this.props.services
     	const products = this.props.product.pagination.items
@@ -209,15 +271,18 @@ class Company extends Component {
                                 </div>
                                 <div className="d-flex justify-content-between align-items-center mb-3">
                                     <div className="fs-18">{getLang('Horários')}</div>
-                                    <div className="d-inline-block bg-green text-white px-2 py-1 rounded">{getLang('Aberto')}</div>
+                                    {this.isOpen()}
                                 </div>
                                 <div className="mb-3">
                                     {
-                                        WEEK.map((item, i) => 
-                                        <div key={i} className="color-grey d-flex justify-content-between py-1">
-                                            <div>{getLang(item)}</div>
-                                            <div>09:00 - 19:00</div>
-                                        </div>)
+                                        Object.keys(salon.working_hours).map((item, i) => {
+                                            const [{from, to}] = salon.working_hours[item].length ? salon.working_hours[item] : [{from: '', to: ''}]
+                                            return  <div key={i} className="color-grey d-flex justify-content-between py-1">
+                                                        <div>{getLang(WEEK[item])}</div>
+                                                        <div>{from} - {to}</div>
+                                                    </div>
+                                        })
+                                        
                                     }
                                 </div>
                                 <div className="fs-18">{getLang('Contatos')}</div>

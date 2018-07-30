@@ -14,6 +14,7 @@ import LeftMenu from 'components/menu/left_menu'
 import Modal from 'components/modal'
 import Alert from 'components/alert'
 import Viewer from 'components/images/viewer'
+import { WithOutConnection } from 'containers'
 
 class App extends Component {
     constructor(props) {
@@ -59,12 +60,13 @@ class App extends Component {
                             </div>
                             <SideMenu />
                             <LeftMenu />
-                            <Modal />
+                            
                             <Alert />
                             <Viewer />
                         </div>
-                    :   ''
+                    :   <WithOutConnection />
                 }
+                <Modal />
             </div>
         )
     }
