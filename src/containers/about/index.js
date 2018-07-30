@@ -50,7 +50,7 @@ class About extends Component {
 			        			</div>
 		        			</div>
 		        			
-							<div className="d-flex mb-2">
+							<div className="d-flex mb-2 w-90">
 								<div className="input-group pr-2">
 									<div className="input-group-prepend">
 										<span className="input-group-text bg-white">
