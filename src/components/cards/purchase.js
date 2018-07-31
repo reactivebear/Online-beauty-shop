@@ -18,7 +18,6 @@ class CardPurchase extends Component {
 
     render() {
     	const { products, services } = this.props.items
-
         return (
         	<div className="rounded bg-white border p-3 mb-3 h-100">
         		<div className="d-flex align-items-end flex-column bd-highlight h-100">
@@ -36,8 +35,8 @@ class CardPurchase extends Component {
 		            		<div>{getDate(this.props.created_at)}</div>
 		            	</div>
 		            	<div className="col-6 mb-3">
-		            		<div className="color-grey">ID:</div>
-		            		<div>#{this.props.id}</div>
+		            		<div className="color-grey">NF-e:</div>
+		            		<div><span className="color-green pointer">{getLang('Baixar')}</span></div>
 		            	</div>
 		            	<div className="col-12 mb-3">
 		            		<div className="color-grey">{getLang('Produto')}(s):</div>

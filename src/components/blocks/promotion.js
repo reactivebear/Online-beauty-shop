@@ -9,6 +9,7 @@ import { getLang } from 'utils/lang'
 class PromotionBlock extends Component { 
 
 	printPromotionItem = (item, i) => {
+		const title = item.name || item.title
 		return 	<div key={i} className="px-4 position-relative">
 					<div className="position-absolute paggin-plus d-none d-md-block">
 						<i className="fas fa-plus color-green"></i>
@@ -19,11 +20,11 @@ class PromotionBlock extends Component {
 								<ImagePreview image={''} />
 							</div>
 							<div>
-								<div>{getLang('Eau Thermale Avéne')}</div>
+								<div>{title}</div>
 								<div className="d-flex">
 									<div className="mr-1">
 										<div className="color-grey">{getLang('Avaliação')}</div>
-										<div className="color-grey"><Stars active={4} /></div>
+										<div className="color-grey"><Stars active={item.rating} /></div>
 									</div>
 									<div>
 										<div className="color-grey">{getLang('Quantidade')}:</div>
@@ -51,18 +52,19 @@ class PromotionBlock extends Component {
             	}
             ]
 		}
+
 		return (
 			<div>
 				<div className="mb-2">Air plant you prorably haven't heard of them pour-over</div>
 				<div className="row align-items-center">
 					<div className="col-xl-8 col-lg-12 mb-3 mb-xl-0">
 						<Carousel 
-							items={promotionCards.map((item, i) => this.printPromotionItem(item, i))} 
+							items={[...this.props.products, ...this.props.services].map((item, i) => this.printPromotionItem(item, i))} 
 							arrowType="promotions"
 		        			settings={settings} />
 					</div>
 					<div className="col-xl-2 col-lg-6 text-center mb-3 mb-lg-0">
-						<Price style={{fontSize: 22}} current={72} old={140.90} />
+						<Price style={{fontSize: 22}} current={this.props.price} old={140.90} />
 					</div>
 					<div className="col-xl-2 col-lg-6">
 						<BtnMain

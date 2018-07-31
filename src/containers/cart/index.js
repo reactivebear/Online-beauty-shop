@@ -65,10 +65,6 @@ class Cart extends Component {
 		}
 	}
 
-	getStepsCount = () => {
-		return this.props.cart.list.product.length || (! this.props.cart.list.product.length && ! this.props.cart.list.service.length) ? 5 : 4
-	}
-
 	getSteps = () => {
 		return getStepsCount() === 5 ? [{title: getLang('Meu carrinho')}, {title: getLang('Entrega')}, {title: getLang('Pagamento')}, {title: getLang('Confirmação')}] : [{title: getLang('Meu carrinho')}, {title: getLang('Pagamento')}, {title: getLang('Confirmação')}]
 	}

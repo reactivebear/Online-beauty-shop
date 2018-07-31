@@ -92,7 +92,7 @@ export const DROP_MENU_LIST = [
     }
 ]
 export const NOTIFICATION_TYPE = {
-        attention: {
+        warning: {
             title: 'Atenção',
             icon: '/assets/icons/notify-attention.png'
         },
@@ -100,7 +100,7 @@ export const NOTIFICATION_TYPE = {
             title: 'Lembrete',
             icon: '/assets/icons/notify-reminder.png'
         },
-        review: {
+        appointment: {
             title: 'Reveja',
             icon: '/assets/icons/notify-review.png'
         },
@@ -108,7 +108,7 @@ export const NOTIFICATION_TYPE = {
             title: 'Reveja',
             icon: '/assets/icons/notify-credits.png'
         },
-        products: {
+        product: {
             title: 'Produto',
             icon: '/assets/icons/notify-products.png'
         },

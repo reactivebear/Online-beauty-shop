@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import BtnMain from 'components/buttons/btn_main'
 import Input from 'components/inputs/input'
 import store, { history } from 'store'
-import { login, loginGoogle } from 'actions/auth'
+import { login, loginGoogle, loginFacebook } from 'actions/auth'
 import { getLang } from 'utils/lang'
 
 class LoginForm extends Component {
@@ -48,7 +48,14 @@ class LoginForm extends Component {
     loginFacebook = () => {
         window.FB.login(response => {
             window.FB.api('/me', {fields: ['first_name, last_name, email, picture.width(2048), gender, locale']}, response => {
-                console.log(response) 
+                window.FB.getLoginStatus(res => {
+                    if (res.status === 'connected') {
+                        const data = {
+                            id_token: res.authResponse.accessToken
+                        }
+                        store.dispatch(loginFacebook(data))
+                    }
+                })
             });
         }, {scope: 'public_profile, email'});
     }

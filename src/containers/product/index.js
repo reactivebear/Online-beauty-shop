@@ -265,10 +265,6 @@ class Product extends Component {
 					{image_url: '/assets/images/default-image-square-big-green.png'},
 					{image_url: '/assets/images/default-image-square-big-orange.png'},
 				]
-
-		const promotions = ['', '']
-
-		console.log(this.props.products.promotions)
         return (
         	<div className="bg-main pt-4">
 	        	<div className="font-avenir pt-2 bg-white">
@@ -321,7 +317,7 @@ class Product extends Component {
 
 		            		<div className="rounded py-4 px-3 bg-white mb-4">
 		            			<h5>{getLang('Promoções relacionadas a este produto')}:</h5>
-		            			<div>{ promotions.map((item, i) => this.printPromotions(item, i, promotions.length)) }</div>
+		            			<div>{ this.props.products.promotions.map((item, i) => this.printPromotions(item, i, this.props.products.promotions.length)) }</div>
 		            		</div>
 
 		            		<div className="rounded py-4 px-3 bg-white mb-4">

@@ -10,16 +10,11 @@ class Notifications extends Component {
 		store.dispatch(getNotifications())
 	}
 
-	printList = (item, i) => {
-		item = {...item, type: 'attention'}
-		return 	<CardNotification {...item} key={i} />
-	}
+	printList = (item, i) => <CardNotification {...item} key={i} />
 
 	render() {
 		return (
-			<div>
-				{this.props.user.notifications.map((item, i) => this.printList(item, i))}
-			</div>
+			<div>{this.props.user.notifications.map((item, i) => this.printList(item, i))}</div>
 		)
 	}
 }

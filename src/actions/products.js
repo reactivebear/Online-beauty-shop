@@ -74,7 +74,7 @@ export const sendProductComment = (data, id) => dispatch =>
         .then(json => json.status === 200)
     )
 
-export const setProductPromotions = data => dispatch =>
+export const setProductPromotions = data =>
     ({
         type: types.SET_PRODUCT_PROMOTIONS,
         data,
