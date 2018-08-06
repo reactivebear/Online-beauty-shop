@@ -4,6 +4,7 @@ const initialState = {
     list: {
         product: [],
         service: [],
+        promotion: [],
         credit_bundle: []
     },
     total: {},
@@ -23,6 +24,8 @@ export default function cart(cart = initialState, action = {}) {
             tempList.product = action.data.filter(item => item.type === 'product')
             tempList.service = action.data.filter(item => item.type === 'service')
             tempList.credit_bundle = action.data.filter(item => item.type === 'credit-bundle')
+            tempList.promotion = action.data.filter(item => item.type === 'promotion')
+
             return Object.assign({}, cart, {
                 list: tempList,
                 updated: true

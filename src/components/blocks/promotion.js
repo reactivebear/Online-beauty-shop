@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import store, { history } from 'store'
+import { addToCart } from 'actions/cart'
 import BtnMain from 'components/buttons/btn_main'
 import Price from 'components/price'
 import Carousel from 'components/carousel'
@@ -37,8 +39,16 @@ class PromotionBlock extends Component {
 				</div>
 	}
 
+	addToCart = now => e => {
+		store.dispatch(addToCart(this.props.id, 'promotion'))
+		.then(res => {
+			if (res && now) {
+				history.push('/cart')
+			}
+		})
+	}
+
 	render() {
-		const promotionCards = ['', '', '']
 		const settings = {
 			infinite: false,
 			slidesToShow: 2,
@@ -52,6 +62,8 @@ class PromotionBlock extends Component {
             	}
             ]
 		}
+
+		console.log(this.props)
 
 		return (
 			<div>
@@ -69,9 +81,11 @@ class PromotionBlock extends Component {
 					<div className="col-xl-2 col-lg-6">
 						<BtnMain
 	        				className="font-weight-bold mb-2 btn-block"
+	        				onClick={this.addToCart(true)}
 	        				title="Comprar agora" />
         				<BtnMain
 	        				className="font-weight-bold btn-outline btn-block"
+	        				onClick={this.addToCart(false)}
 	        				title="Adicionar ao carrinho" />
 					</div>
 				</div>

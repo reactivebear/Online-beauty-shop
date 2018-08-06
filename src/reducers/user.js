@@ -25,6 +25,8 @@ const initialState = {
     credits: 0,
     dollar_value: 0,
     credits_bundles: [],
+    reviews_product: [],
+    reviews_vendor: [],
     location: {
         lat: 0,
         lng: 0

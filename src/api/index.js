@@ -22,6 +22,15 @@ const responseHandler = response => {
     }
 }
 
+const responseBlobHandler = response => {
+    const contentType = response.headers.get('content-type')
+    
+    if (contentType && contentType.indexOf('application/pdf') !== -1) {
+        const promise = response.blob()
+        return promise
+    }
+}
+
 const getHeader = () => 
     ({
         'Content-Type': 'application/json',
@@ -94,4 +103,14 @@ export const image = (...data) => {
         body: body
     })
     .then(responseHandler)
+}
+
+export const loadPDF = (url) => {
+    return fetch(`${url}`, {
+        method: 'get',
+        headers: {
+            [config.APIKEY]: Cookies.get('token')
+        },
+    })
+    .then(responseBlobHandler)
 }

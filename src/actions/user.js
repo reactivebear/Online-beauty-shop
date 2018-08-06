@@ -1,4 +1,4 @@
-import { put, get, post, patch, remove, image } from 'api'
+import { put, get, post, patch, remove, image, loadPDF } from 'api'
 import * as types from './types'
 import { setUser } from './auth'
 import { setDeliveryTypes } from './cart'
@@ -204,6 +204,24 @@ export const getNotifications = () => dispatch =>
         })
     )
 
+export const getReviewsProduct = () => dispatch => 
+    (
+        get(`api/user/reviews/products`).then(json => {
+            if (json.object) {
+                dispatch(setUserKey(json.object.items, 'reviews_product'))
+            }
+        })
+    )
+
+export const getReviewsVendor = () => dispatch => 
+    (
+        get(`api/user/reviews/vendors`).then(json => {
+            if (json.object) {
+                dispatch(setUserKey(json.object.items, 'reviews_vendor'))
+            }
+        })
+    )
+
 export const tempRemoveNotify = id => dispatch =>
     (
         post(`api/notification/${id}/remind-later`, true).then(json => {
@@ -233,6 +251,16 @@ export const sendSupport = data => dispatch =>
             if (json.object) {
                 
             }
+        })
+    )
+
+export const loadOrder = url => dispatch =>
+    (
+        loadPDF(url).then(blob => {
+            if (blob) {
+                return new Blob([blob], {type: 'application/pdf'})
+            }   
+            
         })
     )
 

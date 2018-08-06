@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
+import { history } from 'store'
 import Stars from 'components/stars'
 import ImagePreview from 'components/images/preview'
 import { getLang } from 'utils/lang'
 
 class CardFeedback extends Component {
+
+	goToVendor = () => {
+		history.push(`/salon/${this.props.vendor.id}`)
+	}
+
 	render() {
 		return (
 			<div className="bg-white rounded p-3">
@@ -14,7 +20,7 @@ class CardFeedback extends Component {
 					<div className="col-lg-6 col-md-8 col-sm-6">
 						<div>Máscara Senscience Inner Restore Intensif 500ml</div>
 						<div className="color-grey mb-3">
-							{getLang('Vendido e realizado por')} <span className="color-green pointer">{getLang('Olist')}</span>
+							{getLang('Vendido e realizado por')} <span className="color-green pointer" onClick={this.goToVendor}>{this.props.vendor.organization_name}</span>
 						</div>
 						<div className="row d-md-flex d-none">
 							<div className="col-md-6">
@@ -38,12 +44,12 @@ class CardFeedback extends Component {
 					</div>
 
 					<div className="col-12">
-						<div className="fs-16 d-inline-block">Tony</div>
+						<div className="fs-16 d-inline-block">{this.props.reviewer.first_name}</div>
 						<div className="color-grey d-inline-block pl-3">
-							<Stars active={3} />
+							<Stars active={this.props.rating} />
 						</div>
 						<div className="color-grey">
-							{getLang('Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.')} 
+							{this.props.comment} 
 						</div>
 					</div>
 				</div>

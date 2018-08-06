@@ -13,11 +13,11 @@ class CardReview extends Component {
 						<ImagePreview images={''} />
 					</div>
 					<div className="w-60 pl-2">
-						<div className="fs-16">Máscara Senscience  Inner Restore Intensif  500ml</div>
+						<div className="fs-16">{this.props.product.name}</div>
 						<div className="color-grey">
 							{getLang('Vendido e realizado por')} <span className="color-green pointer">{getLang('Olist')}</span>
 						</div>
-						<Price current={72} />
+						<Price current={this.props.product.price} />
 					</div>
 				</div>
 				<div className="row">
@@ -31,7 +31,7 @@ class CardReview extends Component {
 						<div className="color-grey">
 							{getLang('Avaliação')}
 						</div>
-						<Stars active={5} />
+						<Stars active={this.props.rating} />
 					</div>
 					<div className="col-6">
 						<div className="color-grey">

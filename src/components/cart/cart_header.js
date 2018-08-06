@@ -69,20 +69,30 @@ class CartHeader extends Component {
 	}
 
     render() {
-    	const { product, service, credit_bundle } = this.props.cart.list
+    	const { product, service, credit_bundle, promotion } = this.props.cart.list
+    	let p_products = []
+        let p_services = []
+        promotion.forEach(item => {
+            item.promotion.products.forEach(i => {
+                p_products.push({type: 'product', product: i, id: item.id, quantity: 1})
+            })
+            item.promotion.services.forEach(i => {
+                p_services.push({type: 'service', service: i, id: item.id, quantity: 1})
+            })
+        })
         return (
         	<div>
-	            { 	[...product, ...service, ...credit_bundle].length 
-	            	? 	[...product, ...service, ...credit_bundle].map((item, i) => this.printList(item, i, [...product, ...service].length))
+	            { 	[...product, ...service, ...credit_bundle, ...promotion].length 
+	            	? 	[...product, ...p_products, ...service, ...p_services, ...credit_bundle].map((item, i) => this.printList(item, i))
 	            	: 	<div className="text-center mb-3">{getLang("Carrinho está vazio")}</div> 
             	}
             	{
-            		[...product, ...service, ...credit_bundle].length > 3 && !this.state.active
+            		[...product, ...service, ...credit_bundle, ...p_products, ...p_services].length > 3 && !this.state.active
             		? 	<div className="text-center mb-3 color-grey pointer" onClick={this.showAll}>&#9679;&#9679;&#9679;</div>
             		: 	<div className="text-center mb-3"></div>
             	}
             	{
-            		[...product, ...service, ...credit_bundle].length
+            		[...product, ...service, ...credit_bundle, ...promotion].length
             		?	<div className="row justify-content-center">
 		            		<div className="col-10">
 					            <BtnMain

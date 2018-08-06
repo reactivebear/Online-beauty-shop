@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { history } from 'store'
+import store, { history } from 'store'
+import { loadOrder } from 'actions/user'
 import Price from 'components/price'
 import { getDate } from 'utils/date.js'
 import BtnMain from 'components/buttons/btn_main.js'
@@ -16,8 +17,25 @@ class CardPurchase extends Component {
 		history.push(`purchased/${this.props.id}`)
 	}
 
+	loadOrder = () => {
+		
+		const [last, ...other] = this.props.receipts[0].receipt.split('/').reverse()
+		store.dispatch(loadOrder(this.props.receipts[0].receipt))
+		.then(blob => {
+			const data = window.URL.createObjectURL(blob)
+			const link = document.createElement('a')
+			link.href = data
+			link.download = last
+			link.click()
+			setTimeout(() => {
+				window.URL.revokeObjectURL(data)
+			}, 100)
+		})
+	}
+
     render() {
     	const { products, services } = this.props.items
+    	
         return (
         	<div className="rounded bg-white border p-3 mb-3 h-100">
         		<div className="d-flex align-items-end flex-column bd-highlight h-100">
@@ -36,7 +54,11 @@ class CardPurchase extends Component {
 		            	</div>
 		            	<div className="col-6 mb-3">
 		            		<div className="color-grey">NF-e:</div>
-		            		<div><span className="color-green pointer">{getLang('Baixar')}</span></div>
+		            		{
+		            			this.props.receipts.length
+		            			? 	<div><span className="color-green pointer" onClick={this.loadOrder}>{getLang('Baixar')}</span></div>
+		            			: 	<div><span className="color-grey">--</span></div>
+	            			}
 		            	</div>
 		            	<div className="col-12 mb-3">
 		            		<div className="color-grey">{getLang('Produto')}(s):</div>

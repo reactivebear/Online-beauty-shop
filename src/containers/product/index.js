@@ -314,11 +314,14 @@ class Product extends Component {
 		            </div>
 		            <div className="bg-main pb-4">
 		            	<div className="container pt-4">
-
-		            		<div className="rounded py-4 px-3 bg-white mb-4">
-		            			<h5>{getLang('Promoções relacionadas a este produto')}:</h5>
-		            			<div>{ this.props.products.promotions.map((item, i) => this.printPromotions(item, i, this.props.products.promotions.length)) }</div>
-		            		</div>
+		            		{
+		            			this.props.products.promotions.length
+		            			? 	<div className="rounded py-4 px-3 bg-white mb-4">
+				            			<h5>{getLang('Promoções relacionadas a este produto')}:</h5>
+				            			<div>{ this.props.products.promotions.map((item, i) => this.printPromotions(item, i, this.props.products.promotions.length)) }</div>
+				            		</div>
+		            			: 	null
+		            		}
 
 		            		<div className="rounded py-4 px-3 bg-white mb-4">
 		            			<h5>{getLang('Descrição')}</h5>
