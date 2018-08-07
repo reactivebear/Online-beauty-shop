@@ -10,15 +10,22 @@ import { getServices } from 'actions/services'
 import SmallSwitch from 'components/inputs/small_switch'
 import { getLang } from 'utils/lang'
 
-let initialState = {}
+let initialState = {
+    min_price: 0,
+    max_price: 5000,
+    min_rating: 0,
+    min_vendor_rating: 0
+}
 
 class SearchMenuWeb extends Component {
-    state = {
-        min_price: 0,
-        max_price: 5000,
-        min_rating: 0,
-        min_vendor_rating: 0
+    constructor(props) {
+        super(props)
+        this.state = props.search.filters
+        history.listen((location, action) => {
+            store.dispatch(setFilters(initialState))
+        })
     }
+    
 
 	getCategories = () => 
 		this.props.categories[`${this.props.type}_list`].map((item, i) => 
@@ -54,12 +61,14 @@ class SearchMenuWeb extends Component {
     }
 
     productsFilter = val => {
+        val = this.state.min_rating === val ? 0 : val
         this.setState({min_rating: val})
         this.getData(this.props.type, this.props.catId, this.getParam({min_rating: val}))
         store.dispatch(setFilters({min_rating: val}))
     }
 
     vendorFilter = val => {
+        val = this.state.min_vendor_rating === val ? 0 : val
         this.setState({min_vendor_rating: val})
         this.getData(this.props.type, this.props.catId, this.getParam({min_vendor_rating: val}))
         store.dispatch(setFilters({min_vendor_rating: val}))
@@ -105,14 +114,6 @@ class SearchMenuWeb extends Component {
             min_price: value.min,
             max_price: value.max
         })
-    }
-
-    componentWillMount() {
-        initialState = this.state
-    }
-
-    componentWillUnmount() {
-        store.dispatch(setFilters(initialState))
     }
 
     render() {

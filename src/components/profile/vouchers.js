@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import CardVoucher from 'components/cards/voucher'
 import store from 'store'
 import { getVouchers } from 'actions/user'
+import { getLang } from 'utils/lang'
 
 class Vouchers extends Component {
 	componentWillMount() {
@@ -18,7 +19,11 @@ class Vouchers extends Component {
 	render() {
 		return (
 			<div className="row">
-				{ this.props.user.vouchers.map((item, i) => this.printList(item, i)) }
+			{
+				this.props.user.vouchers.length
+				? 	this.props.user.vouchers.map((item, i) => this.printList(item, i))
+				: 	<div className="bg-white rounded p-3 w-100">{getLang('Você ainda não possui nenhum voucher')}</div>
+			}
 			</div>
 		)
 	}

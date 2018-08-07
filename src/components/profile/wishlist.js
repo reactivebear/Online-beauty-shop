@@ -2,13 +2,16 @@ import React, { Component } from 'react'
 import store from 'store'
 import { connect } from 'react-redux'
 import { getWishlist } from 'actions/user'
-import BtnGroup from 'components/buttons/btn_group.js'
-import CardProduct from 'components/cards/product.js'
-import CardService from 'components/cards/service.js'
+import BtnGroup from 'components/buttons/btn_group'
+import CardProduct from 'components/cards/product'
+import CardService from 'components/cards/service'
+import Pagination from 'components/pagination'
 
 class Wishlist extends Component {
 	state = {
-		active: 'products'
+		active: 'products',
+		productsPage: 1,
+		servicesPage: 1,
 	}
 
 	componentWillMount() {
@@ -38,6 +41,10 @@ class Wishlist extends Component {
 		}
 	}
 
+	changePage = type => page => {
+		this.setState({[type]: page})
+	}
+
 	render() {
 		const catButtons = [
     		{
@@ -52,6 +59,7 @@ class Wishlist extends Component {
 		]
 
 		const list = this.props.user.wishlist[this.state.active] || []
+		const page = `${this.state.active}Page`
         return (
         	<div>
 	    		<div className="row">
@@ -63,8 +71,16 @@ class Wishlist extends Component {
 	            	</div>
 	        	</div>
 	        	<div className="row">
-	        		{ list.map((item, i) => this.printList(item, i)) }
+	        		{ list.slice((this.state[page] - 1) * 8, this.state[page] * 8).map((item, i) => this.printList(item, i)) }
 	            </div>
+	            {
+	            	list.length > 8
+	            	? 	<Pagination 
+		                    onChange={this.changePage(page)} 
+		                    total={Math.ceil(list.length / 8)} 
+		                    active={this.state[page]} />
+                    : 	null
+	            }
 	        </div>
     	)
     }

@@ -93,20 +93,7 @@ class Product extends Component {
 	}
 
 	getQuestionsList = () => {
-		const questionsList = [
-			{
-				question: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea',
-				answer: ''
-			}, {
-				question: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.',
-				answer: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna'
-			}, {
-				question: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna',
-				answer: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna'
-			}
-		]
-
-		return questionsList.map((item, i) =>
+		return this.props.products.questions.map((item, i) =>
 			(
 				<div key={i}>
 					<div className="row mb-3">
@@ -361,6 +348,7 @@ const mapStateToProps = state =>
         products: {
         	product: state.products.product,
         	reviews: state.products.reviews,
+        	questions: state.products.questions,
         	promotions: state.products.promotions,
         	salon: state.products.salon,
         	vendor_services: state.products.vendor_services

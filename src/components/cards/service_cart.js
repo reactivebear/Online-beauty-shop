@@ -7,6 +7,7 @@ import Price from 'components/price'
 import moment from 'moment'
 import RadioSwitch from 'components/inputs/radio_switch'
 import BtnMain from 'components/buttons/btn_main'
+import { getLang } from 'utils/lang'
 
 class ServiceCart extends Component {
 	state = {
@@ -26,10 +27,15 @@ class ServiceCart extends Component {
 		return temp
 	}
 
-	toggleProfessional = activeProfessional => {
+	toggleProfessional = onCancel => activeProfessional => {
 		store.dispatch(updateModal(activeProfessional))
 		const prof = this.props.schedule_cart.professionals.find(item => item.professional.id === activeProfessional)
 		store.dispatch(setProffesional(prof))
+		onCancel()
+	}
+
+	fakeSwitch = (onCancel, id) => e => {
+		this.toggleProfessional(onCancel)(id)
 	}
 
 	professionalsList = props => {
@@ -39,13 +45,13 @@ class ServiceCart extends Component {
 		            {this.props.schedule_cart.professionals.map((item, i) => {
 		            	const professional = item.professional.user
 		            	const lastClass = this.props.schedule_cart.professionals.length === i + 1 ? '' : ' border-bottom'
-		            	return 	<div key={i} className={`d-flex justify-content-start align-items-center py-2${lastClass}`}>
+		            	return 	<div key={i} className={`d-flex justify-content-start align-items-center pointer py-2${lastClass}`} onClick={this.fakeSwitch(props.onCancel, item.professional.id)}>
 					                <div className="pr-3 w-20"><img src="/assets/images/default-professional.png" alt="" className="img-fluid" /></div>
 					                <div>{professional.first_name} {professional.last_name}</div>
 					                <div className="ml-auto">
 					                	<RadioSwitch
 					                		style={{transform: 'scale(0.73, 0.7)'}} 
-			                                onChange={this.toggleProfessional} 
+			                                onChange={this.toggleProfessional(props.onCancel)}
 			                                value={item.professional.id}
 			                                checked={this.props.schedule_cart.proffesional.professional.id} />
 					                </div>
@@ -67,6 +73,7 @@ class ServiceCart extends Component {
     render() {
     	const { salon } = this.props
     	const { professional } = this.props.schedule_cart.proffesional
+    	const textButton = this.props.schedule_cart.proffesional.professional.id ? 'Alterar' : 'Selecione um profissional'
         return (
         	<div className="bg-white px-3 py-3 rounded">
 	            <div className="fs-16 mb-3">
@@ -83,7 +90,7 @@ class ServiceCart extends Component {
 			            		? 	<div className="color-grey">{`com ${professional.user.first_name} ${professional.user.first_name}`}</div>
 			            		: 	''
 			            	}
-		            		<div className="pointer color-green align-self-end" onClick={this.openProfessionals}>Alterar</div>
+		            		<div className="pointer color-green align-self-end" onClick={this.openProfessionals}>{getLang(textButton)}</div>
 	            		</div>
 	            	: 	''
 	            }

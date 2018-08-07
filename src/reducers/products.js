@@ -5,6 +5,7 @@ const initialState = {
     category_list: [],
     product: {},
     reviews: [],
+    questions: [],
     promotions: [],
     salon: {
         address: {},

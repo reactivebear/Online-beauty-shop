@@ -18,13 +18,14 @@ import Avatar from 'components/images/avatar'
 import { getLang } from 'utils/lang'
 import { getTimeZone } from 'utils/date'
 
+let companyTime = ''
 
 class Company extends Component {
     state = {
         orderClassFirst: 'order-2',
         orderClassLast: 'order-3',
         page: 1,
-        companyTime: ''
+        companyTime: companyTime
     }
 
     constructor(props) {
@@ -97,9 +98,10 @@ class Company extends Component {
         )
 
     getReviewList = () => {
+        const reviews = [...this.props.services.salon.reviews].reverse()
         return  <div>
                     {
-                        this.props.services.salon.reviews.slice((this.state.page - 1) * 5, this.state.page * 5).map((item, i) => {
+                        reviews.slice((this.state.page - 1) * 5, this.state.page * 5).map((item, i) => {
                             const image_url = item.reviewer ? (item.reviewer.user_image ? item.reviewer.user_image.image_url : '') : ''
                             return  <div key={i}>
                                         <div className="d-flex">
@@ -144,6 +146,10 @@ class Company extends Component {
                 this.setState({companyTime})
             })
         }
+    }
+
+    componentWillUnmount() {
+        companyTime = this.state.companyTime
     }
 
     isOpen = () => {

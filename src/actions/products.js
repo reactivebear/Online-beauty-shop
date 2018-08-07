@@ -33,7 +33,7 @@ export const getQuestions = id => dispatch =>
     (
         get(`api/vendor/${id}/vendor-questions`, false).then(json => {
             if (json.object) {
-                console.log(json.object)
+                dispatch(setProducts(json.object, 'questions'))
             }
             
         })
